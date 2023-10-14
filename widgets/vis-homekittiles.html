@@ -1,9 +1,6 @@
 <!--
-    ioBroker.vis vis-homekittiles Widget-Set
-
-    version: "0.0.1"
-
-    Copyright 2023 Standarduser github.com@sebastiankoehler.de
+	ioBroker.vis vis-homekittiles Widget-Set
+	Copyright 2023 Standarduser
 -->
 <!-- here you can include so many css as you want -->
 <link rel="stylesheet" href="widgets/vis-homekittiles/css/style.css" />
@@ -11,125 +8,751 @@
 <script type="text/javascript" src="widgets/vis-homekittiles/js/vis-homekittiles.js"></script>
 
 <!-- the full description of format in data-vis-attrs can be found here:
-    https://github.com/ioBroker/ioBroker.vis/blob/master/www/js/visEditInspect.js#L39
+	https://github.com/ioBroker/ioBroker.vis/blob/master/www/js/visEditInspect.js#L39
 
-    ----------------------------------------------------------
-    Mandatory XML attributes:
-        id="tplVis-homekittilesWIDGETNAME"
-        type="text/ejs"
-        class="vis-tpl"
+	----------------------------------------------------------
+	Mandatory XML attributes:
+		id="tplHomekittilesWIDGETNAME"
+		type="text/ejs"
+		class="vis-tpl"
 
-        "type" and "class" are always the same. "id" is unique and must start with "tplSETNAME" and ends with widget name. Use camel-case for it.
+		"type" and "class" are always the same. "id" is unique and must start with "tplSETNAME" and ends with widget name. Use camel-case for it.
 
-    ----------------------------------------------------------
-    data-vis-attrs - divided with semicolon the list of attributes, like attr1/id;attr2/color
-        Full format of one attribute is: attr_name(start-end)[default_value]/type,idFilter/onChangeFunc
-            attr_name - the name of the attribute, e.g. "myID"
-            start-end - creates automatically attributes from attr_namestart to attr_nameend, like "myID(1-3)" creates myID1, myID2, myID3
-            default_value - by creation of widget this attribute will be filled with this value, e.g. "myID[#001122]/color"
-            type - some predefined types have edit helpers, else it will be shown as text field
+	----------------------------------------------------------
+	data-vis-attrs - divided with semicolon the list of attributes, like attr1/id;attr2/color
+		Full format of one attribute is: attr_name(start-end)[default_value]/type,idFilter/onChangeFunc
+			attr_name - the name of the attribute, e.g. "myID"
+			start-end - creates automatically attributes from attr_namestart to attr_nameend, like "myID(1-3)" creates myID1, myID2, myID3
+			default_value - by creation of widget this attribute will be filled with this value, e.g. "myID[#001122]/color"
+			type - some predefined types have edit helpers, else it will be shown as text field
 
-                Type format:
-                      id - Object ID Dialog
-                      checkbox
-                      image - image
-                      number,min,max,step - non-float number. min,max,step are optional
-                      color - color picker
-                      views - Name of the view
-                      effect - jquery UI show/hide effects
-                      eff_opt - additional option to effect slide (up, down, left, right)
-                      fontName - Font name
-                      slider,min,max,step - Default step is ((max - min) / 100)
-                      select,value1,value2,... - dropdown select
-                      nselect,value1,value2,... - same as select, but without translation of items
-                      style,fileFilter,nameFilter,attrFilter
-                      custom,functionName,options,... - custom editor - functionName is starting from vis.binds.[widgetset.funct]. E.g. custom/timeAndWeather.editWeather,short
-                      group.name - define new or old group. All following attributes belongs to new group till new group.xyz
-                      group.name/byindex - like group, but all following attributes will be grouped by ID. Like group.windows/byindex;slide(1-4)/id;slide_type(1-4)/select,open,closed  Following groups will be created Windows1(slide1,slide_type1), Windows2(slide2,slide_type2), Windows3(slide3,slide_type3), Windows4(slide4,slide_type4)
-                      text - dialog box with html editor
-                      html - dialog box with html editor
+				Type format:
+					  id - Object ID Dialog
+					  checkbox
+					  image - image
+					  number,min,max,step - non-float number. min,max,step are optional
+					  color - color picker
+					  views - Name of the view
+					  effect - jquery UI show/hide effects
+					  eff_opt - additional option to effect slide (up, down, left, right)
+					  fontName - Font name
+					  slider,min,max,step - Default step is ((max - min) / 100)
+					  select,value1,value2,... - dropdown select
+					  nselect,value1,value2,... - same as select, but without translation of items
+					  style,fileFilter,nameFilter,attrFilter
+					  custom,functionName,options,... - custom editor - functionName is starting from vis.binds.[widgetset.funct]. E.g. custom/timeAndWeather.editWeather,short
+					  group.name - define new or old group. All following attributes belongs to new group till new group.xyz
+					  group.name/byindex - like group, but all following attributes will be grouped by ID. Like group.windows/byindex;slide(1-4)/id;slide_type(1-4)/select,open,closed  Following groups will be created Windows1(slide1,slide_type1), Windows2(slide2,slide_type2), Windows3(slide3,slide_type3), Windows4(slide4,slide_type4)
+					  text - dialog box with html editor
+					  html - dialog box with html editor
 
-                If type is "id", you can define filer for "Select ID Dialog", like "myID/id,level.temperature".
-                Additionally you can define callback(onChangeFunc), which will be called if this attribute was changed by user for different purposes: validate entry, fill other attributes, ...
+				If type is "id", you can define filer for "Select ID Dialog", like "myID/id,level.temperature".
+				Additionally you can define callback(onChangeFunc), which will be called if this attribute was changed by user for different purposes: validate entry, fill other attributes, ...
 
-        You can define additional data-vis-attrs line: data-vis-attrs0, data-vis-attrs1. Anyway data-vis-attrs must be there. You may not skip numbers.
-        E.g. in "data-vis-attrs="A;" data-vis-attrs1="B" attribute B will be not parsed.
+		You can define additional data-vis-attrs line: data-vis-attrs0, data-vis-attrs1. Anyway data-vis-attrs must be there. You may not skip numbers.
+		E.g. in "data-vis-attrs="A;" data-vis-attrs1="B" attribute B will be not parsed.
 
-    --------------------------------------------------------
-    data-vis-type
-        Help information for user. Used for search.
-        You can define more than one type divided by comma.
-        There are following common types, but you can use your own specific types:
-            ctrl   - widget that can write some Object IDs
-            val    - widget that shows some information from Object IDs
-            static - widget do not read information from Object IDs or URL
-            button - button widget
-            dimmer - dimmer widget
-            weather - weather widget
-            ...
+	--------------------------------------------------------
+	data-vis-type
+		Help information for user. Used for search.
+		You can define more than one type divided by comma.
+		There are following common types, but you can use your own specific types:
+			ctrl   - widget that can write some Object IDs
+			val    - widget that shows some information from Object IDs
+			static - widget do not read information from Object IDs or URL
+			button - button widget
+			dimmer - dimmer widget
+			weather - weather widget
+			...
 
-    --------------------------------------------------------
-    data-vis-set
-        Name of the widget set. Must be equal to the name of this HTML file
+	--------------------------------------------------------
+	data-vis-set
+		Name of the widget set. Must be equal to the name of this HTML file
 
-    --------------------------------------------------------
-    data-vis-prev
-        Html code used as preview of this widget. If widget is complex you can just use image as preview:
-        data-vis-prev='<img src="widgets/hqwidgets/img/prev/Prev_tplVis-homekittilesShowInstance.png"></img>'
-        Of course the image must exist.
+	--------------------------------------------------------
+	data-vis-prev
+		Html code used as preview of this widget. If widget is complex you can just use image as preview:
+		data-vis-prev='<img src="widgets/hqwidgets/img/prev/Prev_tplHomekittilesShowInstance.png"></img>'
+		Of course the image must exist.
 
-    --------------------------------------------------------
-    data-vis-name
-        Readable name of widget shown in vis editor.
+	--------------------------------------------------------
+	data-vis-name
+		Readable name of widget shown in vis editor.
 
-    --------------------------------------------------------
-    data-vis-beta="true"
-        Shows "BETA" symbol in vis editor by preview
+	--------------------------------------------------------
+	data-vis-beta="true"
+		Shows "BETA" symbol in vis editor by preview
 
-    --------------------------------------------------------
-    data-vis-update-style="true"
-        Call redraw of widget if some of the CSS styles in editor for this widget was changed
+	--------------------------------------------------------
+	data-vis-update-style="true"
+		Call redraw of widget if some of the CSS styles in editor for this widget was changed
 
-    You can read about Magic tags here: http://canjs.com/guides/EJS.html
-    Following magic tags are exist:
-        <% %> - execute javascript
-        <%= %> - place escaped result to HTML document
-        <%== %> - place unescaped result to HTML document
+	You can read about Magic tags here: http://canjs.com/guides/EJS.html
+	Following magic tags are exist:
+	<% %> - execute javascript
+	<%= %> - place escaped result to HTML document
+	<%== %> - place unescaped result to HTML document
 
-    You can do "if" conditions and "for" cycles.
+You can do "if" conditions and "for" cycles.
 
 -->
-<script id="tplVis-homekittilesShowInstance"
-        type="text/ejs"
-        class="vis-tpl"
-        data-vis-prev='<div id="prev_tplVis-homekittilesShowInstance" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="vis-homekittiles-class vis-widget-prev-body " style="padding:2px"> OID: hm-rpc.0.EEQ0006629.1.STATE<br> OID value: true<br> Color: <span style="color: rgb(128, 0, 0);">#800000</span><br> htmlText: <textarea readonly="" style="width:100%">asda</textarea></div>'
-        data-vis-attrs="oid/id;myColor/color;htmlText/text;"
-        data-vis-attrs0="group.extraVis-homekittiles;extraAttr"
-        data-vis-set="vis-homekittiles"
-        data-vis-type="helper"
-        data-vis-name="Show instance">
-    <div class="vis-widget <%== this.data.attr('class') %>" style="width:230px; height:210px;" id="<%= this.data.attr('wid') %>" >
-        <div class="vis-homekittiles-class vis-widget-body <%== this.data.attr('class') %>" style="padding:2px" >
-            OID: <%= this.data.attr('oid') %><br>
-            OID value: <%== vis.states.attr(this.data['oid'] + '.val') %><br>
-            Color: <span style="color: <%= this.data.attr('myColor') %>"><%= this.data.attr('myColor') %></span><br>
-            extraAttr: <%== this.data.attr('extraAttr') %><br>
-            Browser instance: <%= vis.instance %><br>
-            htmlText: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
-        </div>
-    </div>
+
+<script id="tplHomekittilesNotification"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="val"
+	data-vis-name="hkt-Notification"
+	data-vis-prev='<div id="prev_tplHomekittilesNotification" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles vis-widget-prev-body notification" style="top: 50px; position: absolute;">
+								<span class="notification1">1</span>
+								<span class="notification2">2</span>
+								<span class="notification3">3</span>
+								<span class="notification4">4</span>
+								<span class="notification5">5</span>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktNotification;
+					notification1oid/id;
+					notification2oid/id;
+					notification3oid/id;
+					notification4oid/id;
+					notification5oid/id;
+					notification1showZero/checkbox;
+					notification2showZero/checkbox;
+					notification3showZero/checkbox;
+					notification4showZero/checkbox;
+					notification5showZero/checkbox;"
+>
+	<div class="homekitTiles notification vis-widget <%== this.data.attr('class') %>" style="width:85px; height:21px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<div class="notification" data-oid="<%= this.data.attr('notification1oid') %>">
+				<%
+				valNotification1 = vis.states.attr(this.data['notification1oid'] + '.val');
+				if (valNotification1 === undefined || valNotification1 === '') valNotification1 = 0;
+
+				if (vis.editMode || valNotification1 !== 0 && valNotification1 !== '0' || (valNotification1 == 0 || valNotification1 == '0') && this.data.attr('notification1showZero')) { %>
+					<span class="notification1" ><%=valNotification1%></span>
+				<% } %>
+			</div>
+			<div class="notification" data-oid="<%= this.data.attr('notification2oid') %>">
+				<%
+				valNotification2 = vis.states.attr(this.data['notification2oid'] + '.val');
+				if (valNotification2 === undefined || valNotification2 === '') valNotification2 = 0;
+				
+				if (vis.editMode || valNotification2 !== 0 && valNotification2 !== '0' || (valNotification2 == 0 || valNotification2 == '0') && this.data.attr('notification2showZero')) { %>
+					<span class="notification2" ><%=valNotification2%></span>
+				<% } %>
+			</div>
+			<div class="notification" data-oid="<%= this.data.attr('notification3oid') %>">
+				<%
+				valNotification3 = vis.states.attr(this.data['notification3oid'] + '.val');
+				if (valNotification3 === undefined || valNotification3 === '') valNotification3 = 0;
+				
+				if (vis.editMode || valNotification3 !== 0 && valNotification3 !== '0' || (valNotification3 == 0 || valNotification3 == '0') && this.data.attr('notification3showZero')) { %>
+					<span class="notification3" ><%=valNotification3%></span>
+				<% } %>
+			</div>
+			<div class="notification" data-oid="<%= this.data.attr('notification4oid') %>">
+				<%
+				valNotification4 = vis.states.attr(this.data['notification4oid'] + '.val');
+				if (valNotification4 === undefined || valNotification4 === '') valNotification4 = 0;
+				
+				if (vis.editMode || valNotification4 !== 0 && valNotification4 !== '0' || (valNotification4 == 0 || valNotification4 == '0') && this.data.attr('notification4showZero')) { %>
+					<span class="notification4" ><%=valNotification4%></span>
+				<% } %>
+			</div>
+			<div class="notification" data-oid="<%= this.data.attr('notification5oid') %>">
+				<%
+				valNotification5 = vis.states.attr(this.data['notification5oid'] + '.val');
+				if (valNotification5 === undefined || valNotification5 === '') valNotification5 = 0;
+				
+				if (vis.editMode || valNotification5 !== 0 && valNotification5 !== '0' || (valNotification5 == 0 || valNotification5 == '0') && this.data.attr('notification5showZero')) { %>
+					<span class="notification5" ><%=valNotification5%></span>
+				<% } %>
+			</div>
+		</div>
+	</div>
 </script>
 
-<script id="tplVis-homekittilesHelper"
-        type="text/ejs"
-        class="vis-tpl"
-        data-vis-prev='<div id="prev_tplVis-homekittilesHelper" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="vis-homekittiles-class vis-widget-prev-body " style="padding:2px"> OID: hm-rpc.0.EEQ0006629.1.STATE<br> OID value: true<br> Color: <span style="color: rgb(128, 0, 0);">#800000</span><br> htmlText: <textarea readonly="" style="width:100%">asda</textarea></div>'
-        data-vis-attrs="oid/id;myColor/color;htmlText/text;"
-        data-vis-attrs0="group.extraVis-homekittiles;extraAttr"
-        data-vis-set="vis-homekittiles"
-        data-vis-type="helper"
-        data-vis-name="Helper">
-    <div class="vis-widget <%== this.data.attr('class') %>" style="overflow:visible; width: 230px; height: 210px" id="<%= this.data.attr('wid') %>"><%
-        vis.binds['vis-homekittiles'].createWidget(this.data.wid, this.view, this.data, this.style);
-    %></div>
+<script id="tplHomekittilesRadiobuttons"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Radiobuttons"
+	data-vis-prev='<div id="prev_tplHomekittilesRadiobuttons" style=" position: relative;">
+						<div class="homekitTiles radiobuttons vis-widget_prev" style="width: 55px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="vis-widget-prev-body">
+								<div class="radiobuttons">
+									<div class="radiobuttonGroup vertical">
+										<div class="radiobutton">
+											<label>Ein</label>
+										</div>
+										<div class="radiobutton">
+											<label>Aus</label>
+										</div>
+										<div class="radiobutton state-active" style="border-radius: 0 0 15px 15px">
+											<label>Auto</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktRadiobuttons;oid;numberOfButtons[3]/slider,2,10,1;directionHorizontal/checkbox;"
+	data-vis-attrs0="group.buttons;valueButton_(1-numberOfButtons);labelButton_(1-numberOfButtons)[Button];iconButton_(1-numberOfButtons)/image;"
+	data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+	data-vis-attrs2="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+> 
+	<div class="homekitTiles radiobuttons vis-widget <%== this.data.attr('class') %>" style="width:110px; height:235px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<div class="radiobuttons" id="<%= this.data.attr('wid') %>_radio" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> setTimeout(function () {vis.binds['vis-homekittiles'].radio(el)}, 100) %> <%= (el) -> vis.binds.basic._onChange(el); %>>
+				<div class="radiobuttonGroup <%= this.data.attr('directionHorizontal') ? 'horizontal' : 'vertical' %>">
+
+					<%
+					var ackShowIcon = this.data.attr('ackShowIcon');
+					var ackInvertFunction = this.data.attr('ackInvertFunction');
+
+					var numberOfButtons = Number(this.data.attr("numberOfButtons"));
+					var wid = data.attr('wid');
+					var i = 1; 
+
+					while (i <= numberOfButtons) {
+						var icon = this.data.attr('iconButton_' + i);
+						var value = this.data.attr('valueButton_' + i);
+						var text = this.data.attr('labelButton_' + i);
+
+						%>
+						<div class="radiobutton">
+							<input type="radio" id="<%= wid %>_radio<%= i %>" name="<%= wid %>_radio" value="<%= value %>" />
+							<label for="<%= wid %>_radio<%= i %>">
+								<% if (icon !== '' && icon !== undefined) { %>
+									<div class="radioIcon"><img <%= icon ? 'src=' + icon : '' %> /></div>
+								<% } %>
+								<span><%= text %></span>
+								
+								<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
+								<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+							</label>
+						</div>
+						<%
+
+						i++;
+					}
+					%>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </script>
+
+<script id="tplHomekittilesDatepicker"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-name="hkt-Datepicker"
+	data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-default">
+								<span class="tileValue" style="background-color: unset; font-size: 30px;">📅</span>
+								<label class="labelGroup1">Datum<br>2023-07-31</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktDatepicker;oid/id;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;"
+	data-vis-attrs0="group.labelGroup1;label[Datepicker];"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label4pre;label4oid/id;label4unit;label4post;label5pre;label5oid/id;label5unit;label5post;"
+	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+>
+	<div class="homekitTiles tile datepicker vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
+			<label class="labelGroup1">
+				<%= this.data.attr('label') %>
+			</label>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+			
+			<input
+				type="text"
+				name="<%= this.data.attr('wid') %>_input"
+				id="<%= this.data.attr('wid') %>_input"
+				value=""
+				size="<%= this.data.attr('size') %>"
+				data-oid="<%= this.data.attr('oid') %>"
+				<%= (el) -> vis.binds['vis-homekittiles'].datepicker(el); %>
+			/>
+		</div>
+
+		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
+		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+	</div>
+</script>
+
+<script id="tplHomekittilesSwitchBool"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Switch-Bool"
+	data-vis-prev='<div id="prev_tplHomekittilesSwitchBool" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-active">
+								<span class="tileValue" style="background-color: unset; font-size: 30px;">💡</span>
+								<label class="labelGroup1">Switch</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktSwitchBool;oid/id;icon/image;iconRound/checkbox;"
+	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label4pre;label4oid/id;label4unit;label4post;label5pre;label5oid/id;label5unit;label5post;"
+	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+>
+	<div class="homekitTiles tile vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.toggle(el); %>>
+			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+
+		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
+		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+	</div>
+</script>
+
+<script id="tplHomekittilesValue"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Value"
+	data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-active">
+								<span class="tileValue">22°</span>
+								<label class="labelGroup1">Value</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktValue;oid/id;unit;showLikeActive[true]/checkbox;"
+	data-vis-attrs0="group.labelGroup1;label[Value];label2pre;label2oid/id;label2unit;label2post;"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label4pre;label4oid/id;label4unit;label4post;label5pre;label5oid/id;label5unit;label5post;"
+	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];"
+>
+	<div class="homekitTiles tile vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>">
+			<span class="tileValue"><%==vis.states.attr(this.data['oid'] + '.val')%><%= this.data.attr('unit') %></span>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+
+		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
+		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+	</div>
+</script>
+
+<script id="tplHomekittilesViewInWidgetDialog"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="container,dialog"
+	data-vis-name="hkt-ViewInWidget-Dialog"
+	data-vis-prev='<div id="prev_tplHomekittilesViewInWidgetDialog" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-default">
+								<span class="tileValue" style="background-color: unset; font-size: 30px;">💬</span>
+								<label class="labelGroup1">Dialog</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktViewInWidgetDialog;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;"
+	data-vis-attrs0="group.labelGroup1;label[Dialog];label2pre;label2oid/id;label2unit;label2post;"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label4pre;label4oid/id;label4unit;label4post;label5pre;label5oid/id;label5unit;label5post;"
+	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+	data-vis-attrs4="group.dialog;contains_view/views;title;autoclose/slider,0,30000,100;modal/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
+>
+	<div class="homekitTiles tile dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
+			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+
+		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
+			<div data-vis-contains="<%= this.data.attr('contains_view') %>" class="vis-widget-body vis-view-container"><div class="test1"></div></div>
+			<div class="test2"></div>
+		</div>
+
+		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogContainer(el, data) %> />
+		<div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
+	</div>
+</script>
+
+<script id="tplHomekittilesSettingsBool"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Settings-Bool"
+	data-vis-prev='<div id="prev_tplHomekittilesSettingsBool" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 17px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles settings bool vis-widget-prev-body state-active">
+								<label class="label">Switch</label>
+								<div class="toggle"></div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktSettingsBool;oid/id;label[Switch];"
+	data-vis-attrs0="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+>
+	<div class="homekitTiles settings bool vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:230px; height:17px;" id="<%= this.data.attr('wid') %>">
+
+		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.toggle(el); %>>
+			<label class="label"><%= this.data.attr('label') %></label>
+			<div class="toggle"></div>
+		</div>
+
+		<div class="invisible-helper" data-oid="<%= this.data.attr('blockOperationOID') %>"></div>
+		<%
+		var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+		var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+		var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+		var currentState = false;
+		var showBlockedIcon = false;
+
+		//get value for blocked
+		if (this.data.attr('blockOperationUseDifferentOID')) {
+			var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+		} else {
+			var currentState = vis.states.attr(this.data['oid'] + '.val');
+		}
+
+		//add blocked div
+		if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+			<div class="blockOperation" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;"></div>
+		<% }
+
+		//add icon
+		if (blockOperationShowIcon) {
+			if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+				showBlockedIcon = true;
+			} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+				showBlockedIcon = true;
+			}
+			if (showBlockedIcon) { %>
+				<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+			<% }
+		} %>
+	</div>
+</script>
+
+<script id="tplHomekittilesSettingsValue"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Settings-Value"
+	data-vis-prev='<div id="prev_tplHomekittilesSettingsValue" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 17px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles settings value vis-widget-prev-body">
+								<label class="label">Value</label>
+								<div class="incrementMinus">-</div>
+								<div class="value">12%</div>
+								<div class="incrementPlus">+</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktSettingsValue;oid/id;label[Value];unit;"
+	data-vis-attrs0="group.increment;incrementPlusShow[true]/checkbox;incrementMinusShow[true]/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];"
+	data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+>
+	<div class="homekitTiles settings value vis-widget <%== this.data.attr('class') %>" style="width:230px; height:17px;" id="<%= this.data.attr('wid') %>">
+
+		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>">
+			<label class="label"><%= this.data.attr('label') %></label>
+
+			<% if (this.data.attr('incrementMinusShow')) { %>
+				<div class="incrementMinus"
+					data-oid="<%= this.data.attr('oid') %>"
+					data-vis-step="<%= this.data.attr('incrementMinusValue') %>"
+					data-val="<%= this.data.attr('oid') %>"
+					<%= (el) -> vis.binds.basic.increment(el,data.incrementValueMin)%>
+				>-</div>
+			<% } %>
+
+			<div class="value">
+				<%== vis.states.attr(this.data['oid'] + '.val') %><%= this.data.attr('unit') %>
+			</div>
+
+			<% if (this.data.attr('incrementPlusShow')) { %>
+				<div class="incrementPlus"
+					data-oid="<%= this.data.attr('oid') %>"
+					data-vis-step="<%= this.data.attr('incrementPlusValue') %>"
+					data-val="<%= this.data.attr('oid') %>"
+					<%= (el) -> vis.binds.basic.increment(el,data.incrementValueMax)%>
+				>+</div>
+			<% } %>
+		</div>
+
+		<div class="invisible-helper" data-oid="<%= this.data.attr('blockOperationOID') %>"></div>
+		<%
+		var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+		var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+		var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+		var currentState = false;
+		var showBlockedIcon = false;
+
+		//get value for blocked
+		if (this.data.attr('blockOperationUseDifferentOID')) {
+			var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+		} else {
+			var currentState = vis.states.attr(this.data['oid'] + '.val');
+		}
+
+		//add blocked div
+		if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+			<div class="blockOperation" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;"></div>
+		<% }
+
+		//add icon
+		if (blockOperationShowIcon) {
+			if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+				showBlockedIcon = true;
+			} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+				showBlockedIcon = true;
+			}
+			if (showBlockedIcon) { %>
+				<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+			<% }
+		} %>
+	</div>
+</script>
+
+<script id="tplHomekittilesButtonDialogClose"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="dialog"
+	data-vis-name="hkt-Button-DialogClose"
+	data-vis-prev='<div id="prev_tplHomekittilesButtonDialogClose" style="position: relative;">
+						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
+							<div class="homekitTiles button dialogClose vis-widget-prev-body">
+								<div class="button" style="font-size:12px; display: flex; align-items: center; justify-content: center;">Close dialog</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktButtonDialogClose;label[Close dialog];dialogWidgetId;">
+	<div class="homekitTiles button dialogClose vis-widget <%== this.data.attr('class') %>" style="width:200px; height:50px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<button class="button" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('label') %></button>
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesButtonSet"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Button-Set"
+	data-vis-prev='<div id="prev_tplHomekittilesButtonSet" style="position: relative;">
+						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
+							<div class="homekitTiles button button-set vis-widget-prev-body" style="display: flex; flex-direction: row;">
+								<div class="button button-set button-1" style="font-size:12px; display: flex; align-items: center; justify-content: center;">Button 1</div>
+								<div class="button button-set button-2" style="font-size:12px; display: flex; align-items: center; justify-content: center;">Button n</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktButtonSet;numberOfButtons[2]/slider,1,10,1;"
+	data-vis-attrs0="group.buttons/byindex;oid_(1-numberOfButtons)/id;label_(1-numberOfButtons)[Button];value_(1-numberOfButtons);closeDialog_(1-numberOfButtons)/checkbox;"
+>
+	<div class="homekitTiles button button-set vis-widget <%== this.data.attr('class') %>" style="width:400px; height:50px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" >
+
+			<%
+			var numberOfButtons = Number(this.data.attr("numberOfButtons"));
+			var wid = data.attr('wid');
+			var i = 1; 
+
+			while (i <= numberOfButtons) {
+				var oid = this.data.attr('oid_' + i);
+				var value = this.data.attr('value_' + i);
+				var label = this.data.attr('label_' + i);
+				var closeDialog = this.data.attr('closeDialog_' + i);
+				var wid = data.attr('wid');
+
+				if (closeDialog) {
+					%>
+					<button class="button button-set button-<%= i %>" data-oid="<%= oid %>" data-val="<%= value %>" id="<%= wid %>_button<%= i %>" <%= (el) -> vis.binds.basic.state(el); %><%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: ''}); %>><%= label %></button>
+					<%
+				} else {
+					%>
+					<button class="button button-set button-<%= i %>" data-oid="<%= oid %>" data-val="<%= value %>" id="<%= wid %>_button<%= i %>" <%= (el) -> vis.binds.basic.state(el); %>><%= label %></button>
+					<%
+				}
+				i++;
+			} %>
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesButtonNavigation"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Button-Navigation"
+	data-vis-prev='<div id="prev_tplHomekittilesButtonNavigation" style="position: relative;">
+						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
+							<div class="homekitTiles navigationbutton vis-widget-prev-body" style="display: flex; flex-direction: row;">
+								<div class="navigationbutton">
+									<label>View</label>
+								</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktButtonNavigation;view/views;icon/image;label[View];"
+>
+	<div
+		data-vis-nav="<%= this.data.attr('view') %>"
+		class="homekitTiles navigationbutton vis-widget state-default hkt-nav-state <%== this.data.attr('class') %>"
+		style="width: 120px; height: 30px;"
+		id="<%= this.data.attr('wid') %>"
+		<%= (el) -> vis.binds['vis-homekittiles'].hktNavigationActive(el); vis.binds['vis-homekittiles'].hktNavigation(el); %>
+	>
+		<div class="vis-widget-body" >
+
+			<div class="navigationbutton"  >
+				<% if (this.data.attr('icon') !== '' && this.data.attr('icon') !== undefined) { %>
+					<img src="<%= this.data.attr('icon') %>" />
+				<% } %>	
+				<label><%= this.data.attr('label') %></label>
+			</div>
+
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesButtonSetNavigation"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Button-Set-Navigation"
+	data-vis-prev='<div id="prev_tplHomekittilesButtonSetNavigation" style="position: relative;">
+						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
+							<div class="homekitTiles navigationbuttonset vis-widget-prev-body" style="display: flex; flex-direction: row;">
+								<div class="navigationbutton" style="width: 50%">
+									<label style="width: 100%; text-align: center;">View 1</label>
+								</div>
+								<div class="navigationbutton" style="width: 50%; border-left: 1px solid">
+									<label style="width: 100%; text-align: center;">View 2</label>
+								</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktButtonSetNavigation;numberOfButtons[3]/slider,1,10,1;directionHorizontal[true]/checkbox;"
+	data-vis-attrs0="group.buttons/byindex;view_(1-numberOfButtons)/views;icon_(1-numberOfButtons)/image;label_(1-numberOfButtons)[View];"
+>
+	<% 
+	var width = 0;
+	var height = 0;
+	if (this.data.attr('directionHorizontal')) {
+		width = this.data.attr('numberOfButtons') * 120;
+		height = 30;
+	} else {
+		width = 120;
+		height = this.data.attr('numberOfButtons') * 30
+	}
+	%>
+	<div class="homekitTiles navigationbuttonset vis-widget <%== this.data.attr('class') %>" style="width: <%= width %>px; height:<%= height %>px" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body <%= this.data.attr('directionHorizontal') ? 'horizontal' : 'vertical' %>">
+		
+			<%
+			var numberOfButtons = Number(this.data.attr("numberOfButtons"));
+			var wid = data.attr('wid');
+			var i = 1; 
+
+			while (i <= numberOfButtons) {
+				var view = this.data.attr('view_' + i);
+				var icon = this.data.attr('icon_' + i);
+				var label = this.data.attr('label_' + i);
+
+				%>
+				<div data-vis-nav="<%= view %>" class="navigationbutton navigationbutton-<%= i %> hkt-nav-state state-default" <%= (el) -> vis.binds['vis-homekittiles'].hktNavigationActive(el); vis.binds['vis-homekittiles'].hktNavigation(el); %>>
+					<div class="navigationbutton"  >
+
+						<% if (icon !== '' && icon !== undefined) { %>
+							<img src="<%= icon %>" />
+						<% } %>	
+
+						<label><%= label %></label>
+					</div>
+				</div>
+				<%
+				
+				i++;
+			} %>
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesViewInWidgetSwipe"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="container"
+	data-vis-name="hkt-ViewInWidget-Swipe"
+	data-vis-prev='<div id="prev_tplHomekittilesViewInWidgetSwipe" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 55px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles vis-widget-prev-body" style="display: flex; color: var(--hkt-color-settings-text);">
+								<div style="width: 49%; height: 96%; border: 1px solid; display: flex; align-items: center; justify-content: center;">View 1</div>
+								<div style="width: 49%; height: 96%; border: 1px solid; display: flex; align-items: center; justify-content: center;">View 2</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,homekittiles.infoText,hktViewInWidgetSwipe;numberOfViews[2]/number;"
+	data-vis-attrs0="group.views;view_(1-numberOfViews)/views;"
+>
+	<div class="homekitTiles viewInWidget swipe vis-widget <%== this.data.attr('class') %>" style="width:235px; height:235px;" id="<%= this.data.attr('wid') %>">
+		<% if (vis.editMode) { %>
+			<div class="editmode-helper"></div>
+		<% } %>
+
+		<% 
+		var numberOfViews = Number(this.data.attr("numberOfViews"));
+		var i = 1;
+		while (i <= numberOfViews) {	%>
+			<div data-vis-contains="<%= this.data.attr('view_' + i) %>" class="vis-view-container subview"></div>
+			<%
+			i++;
+		} %>
+	</div>
+</script> 

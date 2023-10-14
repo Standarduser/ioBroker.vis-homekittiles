@@ -1,4 +1,661 @@
-/* Style your widget here */
-.vis-homekittiles-class {
-    font-style: italic;
+/* Colors */
+:root {
+	--hkt-color-tile-on-foreground:		#333;
+	--hkt-color-tile-on-background:		#ddd;
+	--hkt-color-tile-off-foreground:	#999;
+	--hkt-color-tile-off-background:	rgba(255,255,255, 0.15);
+	
+	--hkt-color-value-foreground:		#fff;
+	--hkt-color-value-background:		#75CA26;
+
+	--hkt-color-notification1-fg:		#fff;
+	--hkt-color-notification1-bg:		#d64545;
+	--hkt-color-notification2-fg:		#666;
+	--hkt-color-notification2-bg:		#ffdb75;
+	--hkt-color-notification3-fg:		#666;
+	--hkt-color-notification3-bg:		#75CA26;
+	--hkt-color-notification4-fg:		#666;
+	--hkt-color-notification4-bg:		#add8e6;
+	--hkt-color-notification5-fg:		#fff;
+	--hkt-color-notification5-bg:		#808080;
+
+	--hkt-color-settings-text:			#666;
+	--hkt-color-settings-toggle-on:		#bbb;
+	--hkt-color-settings-toggle-off:	#666;
+
+	--hkt-color-dialog-foreground:		#bbb;
+	--hkt-color-dialog-background:		#444;
+	--hkt-color-dialog-title-fg:		#fff;
+	--hkt-color-dialog-title-bg:		#444;
+
+	--hkt-color-button-fg:				#fff;
+	--hkt-color-button-bg:				#333;
+	--hkt-color-button-bg-2:			#3a3a3a;
+	--hkt-color-button-bg-3:			#303030;
+
+	--hkt-color-navigationbutton-default-fg:	#666;
+	--hkt-color-navigationbutton-active-fg:		#bbb;
+}
+
+/*---------------------------------------------------------------*/
+/* Basic design for all widgets */
+.homekitTiles {
+	font-family: -apple-system, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12px;
+	cursor:pointer;
+}
+.homekitTiles .invisible-helper {
+	display: none;
+}
+
+/*---------------------------------------------------------------*/
+/* Basic design for tiles */
+.homekitTiles.tile {
+	border-radius: 15px;
+}
+.homekitTiles.tile .labelGroup1 {
+	bottom: 8px;
+	left: 10px;
+	right: 1px;
+	position: absolute;
+}
+.homekitTiles.tile .labelGroup2 {
+	top: 5px;
+	left: 50px;
+	right: 1px;
+	position: absolute;
+}
+
+/* State active or default */
+.homekitTiles.tile.state-default {
+	color: var(--hkt-color-tile-off-foreground);
+	background-color: var(--hkt-color-tile-off-background);
+}
+.homekitTiles.tile.state-active {
+	color: var(--hkt-color-tile-on-foreground);
+	background-color: var(--hkt-color-tile-on-background);
+}
+.homekitTiles.tile.state-default .tileIcon {
+	filter: grayscale(100);
+}
+
+/* Icons */
+.homekitTiles.tile .tileIcon {
+	width: 35px;
+	height: 35px;
+	top: 10px;
+	left: 10px;
+	position: absolute;
+}
+.homekitTiles.tile .tileIcon img {
+	width: 100%;
+	height: 100%;
+}
+.homekitTiles.tile .tileIcon .round {
+	border-radius: 999px;
+}
+
+/* Value */
+.homekitTiles.tile .tileValue {
+	color: var(--hkt-color-value-foreground);
+	background-color: var(--hkt-color-value-background);
+	min-width: 35px;
+	height: 35px;
+	top: 10px;
+	left: 10px;
+	position: absolute;
+	border-radius: 999px;
+	line-height: 35px;
+	text-align: center;
+}
+
+/* Tiles with increment */
+.homekitTiles.tile .increment {
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+.homekitTiles.tile .increment div {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	display: block;
+	border-radius: 999px;
+	border: 1px solid;
+}
+.homekitTiles.tile .increment div:not(:first-child) {
+	margin-top: 5px;
+}
+
+/* Operation blocked icon */
+.homekitTiles.tile .blockedIcon {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+	filter: contrast(0.8);
+}
+
+/* Acknowledged icon */
+.homekitTiles.tile .ackIcon {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+.homekitTiles.tile .ackIcon .icon {
+	width: 100%;
+	height: 100%;
+	filter: contrast(0.8);
+}
+
+/*----------------------------------------------------------------*/
+/* Date-Picker */
+.homekitTiles.tile.datepicker .labelGroup1 {
+	padding-bottom: 15px;
+}
+.homekitTiles.tile.datepicker input {
+	background-color: unset;
+	border: unset;
+	padding: unset;
+	margin: unset;
+	
+	color: var(--hkt-color-tile-on-foreground);
+	width: 100%;
+	height: 100%;
+	padding-left: 10px;
+	padding-top: 78px;
+	box-sizing: border-box;
+}
+.homekitTiles.tile.datepicker.state-default input {
+	color: var(--hkt-color-tile-off-foreground);
+}
+
+/*---------------------------------------------------------------*/
+/* Notification */
+.homekitTiles.notification {
+	cursor: default;
+}
+.homekitTiles.notification span {
+	min-width: 21px;
+	height: 21px;
+	box-sizing: border-box;
+	padding: 0px 5px;
+	line-height: 21px;
+	text-align: center;
+	border-radius: 9999px;
+	float: right;
+	margin-left: -5px;
+	position: relative;
+}
+.homekitTiles.notification .notification1 {
+	color: var(--hkt-color-notification1-fg);
+	background-color: var(--hkt-color-notification1-bg);
+	z-index: 5;
+}
+.homekitTiles.notification .notification2 {
+	color: var(--hkt-color-notification2-fg);
+	background-color: var(--hkt-color-notification2-bg);
+	z-index: 4;
+}
+.homekitTiles.notification .notification3 {
+	color: var(--hkt-color-notification3-fg);
+	background-color: var(--hkt-color-notification3-bg);
+	z-index: 3;
+}
+.homekitTiles.notification .notification4 {
+	color: var(--hkt-color-notification4-fg);
+	background-color: var(--hkt-color-notification4-bg);
+	z-index: 2;
+}
+.homekitTiles.notification .notification5 {
+	color: var(--hkt-color-notification5-fg);
+	background-color: var(--hkt-color-notification5-bg);
+	z-index: 1;
+}
+
+/*----------------------------------------------------------------*/
+/* Radiobuttons */
+.homekitTiles.radiobuttons {
+	border-radius: 15px;
+	color: var(--hkt-color-tile-off-foreground);
+	background-color: var(--hkt-color-tile-off-background);
+}
+.homekitTiles.radiobuttons .radiobuttons {
+	width: 100%;
+	height: 100%;
+}
+/* Hide the basic radiobutton */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio'] {
+	clip: rect(0 0 0 0);
+	position: absolute;
+}
+/* Button labels */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton label {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/* Button icons */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton .radioIcon {
+	width: 35px;
+	height: 35px;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.horizontal .radiobutton .radioIcon {
+	width: 25px;
+	height: 25px;
+	margin-bottom: 5px;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton .radioIcon img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Button active */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:checked + label {
+	color: var(--hkt-color-tile-on-foreground);
+	background-color: var(--hkt-color-tile-on-background);
+}
+/* Button active (only preview in VIS editor) */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton.state-active {
+	color: var(--hkt-color-tile-on-foreground);
+	background-color: var(--hkt-color-tile-on-background);
+}
+
+/* Operation blocked icon */
+.homekitTiles.radiobuttons .blockedIcon {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+	filter: contrast(0.8);
+}
+/* Operation blocked icon (show blocked icon only on inactive buttons) */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:checked + label .blockOperation {
+	display: none;
+}
+
+/* Acknowledge icon */
+.homekitTiles.radiobuttons .ackIcon {
+	width: 20px;
+	height: 20px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+.homekitTiles.radiobuttons .ackIcon .icon {
+	width: 100%;
+	height: 100%;
+	filter: contrast(0.8); 
+}
+/* Acknowledge icon (show ack icon only on active button) */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:not(:checked) + label .ackIcon {
+	display: none;
+}
+
+/* Common properties for group and button */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton:not(:first-of-type) {
+	border-style: solid;
+	border-color: var(--hkt-color-tile-off-foreground);
+}
+
+/* Arrange buttons one below the other */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.vertical {
+	flex-direction: column;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.vertical .radiobutton {
+	height: 100%;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.vertical .radiobutton:not(:first-of-type) {
+	border-width: 1px 0 0 0;
+}
+
+/* Arrange buttons next to each other */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.horizontal {
+	flex-direction: row;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.horizontal .radiobutton {
+	width: 100%;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.horizontal .radiobutton:not(:first-of-type) {
+	border-width: 0 0 0 1px;
+}
+
+/*---------------------------------------------------------------*/
+/* Settings common */
+.homekitTiles.settings {
+	color: var(--hkt-color-settings-text);
+}
+/* Operation blocked icon */
+.homekitTiles.settings:has(.blockedIcon) {
+	overflow: visible;
+}
+.homekitTiles.settings .blockedIcon {
+	width: 14px;
+	height: 14px;
+	top: 0px;
+	left: -17px;
+	position: absolute;
+	filter: contrast(0.3);
+}
+
+/* Settings Bool */
+/* Toggle frame */
+.homekitTiles.settings.bool .toggle {
+	width: 28px;
+	height: 15px;
+	border-radius: 17px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.homekitTiles.settings.bool.state-default .toggle {
+	border: 1px solid var(--hkt-color-settings-toggle-off);
+}
+.homekitTiles.settings.bool.state-active .toggle {
+	border: 1px solid var(--hkt-color-settings-toggle-on);
+}
+/* Toggle bubble */
+.homekitTiles.settings.bool .toggle:after {
+	content: "";
+	border-radius: 50%;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	transition: .4s;
+}
+.homekitTiles.settings.bool.state-default .toggle:after {
+	background-color: var(--hkt-color-settings-toggle-off);
+}
+.homekitTiles.settings.bool.state-active .toggle:after{
+	background-color: var(--hkt-color-settings-toggle-on);
+	transform: translateX(13px);
+}
+
+/* Settings Value */
+.homekitTiles.settings.value .value {
+	box-sizing: border-box;
+	min-width: 40px;
+	height: 100%;
+	float: right;
+	text-align: right;
+}
+.homekitTiles.settings.value .incrementMinus,
+.homekitTiles.settings.value .incrementPlus {
+	border: 1px solid;
+	border-radius: 999px;
+	box-sizing: border-box;
+	width: 17px;
+	height: 17px;
+	line-height: 14px;
+	float: right;
+	text-align: center;
+}
+.homekitTiles.settings.value .vis-widget-body *:not(.label) {
+	margin-left: 5px;
+}
+
+/*---------------------------------------------------------------*/
+/* View in widget swipe */
+.homekitTiles.viewInWidget.swipe {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+}
+.homekitTiles.viewInWidget.swipe .subview {
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	flex: 0 0 auto;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+/*---------------------------------------------------------------*/
+/* Dialog windows */
+.homekitTiles.dialog.ui-dialog {
+	background-color: var(--hkt-color-dialog-background);
+	padding: 0;
+	border-radius: 5px;
+}
+.homekitTiles.dialog.ui-dialog .header {
+	background-color: var(--hkt-color-dialog-title-bg);
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+}
+.homekitTiles.dialog.ui-dialog .header .title {
+	color: var(--hkt-color-dialog-title-fg);
+	font-size: 16px;
+}
+.homekitTiles.dialog.ui-dialog .content {
+	color: var(--hkt-color-dialog-foreground);
+	padding: 0px;
+}
+
+/* closebutton */
+.homekitTiles.dialog .button.integratedClosebutton {
+	font-size: 16px;
+	cursor: pointer;
+	width: 100%;
+	height: 50px;
+	color: var(--hkt-color-button-fg);
+	background-color: var(--hkt-color-button-bg);
+	border: none;
+	border-radius: 0;
+	position: absolute;
+	bottom: 0;
+}
+
+/* arrows */
+.homekitTiles.dialog.arrow-top,
+.homekitTiles.dialog.arrow-left,
+.homekitTiles.dialog.arrow-right,
+.homekitTiles.dialog.arrow-bottom {
+	overflow: visible;
+}
+.homekitTiles.dialog.arrow-top:after,
+.homekitTiles.dialog.arrow-right:after,
+.homekitTiles.dialog.arrow-bottom:after,
+.homekitTiles.dialog.arrow-left:after {
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-width: 30px;
+}
+.homekitTiles.dialog.arrow-top:after {
+	bottom: 100%;
+	left: 50%;
+	border-bottom-color: var(--hkt-color-dialog-background);
+	margin-left: -30px;
+}
+.homekitTiles.dialog.arrow-right:after {
+	left: 100%;
+	top: 50%;
+	border-left-color: var(--hkt-color-dialog-background);
+	margin-top: -30px;
+}
+.homekitTiles.dialog.arrow-bottom:after {
+	top: 100%;
+	left: 50%;
+	border-top-color: var(--hkt-color-dialog-background);
+	margin-left: -30px;
+}
+.homekitTiles.dialog.arrow-left:after {
+	right: 100%;
+	top: 50%;
+	border-right-color: var(--hkt-color-dialog-background);
+	margin-top: -30px;
+}
+
+/*---------------------------------------------------------------*/
+/* Buttons */
+.homekitTiles.button {
+	font-size: 16px;
+	cursor: pointer;
+}
+.homekitTiles.button .button {
+	width: 100%;
+	height: 100%;
+	color: var(--hkt-color-button-fg);
+	background-color: var(--hkt-color-button-bg);
+	font-size: unset;
+	cursor: unset;
+	border: none;
+	border-radius: 0;
+}
+/* Button-Set */
+.homekitTiles.button-set .vis-widget-body {
+	display: flex;
+	flex-direction: row;
+}
+.homekitTiles.button-set .button-set {
+	flex-grow: 1;
+	margin: 0;
+}
+.homekitTiles.button-set .button.button-set.button-1,
+.homekitTiles.button-set .button.button-set.button-4,
+.homekitTiles.button-set .button.button-set.button-7,
+.homekitTiles.button-set .button.button-set.button-10 {
+	background-color: var(--hkt-color-button-bg-3);
+}
+.homekitTiles.button-set .button.button-set.button-2,
+.homekitTiles.button-set .button.button-set.button-5,
+.homekitTiles.button-set .button.button-set.button-8 {
+	background-color: var(--hkt-color-button-bg-2);
+}
+.homekitTiles.button-set .button.button-set.button-3,
+.homekitTiles.button-set .button.button-set.button-6,
+.homekitTiles.button-set .button.button-set.button-9 {
+	background-color: var(--hkt-color-button-bg);
+}
+
+/* Navigation-Button */
+.homekitTiles.navigationbutton {
+    color: var(--hkt-color-navigationbutton-default-fg); 
+    font-size: 12px;
+}
+.homekitTiles.navigationbutton ~ .homekitTiles.navigationbutton {
+    border: 1px solid;
+    border-width: 0 0 0 1px;
+}
+.homekitTiles.navigationbutton .navigationbutton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: center;
+}
+.homekitTiles.navigationbutton img {
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+    filter: brightness(0.4);
+}
+.homekitTiles.navigationbutton label {
+    cursor: pointer;
+}
+.homekitTiles.navigationbutton.state-active {
+    color: var(--hkt-color-navigationbutton-active-fg); 
+}
+.homekitTiles.navigationbutton.state-active img {
+    filter: brightness(0.8);
+}
+
+/* Navigation-Button-Set */
+.homekitTiles.navigationbuttonset {
+	color: var(--hkt-color-navigationbutton-default-fg); 
+    font-size: 12px;
+}
+.homekitTiles.navigationbuttonset .navigationbutton {
+    box-sizing: border-box;
+}
+/* Icons */
+.homekitTiles.navigationbuttonset .navigationbutton img {
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+    filter: brightness(0.4);
+}
+/* Labels */ 
+.homekitTiles.navigationbuttonset .navigationbutton label {
+    cursor: pointer;
+}
+/* Button active */
+.homekitTiles.navigationbuttonset .navigationbutton.state-active {
+    color: var(--hkt-color-navigationbutton-active-fg); 
+}
+.homekitTiles.navigationbuttonset .navigationbutton.state-active img {
+    filter: brightness(0.8);
+}
+/* Common properties for navigationbuttons */
+.homekitTiles.navigationbuttonset .horizontal,
+.homekitTiles.navigationbuttonset .vertical {
+    display: flex;
+}
+.homekitTiles.navigationbuttonset .navigationbutton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/* Arrange buttons next to each other */
+.homekitTiles.navigationbuttonset .horizontal {
+    flex-direction: row;
+}
+.homekitTiles.navigationbuttonset .horizontal .navigationbutton {
+    width: 120px;
+	justify-content: center;
+}
+.homekitTiles.navigationbuttonset .horizontal .navigationbutton ~ .navigationbutton {
+    border: 1px solid;
+    border-width: 0 0 0 1px;
+}
+/* Arrange buttons one below the other */
+.homekitTiles.navigationbuttonset .vertical {
+    flex-direction: column;
+}
+.homekitTiles.navigationbuttonset .vertical .navigationbutton {
+    height: 30px;
+	justify-content: left;
+    padding: 0 0 0 5px;
+}
+.homekitTiles.navigationbuttonset .vertical .navigationbutton ~ .navigationbutton {
+    border: 1px solid;
+    border-width: 1px 0 0 0;
+}
+
+/*----------------------------------------------------------------*/
+/* DYNAMIZATION */
+.spin {
+	animation-name: spin;
+	animation-duration: 4000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes spin {
+	from { transform:rotate(0deg); } to { transform:rotate(360deg); }
 }

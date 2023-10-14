@@ -64,7 +64,7 @@
         "noConfig": true,
         "singleton": true,
         "type": "visualization-widgets",
-        "mode": "once",
+        "mode": "none",
         "dependencies": [
             "vis"
         ],
