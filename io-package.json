@@ -1,0 +1,79 @@
+{
+    "common": {
+        "name": "vis-homekittiles",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "HomeKit-Tiles",
+        "titleLang": {
+            "en": "HomeKit-Tiles",
+            "de": "HomeKit-Kacheln",
+            "ru": "ГлавнаяKit-Tiles",
+            "pt": "Blocos HomeKit",
+            "nl": "HomeKit-tegels",
+            "fr": "AccueilKit-Carreaux",
+            "it": "HomeKit-Piastrelle",
+            "es": "InicioKit-Azulejos",
+            "pl": "HomeKit-Płytki",
+            "zh-cn": "HomeKit-瓷砖"
+        },
+        "desc": {
+            "en": "VIS widgets in HomeKit style",
+            "de": "VIS-Widgets im HomeKit-Stil",
+            "ru": "Виджеты VIS в стиле HomeKit",
+            "pt": "Widgets VIS no estilo HomeKit",
+            "nl": "VIS-widgets in HomeKit-stijl",
+            "fr": "Widgets VIS dans le style HomeKit",
+            "it": "Widget VIS in stile HomeKit",
+            "es": "Widgets VIS en estilo HomeKit",
+            "pl": "Widżety VIS w stylu HomeKit",
+            "zh-cn": "HomeKit 风格的 VIS 小部件"
+        },
+        "authors": [
+            "Standarduser <github.com@sebastiankoehler.de>"
+        ],
+        "keywords": [
+            "visualization",
+            "vis",
+            "homekit"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "vis-homekittiles.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png",
+        "readme": "https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/README.md",
+        "loglevel": "info",
+        "restartAdapters": [
+            "vis"
+        ],
+        "onlyWWW": true,
+        "noConfig": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "mode": "once",
+        "dependencies": [
+            "vis"
+        ],
+        "globalDependencies": []
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
