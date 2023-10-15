@@ -659,3 +659,173 @@
 @keyframes spin {
 	from { transform:rotate(0deg); } to { transform:rotate(360deg); }
 }
+
+
+
+
+
+
+
+
+/*---------------------------------------------------------------*/
+/* Thermostat-Dialog */
+/* Elemente anordnen */
+.homekitTiles.dialog .content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kopf */
+.homekitTiles.dialog .thermostat.head {
+    width: 100%;
+    text-align: center;
+}
+.homekitTiles.dialog .thermostat.head .actualTemperature {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.homekitTiles.dialog .thermostat.head .actualTemperature .title {
+    display: flex;
+    flex-direction: column;
+}
+.homekitTiles.dialog .thermostat.head .actualTemperature .value {
+    color: white;
+    font-size: 26px;
+}
+
+/* Inhalte */
+.homekitTiles.dialog .thermostat.content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.homekitTiles.dialog .thermostat.content > div {
+    width: 50%;
+}
+.homekitTiles.dialog .thermostat.content .values {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+.homekitTiles.dialog .thermostat.content .values > div {
+    display: flex;
+    flex-direction: column;
+}
+.homekitTiles.dialog .thermostat.content .values > div .title {
+    font-size: 10px;
+}
+.homekitTiles.dialog .thermostat.content .values > div .value {
+    color: white;
+    font-size: 16px;
+}
+.homekitTiles.dialog .thermostat.content .values .lowBat.false {
+    display: none;
+}
+.homekitTiles.dialog .thermostat.content .values .unreach.false {
+    display: none;
+}
+.homekitTiles.dialog .thermostat.content .thermostatSlider {
+    padding-left: 20px;
+    box-sizing: border-box;
+	height: 200px;
+}
+
+/* Der Slider */
+.thermostatSlider {
+    overflow: visible;
+    cursor: pointer;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    /* left: 0; */
+}
+.thermostatSlider .slider-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-left: 30px;
+}
+.thermostatSlider .ui-slider {
+    background: linear-gradient(0deg, rgba(87,0,255,1) 0%, rgba(255,0,131,1) 100%);
+    width: 7px;
+    height: 100%;
+}
+.thermostatSlider .ui-slider .ui-slider-handle {
+    background: none;
+    background-color: #1f1f1f;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 0 50% 50% 50%;
+    box-shadow: 0 0 0 2px #303030, 0 0 0 4px #27292e;
+    transform: rotate(-45deg);
+    left: 14px;
+    margin-bottom: -15.5px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}
+.thermostatSlider .ui-slider .ui-slider-handle:focus-visible {
+    outline-style: none;
+}
+.thermostatSlider .ui-slider .ui-slider-handle:before {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    border-width: 0 7px 7px 7px;
+    border-color: transparent transparent #fff transparent;
+    border-style: solid;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 12px;
+    top: 8px;
+}
+.thermostatSlider .ui-slider .ui-slider-handle:after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    border-width: 0 7px 7px 7px;
+    border-color: transparent transparent #fff transparent;
+    border-style: solid;
+    transform: rotate(225deg);
+    position: absolute;
+    left: 4px;
+    top: 16px;
+}
+.thermostatSlider .ui-slider .ui-slider-handle .value {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    display: block;
+    line-height: 30px;
+    transform: rotate(45deg);
+    top: 44px;
+    left: 21px;
+    text-align: left;
+}
+.thermostatSlider .ui-slider .step-label {
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+    box-shadow: unset !important;
+    color: #999;
+    margin-left: 15px;
+    font-size: 8px;
+    left: -34px;
+}
+.thermostatSlider .ui-slider .step-label:after {
+    content: '';
+    width: 6px;
+    height: 1px;
+    background: #999;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 3px;
+}

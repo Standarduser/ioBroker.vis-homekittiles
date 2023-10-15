@@ -684,6 +684,215 @@ vis.binds["vis-homekittiles"] = {
 			
 		});}
 	},
+
+
+
+
+
+
+
+
+
+
+	
+	//Thermostat slider - thanx @inventwo ;)
+	thermostatSlider: function (el, data, options) {
+		var $this = $(el);
+		var oid = data.oidSetPointTemperature;
+
+		let min = parseFloat(data.temperatureMin);
+		let max = parseFloat(data.temperatureMax);
+		let step = parseFloat(data.temperatureStep);
+
+		if (isNaN(min)) min = 15;
+		if (isNaN(max)) max = 28;
+		if (isNaN(step)) step = 0.5;
+
+		let isDragging = false;
+
+		var settings = $.extend({
+			min: min,
+			max: max,
+			step: step,
+			slide: function (event, ui) {
+				isDragging = true;
+				if (!vis.editMode) {
+					//$this.parent().parent().find(".ui-slider-handle").html(`<span class="value">${ui.value}${data.unitTemperature}</span>`);
+				}
+			},
+			stop: function (event, ui) {
+				isDragging = false;
+				if (!vis.editMode) {
+					vis.setValue(oid, ui.value);
+					//$this.parent().parent().find(".ui-slider-handle").html(`<span class="value">${ui.value}${data.unitTemperature}</span>`);
+				}
+			}
+		}, options);
+
+		$this.slider(settings)
+			.each(function () {
+				
+				// show steps
+				var opt = $(this).data().uiSlider.options;
+
+				// Get the number of possible values
+				let visibleSteps = 1;
+				let vals = (opt.max - opt.min) / visibleSteps;
+
+				// Space out values
+				for (let i = 0; i <= vals; i++) {
+
+					let label = null;
+
+					let val = opt.max - i * visibleSteps;
+					label = $('<span class="step-label">' + val + '</span>')
+						.css('top', (i / vals * 100) + '%')
+					
+					$(this).append(label);
+				}
+			});
+
+		function updateSlider() {
+
+			$this.slider();
+			if (oid == undefined) {
+				return;
+			}
+			let val = vis.states.attr(oid + ".val");
+
+			val = parseFloat(val);
+			if (isNaN(val)) {
+				val = min;
+			}
+			$this.slider("option", "value", val);
+		}
+
+		updateSlider();
+
+		//clean up css classes
+		$this.removeClass('ui-widget');
+		$this.removeClass('ui-widget-content');
+		$this.removeClass('ui-corner-all');
+		$this.find(".ui-slider-handle").removeClass('ui-state-default');
+		$this.find(".ui-slider-handle").removeClass('ui-corner-all');
+
+		//get value on startup
+		let value = vis.states.attr(oid + '.val');
+		//$this.find(".ui-slider-handle").html(`<span class="value">${value}${data.unitTemperature}</span>`);
+		
+		// subscribe on updates of values
+		vis.states.bind(oid + ".val", function (e, newVal, oldVal) {
+			if (!isDragging) { updateSlider(); }
+			//$this.find(".ui-slider-handle").html(`<span class="value">${newVal}${data.unitTemperature}</span>`);
+		});
+	},
+
+
+	//View in widget dialog - copied from jqui to don't force jqui button styles
+	dialogThermostat: function (el, options, persistent, preload) {
+		var $dlg = $(el).parent().find('div.vis-widget-dialog');
+
+		var id = $(el).parent().attr('id');
+		if (id && id.match(/_removed$/)) {
+			return;
+		}
+
+		if (!$dlg.length) {
+			setTimeout(function () {
+				vis.binds['vis-homekittiles'].dialogContainer(el, options, persistent, preload);
+			}, 200);
+			return;
+		}
+
+		options.width     = options.dialog_width;
+		options.height    = options.dialog_height;
+		options.top       = options.dialog_top;
+		options.left      = options.dialog_left;
+		options.minHeight = options.height;
+		options.minWidth  = options.width;
+
+		if (options.height == undefined || options.height == '') {
+			options.height = '340px';
+		}
+		console.log(options.height);
+		console.log(options.width);
+
+		$dlg.dialog($.extend({
+			autoOpen: false,
+			open: function () {
+				$(this).parent().find('.ui-widget-header button .ui-button-text').html('');
+				$(this).parent().css('z-index', 998);
+				//touchscreen fix
+				$dlg.find('.vis-view-container').each(function () {
+					var cview = $(this).attr('data-vis-contains');
+					var $this = this;
+					vis.renderView(cview, cview, false, function (_view) {
+						$('#visview_' + _view)
+								.appendTo($this)
+								.show();
+					});
+				});
+
+				//add and remove classes for styling
+				//main window
+				$(this).parent().addClass('homekitTiles dialog');
+				$(this).parent().removeClass('ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable');
+				//head
+				$(this).parent().find('div.ui-dialog-titlebar').addClass('header').removeClass('ui-widget-header ui-corner-all ui-draggable-handle');
+				//title
+				$(this).parent().find('span.ui-dialog-title').addClass('title').removeClass('ui-dialog-title');
+				//close button
+				$(this).parent().find('button.ui-dialog-titlebar-close').remove();
+				//content
+				$(this).parent().find('div.ui-dialog-content').addClass('content');//.removeClass('vis-widget-dialog ui-widget-content');
+				//resizable
+				$(this).parent().find('div.ui-resizable-handle').remove();
+
+				//set OID on open
+				if (options.setIdOnOpenClose && options.setValueOnOpen) vis.setValue(options.setIdOnOpenClose, options.setValueOnOpen);
+
+				//size window
+				if (options.height)   $(this).css('height', options.height);
+				if (options.width)    $(this).css('width',  options.width);
+
+				//position window
+				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
+				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
+				
+				//scroll content
+				if (options.overflowX) $(this).css('overflow-x', options.overflowX);
+				if (options.overflowY) $(this).css('overflow-y', options.overflowY);
+
+				//arrows
+				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);
+			},
+			close: function () {
+				if ($dlg.data('timer')) {
+					clearTimeout($dlg.data('timer'));
+					$dlg.data('timer', null);
+				}
+				//set OID on close
+				if (options.setIdOnOpenClose && options.setValueOnClose) vis.setValue(options.setIdOnOpenClose, options.setValueOnClose);
+
+				vis.destroyUnusedViews();
+			}
+		}, options));
+
+		if (!vis.editMode) {
+			$(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
+				event.stopPropagation();
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+
+				var $id =  $('#' + $(this).parent().attr('id') + '_dialog');
+				$id.dialog('open');
+				return false;
+			});
+		} else {
+			$(el).parent().find('div.vis-widget-body').show();
+		}
+	},
+
 };
 
 vis.binds["vis-homekittiles"].showVersion();

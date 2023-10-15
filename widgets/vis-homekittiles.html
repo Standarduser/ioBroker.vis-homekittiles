@@ -755,4 +755,97 @@ You can do "if" conditions and "for" cycles.
 			i++;
 		} %>
 	</div>
-</script> 
+</script>
+
+
+
+
+
+
+
+
+<script id="tplHomekittilesThermostatDialog"
+
+		type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="homekittiles"
+		data-vis-update-style="true"
+        data-vis-type="static,dialog"
+        data-vis-name="hkt-Thermostat-Dialog"
+        data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+							<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+								<div class="homekitTiles tile vis-widget-prev-body state-active">
+									<span class="tileValue">22°</span>
+									<label class="labelGroup1">Thermostat-Dialog</label>
+								</div>
+							</div>
+						</div>'
+		data-vis-attrs="description/custom,homekittiles.infoText,hktThermostatDialog;
+						oidActualTemperature/id;
+						oidSetPointTemperature/id;
+						oidHumidity/id;
+						oidActiveProfile/id;
+						oidLowBat/id;
+						oidUnreach/id;
+						oidWindowState/id;
+						unitTemperature[°];
+						unitHumidity[% r.F.];
+						temperatureMin[15];
+						temperatureMax[28];
+						temperatureStep[0.5];
+						showLikeActive[true]/checkbox;"
+		data-vis-attrs0="group.labelGroup1;label[Thermostat-Dialog];label2pre;label2oid/id;label2unit;label2post;"
+		data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label4pre;label4oid/id;label4unit;label4post;label5pre;label5oid/id;label5unit;label5post;"
+		data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+		data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+		data-vis-attrs4="group.dialog;
+		title;
+		closebuttonLabel[Close];
+		actualTemperatureLabel[Actual temperature];
+		setpointTemperatureLabel[Setpoint temperature];
+		actualHumidityLabel[Humidity];
+		activeProfileLabel[Temperature profile];
+		windowStateLable[Window state];
+		lowBatLabel[Battery low];
+		unreachLabel[Unreach]; 
+		autoclose/slider,0,30000,100;modal/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
+>
+	<div class="homekitTiles tile dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+        <div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
+            <span class="tileValue"><%==vis.states.attr(this.data['oidActualTemperature'] + '.val')%><%= this.data.attr('unitTemperature') %></span>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+ 
+        <div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
+
+			<div class="thermostat head">
+				<div class="actualTemperature"><span class="title"><%= this.data.attr('actualTemperatureLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidActualTemperature'] + '.val')%><%= this.data.attr('unitTemperature') %></span></div>
+			</div>
+ 
+			<div class="thermostat content">
+				<div class="values">
+					<div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidSetPointTemperature'] + '.val')%><%= this.data.attr('unitTemperature') %></span></div>
+					<div class="actualHumidity"><span class="title"><%= this.data.attr('actualHumidityLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidHumidity'] + '.val')%><%= this.data.attr('unitHumidity') %></span></div>
+					<div class="activeProfile <%==vis.states.attr(this.data['oidActiveProfile'] + '.val')%>"><span class="title"><%= this.data.attr('activeProfileLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidActiveProfile'] + '.val')%></span></div>
+					<div class="windowState <%==vis.states.attr(this.data['oidWindowState'] + '.val')%>"><span class="title"><%= this.data.attr('windowStateLable') %></span><span class="value"><%==vis.states.attr(this.data['oidWindowState'] + '.val')%></span></div>
+					<div class="lowBat <%==vis.states.attr(this.data['oidLowBat'] + '.val')%>"><span class="title"><%= this.data.attr('lowBatLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidLowBat'] + '.val')%></span></div>
+					<div class="unreach <%==vis.states.attr(this.data['oidUnreach'] + '.val')%>"><span class="title"><%= this.data.attr('unreachLabel') %></span><span class="value"><%==vis.states.attr(this.data['oidUnreach'] + '.val')%></span></div>
+				</div>
+
+				<div class="thermostatSlider">
+					<div class="slider-container">
+						<div class="slider" <%= (el) -> vis.binds['vis-homekittiles'].thermostatSlider(el, data, {orientation:"vertical"}) %>></div>
+					</div>
+				</div>
+			</div>
+
+			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
+        </div>
+
+		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+        <div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
+    </div>
+</script>
