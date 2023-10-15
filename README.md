@@ -41,7 +41,6 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* ViewInWidget-Dialog: Wenn Abmessungen mit Einheit "px" angegeben werden, dann wird der Dialog nicht mittig platziert --> Einheit bei Übergabe entfernen
 * Eigene Signalbilder für Kacheln
 * Dialog-Kachel per Datenpunkt aktiv/inaktiv
 * Mini-mediaplayer
@@ -61,6 +60,7 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) fixed: some corrections on CSS code
 * (Standarduser) fixed: widget description text
+* (Standarduser) fixed: wrong placement if dialog-height had a unit (ViewInWidget-Dialog)
 * (Standarduser) added: variable number of digits at value-tile
 * (Standarduser) added: slider for ViewInWidget-Swipe
 * (Standarduser) added: ability to manipulate values in label-groups

@@ -354,12 +354,14 @@ vis.binds["vis-homekittiles"] = {
 			return;
 		}
 
-		options.width     = options.dialog_width;
-		options.height    = options.dialog_height;
-		options.top       = options.dialog_top;
-		options.left      = options.dialog_left;
+		const regexNumber = /\d+/;
+
+		if (options.dialog_width	!== undefined)	options.width	= options.dialog_width.match(regexNumber);
+		if (options.dialog_height	!== undefined)	options.height	= options.dialog_height.match(regexNumber);
+		if (options.dialog_top		!== undefined)	options.top		= options.dialog_top.match(regexNumber);
+		if (options.dialog_left		!== undefined)	options.left	= options.dialog_left.match(regexNumber);
 		options.minHeight = options.height;
-		options.minWidth  = options.width;
+		options.minWidth = options.width;
 
 		$dlg.dialog($.extend({
 			autoOpen: false,
