@@ -11,57 +11,78 @@ $.extend(
 	true,
 	systemDictionary,
 	{
-		"description":          		{   "en": "Description",        		"de": "Beschreibung"					},
-		"group_labelGroup1":    		{   "en": "Label group 1",      		"de": "Beschriftungsgruppe 1"			},
-		"group_labelGroup2":    		{   "en": "Label group 2",      		"de": "Beschriftungsgruppe 2"			},
-		"icon":                			{   "en": "Icon",              			"de": "Icon"							},
+		"description":					{	"en": "Description",				"de": "Beschreibung"					},
+		"group_labelGroup1":			{	"en": "Label group 1",				"de": "Beschriftungsgruppe 1"			},
+		"group_labelGroup2":			{	"en": "Label group 2",				"de": "Beschriftungsgruppe 2"			},
+		"icon":							{	"en": "Icon",						"de": "Icon"							},
 		"iconRound":					{	"en": "Show round icon",			"de": "Zeige rundes Icon"				},
-		"unit":                			{   "en": "Unit",              			"de": "Einheit"							},
-		"showLikeActive":               {   "en": "Show like active",  			"de": "Als aktiv anzeigen"				},
+		"unit":							{	"en": "Unit",						"de": "Einheit"							},
+		"showLikeActive":				{	"en": "Show like active",			"de": "Als aktiv anzeigen"				},
+
+		"decimals":						{	"en": "Decimals",					"de": "Nachkommastellen"				},
+		"factor":						{	"en": "Multiplicator",				"de": "Multiplikator"					},
+		"comma":						{	"en": "Comma as separator",			"de": "Komma als Trennzeichen"			},
+		"tdp":							{	"en": "Thousends separator",		"de": "Tausendertrennzeichen"			},
 		
 		"numberOfViews":				{	"en": "Number of views",			"de": "Anzahl der Views"				},
 		"numberOfButtons":				{	"en": "Number of buttons",			"de": "Anzahl der Schaltflächen"		},
-		"directionHorizontal":			{   "en": "Horizontal orientation",		"de": "Horizontale Ausrichtung"			},
-		"setIdOnOpenClose":				{   "en": "OID to set on open/close",	"de": "Beim Öffnen/Schließen OID setzen"},
-		"setValueOnOpen":				{   "en": "Value on open",				"de": "Wert bei Öffnen"					},
-		"setValueOnClose":				{   "en": "Value on close",				"de": "Wert bei Schließen"				},
-		"arrowDirection":				{   "en": "Show arrow on dialog",		"de": "Pfeil am Dialog anzeigen"		},
-		"dialogWidgetId":				{   "en": "Dialog widget ID",			"de": "Dialog-Widget-ID"				},
+		"directionHorizontal":			{	"en": "Horizontal orientation",		"de": "Horizontale Ausrichtung"			},
+		"setIdOnOpenClose":				{	"en": "OID to set on open/close",	"de": "Beim Öffnen/Schließen OID setzen"},
+		"setValueOnOpen":				{	"en": "Value on open",				"de": "Wert bei Öffnen"					},
+		"setValueOnClose":				{	"en": "Value on close",				"de": "Wert bei Schließen"				},
+		"arrowDirection":				{	"en": "Show arrow on dialog",		"de": "Pfeil am Dialog anzeigen"		},
+		"dialogWidgetId":				{	"en": "Dialog widget ID",			"de": "Dialog-Widget-ID"				},
 		
-		"label":                		{   "en": "Label",              		"de": "Beschriftung"					},
-		"label_":                		{   "en": "Label ",              		"de": "Beschriftung "					},
+		"label":						{   "en": "Label",						"de": "Beschriftung"					},
+		"label_":						{   "en": "Label ",						"de": "Beschriftung "					},
 
-		"label2pre":            		{   "en": "Label 2 text start", 		"de": "Beschriftung 2 Text Anfang"  	},
-		"label2oid":            		{   "en": "Label 2 OID",        		"de": "Beschriftung 2 OID"          	},
-		"label2unit":           		{   "en": "Label 2 unit",       		"de": "Beschriftung 2 Einheit"      	},
-		"label2post":           		{   "en": "Label 2 text end",   		"de": "Beschriftung 2 Text Ende"    	},
-		"label3pre":            		{   "en": "Label 3 text start", 		"de": "Beschriftung 3 Text Anfang"  	},
-		"label3oid":            		{   "en": "Label 3 OID",        		"de": "Beschriftung 3 OID"          	},
-		"label3unit":           		{   "en": "Label 3 unit",       		"de": "Beschriftung 3 Einheit"      	},
-		"label3post":           		{   "en": "Label 3 text end",   		"de": "Beschriftung 3 Text Ende"    	},
-		"label4pre":            		{   "en": "Label 4 text start", 		"de": "Beschriftung 4 Text Anfang"  	},
-		"label4oid":            		{   "en": "Label 4 OID",        		"de": "Beschriftung 4 OID"          	},
-		"label4unit":           		{   "en": "Label 4 unit",       		"de": "Beschriftung 4 Einheit"      	},
-		"label4post":           		{   "en": "Label 4 text end",   		"de": "Beschriftung 4 Text Ende"    	},
-		"label5pre":            		{   "en": "Label 5 text start", 		"de": "Beschriftung 5 Text Anfang"  	},
-		"label5oid":            		{   "en": "Label 5 OID",        		"de": "Beschriftung 5 OID"          	},
-		"label5unit":           		{   "en": "Label 5 unit",       		"de": "Beschriftung 5 Einheit"      	},
-		"label5post":           		{   "en": "Label 5 text end",   		"de": "Beschriftung 5 Text Ende"    	},
+		"label2pre":					{	"en": "Label 2 text start",			"de": "Beschriftung 2 Text Anfang"		},
+		"label2oid":					{	"en": "Label 2 OID",				"de": "Beschriftung 2 OID"				},
+		"label2unit":					{	"en": "Label 2 unit",				"de": "Beschriftung 2 Einheit"			},
+		"label2post":					{	"en": "Label 2 text end",			"de": "Beschriftung 2 Text Ende"		},
+		"label2decimals":				{	"en": "Label 2 Decimals",			"de": "Beschriftung 2 Nachkommastellen"	},
+		"label2factor":					{	"en": "Label 2 Multiplicator",		"de": "Beschriftung 2 Multiplikator"	},
+		"label2comma":					{	"en": "Label 2 Comma as separator",	"de": "Beschriftung 2 Komma als Trennz."},
+		"label2tdp":					{	"en": "Label 2 Thousends sep.",		"de": "Beschriftung 2 Tausendertrennz."	},
+		"label3pre":					{	"en": "Label 3 text start",			"de": "Beschriftung 3 Text Anfang"		},
+		"label3oid":					{	"en": "Label 3 OID",				"de": "Beschriftung 3 OID"				},
+		"label3unit":					{	"en": "Label 3 unit",				"de": "Beschriftung 3 Einheit"			},
+		"label3post":					{	"en": "Label 3 text end",			"de": "Beschriftung 3 Text Ende"		},
+		"label3decimals":				{	"en": "Label 3 Decimals",			"de": "Beschriftung 3 Nachkommastellen"	},
+		"label3factor":					{	"en": "Label 3 Multiplicator",		"de": "Beschriftung 3 Multiplikator"	},
+		"label3comma":					{	"en": "Label 3 Comma as separator",	"de": "Beschriftung 3 Komma als Trennz."},
+		"label3tdp":					{	"en": "Label 3 Thousends sep.",		"de": "Beschriftung 3 Tausendertrennz."	},
+		"label4pre":					{	"en": "Label 4 text start",			"de": "Beschriftung 4 Text Anfang"		},
+		"label4oid":					{	"en": "Label 4 OID",				"de": "Beschriftung 4 OID"				},
+		"label4unit":					{	"en": "Label 4 unit",				"de": "Beschriftung 4 Einheit"			},
+		"label4post":					{	"en": "Label 4 text end",			"de": "Beschriftung 4 Text Ende"		},
+		"label4decimals":				{	"en": "Label 4 Decimals",			"de": "Beschriftung 4 Nachkommastellen"	},
+		"label4factor":					{	"en": "Label 4 Multiplicator",		"de": "Beschriftung 4 Multiplikator"	},
+		"label4comma":					{	"en": "Label 4 Comma as separator",	"de": "Beschriftung 4 Komma als Trennz."},
+		"label4tdp":					{	"en": "Label 4 Thousends sep.",		"de": "Beschriftung 4 Tausendertrennz."	},
+		"label5pre":					{	"en": "Label 5 text start",			"de": "Beschriftung 5 Text Anfang"		},
+		"label5oid":					{	"en": "Label 5 OID",				"de": "Beschriftung 5 OID"				},
+		"label5unit":					{	"en": "Label 5 unit",				"de": "Beschriftung 5 Einheit"			},
+		"label5post":					{	"en": "Label 5 text end",			"de": "Beschriftung 5 Text Ende"		},
+		"label5decimals":				{	"en": "Label 5 Decimals",			"de": "Beschriftung 5 Nachkommastellen"	},
+		"label5factor":					{	"en": "Label 5 Multiplicator",		"de": "Beschriftung 5 Multiplikator"	},
+		"label5comma":					{	"en": "Label 5 Comma as separator",	"de": "Beschriftung 5 Komma als Trennz."},
+		"label5tdp":					{	"en": "Label 5 Thousends sep.",		"de": "Beschriftung 5 Tausendertrennz."	},
 
 		"group_blockOperation":			{	"en": "Block operation",			"de": "Bedienung sperren"				},
-		"blockOperationIfTrue": 		{   "en": "Block operation if true",	"de": "Bedienung bei true sperren"		},
-		"blockOperationIfFalse":		{   "en": "Block operation if false",	"de": "Bedienung bei false sperren"		},
-		"blockOperationShowIcon":		{   "en": "Show icon if blocked",		"de": "Icon anzeigen wenn gesperrt"		},
-		"blockOperationIcon":			{   "en": "Icon if blocked",			"de": "Icon wenn gesperrt"				},
+		"blockOperationIfTrue": 		{	"en": "Block operation if true",	"de": "Bedienung bei true sperren"		},
+		"blockOperationIfFalse":		{	"en": "Block operation if false",	"de": "Bedienung bei false sperren"		},
+		"blockOperationShowIcon":		{	"en": "Show icon if blocked",		"de": "Icon anzeigen wenn gesperrt"		},
+		"blockOperationIcon":			{	"en": "Icon if blocked",			"de": "Icon wenn gesperrt"				},
 		"blockOperationIconNotInEditor":{	"en": "Don't show icon in editor",	"de": "Icon im Editor nicht anzeigen"	},
-		"blockOperationUseDifferentOID":{   "en": "Use different OID",			"de": "Verwende andere OID"				},
+		"blockOperationUseDifferentOID":{	"en": "Use different OID",			"de": "Verwende andere OID"				},
 		"blockOperationOID":			{	"en": "OID for block operation",	"de": "OID für Bedienung sperren"		},
 
 		"group_acknowledge":			{	"en": "Acknowledged change",		"de": "Bestätigte Änderung"				},
-		"ackShowIcon": 					{   "en": "Show icon for ack",			"de": "Icon für Bestätigung anzeigen"	},
-		"ackIcon":						{   "en": "Icon for ack",				"de": "Icon für Bestätigung"			},
-		"ackUseSpin":					{   "en": "Spin icon",					"de": "Icon drehen lassen"				},
-		"ackInvertFunction":			{   "en": "Invert function",			"de": "Funktion invertieren"			},
+		"ackShowIcon": 					{	"en": "Show icon for ack",			"de": "Icon für Bestätigung anzeigen"	},
+		"ackIcon":						{	"en": "Icon for ack",				"de": "Icon für Bestätigung"			},
+		"ackUseSpin":					{	"en": "Spin icon",					"de": "Icon drehen lassen"				},
+		"ackInvertFunction":			{	"en": "Invert function",			"de": "Funktion invertieren"			},
 		"ackIconNotInEditor":			{	"en": "Don't show icon in editor",	"de": "Icon im Editor nicht anzeigen"	},
 
 		"group_increment":				{	"en": "Increment value",			"de": "Wert inkrementieren"				},
@@ -498,6 +519,25 @@ vis.binds["vis-homekittiles"] = {
 			});
 		}
 	},
+	//Format values if type is float
+	formatValue: function (val, decimals, factor, comma, tdp) {
+
+		//value is a number or float
+		if (!isNaN(parseFloat(val))) {
+			val = parseFloat(val);
+
+			if (factor !== undefined && factor !== '') val = val * parseFloat(factor);
+			if (decimals !== undefined && decimals !== '') val = val.toFixed(parseFloat(decimals, 10));
+
+			if (tdp) {
+				val = vis.binds.basic.formatValue(val, decimals ? parseInt(decimals) : 2, comma ? ".," : ",.");
+			} else if (comma) {
+				val = '' + val;
+				val = val.replace('.', ',');
+			}
+		}
+		return val;
+	},
 	
 	//Add elements to widgets 
 	addButtonIcon: function (el, data) {
@@ -512,10 +552,12 @@ vis.binds["vis-homekittiles"] = {
 		var $this = $(el);
 		var html = '';
 		
+		var val2 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label2oid + '.val'), data.label2digits, data.label2factor, data.label2comma, data.label2tdp);
+
 		if (data.label)      html += `<span class="label">${data.label}</span>`;
 		if (data.label2pre !== undefined || data.label2oid !== undefined || data.label2unit !== undefined || data.label2post !== undefined) html += `<br>`;
 		if (data.label2pre)  html += `<span class="label2pre">${data.label2pre} </span>`;
-		if (data.label2oid)  html += `<span class="label2value">${vis.states.attr(data.label2oid + '.val')}</span>`;
+		if (data.label2oid)  html += `<span class="label2value">${val2}</span>`;
 		if (data.label2unit) html += `<span class="label2unit">${data.label2unit}</span>`;
 		if (data.label2post) html += `<span class="label2post"> ${data.label2post}</span>`;
 		
@@ -528,18 +570,22 @@ vis.binds["vis-homekittiles"] = {
 		var $this = $(el);
 		var html = '';
 
+		var val3 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label3oid + '.val'), data.label3digits, data.label3factor, data.label3comma, data.label3tdp);
+		var val4 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label4oid + '.val'), data.label4digits, data.label4factor, data.label4comma, data.label4tdp);
+		var val5 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label5oid + '.val'), data.label5digits, data.label5factor, data.label5comma, data.label5tdp);
+
 		if (data.label3pre)  html += `<span class="label3pre">${data.label3pre} </span>`;
-		if (data.label3oid)  html += `<span class="label3value">${vis.states.attr(data.label3oid + '.val')}</span>`;
+		if (data.label3oid)  html += `<span class="label3value">${val3}</span>`;
 		if (data.label3unit) html += `<span class="label2unit">${data.label3unit}</span>`;
 		if (data.label3post) html += `<span class="label3post"> ${data.label3post}</span>`;
 		if (data.label4pre !== undefined || data.label4oid !== undefined || data.label4unit !== undefined || data.label4post !== undefined) html += `<br>`;
 		if (data.label4pre)  html += `<span class="label4pre">${data.label4pre} </span>`;
-		if (data.label4oid)  html += `<span class="label4value">${vis.states.attr(data.label4oid + '.val')}</span>`;
+		if (data.label4oid)  html += `<span class="label4value">${val4}</span>`;
 		if (data.label4unit) html += `<span class="label4unit">${data.label4unit}</span>`;
 		if (data.label4post) html += `<span class="label4post"> ${data.label4post}</span>`;
 		if (data.label5pre !== undefined || data.label5oid !== undefined || data.label5unit !== undefined || data.label5post !== undefined) html += `<br>`;
 		if (data.label5pre)  html += `<span class="label5pre">${data.label5pre} </span>`;
-		if (data.label5oid)  html += `<span class="label5value">${vis.states.attr(data.label5oid + '.val')}</span>`;
+		if (data.label5oid)  html += `<span class="label5value">${val5}</span>`;
 		if (data.label5unit) html += `<span class="label5unit">${data.label5unit}</span>`;
 		if (data.label5post) html += `<span class="label5post"> ${data.label5post}</span>`;
 

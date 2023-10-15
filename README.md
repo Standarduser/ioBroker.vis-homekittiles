@@ -42,9 +42,6 @@ The widgets are designed for VIS 1.x.
 ## Things to do
 
 * ViewInWidget-Dialog: Wenn Abmessungen mit Einheit "px" angegeben werden, dann wird der Dialog nicht mittig platziert --> Einheit bei Übergabe entfernen
-* Value-Widget: Wert runden/Anzahl der Kommastellen variabel
-* ViewInWidget-Swipe: Beschreibung hinzufügen
-* ViewInWidget-Swipe: Slider für Auswahl der Anzahl hinzufügen
 * Eigene Signalbilder für Kacheln
 * Dialog-Kachel per Datenpunkt aktiv/inaktiv
 * Mini-mediaplayer
@@ -62,7 +59,11 @@ The widgets are designed for VIS 1.x.
 
 ### **WORK IN PROGRESS**
 
-* (Standarduser) some corrections on CSS code
+* (Standarduser) fixed: some corrections on CSS code
+* (Standarduser) fixed: widget description text
+* (Standarduser) added: variable number of digits at value-tile
+* (Standarduser) added: slider for ViewInWidget-Swipe
+* (Standarduser) added: ability to manipulate values in label-groups
 
 ### 0.0.2 (2023-10-14)
 
