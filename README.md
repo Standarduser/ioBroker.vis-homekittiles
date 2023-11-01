@@ -61,6 +61,7 @@ The widgets are designed for VIS 1.x.
 * (Standarduser) fixed: some corrections on CSS code
 * (Standarduser) fixed: widget description text
 * (Standarduser) fixed: wrong placement if dialog-height had a unit (ViewInWidget-Dialog)
+* (Standarduser) fixed: increment buttons on tiles were working insuficient
 * (Standarduser) added: variable number of digits at value-tile
 * (Standarduser) added: slider for ViewInWidget-Swipe
 * (Standarduser) added: ability to manipulate values in label-groups

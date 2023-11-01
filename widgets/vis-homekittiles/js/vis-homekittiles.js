@@ -631,14 +631,14 @@ vis.binds["vis-homekittiles"] = {
 		}
 
 		//add incrementbuttons on startup
-		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states.attr(data.oid + '.val')) {
+		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states.attr(data.incrementOid + '.val')) {
 			showHideIncrement(true);
 		} else {
 			showHideIncrement(false);
 		}
 
 		// subscribe on updates of values
-		if (data.oid) { vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
 			if (data.incrementShowOnlyIfTrue) showHideIncrement(newVal);
 		});}
 	},
@@ -662,7 +662,6 @@ vis.binds["vis-homekittiles"] = {
 
 			$this.html(html);
 		}
-
 
 		//get value for blocked on startup
 		var currentState = false;
@@ -711,7 +710,7 @@ vis.binds["vis-homekittiles"] = {
 			$this.html(html);
 		}
 
-		//add incrementbuttons on startup
+		//add ack icon on startup
 		if (
 			(data.ackShowIcon && !vis.editMode && !data.ackInvertFunction && !vis.states.attr(data.oid + '.ack')) || 
 			(data.ackShowIcon && !vis.editMode && data.ackInvertFunction && vis.states.attr(data.oid + '.ack')) || 
