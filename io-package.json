@@ -1,81 +1,94 @@
 {
-    "common": {
-        "name": "vis-homekittiles",
-        "version": "0.0.2",
-        "news": {
-            "0.0.2": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版",
-                "uk": "початковий випуск"
-            }
-        },
-        "titleLang": {
-            "en": "HomeKit-Tiles",
-            "de": "HomeKit-Kacheln",
-            "ru": "ГлавнаяKit-Tiles",
-            "pt": "Blocos HomeKit",
-            "nl": "HomeKit-tegels",
-            "fr": "AccueilKit-Carreaux",
-            "it": "HomeKit-Piastrelle",
-            "es": "InicioKit-Azulejos",
-            "pl": "HomeKit-Płytki",
-            "zh-cn": "HomeKit-瓷砖",
-            "uk": "HomeKit-Tiles"
-        },
-        "desc": {
-            "en": "VIS widgets in HomeKit style",
-            "de": "VIS-Widgets im HomeKit-Stil",
-            "ru": "Виджеты VIS в стиле HomeKit",
-            "pt": "Widgets VIS no estilo HomeKit",
-            "nl": "VIS-widgets in HomeKit-stijl",
-            "fr": "Widgets VIS dans le style HomeKit",
-            "it": "Widget VIS in stile HomeKit",
-            "es": "Widgets VIS en estilo HomeKit",
-            "pl": "Widżety VIS w stylu HomeKit",
-            "zh-cn": "HomeKit 风格的 VIS 小部件",
-            "uk": "Віджети VIS у стилі HomeKit"
-        },
-        "authors": [
-            "Standarduser <github.com@sebastiankoehler.de>"
-        ],
-        "keywords": [
-            "visualization",
-            "vis",
-            "homekit"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "vis-homekittiles.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png",
-        "readme": "https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/README.md",
-        "loglevel": "info",
-        "restartAdapters": [
-            "vis"
-        ],
-        "onlyWWW": true,
-        "noConfig": true,
-        "adminUI": {
-            "config": "none"
-        },
-        "singleton": true,
-        "type": "visualization-widgets",
-        "mode": "none",
-        "dependencies": [
-            "vis"
-        ],
-        "globalDependencies": []
+  "common": {
+    "name": "vis-homekittiles",
+    "version": "0.0.3",
+    "news": {
+      "0.0.3": {
+        "en": "fixed: some corrections on CSS code\nfixed: widget description text\nfixed: wrong placement if dialog-height had a unit (ViewInWidget-Dialog)\nfixed: increment buttons on tiles were working insuficient\nadded: variable number of digits at value-tile\nadded: slider for ViewInWidget-Swipe\nadded: ability to manipulate values in label-groups",
+        "de": "behoben: einige Korrekturen auf CSS-Code\nfixiert: widget beschreibung text\nbehoben: falsche Platzierung, wenn Dialoghöhe eine Einheit hatte (ViewInWidget-Dialog)\nfix: inkremental-tasten auf fliesen funktionierte zu wenig\nadd: variable anzahl von ziffern an wert-fliese\nzusätzlich: Schieberegler für ViewInWidget-Swipe\nzusätzlich: fähigkeit, werte in label-gruppen zu manipulieren",
+        "ru": "исправлено: некоторые исправления по CSS-коду\nисправлено: текст описания виджета\nисправлено: неправильное размещение, если диалог-высота имела блок (ViewInWidget-Dialog)\nисправлено: кнопок на черепицах работали неуверенным\nдобавлено: переменное число цифр на value-tile\nдобавлено: слайдер для ViewInWidget-Swipe\nдобавлено: возможность манипулировать значениями в ярлык-группах",
+        "pt": "corrigido: algumas correções no código CSS\ncorrigido: texto de descrição do widget\ncorrigido: posicionamento errado se a altura do diálogo tivesse uma unidade (ViewInWidget-Dialog)\nfixo: botões de incremento em telhas estavam trabalhando insuficientes\nadicionado: número variável de dígitos no valor-tile\nadicionado: controle deslizante para ViewInWidget-Swipe\nadicionado: capacidade de manipular valores em rótulo-grupos",
+        "nl": "vertaling:\nvertaling:\nverkeerde plaats als dialog-height eenheid had (Viewidget-Dialog)\nverhoogde knoppen op tegels werkten onvoldoende\nvertaling:\nvertaling:\nvermogen om waarden te manipuleren in labelgroups",
+        "fr": "corrigé: certaines corrections sur le code CSS\ncorrigé: texte de description widget\nfixe: mauvais emplacement si la boîte de dialogue avait une unité (ViewInWidget-Dialog)\nfixe: les boutons d'incrément sur les carreaux fonctionnaient insuficient\najouté: nombre variable de chiffres à valeur-tile\najouté: slider pour ViewInWidget-Swipe\najouté: capacité de manipuler des valeurs dans les groupes d'étiquettes",
+        "it": "fisso: alcune correzioni sul codice CSS\nfisso: testo descrizione widget\nfisso: posizionamento sbagliato se la finestra di dialogo aveva un'unità (ViewInWidget-Dialog)\nfisso: i pulsanti di incremento delle piastrelle stavano lavorando insuficiente\naggiunto: numero variabile di cifre a valore-tile\naggiunto: cursore per ViewInWidget-Swipe\naggiunto: capacità di manipolare i valori nei gruppi di etichette",
+        "es": "fijo: algunas correcciones en el código CSS\nfijo: widget descripción texto\nfijo: colocación incorrecta si la altura de diálogo tenía una unidad (ViewInWidget-Dialog)\nfijo: botones de aumento en los azulejos estaban funcionando insuficiente\nañadido: número variable de dígitos a valor-til\nañadido: slider for ViewInWidget-Swipe\nañadido: capacidad para manipular valores en grupos de etiquetas",
+        "pl": "stosowane: niektóre poprawki kodu CSS\ntekst widget\nustalono: nieprawidłowe miejsce, jeśli dialog ma jednostką (ViewInWidget-Dialog)\nuruchomiono: przyciski na płytkach pracują bezskutecznie\ndodawanie: liczba zmienna cyfr na wartości-tile\ndostęp do programu ViewInWidget-Swipe\ndodał: umiejętność manipulowania wartościami w grupach labelowych",
+        "uk": "виправлено: деякі виправлення на CSS-коді\nвиправлено: віджети опис тексту\nвиправлено: неправильне розміщення, якщо діалогове вікно мав блок (ViewInWidget-Dialog)\nфіксовані: кнопки підведення на плитці працювали невизнаними\nдоданий: змінна кількість цифр за значенням-тилією\nдоданий: слайдер для ViewInWidget-Swipe\nдодано: можливість маніпулювати значеннями в мітках-групах",
+        "zh-cn": "固定:CSS守则的一些更正\n固定:目标说明案文\n固定:如果口号有一股股(ViewInWidget-Dialog)的错误安置。\n固定:在肥沃的增减厂正在缺乏能力。\n增 编:以数值计的数\n增加:ViewInWidget-Swipe\n增加:在标签集团中使用价值观的能力"
+      },
+      "0.0.2": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版",
+        "uk": "початковий випуск"
+      }
     },
-    "native": {},
-    "objects": [],
-    "instanceObjects": []
+    "titleLang": {
+      "en": "HomeKit-Tiles",
+      "de": "HomeKit-Kacheln",
+      "ru": "ГлавнаяKit-Tiles",
+      "pt": "Blocos HomeKit",
+      "nl": "HomeKit-tegels",
+      "fr": "AccueilKit-Carreaux",
+      "it": "HomeKit-Piastrelle",
+      "es": "InicioKit-Azulejos",
+      "pl": "HomeKit-Płytki",
+      "zh-cn": "HomeKit-瓷砖",
+      "uk": "HomeKit-Tiles"
+    },
+    "desc": {
+      "en": "VIS widgets in HomeKit style",
+      "de": "VIS-Widgets im HomeKit-Stil",
+      "ru": "Виджеты VIS в стиле HomeKit",
+      "pt": "Widgets VIS no estilo HomeKit",
+      "nl": "VIS-widgets in HomeKit-stijl",
+      "fr": "Widgets VIS dans le style HomeKit",
+      "it": "Widget VIS in stile HomeKit",
+      "es": "Widgets VIS en estilo HomeKit",
+      "pl": "Widżety VIS w stylu HomeKit",
+      "zh-cn": "HomeKit 风格的 VIS 小部件",
+      "uk": "Віджети VIS у стилі HomeKit"
+    },
+    "authors": [
+      "Standarduser <github.com@sebastiankoehler.de>"
+    ],
+    "keywords": [
+      "visualization",
+      "vis",
+      "homekit"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "vis-homekittiles.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png",
+    "readme": "https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/README.md",
+    "loglevel": "info",
+    "restartAdapters": [
+      "vis"
+    ],
+    "onlyWWW": true,
+    "noConfig": true,
+    "adminUI": {
+      "config": "none"
+    },
+    "singleton": true,
+    "type": "visualization-widgets",
+    "mode": "none",
+    "dependencies": [
+      "vis"
+    ],
+    "globalDependencies": []
+  },
+  "native": {},
+  "objects": [],
+  "instanceObjects": []
 }
