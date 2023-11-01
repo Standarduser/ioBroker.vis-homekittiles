@@ -42,7 +42,7 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.0.3 (2023-11-01)
+### **WORK IN PROGRESS**
 
 * (Standarduser) fixed: some corrections on CSS code
 * (Standarduser) fixed: widget description text
