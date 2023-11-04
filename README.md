@@ -28,6 +28,7 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
+* Repair increment
 * Own signal pcitures for tiles
 * Dialog tile set active by state
 * Mini-mediaplayer
@@ -42,6 +43,12 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Standarduser) fixed: adjustment of decimals in labelgroup 1 & 2
+* (Standarduser) fixed: readme
+* (Standarduser) not fixed: increment not working properbly
+
 ### 0.0.4 (2023-11-01)
 
 * (Standarduser) fixed: some corrections on CSS code

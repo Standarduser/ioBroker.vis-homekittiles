@@ -554,7 +554,7 @@ vis.binds["vis-homekittiles"] = {
 		var $this = $(el);
 		var html = '';
 		
-		var val2 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label2oid + '.val'), data.label2digits, data.label2factor, data.label2comma, data.label2tdp);
+		var val2 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label2oid + '.val'), data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
 
 		if (data.label)      html += `<span class="label">${data.label}</span>`;
 		if (data.label2pre !== undefined || data.label2oid !== undefined || data.label2unit !== undefined || data.label2post !== undefined) html += `<br>`;
@@ -572,9 +572,9 @@ vis.binds["vis-homekittiles"] = {
 		var $this = $(el);
 		var html = '';
 
-		var val3 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label3oid + '.val'), data.label3digits, data.label3factor, data.label3comma, data.label3tdp);
-		var val4 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label4oid + '.val'), data.label4digits, data.label4factor, data.label4comma, data.label4tdp);
-		var val5 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label5oid + '.val'), data.label5digits, data.label5factor, data.label5comma, data.label5tdp);
+		var val3 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label3oid + '.val'), data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
+		var val4 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label4oid + '.val'), data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
+		var val5 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label5oid + '.val'), data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
 
 		if (data.label3pre)  html += `<span class="label3pre">${data.label3pre} </span>`;
 		if (data.label3oid)  html += `<span class="label3value">${val3}</span>`;
@@ -604,25 +604,26 @@ vis.binds["vis-homekittiles"] = {
 		
 		function showHideIncrement(show) {
 			if (show) {
+				let value = vis.states[data.incrementOid + '.val'];
 				if (data.incrementPlusShow || data.incrementMinusShow) {
 
 					if (data.incrementPlusShow) {
 						html += `<div class="incrementPlus"`;
 						html += `data-oid="${data.incrementOid}"`;
 						html += `data-vis-step="${data.incrementPlusValue}"`;
-						html += `data-val="${data.incrementOid}"`;
+						html += `data-val="${value}"`;
 						html += `>+</div>`;
 					}
 					if (data.incrementMinusShow) {
 						html += `<div class="incrementMinus"`;
 						html += `data-oid="${data.incrementOid}"`;
 						html += `data-vis-step="${data.incrementMinusValue}"`;
-						html += `data-val="${data.incrementOid}"`;
+						html += `data-val="${value}"`;
 						html += `>-</div>`;
 					}
 					$this.html(html);
-					vis.binds.basic.increment($this.parent().find('.incrementPlus'), data.incrementValueMax);
-					vis.binds.basic.increment($this.parent().find('.incrementMinus'), data.incrementValueMin);
+					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementPlus'), data.incrementValueMax);
+					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementMinus'), data.incrementValueMin);
 				}
 			} else {
 				html = '';
@@ -631,17 +632,140 @@ vis.binds["vis-homekittiles"] = {
 		}
 
 		//add incrementbuttons on startup
-		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states.attr(data.incrementOid + '.val')) {
+		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states[data.oid + '.val']) {
 			showHideIncrement(true);
 		} else {
 			showHideIncrement(false);
 		}
 
 		// subscribe on updates of values
-		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
+		if (data.oid) { vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
 			if (data.incrementShowOnlyIfTrue) showHideIncrement(newVal);
 		});}
+		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
+			showHideIncrement(true);
+		});}
 	},
+
+
+
+
+
+
+	increment: function (el, minmax, delay, interval) {
+
+		function fInterval($that) {
+			vis.binds.basic.pressedNext = true;
+			vis.binds.basic.pressed = null;
+			var oid = $that.attr('data-oid');
+			if (!vis.editMode) {
+				var step = parseFloat($that.attr('data-vis-step'));
+				var tmp  = parseFloat(vis.states[oid + '.val']) + step;
+				if (step < 0) {
+					if (tmp >= minmax) {
+						vis.setValue($that.attr('data-oid'), tmp);
+						vis.binds.basic.pressed = _setTimeout(fInterval, interval, $that);
+					}
+				} else {
+					if (tmp <= minmax) {
+						vis.setValue($that.attr('data-oid'), tmp);
+						vis.binds.basic.pressed = _setTimeout(fInterval, interval, $that);
+					}
+				}
+			}
+		}
+
+		function intervalStart(e) {
+			vis.binds.basic.pressedNext = false;
+			var $this = $(this);
+			var oid = $this.attr('data-oid');
+
+			if (vis.binds.basic.pressed) {
+				clearInterval(vis.binds.basic.pressed);
+				vis.binds.basic.pressed = null;
+			}
+
+			vis.binds.basic.pressed = setTimeout(fInterval, delay, $this);
+		}
+
+		if (!vis.editMode) {
+			var moved = false;
+			$(el).on('click touchend', function (e) {
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+
+				if (moved) return;
+
+				if (vis.binds.basic.pressed) {
+					clearInterval(vis.binds.basic.pressed);
+					vis.binds.basic.pressed = null;
+				}
+
+				if (vis.binds.basic.pressedNext) {
+					vis.binds.basic.pressedNext = false;
+					return;
+				}
+				var $this = $(this);
+				var oid = $this.attr('data-oid');
+				var step = parseFloat($this.attr('data-vis-step'));
+				var tmp  = parseFloat(vis.states[oid + '.val']) + step;
+				if (step < 0) {
+					if (minmax === undefined || tmp >= minmax) {
+						vis.setValue($this.attr('data-oid'), tmp);
+					}
+				} else {
+					if (minmax === undefined || tmp <= minmax) {
+						vis.setValue($this.attr('data-oid'), tmp);
+					}
+				}
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
+			});
+		}
+
+		if (interval) {
+			$(el).on('mousedown', intervalStart)
+				.on('touchstart', intervalStart)
+				.on('touchend', function () {
+					if (vis.binds.basic.pressed) {
+						clearInterval(vis.binds.basic.pressed);
+						vis.binds.basic.pressed = null;
+					}
+				})
+				.on('mouseup', function () {
+					if (vis.binds.basic.pressed) {
+						clearInterval(vis.binds.basic.pressed);
+						vis.binds.basic.pressed = null;
+					}
+				}).data('destroy', function (id, $widget) {
+				$widget && $widget.off('mousedown').off('touchstart').off('touchend').off('mouseup');
+			});
+		}
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	addBlockOperation: function (el, data) {
 		var $this = $(el);
 		var html = '';

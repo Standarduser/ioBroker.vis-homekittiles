@@ -1,6 +1,6 @@
 # ioBroker.vis-homekittiles
 
-<img src="doc/img/title-pic_hkt-on-ipad.png" />
+<img src="img/title-pic_hkt-on-ipad.png" />
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)](https://www.npmjs.com/package/iobroker.vis-homekittiles)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-homekittiles.svg)](https://www.npmjs.com/package/iobroker.vis-homekittiles)
