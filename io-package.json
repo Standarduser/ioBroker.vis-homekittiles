@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "news": {
+      "0.0.5": {
+        "en": "fixed: adjustment of decimals in labelgroup 1 & 2\nfixed: readme\nnot fixed: increment not working properbly",
+        "de": "fest: anpassung der dezimals in der labelgruppe 1 & 2\nfixiert: readme\nnicht fixiert: inkrement nicht ordnungsgemäß arbeiten",
+        "ru": "исправлена: настройка десятичных приборов в labelgroup 1 & 2\nисправлено: readme\nне исправлено: инкремент не работает надлежащим образом",
+        "pt": "fixo: ajustamento dos decimais no rótulogrupo 1 & 2\ncorrigido: readme\nnão fixo: incremento não funcionando adequadamente",
+        "nl": "vertaling:\nvertaling:\nniet genezen",
+        "fr": "fixe: ajustement des décimales dans le groupe d ' étiquettes 1 et 2\nfixe: readme\nnon fixe: augmentation ne fonctionnant pas correctement",
+        "it": "fisso: regolazione dei decimali in etichettagruppo 1 & 2\nfisso: lettura\nnon fisso: incremento non funzionante correttamente",
+        "es": "fijo: ajuste de los decimales en el grupo de etiquetas 1 & 2\nfijo: readme\nno fijo: aumento no trabajo correctamente",
+        "pl": "zastosowanie dziesiętnych w etykietach 1 & 2\nczytnik: odczyt\nnie ustalono: przyrost nie pracuje właściwie",
+        "uk": "фіксована: регулювання десятків в групі етикеток 1 & 2\nфіксований: читати\nне зафіксовано: підробка не працює належним чином",
+        "zh-cn": "固定:对标签1和2的标记进行调整\n固定:改为:\n未确定:不正常工作"
+      },
       "0.0.4": {
         "en": "fixed: some corrections on CSS code\nfixed: widget description text\nfixed: wrong placement if dialog-height had a unit (ViewInWidget-Dialog)\nfixed: increment buttons on tiles were working insuficient\nadded: variable number of digits at value-tile\nadded: slider for ViewInWidget-Swipe\nadded: ability to manipulate values in label-groups",
         "de": "behoben: einige Korrekturen auf CSS-Code\nfixiert: widget beschreibung text\nbehoben: falsche Platzierung, wenn Dialoghöhe eine Einheit hatte (ViewInWidget-Dialog)\nfix: inkremental-tasten auf fliesen funktionierte zu wenig\nadd: variable anzahl von ziffern an wert-fliese\nzusätzlich: Schieberegler für ViewInWidget-Swipe\nzusätzlich: fähigkeit, werte in label-gruppen zu manipulieren",
