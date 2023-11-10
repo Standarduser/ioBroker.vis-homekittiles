@@ -182,7 +182,7 @@
 	border: unset;
 	padding: unset;
 	margin: unset;
-	
+
 	color: var(--hkt-color-tile-on-foreground);
 	width: 100%;
 	height: 100%;
@@ -313,7 +313,7 @@
 .homekitTiles.radiobuttons .ackIcon .icon {
 	width: 100%;
 	height: 100%;
-	filter: contrast(0.8); 
+	filter: contrast(0.8);
 }
 /* Acknowledge icon (show ack icon only on active button) */
 .homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:not(:checked) + label .ackIcon {
@@ -575,7 +575,7 @@
 
 /* Navigation-Button */
 .homekitTiles.navigationbutton {
-    color: var(--hkt-color-navigationbutton-default-fg); 
+    color: var(--hkt-color-navigationbutton-default-fg);
     font-size: 12px;
 }
 .homekitTiles.navigationbutton ~ .homekitTiles.navigationbutton {
@@ -600,7 +600,7 @@
     cursor: pointer;
 }
 .homekitTiles.navigationbutton.state-active {
-    color: var(--hkt-color-navigationbutton-active-fg); 
+    color: var(--hkt-color-navigationbutton-active-fg);
 }
 .homekitTiles.navigationbutton.state-active img {
     filter: brightness(0.8);
@@ -608,7 +608,7 @@
 
 /* Navigation-Button-Set */
 .homekitTiles.navigationbuttonset {
-	color: var(--hkt-color-navigationbutton-default-fg); 
+	color: var(--hkt-color-navigationbutton-default-fg);
     font-size: 12px;
 }
 .homekitTiles.navigationbuttonset .navigationbutton {
@@ -621,13 +621,13 @@
     margin-right: 5px;
     filter: brightness(0.4);
 }
-/* Labels */ 
+/* Labels */
 .homekitTiles.navigationbuttonset .navigationbutton label {
     cursor: pointer;
 }
 /* Button active */
 .homekitTiles.navigationbuttonset .navigationbutton.state-active {
-    color: var(--hkt-color-navigationbutton-active-fg); 
+    color: var(--hkt-color-navigationbutton-active-fg);
 }
 .homekitTiles.navigationbuttonset .navigationbutton.state-active img {
     filter: brightness(0.8);

@@ -540,8 +540,8 @@ vis.binds["vis-homekittiles"] = {
 		}
 		return val;
 	},
-	
-	//Add elements to widgets 
+
+	//Add elements to widgets
 	addButtonIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';
@@ -601,7 +601,7 @@ vis.binds["vis-homekittiles"] = {
 	addIncrement: function (el, data) {
 		var $this = $(el);
 		var html = '';
-		
+
 		function showHideIncrement(show) {
 			if (show) {
 				let value = vis.states[data.incrementOid + '.val'];
@@ -628,7 +628,7 @@ vis.binds["vis-homekittiles"] = {
 			} else {
 				html = '';
 				$this.html(html);
-			}	
+			}
 		}
 
 		//add incrementbuttons on startup

@@ -142,7 +142,7 @@ You can do "if" conditions and "for" cycles.
 				<%
 				valNotification2 = vis.states.attr(this.data['notification2oid'] + '.val');
 				if (valNotification2 === undefined || valNotification2 === '') valNotification2 = 0;
-				
+
 				if (vis.editMode || valNotification2 !== 0 && valNotification2 !== '0' || (valNotification2 == 0 || valNotification2 == '0') && this.data.attr('notification2showZero')) { %>
 					<span class="notification2" ><%=valNotification2%></span>
 				<% } %>
@@ -151,7 +151,7 @@ You can do "if" conditions and "for" cycles.
 				<%
 				valNotification3 = vis.states.attr(this.data['notification3oid'] + '.val');
 				if (valNotification3 === undefined || valNotification3 === '') valNotification3 = 0;
-				
+
 				if (vis.editMode || valNotification3 !== 0 && valNotification3 !== '0' || (valNotification3 == 0 || valNotification3 == '0') && this.data.attr('notification3showZero')) { %>
 					<span class="notification3" ><%=valNotification3%></span>
 				<% } %>
@@ -160,7 +160,7 @@ You can do "if" conditions and "for" cycles.
 				<%
 				valNotification4 = vis.states.attr(this.data['notification4oid'] + '.val');
 				if (valNotification4 === undefined || valNotification4 === '') valNotification4 = 0;
-				
+
 				if (vis.editMode || valNotification4 !== 0 && valNotification4 !== '0' || (valNotification4 == 0 || valNotification4 == '0') && this.data.attr('notification4showZero')) { %>
 					<span class="notification4" ><%=valNotification4%></span>
 				<% } %>
@@ -169,7 +169,7 @@ You can do "if" conditions and "for" cycles.
 				<%
 				valNotification5 = vis.states.attr(this.data['notification5oid'] + '.val');
 				if (valNotification5 === undefined || valNotification5 === '') valNotification5 = 0;
-				
+
 				if (vis.editMode || valNotification5 !== 0 && valNotification5 !== '0' || (valNotification5 == 0 || valNotification5 == '0') && this.data.attr('notification5showZero')) { %>
 					<span class="notification5" ><%=valNotification5%></span>
 				<% } %>
@@ -208,7 +208,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs0="group.buttons;valueButton_(1-numberOfButtons);labelButton_(1-numberOfButtons)[Button];iconButton_(1-numberOfButtons)/image;"
 	data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
 	data-vis-attrs2="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
-> 
+>
 	<div class="homekitTiles radiobuttons vis-widget <%== this.data.attr('class') %>" style="width:110px; height:235px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body">
 			<div class="radiobuttons" id="<%= this.data.attr('wid') %>_radio" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> setTimeout(function () {vis.binds['vis-homekittiles'].radio(el)}, 100) %> <%= (el) -> vis.binds.basic._onChange(el); %>>
@@ -220,7 +220,7 @@ You can do "if" conditions and "for" cycles.
 
 					var numberOfButtons = Number(this.data.attr("numberOfButtons"));
 					var wid = data.attr('wid');
-					var i = 1; 
+					var i = 1;
 
 					while (i <= numberOfButtons) {
 						var icon = this.data.attr('iconButton_' + i);
@@ -235,7 +235,7 @@ You can do "if" conditions and "for" cycles.
 									<div class="radioIcon"><img <%= icon ? 'src=' + icon : '' %> /></div>
 								<% } %>
 								<span><%= text %></span>
-								
+
 								<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 								<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
 							</label>
@@ -280,7 +280,7 @@ You can do "if" conditions and "for" cycles.
 				<%= this.data.attr('label') %>
 			</label>
 			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
-			
+
 			<input
 				type="text"
 				name="<%= this.data.attr('wid') %>_input"
@@ -596,7 +596,7 @@ You can do "if" conditions and "for" cycles.
 			<%
 			var numberOfButtons = Number(this.data.attr("numberOfButtons"));
 			var wid = data.attr('wid');
-			var i = 1; 
+			var i = 1;
 
 			while (i <= numberOfButtons) {
 				var oid = this.data.attr('oid_' + i);
@@ -650,7 +650,7 @@ You can do "if" conditions and "for" cycles.
 			<div class="navigationbutton"  >
 				<% if (this.data.attr('icon') !== '' && this.data.attr('icon') !== undefined) { %>
 					<img src="<%= this.data.attr('icon') %>" />
-				<% } %>	
+				<% } %>
 				<label><%= this.data.attr('label') %></label>
 			</div>
 
@@ -680,7 +680,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktButtonSetNavigation;numberOfButtons[3]/slider,1,10,1;directionHorizontal[true]/checkbox;"
 	data-vis-attrs0="group.buttons/byindex;view_(1-numberOfButtons)/views;icon_(1-numberOfButtons)/image;label_(1-numberOfButtons)[View];"
 >
-	<% 
+	<%
 	var width = 0;
 	var height = 0;
 	if (this.data.attr('directionHorizontal')) {
@@ -693,11 +693,11 @@ You can do "if" conditions and "for" cycles.
 	%>
 	<div class="homekitTiles navigationbuttonset vis-widget <%== this.data.attr('class') %>" style="width: <%= width %>px; height:<%= height %>px" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body <%= this.data.attr('directionHorizontal') ? 'horizontal' : 'vertical' %>">
-		
+
 			<%
 			var numberOfButtons = Number(this.data.attr("numberOfButtons"));
 			var wid = data.attr('wid');
-			var i = 1; 
+			var i = 1;
 
 			while (i <= numberOfButtons) {
 				var view = this.data.attr('view_' + i);
@@ -710,13 +710,13 @@ You can do "if" conditions and "for" cycles.
 
 						<% if (icon !== '' && icon !== undefined) { %>
 							<img src="<%= icon %>" />
-						<% } %>	
+						<% } %>
 
 						<label><%= label %></label>
 					</div>
 				</div>
 				<%
-				
+
 				i++;
 			} %>
 		</div>
@@ -746,7 +746,7 @@ You can do "if" conditions and "for" cycles.
 			<div class="editmode-helper"></div>
 		<% } %>
 
-		<% 
+		<%
 		var numberOfViews = Number(this.data.attr("numberOfViews"));
 		var i = 1;
 		while (i <= numberOfViews) {	%>
@@ -755,4 +755,4 @@ You can do "if" conditions and "for" cycles.
 			i++;
 		} %>
 	</div>
-</script> 
+</script>
