@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "just some cleanup",
+        "de": "nur ein bisschen sauber",
+        "ru": "только некоторые очистки",
+        "pt": "apenas uma limpeza",
+        "nl": "gewoon wat opruimen",
+        "fr": "juste un nettoyage",
+        "it": "solo qualche pulizia",
+        "es": "sólo un poco de limpieza",
+        "pl": "po prostu czyszczenie",
+        "uk": "просто трохи очищення",
+        "zh-cn": "只是一些清洁方案"
+      },
       "0.0.5": {
         "en": "fixed: adjustment of decimals in labelgroup 1 & 2\nfixed: readme\nnot fixed: increment not working properbly",
         "de": "fest: anpassung der dezimals in der labelgruppe 1 & 2\nfixiert: readme\nnicht fixiert: inkrement nicht ordnungsgemäß arbeiten",
