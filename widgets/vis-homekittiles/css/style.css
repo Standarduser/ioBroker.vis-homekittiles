@@ -4,7 +4,7 @@
 	--hkt-color-tile-on-background:		#ddd;
 	--hkt-color-tile-off-foreground:	#999;
 	--hkt-color-tile-off-background:	rgba(255,255,255, 0.15);
-	
+
 	--hkt-color-value-foreground:		#fff;
 	--hkt-color-value-background:		#75CA26;
 
@@ -42,6 +42,7 @@
 .homekitTiles {
 	font-family: -apple-system, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12px;
+	font-weight: 400;
 	cursor:pointer;
 }
 .homekitTiles .invisible-helper {
@@ -100,6 +101,7 @@
 .homekitTiles.tile .tileValue {
 	color: var(--hkt-color-value-foreground);
 	background-color: var(--hkt-color-value-background);
+	font-size: 10px;
 	min-width: 35px;
 	height: 35px;
 	top: 10px;
