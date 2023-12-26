@@ -46,6 +46,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * (Standarduser) CSS adjustments
+* (Standarduser) changed block operation to old variant
 
 ### 0.0.6 (2023-11-10)
 

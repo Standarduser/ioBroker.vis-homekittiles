@@ -237,7 +237,41 @@ You can do "if" conditions and "for" cycles.
 								<span><%= text %></span>
 
 								<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
-								<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+								<div class="blockOperation">
+									<%
+									var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+									var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+									var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+									var currentState = false;
+									var showBlockedIcon = false;
+
+									//get value for blocked
+									if (this.data.attr('blockOperationUseDifferentOID')) {
+										var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+									} else {
+										var currentState = vis.states.attr(this.data['oid'] + '.val');
+									}
+
+									//add blocked div
+									if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+										<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;">
+
+											<%
+											//add icon
+											if (blockOperationShowIcon) {
+												if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+													showBlockedIcon = true;
+												} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+													showBlockedIcon = true;
+												}
+												if (showBlockedIcon) { %>
+													<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+												<% }
+											} %>
+										</div>
+									<% } %>
+								</div>
 							</label>
 						</div>
 						<%
@@ -329,7 +363,41 @@ You can do "if" conditions and "for" cycles.
 
 		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
-		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+		<div class="blockOperation">
+			<%
+			var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+			var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+			var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+			var currentState = false;
+			var showBlockedIcon = false;
+
+			//get value for blocked
+			if (this.data.attr('blockOperationUseDifferentOID')) {
+				var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+			} else {
+				var currentState = vis.states.attr(this.data['oid'] + '.val');
+			}
+
+			//add blocked div
+			if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+				<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;">
+
+					<%
+					//add icon
+					if (blockOperationShowIcon) {
+						if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+							showBlockedIcon = true;
+						} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+							showBlockedIcon = true;
+						}
+						if (showBlockedIcon) { %>
+							<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+						<% }
+					} %>
+				</div>
+			<% } %>
+		</div>
 	</div>
 </script>
 
@@ -362,7 +430,41 @@ You can do "if" conditions and "for" cycles.
 
 		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
-		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+		<div class="blockOperation">
+			<%
+			var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+			var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+			var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+			var currentState = false;
+			var showBlockedIcon = false;
+
+			//get value for blocked
+			if (this.data.attr('blockOperationUseDifferentOID')) {
+				var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+			} else {
+				var currentState = vis.states.attr(this.data['oid'] + '.val');
+			}
+
+			//add blocked div
+			if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+				<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;">
+
+					<%
+					//add icon
+					if (blockOperationShowIcon) {
+						if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+							showBlockedIcon = true;
+						} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+							showBlockedIcon = true;
+						}
+						if (showBlockedIcon) { %>
+							<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+						<% }
+					} %>
+				</div>
+			<% } %>
+		</div>
 	</div>
 </script>
 
@@ -401,7 +503,41 @@ You can do "if" conditions and "for" cycles.
 		</div>
 
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
-		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+		<div class="blockOperation">
+			<%
+			var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+			var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+			var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+			var currentState = false;
+			var showBlockedIcon = false;
+
+			//get value for blocked
+			if (this.data.attr('blockOperationUseDifferentOID')) {
+				var currentState = vis.states.attr(this.data['blockOperationOID'] + '.val');
+			} else {
+				var currentState = vis.states.attr(this.data['oid'] + '.val');
+			}
+
+			//add blocked div
+			if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+				<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;">
+
+					<%
+					//add icon
+					if (blockOperationShowIcon) {
+						if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+							showBlockedIcon = true;
+						} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+							showBlockedIcon = true;
+						}
+						if (showBlockedIcon) { %>
+							<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+						<% }
+					} %>
+				</div>
+			<% } %>
+		</div>
 
 		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogContainer(el, data) %> />
 		<div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
