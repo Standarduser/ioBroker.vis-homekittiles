@@ -540,118 +540,7 @@ vis.binds["vis-homekittiles"] = {
 		}
 		return val;
 	},
-
-	//Add elements to widgets
-	addButtonIcon: function (el, data) {
-		var $this = $(el);
-		var html = '';
-		
-		if (data.icon !== '' && data.icon !== undefined) html += `<img class="` + (data.iconRound ? 'round' : '') + `"  src="${data.icon}">`;
-		
-		$this.html(html);
-	},
-	addLabelGroup1: function (el, data) {
-		var $this = $(el);
-		var html = '';
-		
-		var val2 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label2oid + '.val'), data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
-
-		if (data.label)      html += `<span class="label">${data.label}</span>`;
-		if (data.label2pre !== undefined || data.label2oid !== undefined || data.label2unit !== undefined || data.label2post !== undefined) html += `<br>`;
-		if (data.label2pre)  html += `<span class="label2pre">${data.label2pre} </span>`;
-		if (data.label2oid)  html += `<span class="label2value">${val2}</span>`;
-		if (data.label2unit) html += `<span class="label2unit">${data.label2unit}</span>`;
-		if (data.label2post) html += `<span class="label2post"> ${data.label2post}</span>`;
-		
-		$this.html(html);
-
-		// subscribe on updates of value
-		if (data.label2oid) { vis.states.bind(data.label2oid + '.val', function (e, newVal, oldVal) { $this.find('.label2value').html(String(newVal)) }); }
-	},
-	addLabelGroup2: function (el, data) {
-		var $this = $(el);
-		var html = '';
-
-		var val3 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label3oid + '.val'), data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
-		var val4 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label4oid + '.val'), data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
-		var val5 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label5oid + '.val'), data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
-
-		if (data.label3pre)  html += `<span class="label3pre">${data.label3pre} </span>`;
-		if (data.label3oid)  html += `<span class="label3value">${val3}</span>`;
-		if (data.label3unit) html += `<span class="label2unit">${data.label3unit}</span>`;
-		if (data.label3post) html += `<span class="label3post"> ${data.label3post}</span>`;
-		if (data.label4pre !== undefined || data.label4oid !== undefined || data.label4unit !== undefined || data.label4post !== undefined) html += `<br>`;
-		if (data.label4pre)  html += `<span class="label4pre">${data.label4pre} </span>`;
-		if (data.label4oid)  html += `<span class="label4value">${val4}</span>`;
-		if (data.label4unit) html += `<span class="label4unit">${data.label4unit}</span>`;
-		if (data.label4post) html += `<span class="label4post"> ${data.label4post}</span>`;
-		if (data.label5pre !== undefined || data.label5oid !== undefined || data.label5unit !== undefined || data.label5post !== undefined) html += `<br>`;
-		if (data.label5pre)  html += `<span class="label5pre">${data.label5pre} </span>`;
-		if (data.label5oid)  html += `<span class="label5value">${val5}</span>`;
-		if (data.label5unit) html += `<span class="label5unit">${data.label5unit}</span>`;
-		if (data.label5post) html += `<span class="label5post"> ${data.label5post}</span>`;
-
-		$this.html(html);
-
-		// subscribe on updates of values
-		if (data.label3oid) { vis.states.bind(data.label3oid + '.val', function (e, newVal, oldVal) { $this.find('.label3value').html(String(newVal)) }); }
-		if (data.label4oid) { vis.states.bind(data.label4oid + '.val', function (e, newVal, oldVal) { $this.find('.label4value').html(String(newVal)) }); }
-		if (data.label5oid) { vis.states.bind(data.label5oid + '.val', function (e, newVal, oldVal) { $this.find('.label5value').html(String(newVal)) }); }
-	},
-	addIncrement: function (el, data) {
-		var $this = $(el);
-		var html = '';
-
-		function showHideIncrement(show) {
-			if (show) {
-				let value = vis.states[data.incrementOid + '.val'];
-				if (data.incrementPlusShow || data.incrementMinusShow) {
-
-					if (data.incrementPlusShow) {
-						html += `<div class="incrementPlus"`;
-						html += `data-oid="${data.incrementOid}"`;
-						html += `data-vis-step="${data.incrementPlusValue}"`;
-						html += `data-val="${value}"`;
-						html += `>+</div>`;
-					}
-					if (data.incrementMinusShow) {
-						html += `<div class="incrementMinus"`;
-						html += `data-oid="${data.incrementOid}"`;
-						html += `data-vis-step="${data.incrementMinusValue}"`;
-						html += `data-val="${value}"`;
-						html += `>-</div>`;
-					}
-					$this.html(html);
-					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementPlus'), data.incrementValueMax);
-					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementMinus'), data.incrementValueMin);
-				}
-			} else {
-				html = '';
-				$this.html(html);
-			}
-		}
-
-		//add incrementbuttons on startup
-		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states[data.oid + '.val']) {
-			showHideIncrement(true);
-		} else {
-			showHideIncrement(false);
-		}
-
-		// subscribe on updates of values
-		if (data.oid) { vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
-			if (data.incrementShowOnlyIfTrue) showHideIncrement(newVal);
-		});}
-		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
-			showHideIncrement(true);
-		});}
-	},
-
-
-
-
-
-
+	//Increment function
 	increment: function (el, minmax, delay, interval) {
 
 		function fInterval($that) {
@@ -745,31 +634,135 @@ vis.binds["vis-homekittiles"] = {
 		}
 	},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	addBlockOperation: function (el, data) {
+	//Add elements to widgets
+	addButtonIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';
 		
+		if (data.icon !== '' && data.icon !== undefined) html += `<img class="` + (data.iconRound ? 'round' : '') + `"  src="${data.icon}">`;
+		
+		$this.html(html);
+	},
+	addLabelGroup1: function (el, data) {
+		var $this = $(el);
+		var html = '';
+
+		var val2 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label2oid + '.val'), data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
+
+		if (data.label)      html += `<span class="label">${data.label}</span>`;
+		if (data.label2pre !== undefined || data.label2oid !== undefined || data.label2unit !== undefined || data.label2post !== undefined) html += `<br>`;
+		if (data.label2pre)  html += `<span class="label2pre">${data.label2pre} </span>`;
+		if (data.label2oid)  html += `<span class="label2value">${val2}</span>`;
+		if (data.label2unit) html += `<span class="label2unit">${data.label2unit}</span>`;
+		if (data.label2post) html += `<span class="label2post"> ${data.label2post}</span>`;
+
+		$this.html(html);
+
+		// subscribe on updates of value
+		if (data.label2oid) {
+			vis.states.bind(data.label2oid + '.val', function (e, newVal, oldVal) {
+				var value = formatValue(newVal, data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
+				$this.find('.label2value').html(String(value))
+			});
+		}
+	},
+	addLabelGroup2: function (el, data) {
+		var $this = $(el);
+		var html = '';
+
+		var val3 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label3oid + '.val'), data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
+		var val4 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label4oid + '.val'), data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
+		var val5 = vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.label5oid + '.val'), data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
+
+		if (data.label3pre)  html += `<span class="label3pre">${data.label3pre} </span>`;
+		if (data.label3oid)  html += `<span class="label3value">${val3}</span>`;
+		if (data.label3unit) html += `<span class="label2unit">${data.label3unit}</span>`;
+		if (data.label3post) html += `<span class="label3post"> ${data.label3post}</span>`;
+		if (data.label4pre !== undefined || data.label4oid !== undefined || data.label4unit !== undefined || data.label4post !== undefined) html += `<br>`;
+		if (data.label4pre)  html += `<span class="label4pre">${data.label4pre} </span>`;
+		if (data.label4oid)  html += `<span class="label4value">${val4}</span>`;
+		if (data.label4unit) html += `<span class="label4unit">${data.label4unit}</span>`;
+		if (data.label4post) html += `<span class="label4post"> ${data.label4post}</span>`;
+		if (data.label5pre !== undefined || data.label5oid !== undefined || data.label5unit !== undefined || data.label5post !== undefined) html += `<br>`;
+		if (data.label5pre)  html += `<span class="label5pre">${data.label5pre} </span>`;
+		if (data.label5oid)  html += `<span class="label5value">${val5}</span>`;
+		if (data.label5unit) html += `<span class="label5unit">${data.label5unit}</span>`;
+		if (data.label5post) html += `<span class="label5post"> ${data.label5post}</span>`;
+
+		$this.html(html);
+
+		// subscribe on updates of values
+		if (data.label3oid) {
+			vis.states.bind(data.label3oid + '.val', function (e, newVal, oldVal) {
+				var value = formatValue(newVal, data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
+				$this.find('.label3value').html(String(value))
+			});
+		}
+		if (data.label4oid) {
+			vis.states.bind(data.label4oid + '.val', function (e, newVal, oldVal) {
+				var value = formatValue(newVal, data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
+				$this.find('.label4value').html(String(value))
+			});
+		}
+		if (data.label5oid) {
+			vis.states.bind(data.label5oid + '.val', function (e, newVal, oldVal) {
+				var value = formatValue(newVal, data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
+				$this.find('.label5value').html(String(value))
+			});
+		}
+	},
+	addIncrement: function (el, data) {
+		var $this = $(el);
+		var html = '';
+
+		function showHideIncrement(show) {
+			if (show) {
+				let value = vis.states[data.incrementOid + '.val'];
+				if (data.incrementPlusShow || data.incrementMinusShow) {
+
+					if (data.incrementPlusShow) {
+						html += `<div class="incrementPlus"`;
+						html += `data-oid="${data.incrementOid}"`;
+						html += `data-vis-step="${data.incrementPlusValue}"`;
+						html += `data-val="${value}"`;
+						html += `>+</div>`;
+					}
+					if (data.incrementMinusShow) {
+						html += `<div class="incrementMinus"`;
+						html += `data-oid="${data.incrementOid}"`;
+						html += `data-vis-step="${data.incrementMinusValue}"`;
+						html += `data-val="${value}"`;
+						html += `>-</div>`;
+					}
+					$this.html(html);
+					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementPlus'), data.incrementValueMax);
+					vis.binds["vis-homekittiles"].increment($this.parent().find('.incrementMinus'), data.incrementValueMin);
+				}
+			} else {
+				html = '';
+				$this.html(html);
+			}
+		}
+
+		//add incrementbuttons on startup
+		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states[data.oid + '.val']) {
+			showHideIncrement(true);
+		} else {
+			showHideIncrement(false);
+		}
+
+		// subscribe on updates of values
+		if (data.oid) { vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
+			if (data.incrementShowOnlyIfTrue) showHideIncrement(newVal);
+		});}
+		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
+			showHideIncrement(true);
+		});}
+	},
+	/* addBlockOperation: function (el, data) {
+		var $this = $(el);
+		var html = '';
+
 		function blocked(blocked) {
 			if (blocked) {
 				html += `<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;"></div>`;
@@ -812,13 +805,14 @@ vis.binds["vis-homekittiles"] = {
 				}
 			}
 
-			if (data.blockOperationUseDifferentOID) { 
+			if (data.blockOperationUseDifferentOID) {
 				vis.states.bind(data.blockOperationOID + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
 			} else {
 				vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
 			}
 		}
-	},
+	}, */
+
 	addAckIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';

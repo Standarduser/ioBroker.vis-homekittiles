@@ -47,6 +47,7 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) CSS adjustments
 * (Standarduser) changed block operation to old variant
+* (Standarduser) corrected value formatting in label groups
 
 ### 0.0.6 (2023-11-10)
 
