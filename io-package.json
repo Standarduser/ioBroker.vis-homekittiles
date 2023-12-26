@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "news": {
+      "0.0.7": {
+        "en": "CSS adjustments\nchanged block operation to old variant\ncorrected value formatting in label groups",
+        "de": "CSS-Einstellungen\ngeänderter blockbetrieb auf alte variante\nkorrigierte wertformatierung in etikettengruppen",
+        "ru": "CSS настройки\nизменена работа блока до старого варианта\nисправленное форматирование стоимости в группах этикеток",
+        "pt": "Ajustes CSS\noperação de bloco alterado para variante antiga\nformatação de valor corrigido em grupos de etiquetas",
+        "nl": "CSS aanpassing\nveranderingsoperatie naar oude variant\ngecorrigeerde waarde gevormd in labelgroepen",
+        "fr": "Ajustements CSS\nopération de bloc changée en ancienne variante\nformatage de valeur corrigé dans les groupes d'étiquettes",
+        "it": "Regolazioni CSS\noperazione di blocco cambiato in versione vecchia\nformattazione del valore corretto in gruppi di etichette",
+        "es": "Ajustes CSS\ncambio de la operación bloque a la antigua variante\nformato de valor corregido en grupos de etiquetas",
+        "pl": "Poprawka CSS\nzmieniona operacja bloku na stary wariant\npoprawić format wartości w grupach labelowych",
+        "uk": "Налаштування CSS\nзмінена операція блоку до старого варіанту\nвиправлено форматування значень у групах етикеток",
+        "zh-cn": "B. 系统调整\nb. 旧变量的阻断作业变化\nb. 对标签集团的修改价值格式"
+      },
       "0.0.6": {
         "en": "just some cleanup",
         "de": "nur ein bisschen sauber",
