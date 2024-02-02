@@ -23,7 +23,7 @@ $.extend(
 		"factor":						{	"en": "Multiplicator",				"de": "Multiplikator"					},
 		"comma":						{	"en": "Comma as separator",			"de": "Komma als Trennzeichen"			},
 		"tdp":							{	"en": "Thousends separator",		"de": "Tausendertrennzeichen"			},
-		
+
 		"numberOfViews":				{	"en": "Number of views",			"de": "Anzahl der Views"				},
 		"numberOfButtons":				{	"en": "Number of buttons",			"de": "Anzahl der Schaltflächen"		},
 		"directionHorizontal":			{	"en": "Horizontal orientation",		"de": "Horizontale Ausrichtung"			},
@@ -32,7 +32,7 @@ $.extend(
 		"setValueOnClose":				{	"en": "Value on close",				"de": "Wert bei Schließen"				},
 		"arrowDirection":				{	"en": "Show arrow on dialog",		"de": "Pfeil am Dialog anzeigen"		},
 		"dialogWidgetId":				{	"en": "Dialog widget ID",			"de": "Dialog-Widget-ID"				},
-		
+
 		"label":						{   "en": "Label",						"de": "Beschriftung"					},
 		"label_":						{   "en": "Label ",						"de": "Beschriftung "					},
 
@@ -76,7 +76,7 @@ $.extend(
 		"blockOperationIcon":			{	"en": "Icon if blocked",			"de": "Icon wenn gesperrt"				},
 		"blockOperationIconNotInEditor":{	"en": "Don't show icon in editor",	"de": "Icon im Editor nicht anzeigen"	},
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",			"de": "Verwende andere OID"				},
-		"blockOperationOID":			{	"en": "OID for block operation",	"de": "OID für Bedienung sperren"		},
+		"oidBlockOperation":			{	"en": "OID for block operation",	"de": "OID für Bedienung sperren"		},
 
 		"group_acknowledge":			{	"en": "Acknowledged change",		"de": "Bestätigte Änderung"				},
 		"ackShowIcon": 					{	"en": "Show icon for ack",			"de": "Icon für Bestätigung anzeigen"	},
@@ -759,7 +759,7 @@ vis.binds["vis-homekittiles"] = {
 			showHideIncrement(true);
 		});}
 	},
-	/* addBlockOperation: function (el, data) {
+	addBlockOperation: function (el, data) {
 		var $this = $(el);
 		var html = '';
 
@@ -783,7 +783,7 @@ vis.binds["vis-homekittiles"] = {
 		//get value for blocked on startup
 		var currentState = false;
 		if (data.blockOperationUseDifferentOID) {
-			currentState = vis.states.attr(data.blockOperationOID + '.val');
+			currentState = vis.states.attr(data.oidBlockOperation + '.val');
 		} else {
 			currentState = vis.states.attr(data.oid + '.val');
 		}
@@ -806,13 +806,12 @@ vis.binds["vis-homekittiles"] = {
 			}
 
 			if (data.blockOperationUseDifferentOID) {
-				vis.states.bind(data.blockOperationOID + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
+				vis.states.bind(data.oidBlockOperation + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
 			} else {
 				vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
 			}
 		}
-	}, */
-
+	},
 	addAckIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';
