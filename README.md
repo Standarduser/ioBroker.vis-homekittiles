@@ -28,9 +28,7 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* Repair increment
 * Own signal pcitures for tiles
-* Dialog tile set active by state
 * Mini-mediaplayer
 * Thermostat
 * Select
@@ -43,6 +41,11 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
+* (Standarduser) repaired Increment function
+
 ### 0.0.9 (2024-02-02)
 
 * (Standarduser) corrected block operation. ATTENTION! You may have to delete and reinsert your widgets, if you used a different Object ID for blocking operation! Of cause only these widgets, where you used this function ;)

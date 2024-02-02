@@ -14,10 +14,11 @@ $.extend(
 		"description":					{	"en": "Description",				"de": "Beschreibung"					},
 		"group_labelGroup1":			{	"en": "Label group 1",				"de": "Beschriftungsgruppe 1"			},
 		"group_labelGroup2":			{	"en": "Label group 2",				"de": "Beschriftungsgruppe 2"			},
+		"oidActive":					{	"en": "Object ID for Active State",	"de": "Objekt-ID für Aktiv"				},
 		"icon":							{	"en": "Icon",						"de": "Icon"							},
 		"iconRound":					{	"en": "Show round icon",			"de": "Zeige rundes Icon"				},
 		"unit":							{	"en": "Unit",						"de": "Einheit"							},
-		"showLikeActive":				{	"en": "Show like active",			"de": "Als aktiv anzeigen"				},
+		"showLikeActive":				{	"en": "Allways show like active",	"de": "Immer als aktiv anzeigen"		},
 
 		"decimals":						{	"en": "Decimals",					"de": "Nachkommastellen"				},
 		"factor":						{	"en": "Multiplicator",				"de": "Multiplikator"					},
@@ -717,19 +718,20 @@ vis.binds["vis-homekittiles"] = {
 
 		function showHideIncrement(show) {
 			if (show) {
-				let value = vis.states[data.incrementOid + '.val'];
+				let value = vis.states[data.oidIncrement + '.val'];
+
 				if (data.incrementPlusShow || data.incrementMinusShow) {
 
 					if (data.incrementPlusShow) {
 						html += `<div class="incrementPlus"`;
-						html += `data-oid="${data.incrementOid}"`;
+						html += `data-oid="${data.oidIncrement}"`;
 						html += `data-vis-step="${data.incrementPlusValue}"`;
 						html += `data-val="${value}"`;
 						html += `>+</div>`;
 					}
 					if (data.incrementMinusShow) {
 						html += `<div class="incrementMinus"`;
-						html += `data-oid="${data.incrementOid}"`;
+						html += `data-oid="${data.oidIncrement}"`;
 						html += `data-vis-step="${data.incrementMinusValue}"`;
 						html += `data-val="${value}"`;
 						html += `>-</div>`;
@@ -744,6 +746,10 @@ vis.binds["vis-homekittiles"] = {
 			}
 		}
 
+		function updateIncrementValue(newVal) {
+			//no need to update anything
+		}
+
 		//add incrementbuttons on startup
 		if (vis.editMode || !data.incrementShowOnlyIfTrue || data.incrementShowOnlyIfTrue && vis.states[data.oid + '.val']) {
 			showHideIncrement(true);
@@ -755,8 +761,8 @@ vis.binds["vis-homekittiles"] = {
 		if (data.oid) { vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){
 			if (data.incrementShowOnlyIfTrue) showHideIncrement(newVal);
 		});}
-		if (data.incrementOid) { vis.states.bind(data.incrementOid + '.val', function (e, newVal, oldVal){
-			showHideIncrement(true);
+		if (data.oidIncrement) { vis.states.bind(data.oidIncrement + '.val', function (e, newVal, oldVal){
+			updateIncrementValue(newVal);
 		});}
 	},
 	addBlockOperation: function (el, data) {

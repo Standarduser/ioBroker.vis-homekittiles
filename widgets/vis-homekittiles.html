@@ -269,7 +269,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktDatepicker;oid/id;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;"
 	data-vis-attrs0="group.labelGroup1;label[Datepicker];"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
 >
@@ -316,7 +316,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktSwitchBool;oid/id;icon/image;iconRound/checkbox;"
 	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
 >
@@ -348,12 +348,12 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktValue;oid/id;unit;decimals[1];factor[1];comma[true]/checkbox;tdp/checkbox;showLikeActive[true]/checkbox;"
-	data-vis-attrs0="group.labelGroup1;label[Value];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;" 
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktValue;oid/id;unit;decimals[1];factor[1];comma[true]/checkbox;tdp/checkbox;oidActive/id;showLikeActive[true]/checkbox;"
+	data-vis-attrs0="group.labelGroup1;label[Value];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];"
+	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];"
 >
-	<div class="homekitTiles tile vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles tile vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>">
 			<span class="tileValue"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.oid + '.val'), this.data.attr('decimals'), this.data.attr('factor'), this.data.attr('comma'), this.data.attr('tdp')) %><%= this.data.attr('unit') %></span>
 			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
@@ -362,42 +362,6 @@ You can do "if" conditions and "for" cycles.
 
 		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
-
-		<div class="blockOperation" data-oid="<%= this.data.attr('oidBlockOperation') %>">
-			<span class="blockOperationHelper"><%= vis.states.attr(this.data['oidBlockOperation'] + '.val') %></span>
-			<%
-			var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
-			var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
-			var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
-			var currentState = false;
-			var showBlockedIcon = false;
-
-			//get value for blocked
-			if (this.data.attr('blockOperationUseDifferentOID')) {
-				var currentState = vis.states.attr(this.data['oidBlockOperation'] + '.val');
-			} else {
-				var currentState = vis.states.attr(this.data['oid'] + '.val');
-			}
-
-			//add blocked div
-			if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
-				<div class="blocked" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;">
-
-					<%
-					//add icon
-					if (blockOperationShowIcon) {
-						if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
-							showBlockedIcon = true;
-						} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
-							showBlockedIcon = true;
-						}
-						if (showBlockedIcon) { %>
-							<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
-						<% }
-					} %>
-				</div>
-			<% } %>
-		</div>
 	</div>
 </script>
 
@@ -416,14 +380,14 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktViewInWidgetDialog;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktViewInWidgetDialog;oidActive/id;icon/image;iconRound/checkbox;showLikeActive/checkbox;"
 	data-vis-attrs0="group.labelGroup1;label[Dialog];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.increment;incrementOid/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.dialog;contains_view/views;title;autoclose/slider,0,30000,100;modal/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
 >
-	<div class="homekitTiles tile dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles tile dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
 			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
 			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
