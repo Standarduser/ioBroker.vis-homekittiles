@@ -87,7 +87,7 @@ $.extend(
 		"ackIconNotInEditor":			{	"en": "Don't show icon in editor",	"de": "Icon im Editor nicht anzeigen"	},
 
 		"group_increment":				{	"en": "Increment value",			"de": "Wert inkrementieren"				},
-		"incrementOid":					{	"en": "Object ID",					"de": "Objekt-ID"						},
+		"oidIncrement":					{	"en": "Object ID",					"de": "Objekt-ID"						},
 		"incrementPlusShow":			{	"en": "Show (+)-Button",			"de": "Zeige (+)-Button"				},
 		"incrementMinusShow":			{	"en": "Show (-)-Button",			"de": "Zeige (-)-Button"				},
 		"incrementPlusValue":			{	"en": "Step (+)",					"de": "Schritt bei (+)"					},
