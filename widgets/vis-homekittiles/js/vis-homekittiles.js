@@ -661,7 +661,7 @@ vis.binds["vis-homekittiles"] = {
 		// subscribe on updates of value
 		if (data.label2oid) {
 			vis.states.bind(data.label2oid + '.val', function (e, newVal, oldVal) {
-				var value = formatValue(newVal, data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
+				var value = vis.binds['vis-homekittiles'].formatValue(newVal, data.label2decimals, data.label2factor, data.label2comma, data.label2tdp);
 				$this.find('.label2value').html(String(value))
 			});
 		}
@@ -694,19 +694,19 @@ vis.binds["vis-homekittiles"] = {
 		// subscribe on updates of values
 		if (data.label3oid) {
 			vis.states.bind(data.label3oid + '.val', function (e, newVal, oldVal) {
-				var value = formatValue(newVal, data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
+				var value = vis.binds['vis-homekittiles'].formatValue(newVal, data.label3decimals, data.label3factor, data.label3comma, data.label3tdp);
 				$this.find('.label3value').html(String(value))
 			});
 		}
 		if (data.label4oid) {
 			vis.states.bind(data.label4oid + '.val', function (e, newVal, oldVal) {
-				var value = formatValue(newVal, data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
+				var value = vis.binds['vis-homekittiles'].formatValue(newVal, data.label4decimals, data.label4factor, data.label4comma, data.label4tdp);
 				$this.find('.label4value').html(String(value))
 			});
 		}
 		if (data.label5oid) {
 			vis.states.bind(data.label5oid + '.val', function (e, newVal, oldVal) {
-				var value = formatValue(newVal, data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
+				var value = vis.binds['vis-homekittiles'].formatValue(newVal, data.label5decimals, data.label5factor, data.label5comma, data.label5tdp);
 				$this.find('.label5value').html(String(value))
 			});
 		}
