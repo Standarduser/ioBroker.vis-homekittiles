@@ -121,6 +121,19 @@ $.extend(
 		"notification4showZero":		{	"en": "Notification 4 show zero",	"de": "Benachrichtigung 4 zeige Null"	},
 		"notification5showZero":		{	"en": "Notification 5 show zero",	"de": "Benachrichtigung 5 zeige Null"	},
 
+		"group_signalpics":				{	"en": "Signal pictures",			"de": "Signalbilder"					},
+		"numberOfSignals":				{	"en": "Number of signal pictures",	"de": "Anzahl Signalbilder"				},
+		"oidSignal":					{	"en": "Object ID",					"de": "Objekt-ID"						},
+		"signalComparison":				{	"en": "Comparison",					"de": "Vergleichsoperator"				},
+		"signalCompValue":				{	"en": "Comparison value",			"de": "Vergleichswert"					},
+		"signalIcon":					{	"en": "Icon",						"de": "Icon"							},
+		"signalDescription":			{	"en": "Description",				"de": "Beschreibung"					},
+		"comparisonEqual":				{	"en": "==",							"de": "=="								},
+		"comparisonNotEqual":			{	"en": "!=",							"de": "!="								},
+		"comparisonLowerEqual":			{	"en": "<=",							"de": "<="								},
+		"comparisonGreaterEqual":		{	"en": ">=",							"de": ">="								},
+		"comparisonLower":				{	"en": "<",							"de": "<"								},
+		"comparisonGreater":			{	"en": ">",							"de": ">"								},
 
 		"hktButtonDialogCloseDescription": {
 			"en": "A button to close open dialogs. Fill 'Dialog widget ID' with ID of dialog widget if button is placed outside a dialog window.",
@@ -821,12 +834,12 @@ vis.binds["vis-homekittiles"] = {
 	addAckIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';
-		
+
 		function showHideIcon(show) {
 			if (show) {
 				html += `<img class="icon`;
 				if (data.ackUseSpin) html += ` spin`
-				html += `" src="${data.ackIcon}">`;	
+				html += `" src="${data.ackIcon}">`;
 			} else {
 				html = '';
 			}
@@ -835,8 +848,8 @@ vis.binds["vis-homekittiles"] = {
 
 		//add ack icon on startup
 		if (
-			(data.ackShowIcon && !vis.editMode && !data.ackInvertFunction && !vis.states.attr(data.oid + '.ack')) || 
-			(data.ackShowIcon && !vis.editMode && data.ackInvertFunction && vis.states.attr(data.oid + '.ack')) || 
+			(data.ackShowIcon && !vis.editMode && !data.ackInvertFunction && !vis.states.attr(data.oid + '.ack')) ||
+			(data.ackShowIcon && !vis.editMode && data.ackInvertFunction && vis.states.attr(data.oid + '.ack')) ||
 			(data.ackShowIcon && vis.editMode && !data.ackIconNotInEditor)
 		) {
 			showHideIcon(true);
@@ -851,8 +864,47 @@ vis.binds["vis-homekittiles"] = {
 			} else {
 				showHideIcon(!newVal);
 			}
-			
+
 		});}
+	},
+	addSignalIcon: function (el) {
+		var $this = $(el);
+		var val = 		$this.attr('data-val');
+		var oid = 		$this.attr('data-oid');
+		var compOp =	$this.attr('data-compOp');
+		var compVal =	$this.attr('data-compVal');
+		var icon =		$this.attr('data-icon');
+		var desc =		$this.attr('data-desc');
+
+		var html = '';
+
+		function showHideSignal(value) {
+			if (
+				oid != undefined && oid != "" && (
+					(value == compVal && compOp == "comparisonEqual") ||
+					(value != compVal && compOp == "comparisonNotEqual") ||
+					(value <= compVal && compOp == "comparisonLowerEqual") ||
+					(value >= compVal && compOp == "comparisonGreaterEqual") ||
+					(value <  compVal && compOp == "comparisonLower") ||
+					(value >  compVal && compOp == "comparisonGreater")
+				)
+			) {
+				if (icon !== undefined && icon !== "") html += `<img class="icon" src="${icon}">`;
+				html += `<span class="description">${desc}</span>`;
+			} else {
+				html = '';
+			}
+			$this.html(html);
+		}
+
+		//add icon on startup
+		showHideSignal(vis.states.attr(oid + ".val"));
+
+		// subscribe on updates of values
+		if (oid) { vis.states.bind(oid + ".val", function (e, newVal, oldVal){
+			showHideSignal(newVal);
+		});}
+
 	},
 };
 

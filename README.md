@@ -28,7 +28,6 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* Own signal pcitures for tiles
 * Mini-mediaplayer
 * Thermostat
 * Select
@@ -45,6 +44,7 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
+* (Standarduser) added own signal pictures
 
 ### 0.0.9 (2024-02-02)
 

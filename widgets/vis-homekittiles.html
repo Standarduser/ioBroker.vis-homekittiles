@@ -319,6 +319,8 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
+	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
 	<div class="homekitTiles tile vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.toggle(el); %>>
@@ -330,6 +332,7 @@ You can do "if" conditions and "for" cycles.
 		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
 		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
 	</div>
 </script>
 
