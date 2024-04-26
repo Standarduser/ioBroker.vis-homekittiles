@@ -40,7 +40,7 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
