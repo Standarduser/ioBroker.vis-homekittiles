@@ -234,7 +234,7 @@ You can do "if" conditions and "for" cycles.
 								<% if (icon !== '' && icon !== undefined) { %>
 									<div class="radioIcon"><img <%= icon ? 'src=' + icon : '' %> /></div>
 								<% } %>
-								<span><%= text %></span>
+								<span><%== text %></span>
 
 								<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 							</label>
