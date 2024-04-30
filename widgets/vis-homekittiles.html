@@ -97,6 +97,23 @@ You can do "if" conditions and "for" cycles.
 
 -->
 
+<script id="tpHomekittilesLabel"
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-set="vis-homekittiles"
+		data-vis-update-style="true"
+		data-vis-type="static"
+		data-vis-name="hkt-Label"
+		data-vis-prev='<div id="prev_tplHomekittilesNotification" style="position: relative;">Label</div>'
+		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktLabel;text/text;textstyle[textlabel]/select,headline1,headline2,headline3,textlabel,smalllabel;"
+>
+    <div class="homekitTiles label <%== this.data.attr('textstyle') %> vis-widget <%== this.data.attr('class') %>" style="width:200px; height:<%= this.data.attr('textstyle') == 'headline1' ? '28' : this.data.attr('textstyle') == 'headline2' ? '18' : this.data.attr('textstyle') == 'headline3' ? '14' : this.data.attr('textstyle') == 'textlabel' ? '18' : this.data.attr('textstyle') == 'smalllabel' ? '14' : '20' %>px;" id="<%= this.data.attr('wid') %>">
+        <div class="vis-widget-body">
+            <%== this.data.attr('text') %>
+        </div>
+    </div>
+</script>
+
 <script id="tplHomekittilesNotification"
 	type="text/ejs"
 	class="vis-tpl"

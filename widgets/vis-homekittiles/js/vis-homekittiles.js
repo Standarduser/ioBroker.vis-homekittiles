@@ -70,6 +70,14 @@ $.extend(
 		"label5comma":					{	"en": "Label 5 Comma as separator",	"de": "Beschriftung 5 Komma als Trennz."},
 		"label5tdp":					{	"en": "Label 5 Thousends sep.",		"de": "Beschriftung 5 Tausendertrennz."	},
 
+		"text":							{	"en": "Text",						"de": "Text"							},
+		"textstyle":					{	"en": "Style of text",				"de": "Stil des Textes"					},
+		"headline1":					{	"en": "Headline 1",					"de": "Überschrift 1"					},
+		"headline2":					{	"en": "Headline 2",					"de": "Überschrift 2"					},
+		"headline3":					{	"en": "Headline 3",					"de": "Überschrift 3"					},
+		"textlabel":					{	"en": "Text/Label",					"de": "Text/Beschriftung"				},
+		"smalllabel":					{	"en": "Small label",				"de": "kleine Beschriftung"				},
+
 		"group_blockOperation":			{	"en": "Block operation",			"de": "Bedienung sperren"				},
 		"blockOperationIfTrue": 		{	"en": "Block operation if true",	"de": "Bedienung bei true sperren"		},
 		"blockOperationIfFalse":		{	"en": "Block operation if false",	"de": "Bedienung bei false sperren"		},
@@ -155,6 +163,10 @@ $.extend(
 			"en": "A Widget to pick a date.",
 			"de": "Widget zur Auswahl eines Datums."
 		},
+		"hktLabelDescription": {
+			"en": "A simple textfield with predefined styles.",
+			"de": "Textfeld mit vordefinierten Stilen."
+		},
 		"hktNotificationDescription": {
 			"en": "Notification for 5 different states.",
 			"de": "Benachrichtigung für 5 verschiedene States."
@@ -222,6 +234,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktButtonSet")			{ text = "hktButtonSetDescription";				}
 		else if (data[1] === "hktButtonSetNavigation")	{ text = "hktButtonSetNavigationDescription";	}
 		else if (data[1] === "hktDatepicker")			{ text = "hktDatepickerDescription";			}
+		else if (data[1] === "hktLabel")				{ text = "hktLabelDescription";					}
 		else if (data[1] === "hktNotification")			{ text = "hktNotificationDescription";			}
 		else if (data[1] === "hktRadiobuttons")			{ text = "hktRadiobuttonsDescription";			}
 		else if (data[1] === "hktSettingsBool")			{ text = "hktSettingsBoolDescription";			}

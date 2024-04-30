@@ -1,5 +1,11 @@
 /* Colors */
 :root {
+	--hkt-color-label-headline1:		#bbb;
+    --hkt-color-label-headline2:		#bbb;
+    --hkt-color-label-headline3:		#bbb;
+    --hkt-color-label-textlabel:		#666;
+    --hkt-color-label-smalllabel:		#666;
+
 	--hkt-color-tile-on-foreground:		#333;
 	--hkt-color-tile-on-background:		#ddd;
 	--hkt-color-tile-off-foreground:	#999;
@@ -47,6 +53,32 @@
 }
 .homekitTiles .invisible-helper {
 	display: none;
+}
+/*---------------------------------------------------------------*/
+/* Label widget */
+.homekitTiles.label {
+    font-weight: 500;
+}
+.homekitTiles.label.headline1 {
+    color: var(--hkt-color-label-headline1);
+    font-size: 24px;
+}
+.homekitTiles.label.headline2 {
+    color: var(--hkt-color-label-headline2);
+    font-size: 16px;
+}
+.homekitTiles.label.headline3 {
+    color: var(--hkt-color-label-headline3);
+    font-size: 12px;
+    text-align: center;
+}
+.homekitTiles.label.textlabel {
+    color: var(--hkt-color-label-textlabel);
+    font-size: 16px;
+}
+.homekitTiles.label.smalllabel {
+    color: var(--hkt-color-label-smalllabel);
+    font-size: 12px;
 }
 
 /*---------------------------------------------------------------*/

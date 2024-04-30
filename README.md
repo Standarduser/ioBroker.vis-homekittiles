@@ -33,7 +33,6 @@ The widgets are designed for VIS 1.x.
 * create Thermostat
 * create Select-tile
 * create Submenue-Button
-* create Text field with predefined css-classes
 * CSS: make colors of dialog window nice
 * CSS: make colors of datepicker window nice
 * Radiobutton: new property "division" with selectable values (1:1; 3:4)
@@ -49,6 +48,7 @@ The widgets are designed for VIS 1.x.
 * (Standarduser) added own signal pictures for all tiles widgets
 * (Standarduser) Radiobutton: allow HTML in button label
 * (Standarduser) Radiobutton: some css corrections
+* (Standarduser) added Text field (label) with predefined css-classes
 
 ### 0.0.10 (2024-04-26)
 
