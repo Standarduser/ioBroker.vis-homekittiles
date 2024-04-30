@@ -28,18 +28,28 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* Mini-mediaplayer
-* Thermostat
-* Select
-* Submenue-Button
+* make signal pictures for all tile-Widgets available
+* create Settings-Widget with select value list
+* create Mini-mediaplayer
+* create Thermostat
+* create Select-tile
+* create Submenue-Button
+* create Text field with predefined css-classes
 * CSS: make colors of dialog window nice
 * CSS: make colors of datepicker window nice
+* Radiobutton: allow HTML in button label
+* Radiobutton: new property "division" with selectable values (1:1; 3:4)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (Standarduser) added own signal pictures for all tiles widgets
+
 ### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
