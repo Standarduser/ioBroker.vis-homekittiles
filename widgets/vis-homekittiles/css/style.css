@@ -628,6 +628,7 @@
 	background-color: var(--hkt-color-button-bg);
 }
 
+/*---------------------------------------------------------------*/
 /* Navigation-Button */
 .homekitTiles.navigationbutton {
     color: var(--hkt-color-navigationbutton-default-fg);
@@ -665,6 +666,7 @@
 .homekitTiles.navigationbuttonset {
 	color: var(--hkt-color-navigationbutton-default-fg);
     font-size: 12px;
+	overflow:visible; /* needed for notifications */
 }
 .homekitTiles.navigationbuttonset .navigationbutton {
     box-sizing: border-box;
@@ -721,6 +723,53 @@
 .homekitTiles.navigationbuttonset .vertical .navigationbutton ~ .navigationbutton {
     border: 1px solid;
     border-width: 1px 0 0 0;
+}
+/* Notification at nav-button */
+.homekitTiles.navigationbuttonset .notifications {
+	cursor: default;
+	width:85px;
+	height:21px;
+	position: absolute;
+	display: block;
+	margin-top: -30px;
+	margin-right: -34px;
+}
+.homekitTiles.navigationbuttonset .notifications span {
+	min-width: 21px;
+	height: 21px;
+	box-sizing: border-box;
+	padding: 0px 5px;
+	line-height: 21px;
+	text-align: center;
+	border-radius: 9999px;
+	float: right;
+	margin-left: -5px;
+	position: relative;
+}
+.homekitTiles.navigationbuttonset .notifications .notification1 {
+	color: var(--hkt-color-notification1-fg);
+	background-color: var(--hkt-color-notification1-bg);
+	z-index: 5;
+}
+.homekitTiles.navigationbuttonset .notifications .notification2 {
+	color: var(--hkt-color-notification2-fg);
+	background-color: var(--hkt-color-notification2-bg);
+	z-index: 4;
+}
+.homekitTiles.navigationbuttonset .notifications .notification3 {
+	color: var(--hkt-color-notification3-fg);
+	background-color: var(--hkt-color-notification3-bg);
+	z-index: 3;
+}
+.homekitTiles.navigationbuttonset .notifications .notification4 {
+	color: var(--hkt-color-notification4-fg);
+	background-color: var(--hkt-color-notification4-bg);
+	z-index: 2;
+}
+.homekitTiles.navigationbuttonset .notifications .notification5 {
+	color: var(--hkt-color-notification5-fg);
+	background-color: var(--hkt-color-notification5-bg);
+	z-index: 1;
 }
 
 /*----------------------------------------------------------------*/

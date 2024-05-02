@@ -108,8 +108,8 @@ $.extend(
 		"oid_":							{	"en": "Object ID ",					"de": "Objekt-ID "						},
 		"value_":						{	"en": "Value ",						"de": "Wert "							},
 		"valueButton_":					{	"en": "Value button ",				"de": "Wert Schaltfläche "				},
-		"label_":						{	"en": "Label ",						"de": "Beschriftung "					}, 
-		"labelButton_":					{	"en": "Label button ",				"de": "Beschriftung Schaltfläche "		}, 
+		"label_":						{	"en": "Label ",						"de": "Beschriftung "					},
+		"labelButton_":					{	"en": "Label button ",				"de": "Beschriftung Schaltfläche "		},
 		"icon_":						{	"en": "Icon button ",				"de": "Icon Schaltfläche "				},
 		"iconButton_":					{	"en": "Icon button ",				"de": "Icon Schaltfläche "				},
 		"closeDialog_":					{	"en": "Close dialog ",				"de": "Dialog schließen "				},
@@ -118,6 +118,7 @@ $.extend(
 		"group_views":					{	"en": "Views",						"de": "Views"							},
 		"view_":						{	"en": "View ",						"de": "View "							},
 
+		"showNotifications":			{	"en": "Show notifications",			"de": "Zeige Benachrichtigungen"		},
 		"notification1oid":				{	"en": "Notification 1 OID",			"de": "Benachrichtigung 1 OID"			},
 		"notification2oid":				{	"en": "Notification 2 OID",			"de": "Benachrichtigung 2 OID"			},
 		"notification3oid":				{	"en": "Notification 3 OID",			"de": "Benachrichtigung 3 OID"			},

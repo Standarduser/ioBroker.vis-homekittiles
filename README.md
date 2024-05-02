@@ -46,6 +46,8 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * (Standarduser) added preview for label-widget
+* (Standarduser) added notification bubbles for navigation button-set
+* (Standarduser) removed navigation button (use navigation button-set instead)
 
 ### 0.0.11 (2024-04-30)
 
