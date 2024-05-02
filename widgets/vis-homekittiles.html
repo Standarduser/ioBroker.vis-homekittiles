@@ -104,7 +104,12 @@ You can do "if" conditions and "for" cycles.
 		data-vis-update-style="true"
 		data-vis-type="static"
 		data-vis-name="hkt-Label"
-		data-vis-prev='<div id="prev_tplHomekittilesNotification" style="position: relative;">Label</div>'
+		data-vis-prev='<div id="prev_tplHomekittilesNotification" style="position: relative;">
+			<div class="homekitTiles label headline1">Headline 1</div>
+			<div class="homekitTiles label headline2">Headline 2</div>
+			<div class="homekitTiles label headline3">Headline 3</div>
+			<div class="homekitTiles label textlabel">Text/Label</div>
+			<div class="homekitTiles label smalllabel">Small label</div>'
 		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktLabel;text/text;textstyle[textlabel]/select,headline1,headline2,headline3,textlabel,smalllabel;"
 >
     <div class="homekitTiles label <%== this.data.attr('textstyle') %> vis-widget <%== this.data.attr('class') %>" style="width:200px; height:<%= this.data.attr('textstyle') == 'headline1' ? '28' : this.data.attr('textstyle') == 'headline2' ? '18' : this.data.attr('textstyle') == 'headline3' ? '14' : this.data.attr('textstyle') == 'textlabel' ? '18' : this.data.attr('textstyle') == 'smalllabel' ? '14' : '20' %>px;" id="<%= this.data.attr('wid') %>">

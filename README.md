@@ -42,6 +42,11 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (Standarduser) added preview for label-widget
+
 ### 0.0.11 (2024-04-30)
 
 * (Standarduser) added own signal pictures for all tiles widgets
