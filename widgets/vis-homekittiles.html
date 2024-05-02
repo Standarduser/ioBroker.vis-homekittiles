@@ -653,44 +653,6 @@ You can do "if" conditions and "for" cycles.
 	</div>
 </script>
 
-<script id="tplHomekittilesButtonNavigation"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-set="vis-homekittiles"
-	data-vis-update-style="true"
-	data-vis-type="ctrl"
-	data-vis-name="hkt-Button-Navigation"
-	data-vis-prev='<div id="prev_tplHomekittilesButtonNavigation" style="position: relative;">
-						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
-							<div class="homekitTiles navigationbutton vis-widget-prev-body" style="display: flex; flex-direction: row;">
-								<div class="navigationbutton">
-									<label>View</label>
-								</div>
-							</div>
-						</div>
-					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktButtonNavigation;view/views;icon/image;label[View];"
->
-	<div
-		data-vis-nav="<%= this.data.attr('view') %>"
-		class="homekitTiles navigationbutton vis-widget state-default hkt-nav-state <%== this.data.attr('class') %>"
-		style="width: 120px; height: 30px;"
-		id="<%= this.data.attr('wid') %>"
-		<%= (el) -> vis.binds['vis-homekittiles'].hktNavigationActive(el); vis.binds['vis-homekittiles'].hktNavigation(el); %>
-	>
-		<div class="vis-widget-body" >
-
-			<div class="navigationbutton"  >
-				<% if (this.data.attr('icon') !== '' && this.data.attr('icon') !== undefined) { %>
-					<img src="<%= this.data.attr('icon') %>" />
-				<% } %>
-				<label><%= this.data.attr('label') %></label>
-			</div>
-
-		</div>
-	</div>
-</script>
-
 <script id="tplHomekittilesButtonSetNavigation"
 	type="text/ejs"
 	class="vis-tpl"

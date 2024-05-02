@@ -629,39 +629,6 @@
 }
 
 /*---------------------------------------------------------------*/
-/* Navigation-Button */
-.homekitTiles.navigationbutton {
-    color: var(--hkt-color-navigationbutton-default-fg);
-    font-size: 12px;
-}
-.homekitTiles.navigationbutton ~ .homekitTiles.navigationbutton {
-    border: 1px solid;
-    border-width: 0 0 0 1px;
-}
-.homekitTiles.navigationbutton .navigationbutton {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-	justify-content: center;
-}
-.homekitTiles.navigationbutton img {
-    height: 16px;
-    width: 16px;
-    margin-right: 5px;
-    filter: brightness(0.4);
-}
-.homekitTiles.navigationbutton label {
-    cursor: pointer;
-}
-.homekitTiles.navigationbutton.state-active {
-    color: var(--hkt-color-navigationbutton-active-fg);
-}
-.homekitTiles.navigationbutton.state-active img {
-    filter: brightness(0.8);
-}
-
 /* Navigation-Button-Set */
 .homekitTiles.navigationbuttonset {
 	color: var(--hkt-color-navigationbutton-default-fg);
