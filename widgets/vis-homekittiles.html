@@ -583,6 +583,78 @@ You can do "if" conditions and "for" cycles.
 	</div>
 </script>
 
+<script id="tplHomekittilesSettingsSelect"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Settings-Select"
+	data-vis-prev='<div id="prev_tplHomekittilesSettingsSelect" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 17px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles settings select vis-widget-prev-body">
+								<label class="label">Select</label>
+								<select>
+									<option value="Auto">Auto</option>
+								</select>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktSettingsSelect;oid/id;label[Select];"
+	data-vis-attrs0="group.select;values[0§1§2]/text;texts[OFF§ON§AUTO]/text;"
+	data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
+>
+	<div class="homekitTiles settings select vis-widget <%== this.data.attr('class') %>" style="width:230px; height:17px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<label class="label"><%= this.data.attr('label') %></label>
+
+			<select id="<%= this.data.attr('wid') %>_select" data-oid="<%= this.data.attr('oid') %>" data-view="<%= this.view %>" <%= (el) -> setTimeout(function () { vis.binds['vis-homekittiles'].multiselect(el)}, 250) %> >
+            <%
+                var values = (data.attr('values') ? data.attr('values').split(';') : []);
+                var texts  = (data.attr('texts')  ? data.attr('texts').split(';')  : []);
+                for (var val in values) {
+                    %>
+                    <option value="<%= values[val] %>"><%= texts[val] %></option>
+                    <%
+                }
+            %>
+            </select >
+		</div>
+
+		<div class="invisible-helper" data-oid="<%= this.data.attr('oidBlockOperation') %>"></div>
+		<%
+		var blockOperationIfTrue = this.data.attr('blockOperationIfTrue');
+		var blockOperationIfFalse = this.data.attr('blockOperationIfFalse');
+		var blockOperationShowIcon = this.data.attr('blockOperationShowIcon');
+		var currentState = false;
+		var showBlockedIcon = false;
+
+		//get value for blocked
+		if (this.data.attr('blockOperationUseDifferentOID')) {
+			var currentState = vis.states.attr(this.data['oidBlockOperation'] + '.val');
+		} else {
+			var currentState = vis.states.attr(this.data['oid'] + '.val');
+		}
+
+		//add blocked div
+		if (blockOperationIfTrue && currentState == true || blockOperationIfFalse && currentState != true) { %>
+			<div class="blockOperation" style="width: 100%; height:100%; position: absolute; top: 0; left: 0;"></div>
+		<% }
+
+		//add icon
+		if (blockOperationShowIcon) {
+			if (vis.editMode && !this.data.attr('blockOperationIconNotInEditor')) {
+				showBlockedIcon = true;
+			} else if (!vis.editMode && (blockOperationIfTrue && currentState || blockOperationIfFalse && !currentState)) {
+				showBlockedIcon = true;
+			}
+			if (showBlockedIcon) { %>
+				<img class="blockedIcon" src="<%= this.data.attr('blockOperationIcon') %>">
+			<% }
+		} %>
+	</div>
+</script>
+
 <script id="tplHomekittilesButtonDialogClose"
 	type="text/ejs"
 	class="vis-tpl"

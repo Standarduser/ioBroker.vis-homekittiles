@@ -522,6 +522,47 @@ vis.binds["vis-homekittiles"] = {
 			}
 		});
 	},
+	//Select - copied from jqui to don't force jqui button styles
+	multiselect: function (el) {
+		var $this = $(el);
+		var oid = $this.attr('data-oid');
+		if (oid) $this.val(vis.states[oid + '.val']);
+
+		$this.change(function () {
+			var val = $this.val();
+			if (parseFloat(val).toString() == val) val = parseFloat(val);
+			if (val === 'true') val = true;
+			if (val === 'false') val = false;
+			if (!vis.editMode) vis.setValue(oid, val);
+		});
+
+		$this.val(vis.states[oid + '.val']);
+		$this.prop('disabled', vis.editMode);
+		var id =  $this.attr('id');
+
+		function onChange(e, newVal) {
+			var $select = $('#' + id);
+			$select.val(newVal);
+		}
+
+		if (oid) {
+			vis.states.bind(oid + '.val', onChange);
+			// remember all ids, that bound
+			$this.parent().parent()
+				.data('bound', [oid + '.val'])
+				// remember bind handler
+				.data('bindHandler', onChange);
+		}
+
+		if (vis.editMode) {
+
+			vis.bindWidgetClick($this.attr('data-view'), $this.attr('id').replace('_multiselect', ''));
+			$this.parent().parent().resize(function () {
+			}).data('destroy', function (id, $widget) {
+				$widget.off('resize');
+			});
+		}
+	},
 	//Navigation active
 	hktNavigationActive: function (el) {
 		var $this = $(el);

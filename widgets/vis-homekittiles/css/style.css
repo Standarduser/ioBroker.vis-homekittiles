@@ -489,6 +489,19 @@
 	margin-left: 5px;
 }
 
+/* Settings Select */
+.homekitTiles.settings.select select {
+	background-color: #808080;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	float: right;
+}
+.homekitTiles.settings.select:has(.blockOperation) select {
+	opacity: 0.3;
+}
+
 /*---------------------------------------------------------------*/
 /* View in widget swipe */
 .homekitTiles.viewInWidget.swipe {

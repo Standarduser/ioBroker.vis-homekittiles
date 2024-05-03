@@ -28,7 +28,6 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* create Settings-Widget with select value list
 * create Mini-mediaplayer
 * create Thermostat
 * create Select-tile
@@ -48,6 +47,7 @@ The widgets are designed for VIS 1.x.
 * (Standarduser) added preview for label-widget
 * (Standarduser) added notification bubbles for navigation button-set
 * (Standarduser) removed navigation button (use navigation button-set instead)
+* (Standarduser) added Settings-Widget with select value list
 
 ### 0.0.11 (2024-04-30)
 
