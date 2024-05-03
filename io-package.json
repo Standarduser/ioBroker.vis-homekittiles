@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "news": {
+      "0.0.12": {
+        "en": "added preview for label-widget\nadded notification bubbles for navigation button-set\nremoved navigation button (use navigation button-set instead)\nadded Settings-Widget with select value list",
+        "de": "zusätzliche vorschau für label-widget\nzusätzliche benachrichtigung blasen für navigation knopf-set\nentfernte navigationstaste (navigation button-set verwenden)\nhinzufügen von Einstellungen-Widget mit Auswahlwertliste",
+        "ru": "добавленное превью для лейбла-widget\nдобавленные пузыри уведомлений для навигации\nудалить навигационную кнопку ( вместо этого использовать навигационную кнопку)\nдобавленные настройки-Widget с выбранным списком значений",
+        "pt": "visualização adicionada para label-widget\nbolhas de notificação adicionadas para a navegação\nbotão de navegação removido (usar botão de navegação em vez)\nadicionado Configurações-Widget com lista de valor selecionada",
+        "nl": "toegevoegd voorbeeld voor label-widget\ntoegevoegde notificatiebellen voor navigatieknop-set\nnavigatieknop verwijderd (in plaats daarvan navigatieknop instellen)\ntoegevoegd Instellingen-Widget met select waardelijst",
+        "fr": "aperçu ajouté pour label-widget\nbulles de notification ajoutées pour le bouton de navigation\nbouton de navigation retiré (utiliser le bouton de navigation à la place)\nparamètres ajoutés-Widget avec la liste de valeurs sélectionnée",
+        "it": "anteprima aggiuntiva per etichetta-widget\naggiunte bolle di notifica per la navigazione\npulsante di navigazione rimosso (usare pulsante di navigazione imposta invece)\naggiunto Impostazioni-Widget con selezionare l'elenco dei valori",
+        "es": "vista previa adicional para etiqueta-widget\nburbujas de notificación agregadas para el inicio de botón de navegación\neliminar el botón de navegación (utilizar el botón de navegación)\nañadido Configuración-Widget con lista de valor",
+        "pl": "dodany podgląd dla label- widget\ndodane bańki powiadomień do nawigacji przycisk-zestaw\nusunięty przycisk nawigacyjny (zamiast tego użyj przycisku nawigacyjnego)\ndodano Settings- Widget z wybraną listą wartości",
+        "uk": "додано попередній перегляд для етикетки-widget\nдодано сповіщення бульбашок для навігаційної кнопки-set\nвидалити навігацію гудзики (наприклад, кнопка навігації)\nдодано налаштування-Widget з вибраним переліком значень",
+        "zh-cn": "添加标签widget的预览\n为导航按钮集添加通知泡\n删除导航按钮( 使用导航按钮设置代替)\n添加带有选定值列表的设置- Widget"
+      },
       "0.0.11": {
         "en": "added own signal pictures for all tiles widgets\nRadiobutton: allow HTML in button label\nRadiobutton: some css corrections\nadded Text field (label) with predefined css-classes",
         "de": "eigene signalbilder für alle fliesen widgets\nRadiobutton: HTML in Knopf-Label zulassen\nRadiobutton: einige css Korrekturen\ntextfeld (Label) mit vordefinierten css-Klassen hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "po prostu czyszczenie",
         "uk": "просто трохи очищення",
         "zh-cn": "只是一些清洁方案"
-      },
-      "0.0.5": {
-        "en": "fixed: adjustment of decimals in labelgroup 1 & 2\nfixed: readme\nnot fixed: increment not working properbly",
-        "de": "fest: anpassung der dezimals in der labelgruppe 1 & 2\nfixiert: readme\nnicht fixiert: inkrement nicht ordnungsgemäß arbeiten",
-        "ru": "исправлена: настройка десятичных приборов в labelgroup 1 & 2\nисправлено: readme\nне исправлено: инкремент не работает надлежащим образом",
-        "pt": "fixo: ajustamento dos decimais no rótulogrupo 1 & 2\ncorrigido: readme\nnão fixo: incremento não funcionando adequadamente",
-        "nl": "vertaling:\nvertaling:\nniet genezen",
-        "fr": "fixe: ajustement des décimales dans le groupe d ' étiquettes 1 et 2\nfixe: readme\nnon fixe: augmentation ne fonctionnant pas correctement",
-        "it": "fisso: regolazione dei decimali in etichettagruppo 1 & 2\nfisso: lettura\nnon fisso: incremento non funzionante correttamente",
-        "es": "fijo: ajuste de los decimales en el grupo de etiquetas 1 & 2\nfijo: readme\nno fijo: aumento no trabajo correctamente",
-        "pl": "zastosowanie dziesiętnych w etykietach 1 & 2\nczytnik: odczyt\nnie ustalono: przyrost nie pracuje właściwie",
-        "uk": "фіксована: регулювання десятків в групі етикеток 1 & 2\nфіксований: читати\nне зафіксовано: підробка не працює належним чином",
-        "zh-cn": "固定:对标签1和2的标记进行调整\n固定:改为:\n未确定:不正常工作"
       }
     },
     "titleLang": {

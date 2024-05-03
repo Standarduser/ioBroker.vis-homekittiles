@@ -41,8 +41,7 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.12 (2024-05-03)
 
 * (Standarduser) added preview for label-widget
 * (Standarduser) added notification bubbles for navigation button-set
