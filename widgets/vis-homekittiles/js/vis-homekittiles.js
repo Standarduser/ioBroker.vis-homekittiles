@@ -19,6 +19,7 @@ $.extend(
 		"iconRound":					{	"en": "Show round icon",			"de": "Zeige rundes Icon"				},
 		"unit":							{	"en": "Unit",						"de": "Einheit"							},
 		"showLikeActive":				{	"en": "Allways show like active",	"de": "Immer als aktiv anzeigen"		},
+		"dateformat":					{	"en": "Date format",				"de": "Datumsformat"					},
 
 		"decimals":						{	"en": "Decimals",					"de": "Nachkommastellen"				},
 		"factor":						{	"en": "Multiplicator",				"de": "Multiplikator"					},
@@ -329,11 +330,11 @@ vis.binds["vis-homekittiles"] = {
 		}
 	},
 	//Datepicker - copied from jqui to don't force jqui button styles
-	datepicker: function (el, options) {
+	hktDatepicker: function (el, options) {
 		var $this = $(el);
 		var oid = $this.attr('data-oid');
 		var datepickerOptions = $.extend(true, {
-			dateFormat:      'yy-mm-dd',
+			dateFormat:      $this.attr('data-dateformat'),
 			monthNamesShort: vis.binds.jqueryui.shortMonths[vis.language],
 			monthNames:      vis.binds.jqueryui.months[vis.language],
 			dayNamesMin:     vis.binds.jqueryui.shortWeekDays[vis.language],
@@ -344,7 +345,7 @@ vis.binds["vis-homekittiles"] = {
 
 		}, options);
 
-		if (!vis.editMode) $this.datepicker(datepickerOptions);
+		if (!vis.editMode) $this.hktDatepicker(datepickerOptions);
 
 		function onChange(e, newVal) {
 			$this.val(newVal);

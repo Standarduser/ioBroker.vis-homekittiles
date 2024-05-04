@@ -1,43 +1,54 @@
 /* Colors */
 :root {
-	--hkt-color-label-headline1:		#bbb;
-    --hkt-color-label-headline2:		#bbb;
-    --hkt-color-label-headline3:		#bbb;
-    --hkt-color-label-textlabel:		#666;
-    --hkt-color-label-smalllabel:		#666;
+	--hkt-color-label-headline1:				#bbb;
+    --hkt-color-label-headline2:				#bbb;
+    --hkt-color-label-headline3:				#bbb;
+    --hkt-color-label-textlabel:				#666;
+    --hkt-color-label-smalllabel:				#666;
 
-	--hkt-color-tile-on-foreground:		#333;
-	--hkt-color-tile-on-background:		#ddd;
-	--hkt-color-tile-off-foreground:	#999;
-	--hkt-color-tile-off-background:	rgba(255,255,255, 0.15);
+	--hkt-color-tile-on-foreground:				#333;
+	--hkt-color-tile-on-background:				#ddd;
+	--hkt-color-tile-off-foreground:			#999;
+	--hkt-color-tile-off-background:			rgba(255,255,255, 0.15);
 
-	--hkt-color-value-foreground:		#fff;
-	--hkt-color-value-background:		#75CA26;
+	--hkt-color-value-foreground:				#fff;
+	--hkt-color-value-background:				#75CA26;
 
-	--hkt-color-notification1-fg:		#fff;
-	--hkt-color-notification1-bg:		#d64545;
-	--hkt-color-notification2-fg:		#666;
-	--hkt-color-notification2-bg:		#ffdb75;
-	--hkt-color-notification3-fg:		#666;
-	--hkt-color-notification3-bg:		#75CA26;
-	--hkt-color-notification4-fg:		#666;
-	--hkt-color-notification4-bg:		#add8e6;
-	--hkt-color-notification5-fg:		#fff;
-	--hkt-color-notification5-bg:		#808080;
+	--hkt-color-notification1-fg:				#fff;
+	--hkt-color-notification1-bg:				#d64545;
+	--hkt-color-notification2-fg:				#666;
+	--hkt-color-notification2-bg:				#ffdb75;
+	--hkt-color-notification3-fg:				#666;
+	--hkt-color-notification3-bg:				#75CA26;
+	--hkt-color-notification4-fg:				#666;
+	--hkt-color-notification4-bg:				#add8e6;
+	--hkt-color-notification5-fg:				#fff;
+	--hkt-color-notification5-bg:				#808080;
 
-	--hkt-color-settings-text:			#666;
-	--hkt-color-settings-toggle-on:		#bbb;
-	--hkt-color-settings-toggle-off:	#666;
+	--hkt-color-settings-text:					#666;
+	--hkt-color-settings-toggle-on:				#bbb;
+	--hkt-color-settings-toggle-off:			#666;
 
-	--hkt-color-dialog-foreground:		#bbb;
-	--hkt-color-dialog-background:		#444;
-	--hkt-color-dialog-title-fg:		#fff;
-	--hkt-color-dialog-title-bg:		#444;
+	--hkt-color-dialog-foreground:				#bbb;
+	--hkt-color-dialog-background:				#444;
+	--hkt-color-dialog-title-fg:				#fff;
+	--hkt-color-dialog-title-bg:				#444;
 
-	--hkt-color-button-fg:				#fff;
-	--hkt-color-button-bg:				#333;
-	--hkt-color-button-bg-2:			#3a3a3a;
-	--hkt-color-button-bg-3:			#303030;
+	--hkt-color-datepicker-background:			#444;
+	--hkt-color-datepicker-border:				#666;
+	--hkt-color-datepicker-head-fg:				#fff;
+	--hkt-color-datepicker-daynames:			#fff;
+	--hkt-color-datepicker-daynames-weekend:	#bbb;
+	--hkt-color-datepicker-days:				#fff;
+	--hkt-color-datepicker-days-weekend:		#bbb;
+	--hkt-color-datepicker-today:				orange;
+	--hkt-color-datepicker-selected-fg:			#000;
+	--hkt-color-datepicker-selected-bg:			#fff;
+
+	--hkt-color-button-fg:						#fff;
+	--hkt-color-button-bg:						#333;
+	--hkt-color-button-bg-2:					#3a3a3a;
+	--hkt-color-button-bg-3:					#303030;
 
 	--hkt-color-navigationbutton-default-fg:	#666;
 	--hkt-color-navigationbutton-active-fg:		#bbb;
@@ -227,7 +238,7 @@
 
 
 /*----------------------------------------------------------------*/
-/* Date-Picker */
+/* Date-Picker Kachel */
 .homekitTiles.tile.datepicker .labelGroup1 {
 	padding-bottom: 15px;
 }
@@ -243,9 +254,128 @@
 	padding-left: 10px;
 	padding-top: 78px;
 	box-sizing: border-box;
+
+	z-index: 2;
+	position: absolute;
 }
 .homekitTiles.tile.datepicker.state-default input {
 	color: var(--hkt-color-tile-off-foreground);
+}
+
+/* Datepicker Fenster */
+.homekitTiles.ui-datepicker {
+	font-size: 16px;
+	background: var(--hkt-color-datepicker-background);
+	border: 1px solid var(--hkt-color-datepicker-border);
+	border-radius: 10px;
+	padding: 2px;
+}
+/* Datepicker Fenster Kopfzeile */
+.homekitTiles.ui-datepicker .ui-datepicker-header {
+	color: var(--hkt-color-datepicker-head-fg);
+	background: none;
+	border: none;
+	border-radius: 0;
+	padding: 4px 0;
+}
+/* Datepicker Fenster Kopfzeile Vor/Zurück */
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-icon {
+	background-image: none;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-icon.ui-icon-circle-triangle-e,
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-icon.ui-icon-circle-triangle-w {
+	background-position: unset;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+	border: none;
+	border-radius: 0;
+	width: 30px;
+	height: 30px;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:hover,
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-next:hover {
+	background: none;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:before,
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-next:before {
+	font-family: verdana;
+	font-size: 16px;
+	color: var(--hkt-color-datepicker-head-fg);
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 30px;
+	text-align: center;
+}
+/* Datepicker Fenster Kopfzeile Zurück */
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:hover {
+	left: 2px;
+	top: 2px;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:before {
+	content: "<";
+}
+/* Datepicker Fenster Kopfzeile Vor */
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-next:hover {
+	right: 2px;
+	top: 2px;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-next:before {
+	content: ">";
+}
+/* Datepicker Fenster Kopfzeile Monat */
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+	font-weight: 700;
+}
+.homekitTiles.ui-datepicker .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year {
+	font-weight: 300;
+}
+/* Datepicker Fenster Kalender */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar {
+	margin: 0 0 2px 0;
+}
+/* Datepicker Fenster Kalender Überschrift Wochentage Mo-Fr */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar thead tr th {
+	color: var(--hkt-color-datepicker-daynames);
+	font-weight: 800;
+	height: 25px;
+	width: 25px;
+	padding: 0;
+}
+/* Datepicker Fenster Kalender Überschrift Wochentage Sa-So */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar thead tr th.ui-datepicker-week-end {
+	color: var(--hkt-color-datepicker-daynames-weekend);
+}
+/* Datepicker Fenster Kalender Kalendertage (alle) */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td a {
+	color: var(--hkt-color-datepicker-days);
+	background: none;
+	border: none;
+	border-radius: 9999px;
+	font-weight: 400;
+	text-align: center;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	margin: auto;
+}
+/* Datepicker Fenster Kalender Kalendertage Sa-So */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end a.ui-state-default {
+	color: var(--hkt-color-datepicker-days-weekend);
+}
+/* Datepicker Fenster Kalender Kalendertage heute */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today a.ui-state-default.ui-state-highlight {
+	color: var(--hkt-color-datepicker-today);
+}
+/* Datepicker Fenster Kalender Kalendertage ausgwählt */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day a.ui-state-default.ui-state-active {
+	color: var(--hkt-color-datepicker-selected-fg);
+	background: var(--hkt-color-datepicker-selected-bg);
+}
+/* Datepicker Fenster Kalender Kalendertage heute ausgwählt */
+.homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day.ui-datepicker-today a.ui-state-default.ui-state-highlight.ui-state-active {
+	color: var(--hkt-color-datepicker-today);
 }
 
 /*---------------------------------------------------------------*/

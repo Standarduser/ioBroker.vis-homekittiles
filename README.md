@@ -33,14 +33,19 @@ The widgets are designed for VIS 1.x.
 * create Select-tile
 * create Submenue-Button
 * CSS: make colors of dialog window nice
-* CSS: make colors of datepicker window nice
 * Radiobutton: new property "division" with selectable values (1:1; 3:4)
+* remove test divs from hkt-ViewInWidget-Dialog
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (Standarduser) made colors of datepicker window nice
+
 ### 0.0.12 (2024-05-03)
 
 * (Standarduser) added preview for label-widget
