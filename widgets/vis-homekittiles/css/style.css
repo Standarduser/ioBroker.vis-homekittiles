@@ -254,6 +254,7 @@
 	padding-left: 10px;
 	padding-top: 78px;
 	box-sizing: border-box;
+	cursor: pointer;
 
 	z-index: 2;
 	position: absolute;
