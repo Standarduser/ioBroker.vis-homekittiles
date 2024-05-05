@@ -29,7 +29,6 @@ The widgets are designed for VIS 1.x.
 ## Things to do
 
 * create Mini-mediaplayer
-* create Thermostat
 * create Select-tile
 * create Submenue-Button
 * Radiobutton: new property "division" with selectable values (1:1; 3:4)
@@ -44,6 +43,7 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) made colors of datepicker window nice
 * (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
+* (Standarduser) added thermostat widget
 
 ### 0.0.12 (2024-05-03)
 

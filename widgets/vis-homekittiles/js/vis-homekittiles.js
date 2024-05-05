@@ -1,6 +1,6 @@
 /*
-    ioBroker.vis vis-homekittiles Widget-Set
-    Copyright 2024 Standarduser
+	ioBroker.vis vis-homekittiles Widget-Set
+	Copyright 2024 Standarduser
 */
 "use strict";
 
@@ -12,6 +12,7 @@ $.extend(
 	systemDictionary,
 	{
 		"description":					{	"en": "Description",				"de": "Beschreibung"					},
+		"group_label":					{	"en": "Label",						"de": "Beschriftung"					},
 		"group_labelGroup1":			{	"en": "Label group 1",				"de": "Beschriftungsgruppe 1"			},
 		"group_labelGroup2":			{	"en": "Label group 2",				"de": "Beschriftungsgruppe 2"			},
 		"oidActive":					{	"en": "Object ID for Active State",	"de": "Objekt-ID für Aktiv"				},
@@ -145,6 +146,32 @@ $.extend(
 		"comparisonLower":				{	"en": "<",							"de": "<"								},
 		"comparisonGreater":			{	"en": ">",							"de": ">"								},
 
+		"oidActualTemperature":			{	"en": "Object ID for temperature",		"de": "Objekt-ID für Temperatur"			},
+		"oidSetPointTemperature":		{	"en": "Object ID for setpoint",			"de": "Objekt-ID für Sollwer"				},
+		"oidHumidity":					{	"en": "Object ID for humidity",			"de": "Objekt-ID für Feuchte"				},
+		"oidActiveProfile":				{	"en": "Object ID for heating profile",	"de": "Objekt-ID für Heizprofil"			},
+		"oidLowBat":					{	"en": "Object ID for low battery",		"de": "Objekt-ID für Batterie schwach"		},
+		"oidUnreach":					{	"en": "Object ID for unreach",			"de": "Objekt-ID für nicht Erreichbar"		},
+		"oidWindowState":				{	"en": "Object ID for window contact",	"de": "Objekt-ID für Fensterkontakt"		},
+		"unitTemperature":				{	"en": "Unit for temperature",			"de": "Einheit für Temperatur"				},
+		"unitHumidity":					{	"en": "Unit for humidity",				"de": "Einheit für Feuchte"					},
+		"temperatureMin":				{	"en": "Minimum temperature",			"de": "Minimale Temperatur"					},
+		"temperatureMax":				{	"en": "Maximum temperature",			"de": "Maximale Temperatur"					},
+		"temperatureStep":				{	"en": "Temperature steps",				"de": "Schrittweite Temperatur"				},
+		"group_thermostatDialog":		{	"en": "Thermostat dialog",				"de": "Thermostat-Dialog"					},
+		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
+		"actualTemperatureLabel":		{	"en": "Label temperature",				"de": "Beschriftung Temperatur"				},
+		"setpointTemperatureLabel":		{	"en": "Label setpoint",					"de": "Beschriftung Sollwert"				},
+		"actualHumidityLabel":			{	"en": "Label humidity",					"de": "Beschriftung Feuchte"				},
+		"activeProfileLabel":			{	"en": "Label heating profile",			"de": "Beschriftung Heizprofil"				},
+		"activeProfileValues":			{	"en": "Values of heating profile",		"de": "Werte des Heizprofils"				},
+		"activeProfileTexts":			{	"en": "Names of heating profile",		"de": "Namen des Heizprofiles"				},
+		"windowStateLabel":				{	"en": "Label window contact",			"de": "Beschriftung Fensterkontakt"			},
+		"windowStateValues":			{	"en": "Values of window contact",		"de": "Werte des Fensterkontakts"			},
+		"windowStateTexts":				{	"en": "Value names of window contact",	"de": "Textwerte des Fensterkontakts"		},
+		"lowBatLabel":					{	"en": "Label battery low",				"de": "Beschriftung Batterie schwach"		},
+		"unreachLabel":					{	"en": "Label unreach",					"de": "Beschriftung nicht erreichbar"		},
+
 		"hktButtonDialogCloseDescription": {
 			"en": "A button to close open dialogs. Fill 'Dialog widget ID' with ID of dialog widget if button is placed outside a dialog window.",
 			"de": "Ein Button, der geöffnete Dialogfenster schließt. Wenn der Button außerhalb eines Dialogs platziert wird, muss in 'Dialog-Widget-ID' die Widget-ID des Dialogfensters angegeben werden."
@@ -185,6 +212,10 @@ $.extend(
 			"en": "Value with increment buttons.",
 			"de": "Analogwert mit Inkrement-Tasten."
 		},
+		"hktThermostatDialogDescription": {
+			"en": "Thermostat dialog, specially adapted for Homematic.",
+			"de": "Thermostat-Dialog, speziell für Homematic angepasst."
+		},
 		"hktSwitchBoolDescription": {
 			"en": "Simple switch (on/off) with icon, increment buttons and two free to define label groups.",
 			"de": "Einfacher Schalter (an/aus) mit Icon, Inkrement-Tasten und zwei frei definierbaren Beschriftungsgruppen."
@@ -220,14 +251,14 @@ vis.navChangeCallbacks.push(function (view) {
 
 // this code can be placed directly in vis-homekittiles.html
 vis.binds["vis-homekittiles"] = {
-    version: "0.0.1",
-    showVersion: function () {
-        if (vis.binds["vis-homekittiles"].version) {
-            console.log('Version vis-homekittiles: ' + vis.binds["vis-homekittiles"].version);
-            vis.binds["vis-homekittiles"].version = null;
-        }
-    },
-    //VIS Edit Info Texte - thanx @inventwo ;)
+	version: "0.0.1",
+	showVersion: function () {
+		if (vis.binds["vis-homekittiles"].version) {
+			console.log('Version vis-homekittiles: ' + vis.binds["vis-homekittiles"].version);
+			vis.binds["vis-homekittiles"].version = null;
+		}
+	},
+	//VIS Edit Info Texte - thanx @inventwo ;)
 	infoText: function (widAttr, data) {
 		let text = "";
 
@@ -242,6 +273,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktSettingsBool")			{ text = "hktSettingsBoolDescription";			}
 		else if (data[1] === "hktSettingsValue")		{ text = "hktSettingsValueDescription";			}
 		else if (data[1] === "hktSwitchBool")			{ text = "hktSwitchBoolDescription";			}
+		else if (data[1] === "hktThermostatDialog")		{ text = "hktThermostatDialogDescription";		}
 		else if (data[1] === "hktValue")				{ text = "hktValueDescription";					}
 		else if (data[1] === "hktViewInWidgetDialog")	{ text = "hktViewInWidgetDialogDescription";	}
 		else if (data[1] === "hktViewInWidgetSwipe")	{ text = "hktViewInWidgetSwipeDescription";		}
@@ -701,6 +733,182 @@ vis.binds["vis-homekittiles"] = {
 				}).data('destroy', function (id, $widget) {
 				$widget && $widget.off('mousedown').off('touchstart').off('touchend').off('mouseup');
 			});
+		}
+	},
+	//Thermostat slider - thanx @inventwo ;)
+	thermostatSlider: function (el, data, options) {
+		var $this = $(el);
+		var oid = data.oidSetPointTemperature;
+
+		let min = parseFloat(data.temperatureMin);
+		let max = parseFloat(data.temperatureMax);
+		let step = parseFloat(data.temperatureStep);
+
+		if (isNaN(min)) min = 15;
+		if (isNaN(max)) max = 28;
+		if (isNaN(step)) step = 0.5;
+
+		let isDragging = false;
+
+		var settings = $.extend({
+			min: min,
+			max: max,
+			step: step,
+			slide: function (event, ui) {
+				isDragging = true;
+				if (!vis.editMode) {
+					//$this.parent().parent().find(".ui-slider-handle").html(`<span class="value">${ui.value}${data.unitTemperature}</span>`);
+				}
+			},
+			stop: function (event, ui) {
+				isDragging = false;
+				if (!vis.editMode) {
+					vis.setValue(oid, ui.value);
+					//$this.parent().parent().find(".ui-slider-handle").html(`<span class="value">${ui.value}${data.unitTemperature}</span>`);
+				}
+			}
+		}, options);
+
+		$this.slider(settings)
+			.each(function () {
+
+				// show steps
+				var opt = $(this).data().uiSlider.options;
+
+				// Get the number of possible values
+				let visibleSteps = 1;
+				let vals = (opt.max - opt.min) / visibleSteps;
+
+				// Space out values
+				for (let i = 0; i <= vals; i++) {
+
+					let label = null;
+
+					let val = opt.max - i * visibleSteps;
+					label = $('<span class="step-label">' + val + '</span>')
+						.css('top', (i / vals * 100) + '%')
+
+					$(this).append(label);
+				}
+			});
+
+		function updateSlider() {
+
+			$this.slider();
+			if (oid == undefined) {
+				return;
+			}
+			let val = vis.states.attr(oid + ".val");
+
+			val = parseFloat(val);
+			if (isNaN(val)) {
+				val = min;
+			}
+			$this.slider("option", "value", val);
+		}
+
+		updateSlider();
+
+		//clean up css classes
+		$this.removeClass('ui-widget');
+		$this.removeClass('ui-widget-content');
+		$this.removeClass('ui-corner-all');
+		$this.find(".ui-slider-handle").removeClass('ui-state-default');
+		$this.find(".ui-slider-handle").removeClass('ui-corner-all');
+
+		//get value on startup
+		let value = vis.states.attr(oid + '.val');
+		//$this.find(".ui-slider-handle").html(`<span class="value">${value}${data.unitTemperature}</span>`);
+
+		// subscribe on updates of values
+		vis.states.bind(oid + ".val", function (e, newVal, oldVal) {
+			if (!isDragging) { updateSlider(); }
+			//$this.find(".ui-slider-handle").html(`<span class="value">${newVal}${data.unitTemperature}</span>`);
+		});
+	},
+	//Thermostat dialog - same as "dialogContainer" with some modifications
+	dialogThermostat: function (el, options, persistent, preload) {
+		var $dlg = $(el).parent().find('div.vis-widget-dialog');
+
+		var id = $(el).parent().attr('id');
+		if (id && id.match(/_removed$/)) {
+			return;
+		}
+
+		if (!$dlg.length) {
+			setTimeout(function () {
+				vis.binds['vis-homekittiles'].dialogContainer(el, options, persistent, preload);
+			}, 200);
+			return;
+		}
+
+		//fix some parameters
+		options.height = '340px';
+		options.width = '300px';
+
+		$dlg.dialog($.extend({
+			autoOpen: false,
+			open: function () {
+				$(this).parent().find('.ui-widget-header button .ui-button-text').html('');
+				$(this).parent().css('z-index', 998);
+				//touchscreen fix
+				$dlg.find('.vis-view-container').each(function () {
+					var cview = $(this).attr('data-vis-contains');
+					var $this = this;
+					vis.renderView(cview, cview, false, function (_view) {
+						$('#visview_' + _view)
+								.appendTo($this)
+								.show();
+					});
+				});
+
+				//add and remove classes for styling
+				//main window
+				$(this).parent().addClass('homekitTiles dialog');
+				$(this).parent().removeClass('ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable');
+				//head
+				$(this).parent().find('div.ui-dialog-titlebar').addClass('header').removeClass('ui-widget-header ui-corner-all ui-draggable-handle');
+				//title
+				$(this).parent().find('span.ui-dialog-title').addClass('title').removeClass('ui-dialog-title');
+				//close button
+				$(this).parent().find('button.ui-dialog-titlebar-close').remove();
+				//content
+				$(this).parent().find('div.ui-dialog-content').addClass('content');//.removeClass('vis-widget-dialog ui-widget-content');
+				//resizable
+				$(this).parent().find('div.ui-resizable-handle').remove();
+
+				//size window
+				if (options.height)   $(this).css('height', options.height);
+				if (options.width)    $(this).css('width',  options.width);
+
+				//position window
+				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
+				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
+
+				//arrows
+				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);
+			},
+			close: function () {
+				if ($dlg.data('timer')) {
+					clearTimeout($dlg.data('timer'));
+					$dlg.data('timer', null);
+				}
+				vis.destroyUnusedViews();
+			}
+		}, options));
+
+		if (!vis.editMode) {
+			$(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
+				event.stopPropagation();
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+
+				var $id =  $('#' + $(this).parent().attr('id') + '_dialog');
+				$id.dialog('open');
+				return false;
+			});
+		} else {
+			$(el).parent().find('div.vis-widget-body').show();
 		}
 	},
 

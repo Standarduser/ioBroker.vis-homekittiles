@@ -113,11 +113,11 @@ You can do "if" conditions and "for" cycles.
 			<div class="homekitTiles label smalllabel">Small label</div>'
 		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktLabel;text/text;textstyle[textlabel]/select,headline1,headline2,headline3,textlabel,smalllabel;"
 >
-    <div class="homekitTiles label <%== this.data.attr('textstyle') %> vis-widget <%== this.data.attr('class') %>" style="width:200px; height:<%= this.data.attr('textstyle') == 'headline1' ? '28' : this.data.attr('textstyle') == 'headline2' ? '18' : this.data.attr('textstyle') == 'headline3' ? '14' : this.data.attr('textstyle') == 'textlabel' ? '18' : this.data.attr('textstyle') == 'smalllabel' ? '14' : '20' %>px;" id="<%= this.data.attr('wid') %>">
-        <div class="vis-widget-body">
-            <%== this.data.attr('text') %>
-        </div>
-    </div>
+	<div class="homekitTiles label <%== this.data.attr('textstyle') %> vis-widget <%== this.data.attr('class') %>" style="width:200px; height:<%= this.data.attr('textstyle') == 'headline1' ? '28' : this.data.attr('textstyle') == 'headline2' ? '18' : this.data.attr('textstyle') == 'headline3' ? '14' : this.data.attr('textstyle') == 'textlabel' ? '18' : this.data.attr('textstyle') == 'smalllabel' ? '14' : '20' %>px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+			<%== this.data.attr('text') %>
+		</div>
+	</div>
 </script>
 
 <script id="tplHomekittilesNotification"
@@ -442,6 +442,124 @@ You can do "if" conditions and "for" cycles.
 	</div>
 </script>
 
+<script id="tplHomekittilesThermostatDialog"
+
+		type="text/ejs"
+		class="vis-tpl"
+		data-vis-set="vis-homekittiles"
+		data-vis-update-style="true"
+		data-vis-type="static,dialog"
+		data-vis-name="hkt-Thermostat-Dialog"
+		data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+							<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+								<div class="homekitTiles tile vis-widget-prev-body state-active">
+									<span class="tileValue">22°</span>
+									<label class="labelGroup1">Thermostat-Dialog</label>
+								</div>
+							</div>
+						</div>'
+		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktThermostatDialog;
+						oidActualTemperature/id;
+						oidSetPointTemperature/id;
+						oidHumidity/id;
+						oidActiveProfile/id;
+						oidLowBat/id;
+						oidUnreach/id;
+						oidWindowState/id;
+						unitTemperature[°];
+						unitHumidity[% r.F.];
+						temperatureMin[15];
+						temperatureMax[28];
+						temperatureStep[0.5];
+						showLikeActive[true]/checkbox;"
+		data-vis-attrs0="group.label;label[Thermostat];label2pre[Set at];label2post[];"
+		data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+		data-vis-attrs2="group.thermostatDialog;
+						title[Room];
+						closebuttonLabel[Close];
+						actualTemperatureLabel[Actual temperature];
+						setpointTemperatureLabel[Setpoint temperature];
+						actualHumidityLabel[Humidity];
+						activeProfileLabel[Temperature profile];
+						activeProfileValues[1§2§3§4§5§6];
+						activeProfileTexts[Comfort§Eco§-§-§Preheating§Away];
+						windowStateLabel[Window];
+						windowStateValues[0§1];
+						windowStateTexts[closed§open];
+						lowBatLabel[Battery low];
+						unreachLabel[Unreach];
+						autoclose/slider,0,30000,100;
+						modal/checkbox;
+						dialog_top;
+						dialog_left;
+						arrowDirection/nselect,,top,right,bottom,left;"
+>
+	<div class="homekitTiles tile thermostatDialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+
+		<%
+		if (this.data.attr('oidActiveProfile')) {
+			var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val');
+			var activeProfileValue = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
+			var activeProfileText  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
+			if (activeProfileValue.includes(activeProfile)) activeProfile = activeProfileText[activeProfileValue.indexOf(activeProfile)];
+		}
+
+		if (this.data.attr('oidWindowState')) {
+			var windowState = vis.states.attr(this.data['oidWindowState'] + '.val');
+			var windowStateValue = (data.attr('windowStateValues') ? data.attr('windowStateValues').split(';') : []);
+			var windowStateText  = (data.attr('windowStateTexts')  ? data.attr('windowStateTexts').split(';')  : []);
+			if (windowStateValue.includes(windowState)) windowState = windowStateText[windowStateValue.indexOf(windowState)];
+		}
+		%>
+
+		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
+			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span>
+			<div class="labelGroup1">
+				<span class="label"><%= this.data.attr('label') %></span>
+				<br>
+				<span class="label2pre"><%= this.data.attr('label2pre') %></span>
+				<span class="label2value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %></span><span class="label2unit"><%= this.data.attr('unitTemperature') %></span>
+				<span class="label2post"><%= this.data.attr('label2post') %></span>
+			</div>
+			<div class="labelGroup2">
+				<% if (this.data.attr('oidHumidity')) { %><span class="label3value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span><br><% } %>
+				<% if (this.data.attr('oidActiveProfile')) { %><span class="label4value"><%= activeProfile %></span><% } %>
+				<% if (this.data.attr('oidWindowState')) { %><span class="label5value"><%= windowState %></span><br><% } %>
+			</div>
+		</div>
+
+		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
+
+			<div class="thermostat head">
+				<div class="actualTemperature"><span class="title"><%= this.data.attr('actualTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div>
+			</div>
+
+			<div class="thermostat content">
+				<div class="values">
+					<div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div>
+					<% if (this.data.attr('oidHumidity')) { %><div class="actualHumidity"><span class="title"><%= this.data.attr('actualHumidityLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span></div><% } %>
+					<% if (this.data.attr('oidActiveProfile')) { %><div class="activeProfile <%= activeProfile %>"><span class="title"><%= this.data.attr('activeProfileLabel') %></span><span class="value"><%= activeProfile %></span></div><% } %>
+					<% if (this.data.attr('oidWindowState')) { %><div class="windowState <%= windowState %>"><span class="title"><%= this.data.attr('windowStateLabel') %></span><span class="value"><%= windowState %></span></div><% } %>
+					<% if (this.data.attr('oidLowBat')) { %><div class="lowBat <%= vis.states.attr(this.data['oidLowBat'] + '.val') %>"><span class="value"><%= this.data.attr('lowBatLabel') %></span></div><% } %>
+					<% if (this.data.attr('oidUnreach')) { %><div class="unreach <%= vis.states.attr(this.data['oidUnreach'] + '.val') %>"><span class="value"><%= this.data.attr('unreachLabel') %></span></div><% } %>
+				</div>
+
+				<div class="thermostatSlider">
+					<div class="slider-container">
+						<div class="slider" <%= (el) -> vis.binds['vis-homekittiles'].thermostatSlider(el, data, {orientation:"vertical"}) %>></div>
+					</div>
+				</div>
+			</div>
+
+			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
+		</div>
+
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+
+		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
+	</div>
+</script>
+
 <script id="tplHomekittilesSettingsBool"
 	type="text/ejs"
 	class="vis-tpl"
@@ -610,16 +728,16 @@ You can do "if" conditions and "for" cycles.
 			<label class="label"><%= this.data.attr('label') %></label>
 
 			<select id="<%= this.data.attr('wid') %>_select" data-oid="<%= this.data.attr('oid') %>" data-view="<%= this.view %>" <%= (el) -> setTimeout(function () { vis.binds['vis-homekittiles'].multiselect(el)}, 250) %> >
-            <%
-                var values = (data.attr('values') ? data.attr('values').split(';') : []);
-                var texts  = (data.attr('texts')  ? data.attr('texts').split(';')  : []);
-                for (var val in values) {
-                    %>
-                    <option value="<%= values[val] %>"><%= texts[val] %></option>
-                    <%
-                }
-            %>
-            </select >
+			<%
+				var values = (data.attr('values') ? data.attr('values').split(';') : []);
+				var texts  = (data.attr('texts')  ? data.attr('texts').split(';')  : []);
+				for (var val in values) {
+					%>
+					<option value="<%= values[val] %>"><%= texts[val] %></option>
+					<%
+				}
+			%>
+			</select >
 		</div>
 
 		<div class="invisible-helper" data-oid="<%= this.data.attr('oidBlockOperation') %>"></div>
