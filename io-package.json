@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "news": {
+      "0.0.13": {
+        "en": "made colors of datepicker window nice\nremoved test divs from hkt-ViewInWidget-Dialog\nadded thermostat widget",
+        "de": "farben von datepicker fenster schön\nentfernte Testdaten von hkt-ViewInWidget-Dialog\nthermostat widget",
+        "ru": "цвета сетчатого окна\nудаленные данные теста от hkt-ViewInWidget-Dialog\nдобавленный термостат",
+        "pt": "cores feitas de datapicker janela agradável\nremoveu divs de teste de hkt-ViewInWidget-Dialog\nwidget de termostato adicionado",
+        "nl": "gemaakt kleuren van datapicker venster leuk\nverwijderd test divs uit hkt-ViewInWidget-Dialog\ntoegevoegd thermostaat widget",
+        "fr": "couleurs faites de datepicker fenêtre agréable\ndivs de test supprimés de hkt-ViewInWidget-Dialog\nwidget thermostat ajouté",
+        "it": "fatto colori di datepicker finestra bello\ndiv di prova rimossi da hkt-ViewInWidget-Dialog\nwidget termostato aggiunto",
+        "es": "hechos colores de datepicker ventana agradable\nexamen eliminado divs de hkt-ViewInWidget-Dialog\nwidget termostato",
+        "pl": "wykonane kolory okna datepicker ładne\nusunięte divy testowe z okna dialogowego hkt- ViewInWidget-\ndodany widżet termostatu",
+        "uk": "виготовлені кольори датчика вікна приємно\nвидалити тести з hkt-ViewInWidget-Dialog\nдодано термостат віджет",
+        "zh-cn": "将摘枣窗口的颜色调好\n从 hkt- ViewInWidget- Dialog 中删除了测试隐藏\n添加自动调温器部件"
+      },
       "0.0.12": {
         "en": "added preview for label-widget\nadded notification bubbles for navigation button-set\nremoved navigation button (use navigation button-set instead)\nadded Settings-Widget with select value list",
         "de": "zusätzliche vorschau für label-widget\nzusätzliche benachrichtigung blasen für navigation knopf-set\nentfernte navigationstaste (navigation button-set verwenden)\nhinzufügen von Einstellungen-Widget mit Auswahlwertliste",
@@ -80,19 +93,6 @@
         "pl": "Poprawka CSS\nzmieniona operacja bloku na stary wariant\npoprawić format wartości w grupach labelowych",
         "uk": "Налаштування CSS\nзмінена операція блоку до старого варіанту\nвиправлено форматування значень у групах етикеток",
         "zh-cn": "B. 系统调整\nb. 旧变量的阻断作业变化\nb. 对标签集团的修改价值格式"
-      },
-      "0.0.6": {
-        "en": "just some cleanup",
-        "de": "nur ein bisschen sauber",
-        "ru": "только некоторые очистки",
-        "pt": "apenas uma limpeza",
-        "nl": "gewoon wat opruimen",
-        "fr": "juste un nettoyage",
-        "it": "solo qualche pulizia",
-        "es": "sólo un poco de limpieza",
-        "pl": "po prostu czyszczenie",
-        "uk": "просто трохи очищення",
-        "zh-cn": "只是一些清洁方案"
       }
     },
     "titleLang": {
