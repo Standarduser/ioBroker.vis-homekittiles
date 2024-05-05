@@ -430,8 +430,7 @@ You can do "if" conditions and "for" cycles.
 		</div>
 
 		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
-			<div data-vis-contains="<%= this.data.attr('contains_view') %>" class="vis-widget-body vis-view-container"><div class="test1"></div></div>
-			<div class="test2"></div>
+			<div data-vis-contains="<%= this.data.attr('contains_view') %>" class="vis-widget-body vis-view-container"></div>
 		</div>
 
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>

@@ -32,9 +32,7 @@ The widgets are designed for VIS 1.x.
 * create Thermostat
 * create Select-tile
 * create Submenue-Button
-* CSS: make colors of dialog window nice
 * Radiobutton: new property "division" with selectable values (1:1; 3:4)
-* remove test divs from hkt-ViewInWidget-Dialog
 
 ## Changelog
 <!--
@@ -45,6 +43,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * (Standarduser) made colors of datepicker window nice
+* (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
 
 ### 0.0.12 (2024-05-03)
 
