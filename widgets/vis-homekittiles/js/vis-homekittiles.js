@@ -1,6 +1,6 @@
 /*
     ioBroker.vis vis-homekittiles Widget-Set
-    Copyright 2023 Standarduser
+    Copyright 2024 Standarduser
 */
 "use strict";
 
@@ -440,7 +440,7 @@ vis.binds["vis-homekittiles"] = {
 				//position window
 				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
 				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
-				
+
 				//scroll content
 				if (options.overflowX) $(this).css('overflow-x', options.overflowX);
 				if (options.overflowY) $(this).css('overflow-y', options.overflowY);
@@ -708,9 +708,9 @@ vis.binds["vis-homekittiles"] = {
 	addButtonIcon: function (el, data) {
 		var $this = $(el);
 		var html = '';
-		
+
 		if (data.icon !== '' && data.icon !== undefined) html += `<img class="` + (data.iconRound ? 'round' : '') + `"  src="${data.icon}">`;
-		
+
 		$this.html(html);
 	},
 	addLabelGroup1: function (el, data) {
