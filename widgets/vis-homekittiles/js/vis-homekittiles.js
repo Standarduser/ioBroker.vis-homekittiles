@@ -147,7 +147,7 @@ $.extend(
 		"comparisonGreater":			{	"en": ">",							"de": ">"								},
 
 		"oidActualTemperature":			{	"en": "Object ID for temperature",		"de": "Objekt-ID für Temperatur"			},
-		"oidSetPointTemperature":		{	"en": "Object ID for setpoint",			"de": "Objekt-ID für Sollwer"				},
+		"oidSetPointTemperature":		{	"en": "Object ID for setpoint",			"de": "Objekt-ID für Sollwert"				},
 		"oidHumidity":					{	"en": "Object ID for humidity",			"de": "Objekt-ID für Feuchte"				},
 		"oidActiveProfile":				{	"en": "Object ID for heating profile",	"de": "Objekt-ID für Heizprofil"			},
 		"oidLowBat":					{	"en": "Object ID for low battery",		"de": "Objekt-ID für Batterie schwach"		},
