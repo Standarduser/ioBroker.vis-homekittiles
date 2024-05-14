@@ -45,6 +45,7 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) corrected height of settings-bool widget
 * (Standarduser) corrected translation of thermostat
+* (Standarduser) corrected linebreak at thermostat tile (profile)
 
 ### 0.0.13 (2024-05-05)
 
