@@ -498,14 +498,14 @@ You can do "if" conditions and "for" cycles.
 
 		<%
 		if (this.data.attr('oidActiveProfile')) {
-			var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val');
+			var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val').toString();
 			var activeProfileValue = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
 			var activeProfileText  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
 			if (activeProfileValue.includes(activeProfile)) activeProfile = activeProfileText[activeProfileValue.indexOf(activeProfile)];
 		}
 
 		if (this.data.attr('oidWindowState')) {
-			var windowState = vis.states.attr(this.data['oidWindowState'] + '.val');
+			var windowState = vis.states.attr(this.data['oidWindowState'] + '.val').toString();
 			var windowStateValue = (data.attr('windowStateValues') ? data.attr('windowStateValues').split(';') : []);
 			var windowStateText  = (data.attr('windowStateTexts')  ? data.attr('windowStateTexts').split(';')  : []);
 			if (windowStateValue.includes(windowState)) windowState = windowStateText[windowStateValue.indexOf(windowState)];
