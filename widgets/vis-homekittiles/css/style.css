@@ -549,6 +549,7 @@
 /* Settings common */
 .homekitTiles.settings {
 	color: var(--hkt-color-settings-text);
+	min-height: 17px;
 }
 /* Operation blocked icon */
 .homekitTiles.settings:has(.blockedIcon) {
