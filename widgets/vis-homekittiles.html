@@ -542,7 +542,7 @@ You can do "if" conditions and "for" cycles.
 
 			<div class="thermostat content">
 				<div class="values">
-					<div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div>
+					<% if (this.data.attr('oidSetPointTemperature')) { %><div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div><% } %>
 					<% if (this.data.attr('oidHumidity')) { %><div class="actualHumidity"><span class="title"><%= this.data.attr('actualHumidityLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span></div><% } %>
 					<% if (this.data.attr('oidActiveProfile')) {
 						var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val').toString();
@@ -573,11 +573,13 @@ You can do "if" conditions and "for" cycles.
 					<% if (this.data.attr('oidUnreach')) { %><div class="unreach <%= vis.states.attr(this.data['oidUnreach'] + '.val') %>"><span class="value"><%= this.data.attr('unreachLabel') %></span></div><% } %>
 				</div>
 
-				<div class="thermostatSlider">
-					<div class="slider-container">
-						<div class="slider" <%= (el) -> vis.binds['vis-homekittiles'].thermostatSlider(el, data, {orientation:"vertical"}) %>></div>
+				<% if (this.data.attr('oidSetPointTemperature')) { %>
+					<div class="thermostatSlider">
+						<div class="slider-container">
+							<div class="slider" <%= (el) -> vis.binds['vis-homekittiles'].thermostatSlider(el, data, {orientation:"vertical"}) %>></div>
+						</div>
 					</div>
-				</div>
+				<% } %>
 			</div>
 
 			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
