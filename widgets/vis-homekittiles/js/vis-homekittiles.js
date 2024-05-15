@@ -950,6 +950,9 @@ vis.binds["vis-homekittiles"] = {
 
 		switch (texttemplate) {
 			case 'english':
+				vis.views[view].widgets[widgetID].data.label2pre				= 'Set at';
+				vis.views[view].widgets[widgetID].data.label2post				= '';
+
 				vis.views[view].widgets[widgetID].data.title					= 'Room';
 				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Close';
 				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Actual temperature';
@@ -968,6 +971,9 @@ vis.binds["vis-homekittiles"] = {
 				vis.views[view].widgets[widgetID].data.unreachLabel				= 'Unreach';
 				break;
 			case 'german':
+				vis.views[view].widgets[widgetID].data.label2pre				= '';
+				vis.views[view].widgets[widgetID].data.label2post				= 'eingestellt';
+
 				vis.views[view].widgets[widgetID].data.title					= 'Raum';
 				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Schließen';
 				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Aktuelle Temperatur';
@@ -977,8 +983,8 @@ vis.binds["vis-homekittiles"] = {
 				vis.views[view].widgets[widgetID].data.setpointModeTexts		= 'Auto;Manuell;Urlaub';
 				vis.views[view].widgets[widgetID].data.actualHumidityLabel		= 'Feuchte';
 				vis.views[view].widgets[widgetID].data.activeProfileLabel		= 'Heizprofil';
-				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;3;4;5;6';
-				vis.views[view].widgets[widgetID].data.activeProfileTexts		= 'Komfort;Eco;-;-;Vorheizen;Abwesend';
+				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;5;6';
+				vis.views[view].widgets[widgetID].data.activeProfileTexts		= 'Komfort;Eco;Vorheizen;Abwesend';
 				vis.views[view].widgets[widgetID].data.windowStateLabel			= 'Fenster';
 				vis.views[view].widgets[widgetID].data.windowStateValues		= '0;1';
 				vis.views[view].widgets[widgetID].data.windowStateTexts			= 'zu;auf';

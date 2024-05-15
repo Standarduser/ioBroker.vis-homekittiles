@@ -52,6 +52,7 @@ The widgets are designed for VIS 1.x.
 * (Standarduser) thermostat: css-corrections
 * (Standarduser) thermostat: select for heating profile
 * (Standarduser) thermostat: added setpoint mode
+* (Standarduser) thermostat: comma
 
 ### 0.0.13 (2024-05-05)
 

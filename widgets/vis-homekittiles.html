@@ -478,11 +478,12 @@ You can do "if" conditions and "for" cycles.
 						temperatureMin[15];
 						temperatureMax[28];
 						temperatureStep[0.5];
-						showLikeActive[true]/checkbox;"
+						comma[true]/checkbox;
+						showLikeActive[true]/checkbox;
+						texttemplate[-]/select,-,english,german/texttemplateThermostat(onChangeFunc);"
 		data-vis-attrs0="group.label;label[Thermostat];label2pre[Set at];label2post[];"
 		data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
 		data-vis-attrs2="group.thermostatDialog;
-						texttemplate[-]/select,-,english,german/texttemplateThermostat(onChangeFunc);
 						title;
 						closebuttonLabel;
 						actualTemperatureLabel;
@@ -508,13 +509,14 @@ You can do "if" conditions and "for" cycles.
 >
 	<div class="homekitTiles tile thermostatDialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
-			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span>
+
+			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(this.data['oidActualTemperature'] + '.val'), undefined, 1, this.data.attr('comma'), false) %><%= this.data.attr('unitTemperature') %></span>
 			<div class="labelGroup1">
 				<span class="label"><%= this.data.attr('label') %></span>
 				<% if (this.data.attr('oidSetPointTemperature')) { %>
 					<br>
 					<span class="label2pre"><%= this.data.attr('label2pre') %></span>
-					<span class="label2value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %></span><span class="label2unit"><%= this.data.attr('unitTemperature') %></span>
+					<span class="label2value"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(this.data['oidSetPointTemperature'] + '.val'), undefined, 1, this.data.attr('comma'), false) %></span><span class="label2unit"><%= this.data.attr('unitTemperature') %></span>
 					<span class="label2post"><%= this.data.attr('label2post') %></span>
 				<% } %>
 			</div>
@@ -549,12 +551,12 @@ You can do "if" conditions and "for" cycles.
 		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
 
 			<div class="thermostat head">
-				<div class="actualTemperature"><span class="title"><%= this.data.attr('actualTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div>
+				<div class="actualTemperature"><span class="title"><%= this.data.attr('actualTemperatureLabel') %></span><span class="value"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(this.data['oidActualTemperature'] + '.val'), undefined, 1, this.data.attr('comma'), false) %><%= this.data.attr('unitTemperature') %></span></div>
 			</div>
 
 			<div class="thermostat content">
 				<div class="values">
-					<% if (this.data.attr('oidSetPointTemperature')) { %><div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div><% } %>
+					<% if (this.data.attr('oidSetPointTemperature')) { %><div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(this.data['oidSetPointTemperature'] + '.val'), undefined, 1, this.data.attr('comma'), false) %><%= this.data.attr('unitTemperature') %></span></div><% } %>
 					<% if (this.data.attr('oidSetPointMode')) {
 						var setpointMode = vis.states.attr(this.data['oidSetPointMode'] + '.val').toString();
 						var setpointModeValue = (data.attr('setpointModeValues') ? data.attr('setpointModeValues').split(';') : []);
