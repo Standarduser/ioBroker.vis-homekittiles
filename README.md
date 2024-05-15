@@ -44,15 +44,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * (Standarduser) settings-bool: corrected height of widget
-* (Standarduser) thermostat: corrected translation
-* (Standarduser) thermostat: corrected linebreak at tile (profile)
-* (Standarduser) thermostat: corrected parsing of profile and window states
-* (Standarduser) thermostat: autofill object ids for Homematic devices
-* (Standarduser) thermostat: text presets
-* (Standarduser) thermostat: css-corrections
-* (Standarduser) thermostat: select for heating profile
-* (Standarduser) thermostat: added setpoint mode
-* (Standarduser) thermostat: comma
+* (Standarduser) thermostat: autofill + text templates + select for setpoint mode and heating profile
 
 ### 0.0.13 (2024-05-05)
 
