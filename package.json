@@ -1,6 +1,6 @@
 {
   "name": "iobroker.vis-homekittiles",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "VIS widgets in HomeKit style",
   "author": {
     "name": "Standarduser",
