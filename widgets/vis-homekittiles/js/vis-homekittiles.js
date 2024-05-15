@@ -151,7 +151,8 @@ $.extend(
 
 		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
 		"oidActualTemperature":			{	"en": "Object ID for temperature",		"de": "Objekt-ID für Temperatur"			},
-		"oidSetPointTemperature":		{	"en": "Object ID for setpoint",			"de": "Objekt-ID für Sollwert"				},
+		"oidSetPointTemperature":		{	"en": "Object ID for setpoint temp",	"de": "Objekt-ID für Sollwert Temp."		},
+		"oidSetPointMode":				{	"en": "Object ID for setpoint mode",	"de": "Objekt-ID für Sollwert Modus"		},
 		"oidHumidity":					{	"en": "Object ID for humidity",			"de": "Objekt-ID für Feuchte"				},
 		"oidActiveProfile":				{	"en": "Object ID for heating profile",	"de": "Objekt-ID für Heizprofil"			},
 		"oidLowBat":					{	"en": "Object ID for low battery",		"de": "Objekt-ID für Batterie schwach"		},
@@ -164,12 +165,16 @@ $.extend(
 		"temperatureStep":				{	"en": "Temperature steps",				"de": "Schrittweite Temperatur"				},
 		"group_thermostatDialog":		{	"en": "Thermostat dialog",				"de": "Thermostat-Dialog"					},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
-		"actualTemperatureLabel":		{	"en": "Label temperature",				"de": "Beschriftung Temperatur"				},
-		"setpointTemperatureLabel":		{	"en": "Label setpoint",					"de": "Beschriftung Sollwert"				},
+		"actualTemperatureLabel":		{	"en": "Label actual temperature",		"de": "Beschriftung aktuelle Temperatur"	},
+		"setpointTemperatureLabel":		{	"en": "Label setpoint temperature",		"de": "Beschriftung Sollwert Temperatur"	},
+		"setpointModeLabel":			{	"en": "Label setpoint mode",			"de": "Beschriftung Sollwert Modus"			},
+		"setpointModeValues":			{	"en": "Values setpoint mode",			"de": "Werte Sollwert Modus"				},
+		"setpointModeTexts":			{	"en": "Names setpoint mode",			"de": "Namen Sollwert Modus"				},
+		"setpointModeOperable":			{	"en": "Setpoint mode operable",			"de": "Sollwert Modus bedienbar"			},
 		"actualHumidityLabel":			{	"en": "Label humidity",					"de": "Beschriftung Feuchte"				},
 		"activeProfileLabel":			{	"en": "Label heating profile",			"de": "Beschriftung Heizprofil"				},
 		"activeProfileValues":			{	"en": "Values of heating profile",		"de": "Werte des Heizprofils"				},
-		"activeProfileTexts":			{	"en": "Names of heating profile",		"de": "Namen des Heizprofiles"				},
+		"activeProfileTexts":			{	"en": "Names of heating profile",		"de": "Namen des Heizprofils"				},
 		"windowStateLabel":				{	"en": "Label window contact",			"de": "Beschriftung Fensterkontakt"			},
 		"windowStateValues":			{	"en": "Values of window contact",		"de": "Werte des Fensterkontakts"			},
 		"windowStateTexts":				{	"en": "Value names of window contact",	"de": "Textwerte des Fensterkontakts"		},
@@ -920,44 +925,13 @@ vis.binds["vis-homekittiles"] = {
 
 		var autofill = vis.views[view].widgets[widgetID].data.autofillOids;
 
-		// if (autofill && value) {
-		// 	var oidPath = value.split('.');
-
-		// 	//check if thermostat is from homematic and autofill if calculated object id exists
-		// 	if (oidPath[0] === 'hm-rpc' && oidPath[4] === 'ACTUAL_TEMPERATURE') {
-		// 		if (vis.views[view].widgets[widgetID].data.oidSetPointTemperature === '' || vis.views[view].widgets[widgetID].data.oidSetPointTemperature === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidSetPointTemperature = _oid;
-		// 		}
-		// 		if (vis.views[view].widgets[widgetID].data.oidHumidity === '' || vis.views[view].widgets[widgetID].data.oidHumidity === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidHumidity = _oid;
-		// 		}
-		// 		if (vis.views[view].widgets[widgetID].data.oidActiveProfile === '' || vis.views[view].widgets[widgetID].data.oidActiveProfile === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidActiveProfile = _oid;
-		// 		}
-		// 		if (vis.views[view].widgets[widgetID].data.oidLowBat === '' || vis.views[view].widgets[widgetID].data.oidLowBat === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidLowBat = _oid;
-		// 		}
-		// 		if (vis.views[view].widgets[widgetID].data.oidUnreach === '' || vis.views[view].widgets[widgetID].data.oidUnreach === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.UNREACH';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidUnreach = _oid;
-		// 		}
-		// 		if (vis.views[view].widgets[widgetID].data.oidWindowState === '' || vis.views[view].widgets[widgetID].data.oidWindowState === undefined) {
-		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.WINDOW_STATE';
-		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidWindowState = _oid;
-		// 		}
-		// 	}
-		// }
-
 		if (autofill && value) {
 			var oidPath = value.split('.');
 
 			//check if thermostat is from homematic and autofill if calculated object id exists
 			if (oidPath[0] === 'hm-rpc' && oidPath[4] === 'ACTUAL_TEMPERATURE') {
 				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE.val')	!== undefined) vis.views[view].widgets[widgetID].data.oidSetPointTemperature	= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_MODE.val')			!== undefined) vis.views[view].widgets[widgetID].data.oidSetPointMode			= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_MODE';
 				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY.val')				!== undefined) vis.views[view].widgets[widgetID].data.oidHumidity				= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY';
 				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE.val')			!== undefined) vis.views[view].widgets[widgetID].data.oidActiveProfile			= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE';
 				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT.val')				!== undefined) vis.views[view].widgets[widgetID].data.oidLowBat					= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT';
@@ -980,6 +954,9 @@ vis.binds["vis-homekittiles"] = {
 				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Close';
 				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Actual temperature';
 				vis.views[view].widgets[widgetID].data.setpointTemperatureLabel	= 'Setpoint temperature';
+				vis.views[view].widgets[widgetID].data.setpointModeLabel		= 'Setpoint mode';
+				vis.views[view].widgets[widgetID].data.setpointModeValues		= '0;1;2';
+				vis.views[view].widgets[widgetID].data.setpointModeTexts		= 'Auto;Manual;Holiday';
 				vis.views[view].widgets[widgetID].data.actualHumidityLabel		= 'Humidity';
 				vis.views[view].widgets[widgetID].data.activeProfileLabel		= 'Heating profile';
 				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;3;4;5;6';
@@ -994,7 +971,10 @@ vis.binds["vis-homekittiles"] = {
 				vis.views[view].widgets[widgetID].data.title					= 'Raum';
 				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Schließen';
 				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Aktuelle Temperatur';
-				vis.views[view].widgets[widgetID].data.setpointTemperatureLabel	= 'Sollwert';
+				vis.views[view].widgets[widgetID].data.setpointTemperatureLabel	= 'Sollwert Temperatur';
+				vis.views[view].widgets[widgetID].data.setpointModeLabel		= 'Sollwert Modus';
+				vis.views[view].widgets[widgetID].data.setpointModeValues		= '0;1;2';
+				vis.views[view].widgets[widgetID].data.setpointModeTexts		= 'Auto;Manuell;Urlaub';
 				vis.views[view].widgets[widgetID].data.actualHumidityLabel		= 'Feuchte';
 				vis.views[view].widgets[widgetID].data.activeProfileLabel		= 'Heizprofil';
 				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;3;4;5;6';

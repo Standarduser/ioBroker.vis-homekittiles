@@ -902,7 +902,8 @@
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label3value,
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label4value,
-.homekitTiles.tile.thermostatDialog .labelGroup2 .label5value {
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label5value,
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label6value {
 	display: inline-block;
 	width: 62px;
 	white-space: nowrap;
@@ -911,7 +912,8 @@
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label3value:before,
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label4value:before,
-.homekitTiles.tile.thermostatDialog .labelGroup2 .label5value:before {
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label5value:before,
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label6value:before {
 	display: inline-block;
 	width: 12px;
 	text-align: center;
@@ -926,6 +928,10 @@
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label5value:before {
 	content: "o";
+	font-family: Wingdings;
+}
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label6value:before {
+	content: "R";
 	font-family: Wingdings;
 }
 
@@ -980,6 +986,7 @@
 	color: white;
 	font-size: 16px;
 }
+.homekitTiles.dialog .thermostat.content .values .selectMode,
 .homekitTiles.dialog .thermostat.content .values .selectProfile {
 	width: 88px;
 	font-size: 1.25rem;
@@ -988,6 +995,7 @@
 	grid-template-areas: "select";
 	align-items: center;
 }
+.homekitTiles.dialog .thermostat.content .values .selectMode::after,
 .homekitTiles.dialog .thermostat.content .values .selectProfile::after {
 	content: "";
 	width: 0.5em;
@@ -998,6 +1006,7 @@
 	grid-area: select;
 	margin-left: 10px;
 }
+.homekitTiles.dialog .thermostat.content .values .selectMode select,
 .homekitTiles.dialog .thermostat.content .values .selectProfile select {
 	appearance: none;
 	background-color: transparent;
