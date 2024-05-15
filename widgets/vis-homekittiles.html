@@ -506,10 +506,12 @@ You can do "if" conditions and "for" cycles.
 			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span>
 			<div class="labelGroup1">
 				<span class="label"><%= this.data.attr('label') %></span>
-				<br>
-				<span class="label2pre"><%= this.data.attr('label2pre') %></span>
-				<span class="label2value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %></span><span class="label2unit"><%= this.data.attr('unitTemperature') %></span>
-				<span class="label2post"><%= this.data.attr('label2post') %></span>
+				<% if (this.data.attr('oidSetPointTemperature')) { %>
+					<br>
+					<span class="label2pre"><%= this.data.attr('label2pre') %></span>
+					<span class="label2value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %></span><span class="label2unit"><%= this.data.attr('unitTemperature') %></span>
+					<span class="label2post"><%= this.data.attr('label2post') %></span>
+				<% } %>
 			</div>
 			<div class="labelGroup2">
 				<% if (this.data.attr('oidHumidity')) { %>
