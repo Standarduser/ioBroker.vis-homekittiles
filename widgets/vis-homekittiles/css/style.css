@@ -888,36 +888,45 @@
 /*---------------------------------------------------------------*/
 /* Thermostat Kachel */
 .homekitTiles.tile.thermostatDialog .tileValue.cooling {
-    background-color: deepskyblue;
+	background-color: deepskyblue;
 }
 .homekitTiles.tile.thermostatDialog .tileValue.heating {
 	background-color: darkorange;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 {
-    top: 9px;
-    left: 48px;
-    right: 1px;
-    position: absolute;
-    font-size: 10px;
+	top: 9px;
+	left: 48px;
+	right: 1px;
+	position: absolute;
+	font-size: 10px;
+}
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label3value,
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label4value,
+.homekitTiles.tile.thermostatDialog .labelGroup2 .label5value {
+	display: inline-block;
+	width: 62px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label3value:before,
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label4value:before,
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label5value:before {
-    display: inline-block;
-    width: 12px;
-    text-align: center;
+	display: inline-block;
+	width: 12px;
+	text-align: center;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label3value:before {
-    content: "S";
-    font-family: Wingdings;
+	content: "S";
+	font-family: Wingdings;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label4value:before {
-    content: "";
-    font-family: Webdings;
+	content: "";
+	font-family: Webdings;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 .label5value:before {
-    content: "o";
-    font-family: Wingdings;
+	content: "o";
+	font-family: Wingdings;
 }
 
 /* Thermostat Dialog */

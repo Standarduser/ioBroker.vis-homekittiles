@@ -28,24 +28,29 @@
 			type - some predefined types have edit helpers, else it will be shown as text field
 
 				Type format:
-					  id - Object ID Dialog
-					  checkbox
-					  image - image
-					  number,min,max,step - non-float number. min,max,step are optional
-					  color - color picker
-					  views - Name of the view
-					  effect - jquery UI show/hide effects
-					  eff_opt - additional option to effect slide (up, down, left, right)
-					  fontName - Font name
-					  slider,min,max,step - Default step is ((max - min) / 100)
-					  select,value1,value2,... - dropdown select
-					  nselect,value1,value2,... - same as select, but without translation of items
-					  style,fileFilter,nameFilter,attrFilter
-					  custom,functionName,options,... - custom editor - functionName is starting from vis.binds.[widgetset.funct]. E.g. custom/timeAndWeather.editWeather,short
-					  group.name - define new or old group. All following attributes belongs to new group till new group.xyz
-					  group.name/byindex - like group, but all following attributes will be grouped by ID. Like group.windows/byindex;slide(1-4)/id;slide_type(1-4)/select,open,closed  Following groups will be created Windows1(slide1,slide_type1), Windows2(slide2,slide_type2), Windows3(slide3,slide_type3), Windows4(slide4,slide_type4)
-					  text - dialog box with html editor
-					  html - dialog box with html editor
+					hid
+					checkbox
+					image - image
+					number,min,max,step - non-float number. min,max,step are optional
+					dimension - text input with button for px or %
+					color - color picker
+					views - Name of the view
+					effect - jquery UI show/hide effects
+					eff_opt - additional option to effect slide (up, down, left, right)
+					fontname - Font name
+					slider,min,max,step - Default step is ((max - min) / 100)
+					select,value1,value2,... - dropdown select
+					nselect,value1,value2,... - same as select, but without translation of items
+					auto,value1,value2,... - autocomplete
+					style,fileFilter,nameFilter,attrFilter
+					custom,functionName,options,... - custom editor - functionName is starting from vis.binds.[widgetset.funct]. E.g. custom/timeAndWeather.editWeather,short
+					group.name - define new or old group. All following attributes belongs to new group till new group.xyz
+					group.name/byindex/icon - like group, but all following attributes will be grouped by ID. Icon is optional. Like group.windows/byindex;slide(1-4)/id;slide_type(1-4)/select,open,closed  Following groups will be created Windows1(slide1,slide_type1), Windows2(slide2,slide_type2), Windows3(slide3,slide_type3), Windows4(slide4,slide_type4)
+					text - dialog box with html editor
+					html - dialog box with html editor
+					widget - existing widget selector
+					history - select history instances
+					password - password
 
 				If type is "id", you can define filer for "Select ID Dialog", like "myID/id,level.temperature".
 				Additionally you can define callback(onChangeFunc), which will be called if this attribute was changed by user for different purposes: validate entry, fill other attributes, ...
@@ -459,7 +464,8 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>'
 		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktThermostatDialog;
-						oidActualTemperature/id;
+						autofillOids[true]/checkbox;
+						oidActualTemperature/id/autofillThermostat(onChangeFunc);
 						oidSetPointTemperature/id;
 						oidHumidity/id;
 						oidActiveProfile/id;
@@ -475,19 +481,20 @@ You can do "if" conditions and "for" cycles.
 		data-vis-attrs0="group.label;label[Thermostat];label2pre[Set at];label2post[];"
 		data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
 		data-vis-attrs2="group.thermostatDialog;
-						title[Room];
-						closebuttonLabel[Close];
-						actualTemperatureLabel[Actual temperature];
-						setpointTemperatureLabel[Setpoint temperature];
-						actualHumidityLabel[Humidity];
-						activeProfileLabel[Temperature profile];
-						activeProfileValues[1§2§3§4§5§6];
-						activeProfileTexts[Comfort§Eco§-§-§Preheating§Away];
-						windowStateLabel[Window];
-						windowStateValues[0§1];
-						windowStateTexts[closed§open];
-						lowBatLabel[Battery low];
-						unreachLabel[Unreach];
+						texttemplate[-]/select,-,english,german/texttemplateThermostat(onChangeFunc);
+						title;
+						closebuttonLabel;
+						actualTemperatureLabel;
+						setpointTemperatureLabel;
+						actualHumidityLabel;
+						activeProfileLabel;
+						activeProfileValues;
+						activeProfileTexts;
+						windowStateLabel;
+						windowStateValues;
+						windowStateTexts;
+						lowBatLabel;
+						unreachLabel;
 						autoclose/slider,0,30000,100;
 						modal/checkbox;
 						dialog_top;

@@ -21,6 +21,9 @@ $.extend(
 		"unit":							{	"en": "Unit",						"de": "Einheit"							},
 		"showLikeActive":				{	"en": "Allways show like active",	"de": "Immer als aktiv anzeigen"		},
 		"dateformat":					{	"en": "Date format",				"de": "Datumsformat"					},
+		"english":						{	"en": "English",					"de": "Englisch"						},
+		"german":						{	"en": "German",						"de": "Deutsch"							},
+		"texttemplate":					{	"en": "Text template",				"de": "Textvoreinstellung"				},
 
 		"decimals":						{	"en": "Decimals",					"de": "Nachkommastellen"				},
 		"factor":						{	"en": "Multiplicator",				"de": "Multiplikator"					},
@@ -146,6 +149,7 @@ $.extend(
 		"comparisonLower":				{	"en": "<",							"de": "<"								},
 		"comparisonGreater":			{	"en": ">",							"de": ">"								},
 
+		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
 		"oidActualTemperature":			{	"en": "Object ID for temperature",		"de": "Objekt-ID für Temperatur"			},
 		"oidSetPointTemperature":		{	"en": "Object ID for setpoint",			"de": "Objekt-ID für Sollwert"				},
 		"oidHumidity":					{	"en": "Object ID for humidity",			"de": "Objekt-ID für Feuchte"				},
@@ -213,8 +217,8 @@ $.extend(
 			"de": "Analogwert mit Inkrement-Tasten."
 		},
 		"hktThermostatDialogDescription": {
-			"en": "Thermostat dialog, specially adapted for Homematic.",
-			"de": "Thermostat-Dialog, speziell für Homematic angepasst."
+			"en": "Thermostat dialog that can be used for different thermostats, but is specifically adapted for Homematic. If an HmIP device is selected for the current temperature, the remaining data points are filled automatically.",
+			"de": "Thermostat-Dialog, das für verschiedene Thermostate genutzt werden kann, jedoch speziell für Homematic angepasst ist. Wird für die aktuelle Temperatur ein HmIP-Gerät ausgewählt, werden die restlichen Datenpunkte automatisch befüllt."
 		},
 		"hktSwitchBoolDescription": {
 			"en": "Simple switch (on/off) with icon, increment buttons and two free to define label groups.",
@@ -910,6 +914,99 @@ vis.binds["vis-homekittiles"] = {
 		} else {
 			$(el).parent().find('div.vis-widget-body').show();
 		}
+	},
+	//Thermostat dialog - autofill OIDs
+	autofillThermostat: function (widgetID, view, value, attr, isCss) {
+
+		var autofill = vis.views[view].widgets[widgetID].data.autofillOids;
+
+		// if (autofill && value) {
+		// 	var oidPath = value.split('.');
+
+		// 	//check if thermostat is from homematic and autofill if calculated object id exists
+		// 	if (oidPath[0] === 'hm-rpc' && oidPath[4] === 'ACTUAL_TEMPERATURE') {
+		// 		if (vis.views[view].widgets[widgetID].data.oidSetPointTemperature === '' || vis.views[view].widgets[widgetID].data.oidSetPointTemperature === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidSetPointTemperature = _oid;
+		// 		}
+		// 		if (vis.views[view].widgets[widgetID].data.oidHumidity === '' || vis.views[view].widgets[widgetID].data.oidHumidity === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidHumidity = _oid;
+		// 		}
+		// 		if (vis.views[view].widgets[widgetID].data.oidActiveProfile === '' || vis.views[view].widgets[widgetID].data.oidActiveProfile === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidActiveProfile = _oid;
+		// 		}
+		// 		if (vis.views[view].widgets[widgetID].data.oidLowBat === '' || vis.views[view].widgets[widgetID].data.oidLowBat === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidLowBat = _oid;
+		// 		}
+		// 		if (vis.views[view].widgets[widgetID].data.oidUnreach === '' || vis.views[view].widgets[widgetID].data.oidUnreach === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.UNREACH';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidUnreach = _oid;
+		// 		}
+		// 		if (vis.views[view].widgets[widgetID].data.oidWindowState === '' || vis.views[view].widgets[widgetID].data.oidWindowState === undefined) {
+		// 			var _oid = oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.WINDOW_STATE';
+		// 			if (vis.states.attr(_oid + '.val') !== undefined) vis.views[view].widgets[widgetID].data.oidWindowState = _oid;
+		// 		}
+		// 	}
+		// }
+
+		if (autofill && value) {
+			var oidPath = value.split('.');
+
+			//check if thermostat is from homematic and autofill if calculated object id exists
+			if (oidPath[0] === 'hm-rpc' && oidPath[4] === 'ACTUAL_TEMPERATURE') {
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE.val')	!== undefined) vis.views[view].widgets[widgetID].data.oidSetPointTemperature	= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.SET_POINT_TEMPERATURE';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY.val')				!== undefined) vis.views[view].widgets[widgetID].data.oidHumidity				= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.HUMIDITY';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE.val')			!== undefined) vis.views[view].widgets[widgetID].data.oidActiveProfile			= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.ACTIVE_PROFILE';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT.val')				!== undefined) vis.views[view].widgets[widgetID].data.oidLowBat					= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.LOW_BAT';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.UNREACH.val')				!== undefined) vis.views[view].widgets[widgetID].data.oidUnreach				= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.0.UNREACH';
+				if (vis.states.attr(oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.WINDOW_STATE.val')			!== undefined) vis.views[view].widgets[widgetID].data.oidWindowState			= oidPath[0] + '.' + oidPath[1] + '.' + oidPath[2] + '.1.WINDOW_STATE';
+			}
+
+			//reset autofill
+			vis.views[view].widgets[widgetID].data.autofillOids = false;
+		}
+	},
+	//Thermostat dialog - text presets
+	texttemplateThermostat: function (widgetID, view, value, attr, isCss) {
+
+		var texttemplate = vis.views[view].widgets[widgetID].data.texttemplate;
+
+		switch (texttemplate) {
+			case 'english':
+				vis.views[view].widgets[widgetID].data.title					= 'Room';
+				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Close';
+				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Actual temperature';
+				vis.views[view].widgets[widgetID].data.setpointTemperatureLabel	= 'Setpoint temperature';
+				vis.views[view].widgets[widgetID].data.actualHumidityLabel		= 'Humidity';
+				vis.views[view].widgets[widgetID].data.activeProfileLabel		= 'Temperature profile';
+				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;3;4;5;6';
+				vis.views[view].widgets[widgetID].data.activeProfileTexts		= 'Comfort;Eco;-;-;Preheating;Away';
+				vis.views[view].widgets[widgetID].data.windowStateLabel			= 'Window';
+				vis.views[view].widgets[widgetID].data.windowStateValues		= '0;1';
+				vis.views[view].widgets[widgetID].data.windowStateTexts			= 'closed;open';
+				vis.views[view].widgets[widgetID].data.lowBatLabel				= 'Battery low';
+				vis.views[view].widgets[widgetID].data.unreachLabel				= 'Unreach';
+				break;
+			case 'german':
+				vis.views[view].widgets[widgetID].data.title					= 'Raum';
+				vis.views[view].widgets[widgetID].data.closebuttonLabel			= 'Schließen';
+				vis.views[view].widgets[widgetID].data.actualTemperatureLabel	= 'Aktuelle Temperatur';
+				vis.views[view].widgets[widgetID].data.setpointTemperatureLabel	= 'Sollwert';
+				vis.views[view].widgets[widgetID].data.actualHumidityLabel		= 'Feuchte';
+				vis.views[view].widgets[widgetID].data.activeProfileLabel		= 'Temperaturprofil';
+				vis.views[view].widgets[widgetID].data.activeProfileValues		= '1;2;3;4;5;6';
+				vis.views[view].widgets[widgetID].data.activeProfileTexts		= 'Komfort;Eco;-;-;Vorheizen;Abwesend';
+				vis.views[view].widgets[widgetID].data.windowStateLabel			= 'Fenster';
+				vis.views[view].widgets[widgetID].data.windowStateValues		= '0;1';
+				vis.views[view].widgets[widgetID].data.windowStateTexts			= 'zu;auf';
+				vis.views[view].widgets[widgetID].data.lowBatLabel				= 'Batterie schwach';
+				vis.views[view].widgets[widgetID].data.unreachLabel				= 'Nicht erreichbar';
+		}
+		//reset autofill
+		vis.views[view].widgets[widgetID].data.texttemplate = '-';
 	},
 
 	//Add elements to widgets
