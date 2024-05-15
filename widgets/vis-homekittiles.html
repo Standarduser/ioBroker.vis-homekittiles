@@ -502,23 +502,6 @@ You can do "if" conditions and "for" cycles.
 						arrowDirection/nselect,,top,right,bottom,left;"
 >
 	<div class="homekitTiles tile thermostatDialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
-
-		<%
-		if (this.data.attr('oidActiveProfile')) {
-			var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val').toString();
-			var activeProfileValue = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
-			var activeProfileText  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
-			if (activeProfileValue.includes(activeProfile)) activeProfile = activeProfileText[activeProfileValue.indexOf(activeProfile)];
-		}
-
-		if (this.data.attr('oidWindowState')) {
-			var windowState = vis.states.attr(this.data['oidWindowState'] + '.val').toString();
-			var windowStateValue = (data.attr('windowStateValues') ? data.attr('windowStateValues').split(';') : []);
-			var windowStateText  = (data.attr('windowStateTexts')  ? data.attr('windowStateTexts').split(';')  : []);
-			if (windowStateValue.includes(windowState)) windowState = windowStateText[windowStateValue.indexOf(windowState)];
-		}
-		%>
-
 		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
 			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.states.attr(this.data['oidActualTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span>
 			<div class="labelGroup1">
@@ -529,9 +512,23 @@ You can do "if" conditions and "for" cycles.
 				<span class="label2post"><%= this.data.attr('label2post') %></span>
 			</div>
 			<div class="labelGroup2">
-				<% if (this.data.attr('oidHumidity')) { %><span class="label3value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span><br><% } %>
-				<% if (this.data.attr('oidActiveProfile')) { %><span class="label4value"><%= activeProfile %></span><br><% } %>
-				<% if (this.data.attr('oidWindowState')) { %><span class="label5value"><%= windowState %></span><% } %>
+				<% if (this.data.attr('oidHumidity')) { %>
+					<span class="label3value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span><br>
+				<% } %>
+				<% if (this.data.attr('oidActiveProfile')) {
+					var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val').toString();
+					var activeProfileValue = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
+					var activeProfileText  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
+					if (activeProfileValue.includes(activeProfile)) activeProfile = activeProfileText[activeProfileValue.indexOf(activeProfile)]; %>
+					<span class="label4value"><%= activeProfile %></span><br>
+				<% } %>
+				<% if (this.data.attr('oidWindowState')) {
+					var windowState = vis.states.attr(this.data['oidWindowState'] + '.val').toString();
+					var windowStateValue = (data.attr('windowStateValues') ? data.attr('windowStateValues').split(';') : []);
+					var windowStateText  = (data.attr('windowStateTexts')  ? data.attr('windowStateTexts').split(';')  : []);
+					if (windowStateValue.includes(windowState)) windowState = windowStateText[windowStateValue.indexOf(windowState)]; %>
+					<span class="label5value"><%= windowState %></span>
+				<% } %>
 			</div>
 		</div>
 
@@ -545,8 +542,31 @@ You can do "if" conditions and "for" cycles.
 				<div class="values">
 					<div class="setpointTemperature"><span class="title"><%= this.data.attr('setpointTemperatureLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidSetPointTemperature'] + '.val') %><%= this.data.attr('unitTemperature') %></span></div>
 					<% if (this.data.attr('oidHumidity')) { %><div class="actualHumidity"><span class="title"><%= this.data.attr('actualHumidityLabel') %></span><span class="value"><%= vis.states.attr(this.data['oidHumidity'] + '.val') %><%= this.data.attr('unitHumidity') %></span></div><% } %>
-					<% if (this.data.attr('oidActiveProfile')) { %><div class="activeProfile <%= activeProfile %>"><span class="title"><%= this.data.attr('activeProfileLabel') %></span><span class="value"><%= activeProfile %></span></div><% } %>
-					<% if (this.data.attr('oidWindowState')) { %><div class="windowState <%= windowState %>"><span class="title"><%= this.data.attr('windowStateLabel') %></span><span class="value"><%= windowState %></span></div><% } %>
+					<% if (this.data.attr('oidActiveProfile')) {
+						var activeProfile = vis.states.attr(this.data['oidActiveProfile'] + '.val').toString();
+						var activeProfileValue = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
+						var activeProfileText  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
+						if (activeProfileValue.includes(activeProfile)) activeProfile = activeProfileText[activeProfileValue.indexOf(activeProfile)]; %>
+						<div class="activeProfile <%= activeProfile %>"><span class="title"><%= this.data.attr('activeProfileLabel') %></span>
+							<div class="selectProfile">
+								<select id="<%= this.data.attr('wid') %>_select" data-oid="<%= this.data.attr('oidActiveProfile') %>" data-view="<%= this.view %>" <%= (el) -> setTimeout(function () { vis.binds['vis-homekittiles'].multiselect(el)}, 250) %> >
+									<%
+									var values = (data.attr('activeProfileValues') ? data.attr('activeProfileValues').split(';') : []);
+									var texts  = (data.attr('activeProfileTexts')  ? data.attr('activeProfileTexts').split(';')  : []);
+									for (var val in values) { %>
+										<option value="<%= values[val] %>"><%= texts[val] %></option>
+									<% } %>
+								</select >
+							</div>
+						</div>
+					<% } %>
+					<% if (this.data.attr('oidWindowState')) {
+						var windowState = vis.states.attr(this.data['oidWindowState'] + '.val').toString();
+						var windowStateValue = (data.attr('windowStateValues') ? data.attr('windowStateValues').split(';') : []);
+						var windowStateText  = (data.attr('windowStateTexts')  ? data.attr('windowStateTexts').split(';')  : []);
+						if (windowStateValue.includes(windowState)) windowState = windowStateText[windowStateValue.indexOf(windowState)]; %>
+						<div class="windowState <%= windowState %>"><span class="title"><%= this.data.attr('windowStateLabel') %></span><span class="value"><%= windowState %></span></div>
+					<% } %>
 					<% if (this.data.attr('oidLowBat')) { %><div class="lowBat <%= vis.states.attr(this.data['oidLowBat'] + '.val') %>"><span class="value"><%= this.data.attr('lowBatLabel') %></span></div><% } %>
 					<% if (this.data.attr('oidUnreach')) { %><div class="unreach <%= vis.states.attr(this.data['oidUnreach'] + '.val') %>"><span class="value"><%= this.data.attr('unreachLabel') %></span></div><% } %>
 				</div>

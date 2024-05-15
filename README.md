@@ -50,6 +50,7 @@ The widgets are designed for VIS 1.x.
 * (Standarduser) thermostat: autofill object ids for Homematic devices
 * (Standarduser) thermostat: text presets
 * (Standarduser) thermostat: css-corrections
+* (Standarduser) thermostat: select for heating profile
 
 ### 0.0.13 (2024-05-05)
 

@@ -980,6 +980,34 @@
 	color: white;
 	font-size: 16px;
 }
+.homekitTiles.dialog .thermostat.content .values .selectProfile {
+	width: 88px;
+	font-size: 1.25rem;
+	line-height: 1.1;
+	display: grid;
+	grid-template-areas: "select";
+	align-items: center;
+}
+.homekitTiles.dialog .thermostat.content .values .selectProfile::after {
+	content: "";
+	width: 0.5em;
+	height: 0.3em;
+	background-color: white;
+	clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+	justify-self: end;
+	grid-area: select;
+	margin-left: 10px;
+}
+.homekitTiles.dialog .thermostat.content .values .selectProfile select {
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	font-size: 16px;
+	cursor: inherit;
+	outline: none;
+	grid-area: select;
+	color: white;
+}
 .homekitTiles.dialog .thermostat.content .values .lowBat.false {
 	display: none;
 }
