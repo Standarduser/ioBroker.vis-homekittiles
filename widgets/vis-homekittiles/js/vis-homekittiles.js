@@ -1235,6 +1235,9 @@ vis.binds["vis-homekittiles"] = {
 		var html = '';
 
 		function showHideSignal(value) {
+			if (value) value = value.toString();
+			if (compVal) compVal = compVal.toString();
+
 			if (
 				oid != undefined && oid != "" && (
 					(value == compVal && compOp == "comparisonEqual") ||
