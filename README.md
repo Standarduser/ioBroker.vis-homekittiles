@@ -39,7 +39,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.15 (2024-05-31)
 
 * (Standarduser) dialog: fixed positioning
 * (Standarduser) thermostat: corrected symbols
