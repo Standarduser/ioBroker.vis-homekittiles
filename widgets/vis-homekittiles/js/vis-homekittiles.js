@@ -479,8 +479,8 @@ vis.binds["vis-homekittiles"] = {
 				if (options.width)    $(this).css('width',  options.width);
 
 				//position window
-				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
-				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
+				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top  + 'px');
+				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left + 'px');
 
 				//scroll content
 				if (options.overflowX) $(this).css('overflow-x', options.overflowX);
@@ -851,9 +851,18 @@ vis.binds["vis-homekittiles"] = {
 			return;
 		}
 
+		const regexNumber = /\d+/;
+
+		//if (options.dialog_width	!== undefined)	options.width	= options.dialog_width.match(regexNumber);
+		//if (options.dialog_height	!== undefined)	options.height	= options.dialog_height.match(regexNumber);
+		if (options.dialog_top		!== undefined)	options.top		= options.dialog_top.match(regexNumber);
+		if (options.dialog_left		!== undefined)	options.left	= options.dialog_left.match(regexNumber);
+		//options.minHeight = options.height;
+		//options.minWidth = options.width;
+
 		//fix some parameters
-		options.height = '340px';
-		options.width = '300px';
+		options.height = 340;
+		options.width = 300;
 
 		$dlg.dialog($.extend({
 			autoOpen: false,
@@ -891,8 +900,8 @@ vis.binds["vis-homekittiles"] = {
 				if (options.width)    $(this).css('width',  options.width);
 
 				//position window
-				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
-				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
+				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top  + 'px');
+				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left + 'px');
 
 				//arrows
 				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);

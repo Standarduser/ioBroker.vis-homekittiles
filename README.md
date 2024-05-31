@@ -41,6 +41,11 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Standarduser) fixed position of dialogs
+* (Standarduser) corrected symbols of thermostat widget (CSS)
+
 ### 0.0.14 (2024-05-15)
 
 * (Standarduser) settings-bool: corrected height of widget
