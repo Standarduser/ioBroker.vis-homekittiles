@@ -185,6 +185,9 @@
 .homekitTiles.tile .blockOperation {
 	cursor: not-allowed;
 }
+.homekitTiles.tile .blockOperation .blocked {
+	z-index: 999;
+}
 .homekitTiles.tile .blockOperation .blockedIcon {
 	width: 20px;
 	height: 20px;

@@ -33,6 +33,7 @@ The widgets are designed for VIS 1.x.
 * create Select-tile
 * create Submenue-Button
 * Radiobutton: new property "division" with selectable values (1:1; 3:4)
+* Datepicker: dynamic day/month icons
 
 ## Changelog
 <!--
@@ -42,6 +43,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * (Standarduser) thermostat: fixed window-sizing
+* (Standarduser) date-picker: fixed block operation
 
 ### 0.0.15 (2024-05-31)
 
