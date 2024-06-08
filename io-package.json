@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "news": {
+      "0.0.16": {
+        "en": "thermostat: fixed window-sizing\ndate-picker: fixed block operation",
+        "de": "thermostat: feste fenstermessung\ndate-picker: fester blockbetrieb",
+        "ru": "термостат: фиксированный размер окна\nдата-пикер: фиксированная блок-операция",
+        "pt": "termostato: dimensionamento fixo da janela\ndata-picker: operação de bloco fixo",
+        "nl": "thermostaat: vaste venstergrootte\ndatum-picker: vaste blokbewerking",
+        "fr": "thermostat: dimensionnement fixe des fenêtres\ndate-picker: fonctionnement en bloc fixe",
+        "it": "termostato: serratura fissa\ndata-picker: funzionamento del blocco fisso",
+        "es": "termostato: tamaño de ventana fijo\nfecha-picker: operación de bloque fijo",
+        "pl": "termostat: stała wielkość okna\ndate- picker: operacja bloku stałego",
+        "uk": "термостат: фіксована віконна обробка\nдата-пікер: операція фіксованого блоку",
+        "zh-cn": "自动调温器: 固定窗口大小\n取日期者:固定区块操作"
+      },
       "0.0.15": {
         "en": "dialog: fixed positioning\nthermostat: corrected symbols\nthermostat: show low bat and unreach on tile\nthermostat: added signal pictures",
         "de": "dialog: feste positionierung\nthermostat: korrigierte symbole\nthermostat: zeigen low bat und unreach auf fliese\nthermostat: zusatz von signalbildern",
@@ -80,19 +93,6 @@
         "pl": "dodano ID obiektu dla aktywnego stanu dla widoku w dachówce okna Widget i dachówki wartości\nnaprawiona funkcja przyrostu\ndodane własne obrazy sygnałów",
         "uk": "додано ідентифікатор об'єкта для активного стану для перегляду в плитці Widget Dialog і значення плитки\nремонтна функція\nдодано власні сигнали",
         "zh-cn": "在 Widget 对话框和值牌上为查看活动状态添加对象 ID\n增量函数\n添加自己的信号图片"
-      },
-      "0.0.9": {
-        "en": "corrected block operation. ATTENTION! You may have to delete and reinsert your widgets, if you used a different Object ID for blocking operation! Of cause only these widgets, where you used this function ;)\ncorrected formatValue function",
-        "de": "korrigierter Blockbetrieb. ACHTUNG! Sie müssen möglicherweise Ihre Widgets löschen und einfügen, wenn Sie eine andere verwendet Objekt-ID für Blockierbetrieb! Von Ursache nur diese Widgets, wo Sie diese Funktion verwendet ;)\nkorrekturformat Wertfunktion",
-        "ru": "исправили работу блока. ВНИМАНИЕ! Возможно, вам придется удалить и переубедить свои виджеты, если вы использовали разные Идентификатор объекта для блокировки операции! Из причины только эти виджеты, где вы использовали эту функцию;)\nисправленный формат Функция",
-        "pt": "operação de bloqueio corrigida. Atenção! Você pode ter que excluir e reinserir seus widgets, se você usou um diferente ID do objeto para bloquear a operação! De causa só estes widgets, onde você usou esta função ;)\nformato corrigido Função de valor",
-        "nl": "gecorrigeerde blokbewerking. Let op! Mogelijk moet u uw widgets verwijderen en opnieuw invoegen, als u een andere Object ID voor blokkerende werking! Van oorzaak alleen deze widgets, waar u deze functie gebruikt;)\ngecorrigeerd formaat Waardefunctie",
-        "fr": "opération de bloc corrigée. ATTENTION ! Vous devrez peut-être supprimer et réinsérer vos widgets, si vous avez utilisé un autre ID objet pour bloquer l'opération! De cause seulement ces widgets, où vous avez utilisé cette fonction ;)\nformat corrigé Fonction valeur",
-        "it": "operazione di blocco corretto. ATTENZIONE! Potrebbe essere necessario eliminare e reinserire i widget, se si utilizza un diverso ID oggetto per l'operazione di blocco! Di causa solo questi widget, dove hai usato questa funzione;)\nformato corretto Funzione di valore",
-        "es": "corregida operación de bloques. ¡Atención! Usted puede tener que borrar y reinsertar sus widgets, si usted utiliza un diferente Identificación de objetos para bloquear la operación! De causa solamente estos widgets, donde usaste esta función ;)\nformato corregido Función de valor",
-        "pl": "skorygowana operacja bloku. Uwaga! Być może będziesz musiał usunąć i ponownie włożyć swoje widżety, jeśli używasz innego Identyfikator obiektu do blokowania operacji! Z przyczyn tylko te widżety, gdzie użyłeś tej funkcji;)\npoprawiony format Funkcja wartości",
-        "uk": "виправлена операція блоку. УВАГА! Ви можете видалити і відновити свої віджети, якщо ви використовували різні Ідентифікатор об'єкта для блокування операції! Причини тільки ці віджети, де ви використовували цю функцію ;)\nвиправлений формат Функція значення",
-        "zh-cn": "更正区块操作。 注意点! 如果您使用不同的部件, 您可能必须删除并重新插入部件 挡住操作的物体ID! 仅用于这些部件, 用于此函数 ; )\n更正格式 值函数"
       }
     },
     "titleLang": {

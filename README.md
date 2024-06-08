@@ -40,7 +40,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.16 (2024-06-08)
 
 * (Standarduser) thermostat: fixed window-sizing
 * (Standarduser) date-picker: fixed block operation
