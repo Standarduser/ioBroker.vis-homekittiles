@@ -846,7 +846,7 @@ vis.binds["vis-homekittiles"] = {
 
 		if (!$dlg.length) {
 			setTimeout(function () {
-				vis.binds['vis-homekittiles'].dialogContainer(el, options, persistent, preload);
+				vis.binds['vis-homekittiles'].dialogThermostat(el, options, persistent, preload);
 			}, 200);
 			return;
 		}
