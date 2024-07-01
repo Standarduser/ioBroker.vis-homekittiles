@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.0.16",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "Added missing translations\nAdded new style \"indicator\" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)\nRadiobutton: new property \"division\" with selectable values\nRadiobutton: change size automatically if direction was changed\nSignal pictures: repaired comparision with number (<=nn)\nSignal pictures: checkbox for show/not show in editor\nThermostat dialog: sort order of attributes (dialog attrs one up)",
+        "de": "Fehlende Übersetzungen hinzugefügt\nHinzugefügt neue Stil \"Indikator\" für alle Fliesen (IFEN IHRE TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - KLICK einfach auf die IT. Tut mir leid.)\nRadiobutton: neue Eigenschaft \"Division\" mit auswählbaren Werten\nRadiobutton: Größe automatisch ändern, wenn Richtung geändert wurde\nSignalbilder: reparierte Komparision mit Nummer (<=nn)\nSignalbilder: Checkbox für Show/nicht im Editor anzeigen\nThermostat Dialog: Sortieren von Attributen (dialog attrs one up)",
+        "ru": "Добавлены недостающие переводы\nДобавлен новый стиль «индикатор» для всех плиток (IF ВАШ ТИЛЫ ОЗНАЧАЕТ BROKEN AFTER UPDATE: Желаю, чтобы все было в порядке. Простите за это.)\nRadiobutton: новое свойство «разделение» с подобранными значениями\nRadiobutton: автоматически изменить размер, если направление было изменено\nСигнальные фотографии: отремонтированное сопоставание с номером (<=nn)\nСигналы: флажок для показа/не показывать в редакторе\nДиалог термостата: сортировка атрибутов (диалог = один вверх)",
+        "pt": "Adicionadas traduções em falta\nAdicionado novo estilo \"indicador\" para todas as telhas (Se SUAS TILES LOOK BROKEN APOIO: Esclareça todas as vezes em EDITOR - basta pegar nela. Desculpe.)\nRadiobutton: nova propriedade \"divisão\" com valores selecionáveis\nRadiobutton: mudar o tamanho automaticamente se a direção foi alterada\nImagens do sinal: comparisão reparado com número (<=nn)\nImagens de sinal: caixa de seleção para mostrar/não mostrar no editor\nDiálogo termostato: ordem de classificação de atributos (dialog attrs one up)",
+        "nl": "Toegevoegd ontbrekende vertalingen\nToegevoegd nieuwe stijl \"indicator\" voor alle tegels (als UW TILLEN BEKIJKEN NA UPDATE: selecteer alles in de editor. Sorry daarvoor.)\nRadioknop: nieuwe eigenschap \"verdeling\" met selecteerbare waarden\nRadioknop: formaat automatisch wijzigen bij verandering van richting\nSignaalbeelden: gerepareerde vergelijking met nummer (<=nn)\nSignaalbeelden: selectievakje voor tonen/niet tonen in editor\nThermostat dialoogvenster: sorteer orde van eigenschappen (dialog attrs one up)",
+        "fr": "Ajout de traductions manquantes\nAjout d'un nouveau style \"indicateur\" pour toutes les tuiles (SI VOS TILES APRÈS LA MISE À JOUR : SÉLECTIONNEZ TOUS LES TILES DE L'ÉDITEUR - CLIQUEZ-VOUS dessus. Désolé pour ça.)\nRadiobouton: nouvelle propriété \"division\" avec des valeurs sélectionnables\nRadiobouton : changer la taille automatiquement si la direction est changée\nPhotos du signal: Comparision réparée avec nombre (<=nn)\nPhotos des signaux : case à cocher pour afficher/ne pas afficher dans l'éditeur\nBoîte de dialogue Thermostat : trier l'ordre des attributs (dialog attrs one up)",
+        "it": "Aggiunte le traduzioni mancanti\nAggiunto nuovo stile \"indicatore\" per tutte le piastrelle (IF TUO TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - CLICCA solo su di esso. Mi dispiace.)\nRadiobutton: nuova proprietà \"divisione\" con valori selezionabili\nRadiobutton: cambiare la dimensione automaticamente se la direzione è stata cambiata\nImmagini di segnale: bussola riparata con numero (±=nn)\nImmagini di segnale: checkbox per show/not show in editor\nFinestra di dialogo Termostato: ordina ordine di attributi (attori di dialogo uno su)",
+        "es": "Añadido traducciones desaparecidas\nAgregado nuevo estilo \"indicador\" para todas las fichas (si tus TILES parecen BROKEN AFTER UPDATE: Cálmese todo lo que hay en el índice. Lo siento.)\nRadiobutton: nueva propiedad \"división\" con valores seleccionables\nRadiobuttón: cambiar el tamaño automáticamente si la dirección fue cambiada\nFotos de señalización: comparación reparada con número (traducido=nn)\nFotos de la señal: checkbox for show/not show in editor\nDiálogo termostato: orden de atributos (los attrs de diálogo uno arriba)",
+        "pl": "Dodano brakujące tłumaczenia\nDodano nowy styl \"wskaźnik\" dla wszystkich płytek (jeśli Twoje palce wyglądają broken po update: Wybierzcie każdy moment w Editorze. Przepraszam.)\nRadiobutton: nowa właściwość \"podział\" z wartościami do wyboru\nRadiobutton: zmienić rozmiar automatycznie jeśli kierunek został zmieniony\nObrazy sygnałowe: naprawione porównanie z liczbą (< = nn)\nZdjęcia sygnałowe: pole wyboru dla wyświetlania / nie wyświetlania w edytorze\nOkno termostatu: sortuj kolejność atrybutów (okno attrs one up)",
+        "uk": "Додано відсутні переклади\nДодано новий стиль \"індикатор\" для всіх плиток (IF ВАШІ ЧАСТИНИ ЗАБЕЗПЕЧЕННЯ БРОКЕНА: ЗБЕРІГАЙТЕ ВСІ ЧАСТИНИ В EDITOR - ЗАБЕЗПЕЧИТИ НА ІТ. Про нас\nRadiobutton: нова нерухомість \"division\" з вибраними значеннями\nRadiobutton: зміни розміру автоматично, якщо напрямок було змінено\nЗнімки сигналу: відремонтована компаріація з номером (<=nn)\nЗнакові фотографії: прапорець для шоу/не шоу в редакторі\nТермостат діалогове вікно: сортування атрибутів (dialog attrs one up)",
+        "zh-cn": "缺少的翻译\n为所有牌子添加了新样式“ 指示器 ” (如果您的倾斜显示在更新后 : 自己在编辑器中的所有东西,只是点击它。 对不起。 )\n无线电按钮:带有可选值的新属性\"分割\"\n无线电按钮: 如果方向改变, 自动更改大小\n信号图片:修复后与数字的比对(<=nn)\n信号图片 : 编辑器中显示/ 不显示的复选框\n自动调温对话框: 属性的排序顺序( 对话框上移一个)"
+      },
       "0.0.16": {
         "en": "thermostat: fixed window-sizing\ndate-picker: fixed block operation",
         "de": "thermostat: feste fenstermessung\ndate-picker: fester blockbetrieb",
@@ -80,19 +93,6 @@
         "pl": "dodany własny obraz sygnału dla wszystkich płytek widgets\nRadiobutton: pozwolić HTML w etykiecie przycisku\nRadiobutton: niektóre korekty CSS\ndodane pole tekstowe (etykieta) z wcześniej zdefiniowanymi klasami css-",
         "uk": "додано власні сигнали для всіх віджетів плитки\nRadiobutton: дозволити HTML в кнопці етикетки\nRadiobutton: деякі виправлення\nдодано текстове поле (лаборатор) з попередньо визначеними css-classes",
         "zh-cn": "为所有瓷砖部件添加自己的信号图片\n无线电按钮: 允许 HTML 在按钮标签中\n无线电按钮:一些 css 更正\n添加预定义的 SS 类的文本字段( 标签)"
-      },
-      "0.0.10": {
-        "en": "added Object ID for Active State for View in Widget Dialog tile and Value tile\nrepaired Increment function\nadded own signal pictures",
-        "de": "objekt-ID für Active State for View in Widget Dialogfliese und Wertfliese hinzugefügt\nreparierte Inkrement-Funktion\neigene signalbilder",
-        "ru": "добавленный идентификатор объекта для активного состояния для просмотра в плитке Диалога Вида и плитке Значение\nотремонтированная функция Increment\nдобавленные собственные сигналы",
-        "pt": "iD de objeto adicionado para o estado ativo para vista na telha de diálogo Widget e telha de valor\nfunção de Incremento reparado\nadicionado próprios imagens de sinal",
-        "nl": "object-ID toegevoegd voor Active State voor weergave in Widget Dialoogtegel en Waardetegel\ngerepareerde Increment functie\neigen signaalafbeeldingen toegevoegd",
-        "fr": "ajouté Object ID pour l'état actif pour la vue dans les tuiles de dialogue et de valeur Widget\nfonction d'accroissement réparée\najouté ses propres images de signal",
-        "it": "iD oggetto aggiunto per Stato attivo per vista in piastrelle di dialogo Widget e piastrelle di valore\nfunzione di Incremento riparato\nimmagini del segnale",
-        "es": "añadido ID de objeto para el estado activo para la vista en Widget Dialog azulejo y nivel de valor\nreparada Función de Incremento\nimágenes de señal",
-        "pl": "dodano ID obiektu dla aktywnego stanu dla widoku w dachówce okna Widget i dachówki wartości\nnaprawiona funkcja przyrostu\ndodane własne obrazy sygnałów",
-        "uk": "додано ідентифікатор об'єкта для активного стану для перегляду в плитці Widget Dialog і значення плитки\nремонтна функція\nдодано власні сигнали",
-        "zh-cn": "在 Widget 对话框和值牌上为查看活动状态添加对象 ID\n增量函数\n添加自己的信号图片"
       }
     },
     "titleLang": {
