@@ -42,7 +42,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * Added missing translations
-* Added new style "indicator" for all tiles (YOU MAY HAVE JUST TO SELECT EVERY SINGLE TILE WIDGET IF TILE LOOKS BROKEN AFTER UPDATE)
+* Added new style "indicator" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)
 * Radiobutton: new property "division" with selectable values
 * Radiobutton: change size automatically if direction was changed
 * Signal pictures: repaired comparision with number (<=nn)

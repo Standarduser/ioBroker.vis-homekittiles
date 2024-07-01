@@ -151,7 +151,31 @@
     "dependencies": [
       "vis"
     ],
-    "globalDependencies": []
+    "globalDependencies": [],
+    "messages": [
+      {
+        "condition": {
+          "operand": "and",
+          "rules": [
+            "oldVersion<0.0.16",
+            "newVersion>=0.0.16"
+          ]
+        },
+        "title": {
+          "en": "Important notice!",
+          "de": "Wichtiger Hinweis!"
+        },
+        "text": {
+          "en": "After this update, all tile widgets must be clicked once so that the display is correct again! There is nothing else to do, just click on it.",
+          "de": "Nach diesem Update müssen alle Kachel-Widgets einmal angeklickt werden, damit die Darstellung wieder korrekt ist! Es ist sonst nichts weiter zu tun, nur anklicken."
+        },
+        "level": "warn",
+        "buttons": [
+          "agree",
+          "cancel"
+        ]
+      }
+    ]
   },
   "native": {},
   "objects": [],

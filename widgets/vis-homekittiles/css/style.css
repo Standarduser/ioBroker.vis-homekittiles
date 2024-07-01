@@ -1045,10 +1045,10 @@
 
 /*---------------------------------------------------------------*/
 /* Thermostat Kachel */
-.homekitTiles.tile.thermostatDialog .tileValue.cooling {
+.homekitTiles.thermostatDialog .tileValue.cooling {
 	background-color: deepskyblue;
 }
-.homekitTiles.tile.thermostatDialog .tileValue.heating {
+.homekitTiles.thermostatDialog .tileValue.heating {
 	background-color: darkorange;
 }
 .homekitTiles.tile.thermostatDialog .labelGroup2 {
