@@ -232,12 +232,16 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktRadiobuttons;oid;numberOfButtons[3]/slider,2,10,1;directionHorizontal/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktRadiobuttons;
+					oid;numberOfButtons[3]/slider,2,10,1;
+					directionHorizontal/checkbox;
+					separationselect[allthesame]/select,allthesame,ownseparation;
+					separationvalues[25§50§25];"
 	data-vis-attrs0="group.buttons;valueButton_(1-numberOfButtons);labelButton_(1-numberOfButtons)[Button];iconButton_(1-numberOfButtons)/image;"
 	data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs2="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
 >
-	<div class="homekitTiles radiobuttons vis-widget <%== this.data.attr('class') %>" style="width:110px; height:235px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles radiobuttons vis-widget <%== this.data.attr('class') %>" style="width: <%= this.data.attr('directionHorizontal') ? '235' : '110' %>px; height: <%= this.data.attr('directionHorizontal') ? '65' : '235' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body">
 			<div class="radiobuttons" id="<%= this.data.attr('wid') %>_radio" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> setTimeout(function () {vis.binds['vis-homekittiles'].radio(el)}, 100) %> <%= (el) -> vis.binds.basic._onChange(el); %>>
 				<div class="radiobuttonGroup <%= this.data.attr('directionHorizontal') ? 'horizontal' : 'vertical' %>">
@@ -254,9 +258,21 @@ You can do "if" conditions and "for" cycles.
 						var icon = this.data.attr('iconButton_' + i);
 						var value = this.data.attr('valueButton_' + i);
 						var text = this.data.attr('labelButton_' + i);
+						var height = 100;
+						var width = 100;
 
+						if (this.data.attr('separationselect') == 'ownseparation') {
+							var separationValues = this.data.attr('separationvalues').split(';');
+							if (separationValues.length >= i-1) {
+								if (this.data.attr('directionHorizontal')) {
+									width = separationValues[i-1] * numberOfButtons;
+								} else {
+									height = separationValues[i-1] * numberOfButtons;
+								}
+							}
+						}
 						%>
-						<div class="radiobutton">
+						<div class="radiobutton" style="height: <%= height %>%; width: <%= width %>%;">
 							<input type="radio" id="<%= wid %>_radio<%= i %>" name="<%= wid %>_radio" value="<%= value %>" />
 							<label for="<%= wid %>_radio<%= i %>">
 								<% if (icon !== '' && icon !== undefined) { %>
@@ -294,16 +310,16 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktDatepicker;oid/id;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktDatepicker;oid/id;icon/image;iconRound/checkbox;showLikeActive[true]/checkbox;displaystyle[tile]/select,tile,indicator;"
 	data-vis-attrs0="group.labelGroup1;label[Datepicker];dateformat[dd.mm.yy]/select,dd.mm.yy,yy-mm-dd;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
-	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
+	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
 	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
-	<div class="homekitTiles tile datepicker vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles <%== this.data.attr('displaystyle') %> datepicker vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: <%= this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body">
 			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
 			<label class="labelGroup1">
@@ -345,16 +361,16 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktSwitchBool;oid/id;icon/image;iconRound/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktSwitchBool;oid/id;icon/image;iconRound/checkbox;displaystyle[tile]/select,tile,indicator;"
 	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
-	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
+	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
 	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
-	<div class="homekitTiles tile vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles <%== this.data.attr('displaystyle') %> vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: <%= this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.toggle(el); %>>
 			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
 			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
@@ -364,7 +380,7 @@ You can do "if" conditions and "for" cycles.
 		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
 		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
 		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
-		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
+		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el, data) %>></div><% } %></div>
 	</div>
 </script>
 
@@ -383,14 +399,14 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktValue;oid/id;unit;decimals[1];factor[1];comma[true]/checkbox;tdp/checkbox;oidActive/id;showLikeActive[true]/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktValue;oid/id;unit;decimals[1];factor[1];comma[true]/checkbox;tdp/checkbox;oidActive/id;showLikeActive[true]/checkbox;displaystyle[tile]/select,tile,indicator;"
 	data-vis-attrs0="group.labelGroup1;label[Value];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];"
-	data-vis-attrs3="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
+	data-vis-attrs3="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
 	data-vis-attrs4="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
-	<div class="homekitTiles tile vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width:110px; height:110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles <%== this.data.attr('displaystyle') %> vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: <%= this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>">
 			<span class="tileValue"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(data.oid + '.val'), this.data.attr('decimals'), this.data.attr('factor'), this.data.attr('comma'), this.data.attr('tdp')) %><%= this.data.attr('unit') %></span>
 			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
@@ -418,16 +434,16 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktViewInWidgetDialog;oidActive/id;icon/image;iconRound/checkbox;showLikeActive/checkbox;"
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktViewInWidgetDialog;oidActive/id;icon/image;iconRound/checkbox;showLikeActive/checkbox;displaystyle[tile]/select,tile,indicator;"
 	data-vis-attrs0="group.labelGroup1;label[Dialog];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
 	data-vis-attrs4="group.dialog;contains_view/views;title;autoclose/slider,0,30000,100;modal/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
-	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
+	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
 	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
-	<div class="homekitTiles tile dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles <%== this.data.attr('displaystyle') %> dialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: <%= this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
 			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
 			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
@@ -448,48 +464,48 @@ You can do "if" conditions and "for" cycles.
 </script>
 
 <script id="tplHomekittilesThermostatDialog"
-
-		type="text/ejs"
-		class="vis-tpl"
-		data-vis-set="vis-homekittiles"
-		data-vis-update-style="true"
-		data-vis-type="static,dialog"
-		data-vis-name="hkt-Thermostat-Dialog"
-		data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
-							<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
-								<div class="homekitTiles tile vis-widget-prev-body state-active">
-									<span class="tileValue">22°</span>
-									<label class="labelGroup1">Thermostat-Dialog</label>
-								</div>
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="static,dialog"
+	data-vis-name="hkt-Thermostat-Dialog"
+	data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-active">
+								<span class="tileValue">22°</span>
+								<label class="labelGroup1">Thermostat-Dialog</label>
 							</div>
-						</div>'
-		data-vis-attrs="description/custom,vis-homekittiles.infoText,hktThermostatDialog;
-						autofillOids[true]/checkbox;
-						oidActualTemperature/id/autofillThermostat(onChangeFunc);
-						oidSetPointTemperature/id;
-						oidSetPointMode/id;
-						oidHumidity/id;
-						oidActiveProfile/id;
-						oidLowBat/id;
-						oidUnreach/id;
-						oidWindowState/id;
-						unitTemperature[°];
-						unitHumidity[% r.F.];
-						temperatureMin[15];
-						temperatureMax[28];
-						temperatureStep[0.5];
-						comma[true]/checkbox;
-						showLikeActive[true]/checkbox;
-						texttemplate[-]/select,-,english,german/texttemplateThermostat(onChangeFunc);
-						imgLowBat/image;
-						imgUnreach/image;"
-		data-vis-attrs0="group.label;label[Thermostat];label2pre[Set at];label2post[];"
-		data-vis-attrs1="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
-		data-vis-attrs2="group.thermostatDialog;title;closebuttonLabel;actualTemperatureLabel;setpointTemperatureLabel;setpointModeLabel;setpointModeValues;setpointModeTexts;setpointModeOperable/checkbox;actualHumidityLabel;activeProfileLabel;activeProfileValues;activeProfileTexts;windowStateLabel;windowStateValues;windowStateTexts;lowBatLabel;unreachLabel;autoclose/slider,0,30000,100;modal/checkbox;dialog_top;dialog_left;arrowDirection/nselect,,top,right,bottom,left;"
-		data-vis-attrs3="group.signalpics;numberOfSignals[1]/slider,3,10,1;"
-		data-vis-attrs4="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktThermostatDialog;
+					autofillOids[true]/checkbox;
+					oidActualTemperature/id/autofillThermostat(onChangeFunc);
+					oidSetPointTemperature/id;
+					oidSetPointMode/id;
+					oidHumidity/id;
+					oidActiveProfile/id;
+					oidLowBat/id;
+					oidUnreach/id;
+					oidWindowState/id;
+					unitTemperature[°];
+					unitHumidity[% r.F.];
+					temperatureMin[15];
+					temperatureMax[28];
+					temperatureStep[0.5];
+					comma[true]/checkbox;
+					showLikeActive[true]/checkbox;
+					displaystyle[tile]/select,tile,indicator;
+					texttemplate[-]/select,-,english,german/texttemplateThermostat(onChangeFunc);
+					iconLowBat/image;
+					iconUnreach/image;"
+	data-vis-attrs0="group.label;label[Thermostat];label2pre[Set at];label2post[];"
+	data-vis-attrs1="group.thermostatDialog;title;closebuttonLabel;actualTemperatureLabel;setpointTemperatureLabel;setpointModeLabel;setpointModeValues;setpointModeTexts;setpointModeOperable/checkbox;actualHumidityLabel;activeProfileLabel;activeProfileValues;activeProfileTexts;windowStateLabel;windowStateValues;windowStateTexts;lowBatLabel;unreachLabel;autoclose/slider,0,30000,100;modal/checkbox;dialog_top;dialog_left;arrowDirection/nselect,,top,right,bottom,left;"
+	data-vis-attrs2="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;blockOperationOID/id;"
+	data-vis-attrs3="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
+	data-vis-attrs4="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
-	<div class="homekitTiles tile thermostatDialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles <%== this.data.attr('displaystyle') %> thermostatDialog vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: <%= this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
 
 			<span class="tileValue <%= vis.states.attr(this.data['oidActualTemperature'] + '.val') < vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'heating' : vis.states.attr(this.data['oidActualTemperature'] + '.val') > vis.states.attr(this.data['oidSetPointTemperature'] + '.val') ? 'cooling' : '' %>"><%= vis.binds['vis-homekittiles'].formatValue(vis.states.attr(this.data['oidActualTemperature'] + '.val'), undefined, 1, this.data.attr('comma'), false) %><%= this.data.attr('unitTemperature') %></span>
@@ -504,17 +520,17 @@ You can do "if" conditions and "for" cycles.
 			</div>
 
 			<% if (vis.states.attr(this.data['oidUnreach'] + '.val')) { %>
-				<% if (this.data['imgUnreach']) { %>
+				<% if (this.data['iconUnreach']) { %>
 					<div class="signals">
-						<div class="signal unreach" data-oid="<%= this.data.attr('oidUnreach') %>" data-compOp="comparisonEqual" data-compVal="true" data-icon="<%= this.data.attr('imgUnreach') %>" data-desc="<%= this.data.attr('unreachLabel') %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div>
+						<div class="signal unreach" data-oid="<%= this.data.attr('oidUnreach') %>" data-compOp="comparisonEqual" data-compVal="true" data-icon="<%= this.data.attr('iconUnreach') %>" data-desc="<%= this.data.attr('unreachLabel') %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div>
 					</div>
 				<% } else { %>
 					<span class="label3value unreach error">UNREACH</span>
 				<% } %>
 			<% } else if (vis.states.attr(this.data['oidLowBat'] + '.val')) { %>
-				<% if (this.data['imgLowBat']) { %>
+				<% if (this.data['iconLowBat']) { %>
 					<div class="signals">
-						<div class="signal lowbat" data-oid="<%= this.data.attr('oidLowBat') %>" data-compOp="comparisonEqual" data-compVal="true" data-icon="<%= this.data.attr('imgLowBat') %>" data-desc="<%= this.data.attr('lowBatLabel') %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div>
+						<div class="signal lowbat" data-oid="<%= this.data.attr('oidLowBat') %>" data-compOp="comparisonEqual" data-compVal="true" data-icon="<%= this.data.attr('iconLowBat') %>" data-desc="<%= this.data.attr('lowBatLabel') %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div>
 					</div>
 				<% } else { %>
 					<span class="label3value lowbat warn">LOWBAT</span>
@@ -628,6 +644,74 @@ You can do "if" conditions and "for" cycles.
 		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
 	</div>
 </script>
+
+<!--
+<script id="tplHomekittilesPinpad"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="static,dialog"
+	data-vis-name="hkt-Pinpad"
+	data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body">
+								<label class="labelGroup1">Pinpad</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktPinpad;
+					pinValue;
+					useOidForPin/checkbox;
+					oidPin/id;
+					oidSetPinCorrect/id;
+					oidSetPinWrong/id;"
+	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
+	data-vis-attrs2="group.PinpadDialog;
+					title;
+					closebuttonLabel;
+					callToAction;
+					autoclose/slider,0,30000,100;
+					modal/checkbox;
+					dialog_top;
+					dialog_left;
+					arrowDirection/nselect,,top,right,bottom,left;"
+	data-vis-attrs3="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs4="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowIcon/checkbox;blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox;oidBlockOperation/id;"
+	data-vis-attrs5="group.acknowledge;ackShowIcon/checkbox;ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+	data-vis-attrs6="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
+	data-vis-attrs7="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
+>
+	<div class="homekitTiles tile pinpad vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
+			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+
+		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
+
+			<div class="pinpad head">
+				<span class="calltoaction"><%= this.data.attr('callToAction') %></span>
+			</div>
+
+			<div class="pinpad content">
+				<div class="display">display</div>
+				<div class="buttons"></div>
+			</div>
+
+			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
+		</div>
+
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
+
+		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
+	</div>
+</script>
+
+-->
 
 <script id="tplHomekittilesSettingsBool"
 	type="text/ejs"

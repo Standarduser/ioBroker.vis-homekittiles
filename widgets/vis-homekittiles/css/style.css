@@ -241,7 +241,137 @@
 	text-align: right;
 }
 
+/*---------------------------------------------------------------*/
+/* Basic design for indicators */
+.homekitTiles.indicator {
+	border-radius: 15px;
+}
+.homekitTiles.indicator .labelGroup1 {
+	bottom: 8px;
+	left: 40px;
+	right: 1px;
+	position: absolute;
+}
+.homekitTiles.indicator .labelGroup1 .label {
+	margin-right: 3px;
+}
+.homekitTiles.indicator .labelGroup1 br {
+	display: none;
+}
+.homekitTiles.indicator .labelGroup2 {
+	display: none;
+}
+
+/* State active or default */
+.homekitTiles.indicator.state-default {
+	color: var(--hkt-color-tile-off-foreground);
+	background-color: var(--hkt-color-tile-off-background);
+}
+.homekitTiles.indicator.state-active {
+	color: var(--hkt-color-tile-on-foreground);
+	background-color: var(--hkt-color-tile-on-background);
+}
+.homekitTiles.indicator.state-default .tileIcon {
+	filter: grayscale(100);
+}
+
+/* Icons */
+.homekitTiles.indicator .tileIcon {
+	width: 20px;
+	height: 20px;
+	top: 5px;
+	left: 10px;
+	position: absolute;
+}
+.homekitTiles.indicator .tileIcon img {
+	width: 100%;
+	height: 100%;
+}
+.homekitTiles.indicator .tileIcon .round {
+	border-radius: 999px;
+}
+
+/* Value */
+.homekitTiles.indicator .tileValue {
+	color: var(--hkt-color-value-foreground);
+	background-color: var(--hkt-color-value-background);
+	font-size: 10px;
+	min-width: 26px;
+	height: 26px;
+	top: 2px;
+	left: 5px;
+	position: absolute;
+	border-radius: 999px;
+	line-height: 26px;
+	text-align: center;
+}
+
+/* Tiles with increment */
+.homekitTiles.indicator .increment {
+	display: none;
+}
+
+/* Operation blocked */
+.homekitTiles.indicator:has(.blockedIcon) {
+	overflow: visible;
+}
+.homekitTiles.indicator .blockOperation {
+	cursor: not-allowed;
+}
+.homekitTiles.indicator .blockOperation .blocked {
+	z-index: 999;
+}
+.homekitTiles.indicator .blockOperation .blockedIcon {
+	width: 20px;
+	height: 20px;
+	top: 5px;
+	left: calc(100% + 3px);
+	position: absolute;
+	filter: contrast(0.8);
+}
+
+/* Acknowledged icon */
+.homekitTiles.indicator .ackIcon {
+	width: 20px;
+	height: 20px;
+	top: 5px;
+	right: 5px;
+	position: absolute;
+}
+.homekitTiles.indicator .ackIcon .icon {
+	width: 100%;
+	height: 100%;
+	filter: contrast(0.8);
+}
+
+/* Signal pictures */
+.homekitTiles.indicator:has(.signals) {
+	overflow: visible;
+}
+.homekitTiles.indicator .signals {
+	width: auto;
+	top: 5px;
+	height: 20px;
+	left: calc(100% + 3px);
+	position: absolute;
+	white-space: nowrap;
+}
+.homekitTiles.indicator .signals .icon {
+	width: 20px;
+	height: 20px;
+}
+.homekitTiles.indicator .signals .description {
+	height: 20px;
+	line-height: 20px;
+	margin-left: 3px;
+	position: absolute;
+	display: inline-block;
+	color: var(--hkt-color-tile-off-foreground);
+}
+
 /*----------------------------------------------------------------*/
+/* Date-Picker */
+
 /* Date-Picker Kachel */
 .homekitTiles.tile.datepicker .labelGroup1 {
 	padding-bottom: 15px;
@@ -264,6 +394,31 @@
 	position: absolute;
 }
 .homekitTiles.tile.datepicker.state-default input {
+	color: var(--hkt-color-tile-off-foreground);
+}
+
+/* Date-Picker Indikator */
+.homekitTiles.indicator.datepicker .labelGroup1 {
+	display: none;
+}
+.homekitTiles.indicator.datepicker input {
+	background-color: unset;
+	border: unset;
+	padding: unset;
+	margin: unset;
+
+	color: var(--hkt-color-tile-on-foreground);
+	width: 100%;
+	height: 100%;
+	padding-left: 40px;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	z-index: 2;
+	position: absolute;
+	display: inline-block;
+}
+.homekitTiles.indicator.datepicker.state-default input {
 	color: var(--hkt-color-tile-off-foreground);
 }
 
