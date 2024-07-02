@@ -157,8 +157,8 @@
         "condition": {
           "operand": "and",
           "rules": [
-            "oldVersion<0.0.16",
-            "newVersion>=0.0.16"
+            "oldVersion<=0.0.16",
+            "newVersion>0.0.16"
           ]
         },
         "title": {
