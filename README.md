@@ -31,6 +31,7 @@ The widgets are designed for VIS 1.x.
 * create Mini-mediaplayer
 * create Select-tile
 * create Submenue-Button
+* create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
 * new widget: pinpad (WORK IN PROGRESS)
 
