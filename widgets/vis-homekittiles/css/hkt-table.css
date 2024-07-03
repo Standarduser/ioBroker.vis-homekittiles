@@ -1,0 +1,43 @@
+.homekitTiles.jsonTable .table {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	width: 100%;
+	table-layout: fixed;
+	color: var(--hkt-color-label-textlabel);
+}
+.homekitTiles.jsonTable .table-head {
+	height: 20px;
+	border-bottom: 1px solid var(--hkt-color-label-textlabel);
+}
+.homekitTiles.jsonTable .table-head .row-item {
+	font-weight: inherit;
+}
+.homekitTiles.jsonTable .table-content-wrapper,
+.homekitTiles.jsonTable .table-content-wrapper.scrollable.noheader {
+	height: 100%;
+}
+.homekitTiles.jsonTable .table-content-wrapper.scrollable {
+	overflow-y: auto;
+	height: calc(100% - 20px);
+}
+.homekitTiles.jsonTable .row-item {
+	box-sizing: border-box;
+	padding: 0 5px;
+}
+.homekitTiles.jsonTable .row-item.nowrap {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.homekitTiles.jsonTable .row-item.alignleft {
+	text-align: left;
+}
+.homekitTiles.jsonTable .row-item.aligncenter {
+	text-align: center;
+}
+.homekitTiles.jsonTable .row-item.alignright {
+	text-align: right;
+}
+.homekitTiles.jsonTable .row-item:not(:last-of-type) {
+	border-right: 1px dashed  var(--hkt-color-label-textlabel);
+}

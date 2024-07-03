@@ -284,6 +284,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktSettingsSelect")		{ text = "hktSettingsSelectDescription";		}
 		else if (data[1] === "hktSettingsValue")		{ text = "hktSettingsValueDescription";			}
 		else if (data[1] === "hktSwitchBool")			{ text = "hktSwitchBoolDescription";			}
+		else if (data[1] === "hktTable")				{ text = "hktTableDescription";					}
 		else if (data[1] === "hktThermostatDialog")		{ text = "hktThermostatDialogDescription";		}
 		else if (data[1] === "hktValue")				{ text = "hktValueDescription";					}
 		else if (data[1] === "hktViewInWidgetDialog")	{ text = "hktViewInWidgetDialogDescription";	}

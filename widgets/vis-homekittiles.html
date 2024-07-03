@@ -2,11 +2,15 @@
 	ioBroker.vis vis-homekittiles Widget-Set
 	Copyright 2024 Standarduser
 -->
+
 <!-- here you can include so many css as you want -->
 <link rel="stylesheet" href="widgets/vis-homekittiles/css/style.css" />
+<link rel="stylesheet" href="widgets/vis-homekittiles/css/hkt-table.css" />
+
 <!-- here you can include so many js-files as you want -->
 <script type="text/javascript" src="widgets/vis-homekittiles/js/vis-homekittiles.js"></script>
 <script type="text/javascript" src="widgets/vis-homekittiles/js/hkt-datepicker.js"></script>
+<script type="text/javascript" src="widgets/vis-homekittiles/js/hkt-table.js"></script>
 
 <!-- the full description of format in data-vis-attrs can be found here:
 	https://github.com/ioBroker/ioBroker.vis/blob/master/www/js/visEditInspect.js#L39
@@ -642,6 +646,39 @@ You can do "if" conditions and "for" cycles.
 		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
 
 		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
+	</div>
+</script>
+
+<script id="tplHomekittilesTable"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="json,table"
+	data-vis-name="hkt-JSON-Table"
+	data-vis-prev='<div id="prev_tplHomekittilesTable" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles jsonTable vis-widget-prev-body">
+								<table class="table table-head"><tbody><tr class="table-row head"><th class="row-item aligncenter">Title</th><th class="row-item aligncenter">Value</th></tr></tbody></table>
+								<div class="table-content-wrapper"><table class="table table-content"><tbody><tr class="table-row"><td class="row-item content alignleft nowrap">first</td><td class="row-item content undefined nowrap">1</td></tr></tbody></table></div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktTable;
+					oidJsonTable/id;
+					hideHeader/checkbox;
+					scrollable[true]/checkbox;
+					maxRows/number;
+					numCols/slider,1,10,1;"
+	data-vis-attrs0="group.column;colAttr(1-numCols);
+					colName(1-numCols);
+					colWidth(1-numCols);
+					noLineBreak[true]/checkbox;
+					textalignHead[aligncenter]/select,aligncontent,alignleft,aligncenter,alignright;
+					textalignCol(1-numCols)[alignleft]/select,alignleft,aligncenter,alignright;"
+>
+	<div class="homekitTiles jsonTable vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 800px; height: 200px;">
+		<% vis.binds.hktTable.showTable(this.view, this.data.attr('wid'), this.data); %>
 	</div>
 </script>
 
