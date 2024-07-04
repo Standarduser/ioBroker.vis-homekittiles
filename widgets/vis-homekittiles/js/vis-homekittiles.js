@@ -21,6 +21,10 @@ $.extend(
 		"activeProfileValues":			{	"en": "Values of heating profile",		"de": "Werte des Heizprofils"				},
 		"actualHumidityLabel":			{	"en": "Label humidity",					"de": "Beschriftung Feuchte"				},
 		"actualTemperatureLabel":		{	"en": "Label actual temperature",		"de": "Beschriftung aktuelle Temperatur"	},
+		"aligncenter":					{	"en": "center",							"de": "zentriert"							},
+		"aligncontent":					{	"en": "Align with content",				"de": "Ausrichtung wie Inhalt"				},
+		"alignleft":					{	"en": "left",							"de": "links"								},
+		"alignright":					{	"en": "right",							"de": "rechts"								},
 		"allthesame":					{	"en": "all the same",					"de": "Alle gleich"							},
 		"arrowDirection":				{	"en": "Show arrow on dialog",			"de": "Pfeil am Dialog anzeigen"			},
 		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
@@ -32,6 +36,9 @@ $.extend(
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",				"de": "Verwende andere OID"					},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
 		"closeDialog_":					{	"en": "Close dialog ",					"de": "Dialog schließen "					},
+		"colAttr":						{	"en": "Attribute in JSON ",				"de": "Attribut in JSON "					},
+		"colName":						{	"en": "Rename attribute ",				"de": "Attribut umbenennen "				},
+		"colWidth":						{	"en": "Column width ",					"de": "Spaltenbreite "						},
 		"comma":						{	"en": "Comma as separator",				"de": "Komma als Trennzeichen"				},
 		"comparisonEqual":				{	"en": "==",								"de": "=="									},
 		"comparisonGreater":			{	"en": ">",								"de": ">"									},
@@ -51,6 +58,7 @@ $.extend(
 		"group_acknowledge":			{	"en": "Acknowledged change",			"de": "Bestätigte Änderung"					},
 		"group_blockOperation":			{	"en": "Block operation",				"de": "Bedienung sperren"					},
 		"group_buttons":				{	"en": "Buttons",						"de": "Schaltflächen"						},
+		"group_column":					{	"en": "Columns",						"de": "Spalten"								},
 		"group_increment":				{	"en": "Increment value",				"de": "Wert inkrementieren"					},
 		"group_label":					{	"en": "Label",							"de": "Beschriftung"						},
 		"group_labelGroup1":			{	"en": "Label group 1",					"de": "Beschriftungsgruppe 1"				},
@@ -62,6 +70,7 @@ $.extend(
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
 		"headline2":					{	"en": "Headline 2",						"de": "Überschrift 2"						},
 		"headline3":					{	"en": "Headline 3",						"de": "Überschrift 3"						},
+		"hideHeader":					{	"en": "Hide header",					"de": "Ohne Kopfzeile"						},
 		"icon_":						{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconButton_":					{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconLowBat":					{	"en": "Icon for low battery",			"de": "Icon für Batterie schwach"			},
@@ -112,6 +121,8 @@ $.extend(
 		"label5unit":					{	"en": "Label 5 unit",					"de": "Beschriftung 5 Einheit"				},
 		"labelButton_":					{	"en": "Label button ",					"de": "Beschriftung Schaltfläche "			},
 		"lowBatLabel":					{	"en": "Label battery low",				"de": "Beschriftung Batterie schwach"		},
+		"maxRows":						{	"en": "Number of rows (max.)",			"de": "Anzahl Zeilen (max.)"				},
+		"noLineBreak":					{	"en": "No line breaks",					"de": "Keine Zeilenumbrüche"				},
 		"notification1oid":				{	"en": "Notification 1 OID",				"de": "Benachrichtigung 1 OID"				},
 		"notification2oid":				{	"en": "Notification 2 OID",				"de": "Benachrichtigung 2 OID"				},
 		"notification3oid":				{	"en": "Notification 3 OID",				"de": "Benachrichtigung 3 OID"				},
@@ -123,6 +134,7 @@ $.extend(
 		"notification4showZero":		{	"en": "Notification 4 show zero",		"de": "Benachrichtigung 4 zeige Null"		},
 		"notification5showZero":		{	"en": "Notification 5 show zero",		"de": "Benachrichtigung 5 zeige Null"		},
 		"numberOfButtons":				{	"en": "Number of buttons",				"de": "Anzahl der Schaltflächen"			},
+		"numberOfCols":					{	"en": "Number of Columns",				"de": "Anzahl Spalten"						},
 		"numberOfSignals":				{	"en": "Number of signal pictures",		"de": "Anzahl Signalbilder"					},
 		"numberOfViews":				{	"en": "Number of views",				"de": "Anzahl der Views"					},
 		"oid_":							{	"en": "Object ID ",						"de": "Objekt-ID "							},
@@ -132,6 +144,7 @@ $.extend(
 		"oidBlockOperation":			{	"en": "OID for block operation",		"de": "OID für Bedienung sperren"			},
 		"oidHumidity":					{	"en": "Object ID for humidity",			"de": "Objekt-ID für Feuchte"				},
 		"oidIncrement":					{	"en": "Object ID",						"de": "Objekt-ID"							},
+		"oidJsonTable":					{	"en": "Object ID for JSON Table",		"de": "Objekt-ID für JSON-Tabelle"			},
 		"oidLowBat":					{	"en": "Object ID for low battery",		"de": "Objekt-ID für Batterie schwach"		},
 		"oidSetPointMode":				{	"en": "Object ID for setpoint mode",	"de": "Objekt-ID für Sollwert Modus"		},
 		"oidSetPointTemperature":		{	"en": "Object ID for setpoint temp",	"de": "Objekt-ID für Sollwert Temp."		},
@@ -139,6 +152,7 @@ $.extend(
 		"oidUnreach":					{	"en": "Object ID for unreach",			"de": "Objekt-ID für nicht Erreichbar"		},
 		"oidWindowState":				{	"en": "Object ID for window contact",	"de": "Objekt-ID für Fensterkontakt"		},
 		"ownseparation":				{	"en": "own separation",					"de": "Eigene Aufteilung"					},
+		"scrollable":					{	"en": "Scrollable",						"de": "Scrollbar"							},
 		"separationselect":				{	"en": "Separation of buttons",			"de": "Aufteilung der Buttons"				},
 		"separationvalues":				{	"en": "Separtion values (%)",			"de": "Aufteilung Werte (%)"				},
 		"setIdOnOpenClose":				{	"en": "OID to set on open/close",		"de": "Beim Öffnen/Schließen OID setzen"	},
@@ -162,6 +176,8 @@ $.extend(
 		"temperatureMax":				{	"en": "Maximum temperature",			"de": "Maximale Temperatur"					},
 		"temperatureStep":				{	"en": "Temperature steps",				"de": "Schrittweite Temperatur"				},
 		"text":							{	"en": "Text",							"de": "Text"								},
+		"textalignCol":					{	"en": "Text-align column ",				"de": "Textausrichtung Spalte "				},
+		"textalignHead":				{	"en": "Text-align header",				"de": "Textausrichtung Kopfzeile"			},
 		"textlabel":					{	"en": "Text/Label",						"de": "Text/Beschriftung"					},
 		"textstyle":					{	"en": "Style of text",					"de": "Stil des Textes"						},
 		"texttemplate":					{	"en": "Text template",					"de": "Textvoreinstellung"					},
@@ -197,6 +213,10 @@ $.extend(
 		"hktDatepickerDescription": {
 			"en": "A Widget to pick a date.",
 			"de": "Widget zur Auswahl eines Datums."
+		},
+		"hktJsonTableDescription": {
+			"en": "The widget generates a table from a JSON string. To format all columns, the correct number must be entered correctly. The order of the columns can be adapted via the JSON attributes.",
+			"de": "Das Widget generiert aus einem JSON-String eine Tabelle. Um alle Spalten formatieren zu können muss die richtige Anzahl korrekt eingetragen werden. Die Reihenfolge der Spalten kann über die JSON-Attribute angepasst werden."
 		},
 		"hktLabelDescription": {
 			"en": "A simple textfield with predefined styles.",
@@ -259,7 +279,6 @@ vis.navChangeCallbacks.push(function (view) {
 	});
 });
 
-// this code can be placed directly in vis-homekittiles.html
 vis.binds["vis-homekittiles"] = {
 	version: "0.0.1",
 	showVersion: function () {
@@ -277,6 +296,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktButtonSet")			{ text = "hktButtonSetDescription";				}
 		else if (data[1] === "hktButtonSetNavigation")	{ text = "hktButtonSetNavigationDescription";	}
 		else if (data[1] === "hktDatepicker")			{ text = "hktDatepickerDescription";			}
+		else if (data[1] === "hktJsonTable")			{ text = "hktJsonTableDescription";				}
 		else if (data[1] === "hktLabel")				{ text = "hktLabelDescription";					}
 		else if (data[1] === "hktNotification")			{ text = "hktNotificationDescription";			}
 		else if (data[1] === "hktRadiobuttons")			{ text = "hktRadiobuttonsDescription";			}
@@ -284,7 +304,6 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktSettingsSelect")		{ text = "hktSettingsSelectDescription";		}
 		else if (data[1] === "hktSettingsValue")		{ text = "hktSettingsValueDescription";			}
 		else if (data[1] === "hktSwitchBool")			{ text = "hktSwitchBoolDescription";			}
-		else if (data[1] === "hktTable")				{ text = "hktTableDescription";					}
 		else if (data[1] === "hktThermostatDialog")		{ text = "hktThermostatDialogDescription";		}
 		else if (data[1] === "hktValue")				{ text = "hktValueDescription";					}
 		else if (data[1] === "hktViewInWidgetDialog")	{ text = "hktViewInWidgetDialogDescription";	}
@@ -1005,6 +1024,243 @@ vis.binds["vis-homekittiles"] = {
 		}
 		//reset autofill
 		vis.views[view].widgets[widgetID].data.texttemplate = '-';
+	},
+	//JSON Table
+	jsonTableInsertRow: function  (rowData, wid, options, rowNumber, noTR, index, serverID) {
+		var text;
+
+		// Create row
+		if (!noTR) {
+			text = '<tr class="table-row" data-index="' + index + '" data-server-id="' + serverID + '">';
+		} else {
+			text = '';
+		}
+
+		var k = 1;
+		for (var obj in rowData) {
+			if (!rowData.hasOwnProperty(obj) ||
+				obj.match(/^jQuery/) ||
+				typeof rowData[obj] === 'function') {
+				continue;
+			}
+
+			var attr = options['colAttr' + k] || obj;
+
+			if (!options.numberOfCols || k <= options.numberOfCols) {
+				text += '<td class="row-item content ' + options['textalignCol' + k] + (options['noLineBreak'] ? ' nowrap' : '') + '" ' + (options['colWidth' + k] ? 'style="width:' + options['colWidth' + k] + '"' : '') + '>' + rowData[attr] + '</td>';
+			}
+			k++;
+		}
+
+		if (!noTR) text += '</tr>';
+		return text;
+	},
+	jsonTableCreateTable: function  (view, wid, options) {
+		var $div = $('#' + wid);
+		if (!$div.length) {
+			setTimeout(function () {
+				vis.binds["vis-homekittiles"].jsonTableCreateTable(view, wid, options);
+			}, 100);
+			return;
+		}
+
+		// read actual table as json string
+		var tableJson = options.oidJsonTable ? vis.states.attr(options.oidJsonTable + '.val') : '[{"Title": "first", "Value": 1, "Description": "Value1"}]';
+		var table = [];
+		if (typeof app !== 'undefined' && app.replaceFilePathJson) {
+			tableJson = app.replaceFilePathJson(tableJson);
+		}
+		if (tableJson && typeof tableJson === 'string') {
+			try {
+				table = JSON.parse(tableJson);
+			}
+			catch (e) {
+				console.log ("jsonTableCreateTable: Cannot parse json table");
+				table = [];
+			}
+		} else {
+			table = tableJson;
+		}
+
+		if (!table) table = [];
+
+		// Create widget container
+		var $elem = $('#' + wid);
+
+		// Start creation of table
+		var header = '<table class="table table-head">';
+		var text   = '<div class="table-content-wrapper' + ((options.scrollable) ? ' scrollable' : '') + ((options.hideHeader) ? ' noheader' : '') + '"><table class="table table-content">';
+		var headerDone = false;
+		var j = 0;
+
+		if (options.maxRows) options.maxRows = parseInt(options.maxRows);
+
+		// Go through all lines
+		for (var ii = 0, ilen = table.length; ii < ilen; ii++) {
+			if (!table[ii]) continue;
+
+			//var _classes = table[ii]['_class'] ? table[ii]['_class'].split(' ') : null;
+
+			//  Create table header
+			if (!headerDone) {
+				header += '<tr class="table-row head">';
+				var k = 1;
+				for (var obj in table[ii]) {
+					if (!table[ii].hasOwnProperty(obj) ||
+						obj.match(/^jQuery/) ||
+						typeof table[ii][obj] === 'function') {
+						continue;
+					}
+
+					var attr = options['colAttr' + k] || obj;
+					if (!options.numberOfCols || k <= options.numberOfCols) {
+						header += '<th class="row-item ';
+						header += (options['textalignHead'] != 'aligncontent' ? options['textalignHead'] : options['textalignCol' + k]);
+						header += '" ' + (options['colWidth' + k] ? 'style="width:' + options['colWidth' + k] + '"' : '') + '>' + (options['colName' + k] || attr) + '</th>';
+					}
+					k++;
+				}
+				headerDone = true;
+			}
+			text += vis.binds["vis-homekittiles"].jsonTableInsertRow(table[ii], wid, options, j, false, ii, table[ii]._id);
+			j++;
+			if (options.maxRows && j >= options.maxRows) break;
+		}
+		text += '</table></div>\n';
+		header += '</table>\n';
+
+		// Insert table into container
+		$elem.append((options.hideHeader ? '' : header) + text);
+		var data = {
+			options: options,
+			wid:     wid,
+			view:    view
+		};
+
+		// Remember index to calculate even or odd
+		data.rowNum = ((j - 1) >= 0 ? j - 1 : 0);
+
+		function cbNewTable (e, newVal, oldVal) {
+			$elem.trigger('newTable', newVal);
+		}
+
+		if (!$('#' + wid).data('inited')) {
+			$('#' + wid).data('inited', true);
+			// New event coming
+			$elem.on('newTable', function (e, newVal) {
+				if (e.handled) return;
+				e.handled = true;
+				var data = $(this).data('options');
+				// Update whole table
+				_setTimeout(vis.binds["vis-homekittiles"].jsonTableCreateTable, 50, data.view, data.wid, data.options);
+			});
+		}
+		$('#' + wid).data('options', data);
+
+		//bind oid
+		if ($('#' + wid).data('binded') !== options.oidJsonTable) {
+			$('#' + wid).data('binded', options.oidJsonTable);
+			vis.states.bind(options.oidJsonTable + '.val', cbNewTable);
+		}
+
+	},
+	autocompleteJsonTable: function (widgetID, view, newId, attr, isCss) {
+		// Get attributes from JSON
+		function getJsonAttrs() {
+			var jsonAttrs = [];
+
+			// read actual table as json string
+			var tableJson = vis.states.attr(vis.views[view].widgets[widgetID].data.oidJsonTable + '.val');
+			var table = [];
+
+			if (tableJson && typeof tableJson === 'string') {
+				try {
+					table = JSON.parse(tableJson);
+				}
+				catch (e) {
+					console.log('autocompleteJsonTable: Cannot parse json table');
+					table = [];
+				}
+			} else {
+				table = tableJson;
+			}
+			if (!table) table = [];
+
+			// read first line
+			var headerDone = false;
+			for (var ii = 0, ilen = table.length; ii < ilen; ii++) {
+				if (!table[ii]) continue;
+
+				if (!headerDone) {
+					var k = 1;
+					for (var obj in table[ii]) {
+						jsonAttrs.push(obj);
+						k++;
+					}
+					headerDone = true;
+				}
+			}
+			return jsonAttrs;
+		}
+
+		// write values to autocomplete function
+		setTimeout(function () {
+
+			// get JSON attrs
+			var jsonAttrs = getJsonAttrs();
+
+			// set number of cols if not set yet and oid is selected
+			if (vis.views[view].widgets[widgetID].data.oidJsonTable !== undefined &&
+				vis.views[view].widgets[widgetID].data.oidJsonTable !== '' &&
+				(
+					vis.views[view].widgets[widgetID].data.numberOfCols === undefined ||
+					vis.views[view].widgets[widgetID].data.numberOfCols === '0' ||
+					vis.views[view].widgets[widgetID].data.numberOfCols === 0 ||
+					vis.views[view].widgets[widgetID].data.numberOfCols === ''
+				) &&
+				jsonAttrs.length > 0
+			) {
+				vis.views[view].widgets[widgetID].data.numberOfCols = jsonAttrs.length.toString();
+			}
+
+			// prepare autocomplete
+			var ms_options = {
+				source: jsonAttrs,
+				minLength: 0,
+				delay: 400,
+				classes: {
+					'ui-autocomplete': 'highlight'
+				},
+				select: function (event, ui) {
+					$(this).val(ui.item.value);
+					$(this).trigger('change', ui.item.value);
+				}
+
+			};
+
+			// get number of colls (= number of fields to fill)
+			var numberOfCols = parseInt(vis.views[view].widgets[widgetID].data.numberOfCols);
+			if (numberOfCols === undefined) numberOfCols = 1;
+
+			// fill autocomplete
+			for (var i = 1; i <= numberOfCols; i++) {
+				var target = $('#inspect_colAttr' + i);
+				target.autocomplete(ms_options).on('focus.vis-homekittiles', function () {
+					if ($(this).autocomplete('widget').is(':visible')) {
+						return;
+					}
+					$(this).autocomplete('search');
+				});
+
+				target.autocomplete('instance')._renderItem = function(ul, item) {
+					return $('<li>')
+						.attr('data-value', item.value)
+						.append(' ' + item.value)
+						.appendTo(ul);
+				};
+			}
+		}, 200);
+		return ' ';
 	},
 
 	//Add elements to widgets

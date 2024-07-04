@@ -5,12 +5,10 @@
 
 <!-- here you can include so many css as you want -->
 <link rel="stylesheet" href="widgets/vis-homekittiles/css/style.css" />
-<link rel="stylesheet" href="widgets/vis-homekittiles/css/hkt-table.css" />
 
 <!-- here you can include so many js-files as you want -->
 <script type="text/javascript" src="widgets/vis-homekittiles/js/vis-homekittiles.js"></script>
 <script type="text/javascript" src="widgets/vis-homekittiles/js/hkt-datepicker.js"></script>
-<script type="text/javascript" src="widgets/vis-homekittiles/js/hkt-table.js"></script>
 
 <!-- the full description of format in data-vis-attrs can be found here:
 	https://github.com/ioBroker/ioBroker.vis/blob/master/www/js/visEditInspect.js#L39
@@ -25,13 +23,21 @@
 
 	----------------------------------------------------------
 	data-vis-attrs - divided with semicolon the list of attributes, like attr1/id;attr2/color
+		Format: attr_name(start-end)[default_value]/type/onChangeFunc
+			attr_name can be extended with numbers (1-2) means it will be attr_name1 and attr_name2 created
+			end number can be other attribute, e.g (1-count)
 		Full format of one attribute is: attr_name(start-end)[default_value]/type,idFilter/onChangeFunc
 			attr_name - the name of the attribute, e.g. "myID"
 			start-end - creates automatically attributes from attr_namestart to attr_nameend, like "myID(1-3)" creates myID1, myID2, myID3
 			default_value - by creation of widget this attribute will be filled with this value, e.g. "myID[#001122]/color"
+				defaultValue: If defaultValue has ';' it must be replaced by §
+				defaultValue: If defaultValue has '/' it must be replaced by ~
+				defaultValue: If defaultValue has '"' it must be replaced by ^
+				defaultValue: If defaultValue has '^' it must be replaced by ^^
 			type - some predefined types have edit helpers, else it will be shown as text field
 
 				Type format:
+					id - Object ID Dialog
 					hid
 					checkbox
 					image - image
@@ -56,8 +62,9 @@
 					history - select history instances
 					password - password
 
-				If type is "id", you can define filer for "Select ID Dialog", like "myID/id,level.temperature".
+				If type is "id", you can define filter for "Select ID Dialog", like "myID/id,level.temperature".
 				Additionally you can define callback(onChangeFunc), which will be called if this attribute was changed by user for different purposes: validate entry, fill other attributes, ...
+					onChangeFunc has following attributes (widgetID, view, newId, attr, isCss) and must return back the array with changed attributes or null
 
 		You can define additional data-vis-attrs line: data-vis-attrs0, data-vis-attrs1. Anyway data-vis-attrs must be there. You may not skip numbers.
 		E.g. in "data-vis-attrs="A;" data-vis-attrs1="B" attribute B will be not parsed.
@@ -649,7 +656,7 @@ You can do "if" conditions and "for" cycles.
 	</div>
 </script>
 
-<script id="tplHomekittilesTable"
+<script id="tplHomekittilesJsonTable"
 	type="text/ejs"
 	class="vis-tpl"
 	data-vis-set="vis-homekittiles"
@@ -664,21 +671,22 @@ You can do "if" conditions and "for" cycles.
 							</div>
 						</div>
 					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktTable;
-					oidJsonTable/id;
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktJsonTable;
+					oidJsonTable/id/autocompleteJsonTable(onChangeFunc);
 					hideHeader/checkbox;
 					scrollable[true]/checkbox;
-					maxRows/number;
-					numCols/slider,1,10,1;"
-	data-vis-attrs0="group.column;colAttr(1-numCols);
-					colName(1-numCols);
-					colWidth(1-numCols);
+					maxRows/slider,1,100,1;
+					numberOfCols/slider,1,10,1;"
+	data-vis-attrs0="group.column;
+					colAttr(1-numberOfCols)/auto;
+					colName(1-numberOfCols);
+					colWidth(1-numberOfCols);
 					noLineBreak[true]/checkbox;
 					textalignHead[aligncenter]/select,aligncontent,alignleft,aligncenter,alignright;
-					textalignCol(1-numCols)[alignleft]/select,alignleft,aligncenter,alignright;"
+					textalignCol(1-numberOfCols)[alignleft]/select,alignleft,aligncenter,alignright;"
 >
 	<div class="homekitTiles jsonTable vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 800px; height: 200px;">
-		<% vis.binds.hktTable.showTable(this.view, this.data.attr('wid'), this.data); %>
+		<% vis.binds['vis-homekittiles'].jsonTableCreateTable(this.view, this.data.attr('wid'), this.data); %>
 	</div>
 </script>
 

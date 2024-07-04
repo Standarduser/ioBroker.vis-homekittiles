@@ -55,10 +55,13 @@
 
 	--hkt-color-navigationbutton-default-fg:	#666;
 	--hkt-color-navigationbutton-active-fg:		#bbb;
+
+	--hkt-color-table-text:						var(--hkt-color-label-textlabel);
+	--hkt-color-table-frame:					var(--hkt-color-label-textlabel);
 }
 
 /*---------------------------------------------------------------*/
-/* Basic design for all widgets */
+/*#region Basic design for all widgets */
 .homekitTiles {
 	font-family: -apple-system, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12px;
@@ -68,8 +71,9 @@
 .homekitTiles .invisible-helper {
 	display: none;
 }
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Label widget */
+/*#region Label widget */
 .homekitTiles.label {
 	font-weight: 500;
 }
@@ -94,9 +98,9 @@
 	color: var(--hkt-color-label-smalllabel);
 	font-size: 12px;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Basic design for tiles */
+/*#region Basic design for tiles */
 .homekitTiles.tile {
 	border-radius: 15px;
 }
@@ -240,9 +244,9 @@
 	right: 10px;
 	text-align: right;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Basic design for indicators */
+/*#region Basic design for indicators */
 .homekitTiles.indicator {
 	border-radius: 15px;
 }
@@ -368,9 +372,9 @@
 	display: inline-block;
 	color: var(--hkt-color-tile-off-foreground);
 }
-
+/*#endregion*/
 /*----------------------------------------------------------------*/
-/* Date-Picker */
+/*#region Date-Picker */
 
 /* Date-Picker Kachel */
 .homekitTiles.tile.datepicker .labelGroup1 {
@@ -537,9 +541,9 @@
 .homekitTiles.ui-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day.ui-datepicker-today a.ui-state-default.ui-state-highlight.ui-state-active {
 	color: var(--hkt-color-datepicker-today);
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Notification */
+/*#region Notification */
 .homekitTiles.notification {
 	cursor: default;
 }
@@ -580,9 +584,9 @@
 	background-color: var(--hkt-color-notification5-bg);
 	z-index: 1;
 }
-
+/*#endregion*/
 /*----------------------------------------------------------------*/
-/* Radiobuttons */
+/*#region Radiobuttons */
 .homekitTiles.radiobuttons {
 	border-radius: 15px;
 	color: var(--hkt-color-tile-off-foreground);
@@ -702,9 +706,9 @@
 .homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup.horizontal .radiobutton:not(:first-of-type) {
 	border-width: 0 0 0 1px;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Settings common */
+/*#region Settings */
 .homekitTiles.settings {
 	color: var(--hkt-color-settings-text);
 	min-height: 17px;
@@ -792,9 +796,9 @@
 .homekitTiles.settings.select:has(.blockOperation) select {
 	opacity: 0.3;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* View in widget swipe */
+/*#region View in widget swipe */
 .homekitTiles.viewInWidget.swipe {
 	display: flex;
 	overflow-x: auto;
@@ -810,9 +814,9 @@
 	position: relative;
 	overflow: hidden;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Dialog windows */
+/*#region Dialog windows */
 .homekitTiles.dialog.ui-dialog {
 	background-color: var(--hkt-color-dialog-background);
 	padding: 0;
@@ -889,9 +893,9 @@
 	border-right-color: var(--hkt-color-dialog-background);
 	margin-top: -30px;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Buttons */
+/*#region Buttons */
 .homekitTiles.button {
 	font-size: 16px;
 	cursor: pointer;
@@ -931,9 +935,9 @@
 .homekitTiles.button-set .button.button-set.button-9 {
 	background-color: var(--hkt-color-button-bg);
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Navigation-Button-Set */
+/*#region Navigation-Button-Set */
 .homekitTiles.navigationbuttonset {
 	color: var(--hkt-color-navigationbutton-default-fg);
 	font-size: 12px;
@@ -1044,9 +1048,9 @@
 	background-color: var(--hkt-color-notification5-bg);
 	z-index: 1;
 }
-
+/*#endregion*/
 /*---------------------------------------------------------------*/
-/* Thermostat Kachel */
+/*#region Thermostat Kachel */
 .homekitTiles.thermostatDialog .tileValue.cooling {
 	background-color: deepskyblue;
 }
@@ -1275,9 +1279,55 @@
 	margin-top: 5px;
 	margin-left: 3px;
 }
-
+/*#endregion*/
+/*---------------------------------------------------------------*/
+/*#region Table */
+.homekitTiles.jsonTable .table {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	width: 100%;
+	table-layout: fixed;
+	color: var(--hkt-color-table-text);
+}
+.homekitTiles.jsonTable .table-head {
+	height: 20px;
+	border-bottom: 1px solid var(--hkt-color-table-frame);
+}
+.homekitTiles.jsonTable .table-head .row-item {
+	font-weight: inherit;
+}
+.homekitTiles.jsonTable .table-content-wrapper,
+.homekitTiles.jsonTable .table-content-wrapper.scrollable.noheader {
+	height: 100%;
+}
+.homekitTiles.jsonTable .table-content-wrapper.scrollable {
+	overflow-y: auto;
+	height: calc(100% - 20px);
+}
+.homekitTiles.jsonTable .row-item {
+	box-sizing: border-box;
+	padding: 0 5px;
+}
+.homekitTiles.jsonTable .row-item.nowrap {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.homekitTiles.jsonTable .row-item.alignleft {
+	text-align: left;
+}
+.homekitTiles.jsonTable .row-item.aligncenter {
+	text-align: center;
+}
+.homekitTiles.jsonTable .row-item.alignright {
+	text-align: right;
+}
+.homekitTiles.jsonTable .row-item:not(:last-of-type) {
+	border-right: 1px dashed  var(--hkt-color-table-frame);
+}
+/*#endregion*/
 /*----------------------------------------------------------------*/
-/* DYNAMIZATION */
+/*#region DYNAMIZATION */
 .spin {
 	animation-name: spin;
 	animation-duration: 4000ms;
@@ -1287,3 +1337,4 @@
 @keyframes spin {
 	from { transform:rotate(0deg); } to { transform:rotate(360deg); }
 }
+/*#endregion*/
