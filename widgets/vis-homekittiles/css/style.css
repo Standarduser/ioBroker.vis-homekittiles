@@ -1011,6 +1011,9 @@
 	margin-top: -30px;
 	margin-right: -34px;
 }
+.homekitTiles.navigationbuttonset .notifications .notification {
+	float: right;
+}
 .homekitTiles.navigationbuttonset .notifications span {
 	min-width: 21px;
 	height: 21px;
