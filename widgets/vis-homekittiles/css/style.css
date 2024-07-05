@@ -71,6 +71,15 @@
 .homekitTiles .invisible-helper {
 	display: none;
 }
+/* Operation blocked */
+.homekitTiles .blockOperation,
+.homekitTiles .blockOperation .blocked {
+	cursor: not-allowed;
+}
+.homekitTiles .blockOperation .blocked {
+	z-index: 999;
+}
+
 /*#endregion*/
 /*---------------------------------------------------------------*/
 /*#region Label widget */
@@ -186,12 +195,6 @@
 }
 
 /* Operation blocked */
-.homekitTiles.tile .blockOperation {
-	cursor: not-allowed;
-}
-.homekitTiles.tile .blockOperation .blocked {
-	z-index: 999;
-}
 .homekitTiles.tile .blockOperation .blockedIcon {
 	width: 20px;
 	height: 20px;
@@ -318,12 +321,6 @@
 /* Operation blocked */
 .homekitTiles.indicator:has(.blockedIcon) {
 	overflow: visible;
-}
-.homekitTiles.indicator .blockOperation {
-	cursor: not-allowed;
-}
-.homekitTiles.indicator .blockOperation .blocked {
-	z-index: 999;
 }
 .homekitTiles.indicator .blockOperation .blockedIcon {
 	width: 20px;
@@ -641,14 +638,14 @@
 .homekitTiles.radiobuttons .blockedIcon {
 	width: 20px;
 	height: 20px;
-	top: 10px;
-	right: 10px;
+	top: 5px;
+	right: 5px;
 	position: absolute;
 	filter: contrast(0.8);
 }
-/* Operation blocked icon (show blocked icon only on inactive buttons) */
-.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:checked + label .blockOperation {
-	display: none;
+/* Operation blocked icon (show blocked icon only on active button) */
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:not(:checked) ~ .blockOperation .blockedIcon {
+    display: none;
 }
 
 /* Acknowledge icon */
