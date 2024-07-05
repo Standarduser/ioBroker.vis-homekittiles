@@ -126,7 +126,6 @@ $.extend(
 		"lowBatLabel":					{	"en": "Label battery low",				"de": "Beschriftung Batterie schwach"		},
 		"maxRows":						{	"en": "Number of rows (max.)",			"de": "Anzahl Zeilen (max.)"				},
 		"never":						{	"en": "Never",							"de": "Niemals"								},
-		"noEntries":					{	"en": "No entries",						"de": "Keine Einträge"						},
 		"noLineBreak":					{	"en": "No line breaks",					"de": "Keine Zeilenumbrüche"				},
 		"noticeEmptyTable":				{	"en": "Notice if table is emtpy",		"de": "Hinweis wenn Tabelle leer"			},
 		"notification1oid":				{	"en": "Notification 1 OID",				"de": "Benachrichtigung 1 OID"				},
@@ -318,6 +317,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "emptyText")				{ text = "";									}
 		return {input: `<span>${_(text)}</span>`};
 	},
+
 	//Radiobuttons - copied from jqui to don't force jqui button styles
 	radio: function (el, options, process) {
 		var $this    = $(el);
@@ -398,7 +398,29 @@ vis.binds["vis-homekittiles"] = {
 				}
 			}, 50);
 		}
+
+		// Show/hide fields on placing widget
+		if (vis.editMode) {
+			setTimeout(function () {
+				vis.binds["vis-homekittiles"].radioShowHideInputfields();
+			}, 100);
+		}
 	},
+	radioShowHideInputfields: function (widgetID, view, newId, attr, isCss) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.separationselect;
+
+			if (val == 'ownseparation') {
+				vis.hideShowAttr('separationvalues', true);
+			} else {
+				vis.hideShowAttr('separationvalues', false);
+			}
+
+		});
+	},
+
 	//Datepicker - copied from jqui to don't force jqui button styles
 	hktDatepicker: function (el, options) {
 		var $this = $(el);
@@ -864,6 +886,7 @@ vis.binds["vis-homekittiles"] = {
 			//$this.find(".ui-slider-handle").html(`<span class="value">${newVal}${data.unitTemperature}</span>`);
 		});
 	},
+
 	//Thermostat dialog - same as "dialogContainer" with some modifications
 	dialogThermostat: function (el, options, persistent, preload) {
 		var $dlg = $(el).parent().find('div.vis-widget-dialog');
@@ -958,8 +981,7 @@ vis.binds["vis-homekittiles"] = {
 			$(el).parent().find('div.vis-widget-body').show();
 		}
 	},
-	//Thermostat dialog - autofill OIDs
-	autofillThermostat: function (widgetID, view, value, attr, isCss) {
+	dialogThermostatAutofill: function (widgetID, view, value, attr, isCss) {
 
 		var autofill = vis.views[view].widgets[widgetID].data.autofillOids;
 
@@ -981,8 +1003,7 @@ vis.binds["vis-homekittiles"] = {
 			vis.views[view].widgets[widgetID].data.autofillOids = false;
 		}
 	},
-	//Thermostat dialog - text presets
-	texttemplateThermostat: function (widgetID, view, value, attr, isCss) {
+	dialogThermostatTextpresets: function (widgetID, view, value, attr, isCss) {
 
 		var texttemplate = vis.views[view].widgets[widgetID].data.texttemplate;
 
@@ -1032,6 +1053,7 @@ vis.binds["vis-homekittiles"] = {
 		//reset autofill
 		vis.views[view].widgets[widgetID].data.texttemplate = '-';
 	},
+
 	//JSON Table
 	jsonTableInsertRow: function  (rowData, wid, options, rowNumber, noTR, index, serverID) {
 		var text;
@@ -1206,6 +1228,12 @@ vis.binds["vis-homekittiles"] = {
 			vis.states.bind(options.oidJsonTable + '.val', cbNewTable);
 		}
 
+		// Show/hide fields on placing widget
+		if (vis.editMode) {
+			setTimeout(function () {
+				vis.binds["vis-homekittiles"].jsonTableShowHideInputfields();
+			}, 100);
+		}
 	},
 	jsonTableAutocomplete: function (widgetID, view, newId, attr, isCss) {
 		// Get attributes from JSON
@@ -1502,6 +1530,37 @@ vis.binds["vis-homekittiles"] = {
 				vis.states.bind(data.oid + '.val', function (e, newVal, oldVal){ updateBlocked(newVal); });
 			}
 		}
+
+		// Show/hide fields on placing widget
+		if (vis.editMode) {
+			setTimeout(function () {
+				vis.binds["vis-homekittiles"].addBlockOperationShowHideInputfields();
+			}, 100);
+		}
+	},
+	addBlockOperationShowHideInputfields: function (widgetID, view, newId, attr, isCss) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val;
+
+			val = data.blockOperationShowIcon;
+			if (val) {
+				vis.hideShowAttr('blockOperationIcon', true);
+				vis.hideShowAttr('blockOperationIconNotInEditor', true);
+			} else {
+				vis.hideShowAttr('blockOperationIcon', false);
+				vis.hideShowAttr('blockOperationIconNotInEditor', false);
+			}
+
+			val = data.blockOperationUseDifferentOID;
+			if (val) {
+				vis.hideShowAttr('oidBlockOperation', true);
+			} else {
+				vis.hideShowAttr('oidBlockOperation', false);
+			}
+
+		});
 	},
 	addAckIcon: function (el, data) {
 		var $this = $(el);
@@ -1538,6 +1597,33 @@ vis.binds["vis-homekittiles"] = {
 			}
 
 		});}
+
+		// Show/hide fields on placing widget
+		if (vis.editMode) {
+			setTimeout(function () {
+				vis.binds["vis-homekittiles"].addAckIconShowHideInputfields();
+			}, 100);
+		}
+	},
+	addAckIconShowHideInputfields: function (widgetID, view, newId, attr, isCss) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.ackShowIcon;
+
+			if (val) {
+				vis.hideShowAttr('ackIcon', true);
+				vis.hideShowAttr('ackUseSpin', true);
+				vis.hideShowAttr('ackInvertFunction', true);
+				vis.hideShowAttr('ackIconNotInEditor', true);
+			} else {
+				vis.hideShowAttr('ackIcon', false);
+				vis.hideShowAttr('ackUseSpin', false);
+				vis.hideShowAttr('ackInvertFunction', false);
+				vis.hideShowAttr('ackIconNotInEditor', false);
+			}
+
+		});
 	},
 	addSignalIcon: function (el, data) {
 		var $this = $(el);

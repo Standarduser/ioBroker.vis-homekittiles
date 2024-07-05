@@ -45,6 +45,7 @@ The widgets are designed for VIS 1.x.
 
 * Added JSON Table
 * Navigation-Button-Set: fixed notification arrangement
+* Dynamization of some input fields
 
 ### 0.1.1 (2024-07-02)
 
