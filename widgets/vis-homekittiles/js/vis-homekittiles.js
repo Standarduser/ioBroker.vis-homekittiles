@@ -33,6 +33,7 @@ $.extend(
 		"blockOperationIconNotInEditor":{	"en": "Don't show icon in editor",		"de": "Icon im Editor nicht anzeigen"		},
 		"blockOperationIfTrue": 		{	"en": "Block operation if true",		"de": "Bedienung bei true sperren"			},
 		"blockOperationIfFalse":		{	"en": "Block operation if false",		"de": "Bedienung bei false sperren"			},
+		"blockOperationShowDisabled":	{	"en": "Show disabled",					"de": "Als deaktiviert anzeigen"			},
 		"blockOperationShowIcon":		{	"en": "Show icon if blocked",			"de": "Icon anzeigen wenn gesperrt"			},
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",				"de": "Verwende andere OID"					},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
@@ -1494,6 +1495,11 @@ vis.binds["vis-homekittiles"] = {
 				if (vis.editMode && !data.blockOperationIconNotInEditor || !vis.editMode && blocked) {
 					if (data.blockOperationIcon) html += `<img class="blockedIcon" src="${data.blockOperationIcon}">`;
 				}
+			}
+
+			//show widget disabled (due to a bug in vis we add an additional div and check by css if its there)
+			if (blocked && data.blockOperationShowDisabled) {
+				html += `<div class="show-disabled"></div>`;
 			}
 
 			$this.html(html);

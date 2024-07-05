@@ -40,8 +40,9 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.0 (2024-07-05)
+### **WORK IN PROGRESS**
 
+* Block operation: added ability to show widget disabled
 * Added JSON Table
 * Navigation-Button-Set: fixed notification arrangement
 * Dynamization of some input fields

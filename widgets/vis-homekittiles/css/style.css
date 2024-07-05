@@ -79,6 +79,9 @@
 .homekitTiles .blockOperation .blocked {
 	z-index: 999;
 }
+.homekitTiles:has(.blockOperation .show-disabled) {
+    opacity: 0.3;
+}
 
 /*#endregion*/
 /*---------------------------------------------------------------*/
