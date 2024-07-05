@@ -79,8 +79,8 @@
 .homekitTiles .blockOperation .blocked {
 	z-index: 999;
 }
-.homekitTiles:has(.blockOperation .show-disabled) {
-    opacity: 0.3;
+.homekitTiles:not(.dialog):has(.blockOperation .show-disabled) {
+	opacity: 0.3;
 }
 
 /*#endregion*/
@@ -648,7 +648,7 @@
 }
 /* Operation blocked icon (show blocked icon only on active button) */
 .homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:not(:checked) ~ .blockOperation .blockedIcon {
-    display: none;
+	display: none;
 }
 
 /* Acknowledge icon */
@@ -1341,7 +1341,7 @@
 
 /* Hinweis wenn Tabelle leer */
 .homekitTiles.jsonTable .row-item.content.empty-table.notice {
-    text-align: center;
+	text-align: center;
 }
 
 /*#endregion*/
