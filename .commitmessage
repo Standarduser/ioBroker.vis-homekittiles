@@ -1,6 +1,0 @@
-chore: release v0.2.3
-
-* Block operation: added ability to show widget disabled
-* Added JSON Table
-* Navigation-Button-Set: fixed notification arrangement
-* Dynamization of some input fields
