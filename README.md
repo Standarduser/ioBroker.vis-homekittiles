@@ -40,8 +40,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.0 (2024-07-05)
 
 * Added JSON Table
 * Navigation-Button-Set: fixed notification arrangement
