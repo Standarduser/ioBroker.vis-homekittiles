@@ -27,6 +27,7 @@ $.extend(
 		"alignright":					{	"en": "right",							"de": "rechts"								},
 		"allthesame":					{	"en": "all the same",					"de": "Alle gleich"							},
 		"arrowDirection":				{	"en": "Show arrow on dialog",			"de": "Pfeil am Dialog anzeigen"			},
+		"auto":							{	"en": "automatic",						"de": "automatisch"							},
 		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
 		"blockOperationIcon":			{	"en": "Icon if blocked",				"de": "Icon wenn gesperrt"					},
 		"blockOperationIconNotInEditor":{	"en": "Don't show icon in editor",		"de": "Icon im Editor nicht anzeigen"		},
@@ -53,6 +54,9 @@ $.extend(
 		"directionHorizontal":			{	"en": "Horizontal orientation",			"de": "Horizontale Ausrichtung"				},
 		"displaystyle":					{	"en": "Display style",					"de": "Darstellungsart"						},
 		"english":						{	"en": "English",						"de": "Englisch"							},
+		"ever":							{	"en": "Ever",							"de": "Immer"								},
+		"everAndEmptyLine":				{	"en": "Ever + empty line",				"de": "Immer + leere Zeile"					},
+		"everAndNotice":				{	"en": "Ever + notice",					"de": "Immer + Hinweis"						},
 		"factor":						{	"en": "Multiplicator",					"de": "Multiplikator"						},
 		"german":						{	"en": "German",							"de": "Deutsch"								},
 		"group_acknowledge":			{	"en": "Acknowledged change",			"de": "Bestätigte Änderung"					},
@@ -70,7 +74,6 @@ $.extend(
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
 		"headline2":					{	"en": "Headline 2",						"de": "Überschrift 2"						},
 		"headline3":					{	"en": "Headline 3",						"de": "Überschrift 3"						},
-		"hideHeader":					{	"en": "Hide header",					"de": "Ohne Kopfzeile"						},
 		"icon_":						{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconButton_":					{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconLowBat":					{	"en": "Icon for low battery",			"de": "Icon für Batterie schwach"			},
@@ -122,7 +125,10 @@ $.extend(
 		"labelButton_":					{	"en": "Label button ",					"de": "Beschriftung Schaltfläche "			},
 		"lowBatLabel":					{	"en": "Label battery low",				"de": "Beschriftung Batterie schwach"		},
 		"maxRows":						{	"en": "Number of rows (max.)",			"de": "Anzahl Zeilen (max.)"				},
+		"never":						{	"en": "Never",							"de": "Niemals"								},
+		"noEntries":					{	"en": "No entries",						"de": "Keine Einträge"						},
 		"noLineBreak":					{	"en": "No line breaks",					"de": "Keine Zeilenumbrüche"				},
+		"noticeEmptyTable":				{	"en": "Notice if table is emtpy",		"de": "Hinweis wenn Tabelle leer"			},
 		"notification1oid":				{	"en": "Notification 1 OID",				"de": "Benachrichtigung 1 OID"				},
 		"notification2oid":				{	"en": "Notification 2 OID",				"de": "Benachrichtigung 2 OID"				},
 		"notification3oid":				{	"en": "Notification 3 OID",				"de": "Benachrichtigung 3 OID"				},
@@ -163,6 +169,7 @@ $.extend(
 		"setpointModeOperable":			{	"en": "Setpoint mode operable",			"de": "Sollwert Modus bedienbar"			},
 		"setValueOnClose":				{	"en": "Value on close",					"de": "Wert bei Schließen"					},
 		"setValueOnOpen":				{	"en": "Value on open",					"de": "Wert bei Öffnen"						},
+		"showHeader":					{	"en": "Show header",					"de": "Kopfzeile anzeigen"					},
 		"showLikeActive":				{	"en": "Allways show like active",		"de": "Immer als aktiv anzeigen"			},
 		"showNotifications":			{	"en": "Show notifications",				"de": "Zeige Benachrichtigungen"			},
 		"signalComparison":				{	"en": "Comparison",						"de": "Vergleichsoperator"					},
@@ -215,8 +222,8 @@ $.extend(
 			"de": "Widget zur Auswahl eines Datums."
 		},
 		"hktJsonTableDescription": {
-			"en": "The widget generates a table from a JSON string. To format all columns, the correct number must be entered correctly. The order of the columns can be adapted via the JSON attributes.",
-			"de": "Das Widget generiert aus einem JSON-String eine Tabelle. Um alle Spalten formatieren zu können muss die richtige Anzahl korrekt eingetragen werden. Die Reihenfolge der Spalten kann über die JSON-Attribute angepasst werden."
+			"en": "The widget generates a table from a JSON string. In order to format all columns, the correct/desired number must be entered. The order of the columns can be adjusted using the JSON attributes. If the table header should always be displayed, all columns should be named (rename attribute).",
+			"de": "Das Widget generiert aus einem JSON-String eine Tabelle. Um alle Spalten formatieren zu können muss die richtige/gewünschte Anzahl eingetragen werden. Die Reihenfolge der Spalten kann über die JSON-Attribute angepasst werden. Wenn der Tabellenkopf immer angezeigt werden soll, sollten alle Spalten benannt sein (Attribut umbenennen)."
 		},
 		"hktLabelDescription": {
 			"en": "A simple textfield with predefined styles.",
@@ -1089,13 +1096,13 @@ vis.binds["vis-homekittiles"] = {
 
 		// Start creation of table
 		var header = '<table class="table table-head">';
-		var text   = '<div class="table-content-wrapper' + ((options.scrollable) ? ' scrollable' : '') + ((options.hideHeader) ? ' noheader' : '') + '"><table class="table table-content">';
+		var text   = '<div class="table-content-wrapper' + ((options.scrollable) ? ' scrollable' : '') + ((options.showHeader === 'never') ? ' noheader' : '') + '"><table class="table table-content">';
 		var headerDone = false;
 		var j = 0;
 
 		if (options.maxRows) options.maxRows = parseInt(options.maxRows);
 
-		// Go through all lines
+		// If there is a table go through all lines
 		for (var ii = 0, ilen = table.length; ii < ilen; ii++) {
 			if (!table[ii]) continue;
 
@@ -1126,6 +1133,38 @@ vis.binds["vis-homekittiles"] = {
 			j++;
 			if (options.maxRows && j >= options.maxRows) break;
 		}
+
+		// If there is no table just render the head as configured
+		if (table.length === 0 && (options.showHeader === 'ever' || options.showHeader === 'everAndEmptyLine' || options.showHeader === 'everAndNotice')) {
+
+			header += '<tr class="table-row head">';
+			for (var k = 1; k <= options.numberOfCols; k++) {
+				var attr = options['colAttr' + k] || obj;
+				if (!options.numberOfCols || k <= options.numberOfCols) {
+					header += '<th class="row-item head ';
+					header += (options['textalignHead'] != 'aligncontent' ? options['textalignHead'] : options['textalignCol' + k]);
+					header += '" ' + (options['colWidth' + k] ? 'style="width:' + options['colWidth' + k] + '"' : '') + '>' + options['colName' + k] + '</th>';
+				}
+			}
+
+			// Show empty line
+			if (options.showHeader === 'everAndEmptyLine') {
+				var k = 1;
+				text += '<tr class="table-row content">';
+				for (var k = 1; k <= options.numberOfCols; k++) {
+					text += '<td class="row-item content" ' + (options['colWidth' + k] ? 'style="width:' + options['colWidth' + k] + '"' : '') + '>&nbsp;</td>';
+				}
+				text += '</tr>';
+			}
+
+			// Show notice
+			if (options.showHeader === 'everAndNotice') {
+				text += '<tr class="table-row content">';
+				text += '<td class="row-item content empty-table notice" style="width: 100%;">' + options.noticeEmptyTable + '</td>';
+				text += '</tr>';
+			}
+		}
+
 		text += '</table></div>\n';
 		header += '</table>\n';
 
@@ -1134,7 +1173,7 @@ vis.binds["vis-homekittiles"] = {
         $elem.find('.table-content-wrapper').remove();
 
 		// Insert table into container
-		$elem.append((options.hideHeader ? '' : header) + text);
+		$elem.append((options.showHeader === 'never' ? '' : header) + text);
 		var data = {
 			options: options,
 			wid:     wid,
@@ -1168,7 +1207,7 @@ vis.binds["vis-homekittiles"] = {
 		}
 
 	},
-	autocompleteJsonTable: function (widgetID, view, newId, attr, isCss) {
+	jsonTableAutocomplete: function (widgetID, view, newId, attr, isCss) {
 		// Get attributes from JSON
 		function getJsonAttrs() {
 			var jsonAttrs = [];
@@ -1182,7 +1221,7 @@ vis.binds["vis-homekittiles"] = {
 					table = JSON.parse(tableJson);
 				}
 				catch (e) {
-					console.log('autocompleteJsonTable: Cannot parse json table');
+					console.log('jsonTableAutocomplete: Cannot parse json table');
 					table = [];
 				}
 			} else {
@@ -1265,6 +1304,20 @@ vis.binds["vis-homekittiles"] = {
 			}
 		}, 200);
 		return ' ';
+	},
+	jsonTableShowHideInputfields: function (widgetID, view, newId, attr, isCss) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.showHeader;
+
+			if (val == 'everAndNotice') {
+				vis.hideShowAttr('noticeEmptyTable', true);
+			} else {
+				vis.hideShowAttr('noticeEmptyTable', false);
+			}
+
+		});
 	},
 
 	//Add elements to widgets

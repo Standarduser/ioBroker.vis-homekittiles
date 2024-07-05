@@ -1294,11 +1294,16 @@
 }
 .homekitTiles.jsonTable .table-head {
 	height: 20px;
-	border-bottom: 1px solid var(--hkt-color-table-frame);
 }
 .homekitTiles.jsonTable .table-head .row-item {
 	font-weight: inherit;
 }
+.homekitTiles.jsonTable .row-item {
+	box-sizing: border-box;
+	padding: 0 5px;
+}
+
+/* Scrollbare Tabelle */
 .homekitTiles.jsonTable .table-content-wrapper,
 .homekitTiles.jsonTable .table-content-wrapper.scrollable.noheader {
 	height: 100%;
@@ -1307,15 +1312,15 @@
 	overflow-y: auto;
 	height: calc(100% - 20px);
 }
-.homekitTiles.jsonTable .row-item {
-	box-sizing: border-box;
-	padding: 0 5px;
-}
+
+/* Zeilenumbruch */
 .homekitTiles.jsonTable .row-item.nowrap {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
+
+/* Ausrichtung der Spalten */
 .homekitTiles.jsonTable .row-item.alignleft {
 	text-align: left;
 }
@@ -1325,9 +1330,20 @@
 .homekitTiles.jsonTable .row-item.alignright {
 	text-align: right;
 }
+
+/* Tabellenrahmen */
+.homekitTiles.jsonTable .table-head {
+	border-bottom: 1px solid var(--hkt-color-table-frame);
+}
 .homekitTiles.jsonTable .row-item:not(:last-of-type) {
 	border-right: 1px dashed  var(--hkt-color-table-frame);
 }
+
+/* Hinweis wenn Tabelle leer */
+.homekitTiles.jsonTable .row-item.content.empty-table.notice {
+    text-align: center;
+}
+
 /*#endregion*/
 /*----------------------------------------------------------------*/
 /*#region DYNAMIZATION */
