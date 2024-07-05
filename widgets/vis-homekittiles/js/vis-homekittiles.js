@@ -1031,7 +1031,7 @@ vis.binds["vis-homekittiles"] = {
 
 		// Create row
 		if (!noTR) {
-			text = '<tr class="table-row" data-index="' + index + '" data-server-id="' + serverID + '">';
+			text = '<tr class="table-row content" data-index="' + index + '" data-server-id="' + serverID + '">';
 		} else {
 			text = '';
 		}
@@ -1114,7 +1114,7 @@ vis.binds["vis-homekittiles"] = {
 
 					var attr = options['colAttr' + k] || obj;
 					if (!options.numberOfCols || k <= options.numberOfCols) {
-						header += '<th class="row-item ';
+						header += '<th class="row-item head ';
 						header += (options['textalignHead'] != 'aligncontent' ? options['textalignHead'] : options['textalignCol' + k]);
 						header += '" ' + (options['colWidth' + k] ? 'style="width:' + options['colWidth' + k] + '"' : '') + '>' + (options['colName' + k] || attr) + '</th>';
 					}
@@ -1128,6 +1128,10 @@ vis.binds["vis-homekittiles"] = {
 		}
 		text += '</table></div>\n';
 		header += '</table>\n';
+
+		// delete old content on update
+		$elem.find('.table-head').remove();
+        $elem.find('.table-content-wrapper').remove();
 
 		// Insert table into container
 		$elem.append((options.hideHeader ? '' : header) + text);

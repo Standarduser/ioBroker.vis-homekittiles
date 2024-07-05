@@ -44,6 +44,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * Added JSON Table
+		todo: render header every time
 * Navigation-Button-Set: fixed notification arrangement
 
 ### 0.1.1 (2024-07-02)
