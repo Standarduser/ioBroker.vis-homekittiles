@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "news": {
-      "0.2.1": {
+      "0.2.2": {
         "en": "Block operation: added ability to show widget disabled\nAdded JSON Table\nNavigation-Button-Set: fixed notification arrangement\nDynamization of some input fields",
         "de": "Blockbetrieb: Zusatzfähigkeit Widget deaktiviert anzeigen\nHinzugefügt JSON Tabelle\nNavigation-Button-Set: feste Benachrichtigungsanordnung\nDynamisierung einiger Eingabefelder",
         "ru": "Блок-операция: добавленная способность показать виджет\nДобавить JSON Таблица 1\nНавигация-Буттон-Сет: фиксированное уведомление\nДинамизация некоторых входных полей",
