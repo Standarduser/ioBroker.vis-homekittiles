@@ -1,20 +1,20 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "news": {
-      "0.2.0": {
-        "en": "Added JSON Table\nNavigation-Button-Set: fixed notification arrangement\nDynamization of some input fields",
-        "de": "Hinzugefügt JSON Tabelle\nNavigation-Button-Set: feste Benachrichtigungsanordnung\nDynamisierung einiger Eingabefelder",
-        "ru": "Добавить JSON Таблица 1\nНавигация-Буттон-Сет: фиксированное уведомление\nДинамизация некоторых входных полей",
-        "pt": "Adicionado JSON Quadro\nNavigation-Button-Set: arranjo de notificação fixa\nDynamization de alguns campos de entrada",
-        "nl": "Toegevoegd JSON Tabel\nNavigatie-Button-Set: vaste meldingsregeling\nDynamisering van enkele invoervelden",
-        "fr": "JSON ajouté Tableau\nNavigation-Button-Set: système de notification fixe\nDynamisation de certains champs d'entrée",
-        "it": "Aggiunto JSON Tabella\nNavigazione-Button-Set: accordo di notifica fisso\nDinamizzazione di alcuni campi di input",
-        "es": "Añadido JSON Cuadro\nNavegación-Button-Set: arreglo de notificación fija\nDinasmización de algunos campos de entrada",
-        "pl": "Dodano JSON Tabela\nNavigation- Button- Set: stałe rozwiązanie notyfikacyjne\nDynamizacja niektórych pól wejściowych",
-        "uk": "Доданий JSON Настільний\nНавігація-Button-Set: фіксоване розташування повідомлень\nДинамізація деяких родовищ",
-        "zh-cn": "添加的 JSON 数据 图表\n导航-按钮-一组:固定通知安排\n一些输入字段的动态化"
+      "0.2.1": {
+        "en": "Block operation: added ability to show widget disabled\nAdded JSON Table\nNavigation-Button-Set: fixed notification arrangement\nDynamization of some input fields",
+        "de": "Blockbetrieb: Zusatzfähigkeit Widget deaktiviert anzeigen\nHinzugefügt JSON Tabelle\nNavigation-Button-Set: feste Benachrichtigungsanordnung\nDynamisierung einiger Eingabefelder",
+        "ru": "Блок-операция: добавленная способность показать виджет\nДобавить JSON Таблица 1\nНавигация-Буттон-Сет: фиксированное уведомление\nДинамизация некоторых входных полей",
+        "pt": "Operação do bloco: adicionado capacidade de mostrar widget desativado\nAdicionado JSON Quadro\nNavigation-Button-Set: arranjo de notificação fixa\nDynamization de alguns campos de entrada",
+        "nl": "Blokbewerking: toegevoegde mogelijkheid om widget te tonen uitgeschakeld\nToegevoegd JSON Tabel\nNavigatie-Button-Set: vaste meldingsregeling\nDynamisering van enkele invoervelden",
+        "fr": "Opération de bloc: possibilité supplémentaire d'afficher un widget désactivé\nJSON ajouté Tableau\nNavigation-Button-Set: système de notification fixe\nDynamisation de certains champs d'entrée",
+        "it": "Funzionamento del blocco: aggiunta capacità di mostrare widget disabilitati\nAggiunto JSON Tabella\nNavigazione-Button-Set: accordo di notifica fisso\nDinamizzazione di alcuni campi di input",
+        "es": "Funcionamiento del bloque: capacidad adicional para mostrar widget deshabilitado\nAñadido JSON Cuadro\nNavegación-Button-Set: arreglo de notificación fija\nDinasmización de algunos campos de entrada",
+        "pl": "Operacja bloku: dodana możliwość pokazania wyłączonych widżetów\nDodano JSON Tabela\nNavigation- Button- Set: stałe rozwiązanie notyfikacyjne\nDynamizacja niektórych pól wejściowych",
+        "uk": "Функція блокування: додана можливість показати відключені віджети\nДоданий JSON Настільний\nНавігація-Button-Set: фіксоване розташування повідомлень\nДинамізація деяких родовищ",
+        "zh-cn": "块操作: 显示部件的新增能力已禁用\n添加的 JSON 数据 图表\n导航-按钮-一组:固定通知安排\n一些输入字段的动态化"
       },
       "0.1.1": {
         "en": "Added missing translations\nAdded new style \"indicator\" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)\nRadiobutton: new property \"division\" with selectable values\nRadiobutton: change size automatically if direction was changed\nSignal pictures: repaired comparision with number (<=nn)\nSignal pictures: checkbox for show/not show in editor\nThermostat dialog: sort order of attributes (dialog attrs one up)",
