@@ -40,6 +40,10 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* repaired Thermostat dialog tile widget
+
 ### 0.2.6 (2024-07-05)
 
 * Block operation: added ability to show widget disabled
