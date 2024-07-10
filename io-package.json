@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "news": {
+      "0.2.7": {
+        "en": "repaired Thermostat dialog tile widget",
+        "de": "reparatur Thermostat Dialog Kachel Widget",
+        "ru": "отремонтированный диалоговый виджет",
+        "pt": "widget de telha de diálogo termostato reparado",
+        "nl": "gerepareerd Thermostat dialoogvenster tile widget",
+        "fr": "widget de boîte de dialogue Thermostat réparé",
+        "it": "riparato Termostato dialogo piastrelle widget",
+        "es": "medidor de diálogo termostato reparado",
+        "pl": "naprawiony widżet okna dialogowego Termostat",
+        "uk": "відремонтований термостат діалоговий віджет плитки",
+        "zh-cn": "已修复的自动调温对话框瓦件"
+      },
       "0.2.6": {
         "en": "Block operation: added ability to show widget disabled\nAdded JSON Table\nNavigation-Button-Set: fixed notification arrangement\nDynamization of some input fields",
         "de": "Blockbetrieb: Zusatzfähigkeit Widget deaktiviert anzeigen\nHinzugefügt JSON Tabelle\nNavigation-Button-Set: feste Benachrichtigungsanordnung\nDynamisierung einiger Eingabefelder",
