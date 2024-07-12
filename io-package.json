@@ -129,7 +129,11 @@
       "vis",
       "homekit"
     ],
-    "license": "MIT",
+    "tier": 3,
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
     "platform": "Javascript/Node.js",
     "main": "main.js",
     "icon": "vis-homekittiles.png",
