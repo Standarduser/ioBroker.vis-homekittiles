@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "news": {
+      "0.3.1": {
+        "en": "Added submenu widget",
+        "de": "Submenu Widget",
+        "ru": "Добавить виджет подменю",
+        "pt": "Adicionado widget submenu",
+        "nl": "Submenu-widget toegevoegd",
+        "fr": "Ajout du sous-menu widget",
+        "it": "Aggiunto sottomenu widget",
+        "es": "Widget submenu",
+        "pl": "Dodano widżet podmenu",
+        "uk": "Додано субмену віджет",
+        "zh-cn": "添加子菜单部件"
+      },
       "0.3.0": {
         "en": "Added submenu widget",
         "de": "Submenu Widget",
@@ -80,19 +93,6 @@
         "pl": "okno dialogowe: stałe pozycjonowanie\ntermostat: poprawione symbole\ntermostat: pokazać niski nietoperz i nieosiągalny na płytkach\ntermostat: dodane obrazy sygnału",
         "uk": "діалог: фіксоване позиціонування\nтермостат: виправлені символи\nтермостат: показати низький кажан і нещастя на плитці\nтермостат: додані сигнали",
         "zh-cn": "对话框:固定定位\n自动调温器: 更正符号\n自动调温器: 显示低球拍和未接触的瓦片\n自动调温器: 添加信号图片"
-      },
-      "0.0.14": {
-        "en": "settings-bool: corrected height of widget\nthermostat: autofill + text templates + select for setpoint mode and heating profile",
-        "de": "einstellungen-bool: korrigierte höhe des widget\nthermostat: autofill + textvorlagen + wählen sie für setpoint mode und heizprofil",
-        "ru": "настройка-бол: исправленная высота виджета\nтермостат: автозаполнитель + текстовые шаблоны + выберите режим установки и профиль нагрева",
-        "pt": "settings-bool: altura corrigida do widget\ntermostato: autofill + modelos de texto + selecione para modo setpoint e perfil de aquecimento",
-        "nl": "instellingen-bool: gecorrigeerde hoogte van widget\nthermostaat: autofill + tekstsjablonen + selecteer voor setpoint mode en verwarmingsprofiel",
-        "fr": "paramètres-bool: hauteur corrigée du widget\nthermostat: remplissage automatique + modèles de texte + sélectionner pour le mode de consigne et le profil de chauffage",
-        "it": "impostazioni-bool: altezza corretta del widget\ntermostato: autofill + modelli di testo + selezionare per la modalità setpoint e il profilo di riscaldamento",
-        "es": "configuración-bool: altura corregida del widget\ntermostato: autofill + plantillas de texto + selecciona para el modo setpoint y perfil de calefacción",
-        "pl": "settings- bool: poprawiona wysokość widgetu\ntermostat: autofill + szablony tekstowe + wybór dla trybu ustawiania i profilu grzewczego",
-        "uk": "налаштування-bool: виправлена висота віджету\nтермостат: автоматичне заповнення + текстові шаблони + вибір для режиму установки та профілю опалення",
-        "zh-cn": "设置- bool: 部件的校正高度\n自动调温器:自动填充+文本模板+选择设置点模式和加热配置"
       }
     },
     "titleLang": {
