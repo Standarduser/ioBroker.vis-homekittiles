@@ -30,7 +30,6 @@ The widgets are designed for VIS 1.x.
 
 * create Mini-mediaplayer
 * create Select-tile
-* create Submenue-Button
 * create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
 * new widget: pinpad (WORK IN PROGRESS)
@@ -40,6 +39,10 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added submenu widget
+
 ### 0.2.7 (2024-07-10)
 
 * repaired Thermostat dialog tile widget

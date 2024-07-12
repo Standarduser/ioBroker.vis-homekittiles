@@ -68,6 +68,7 @@ $.extend(
 		"group_label":					{	"en": "Label",							"de": "Beschriftung"						},
 		"group_labelGroup1":			{	"en": "Label group 1",					"de": "Beschriftungsgruppe 1"				},
 		"group_labelGroup2":			{	"en": "Label group 2",					"de": "Beschriftungsgruppe 2"				},
+		"group_notification":			{	"en": "Notification ",					"de": "Benachrichtigung "					},
 		"group_select":					{	"en": "Select",							"de": "Select"								},
 		"group_signalpics":				{	"en": "Signal pictures",				"de": "Signalbilder"						},
 		"group_thermostatDialog":		{	"en": "Thermostat dialog",				"de": "Thermostat-Dialog"					},
@@ -152,6 +153,7 @@ $.extend(
 		"oidIncrement":					{	"en": "Object ID",						"de": "Objekt-ID"							},
 		"oidJsonTable":					{	"en": "Object ID for JSON Table",		"de": "Objekt-ID für JSON-Tabelle"			},
 		"oidLowBat":					{	"en": "Object ID for low battery",		"de": "Objekt-ID für Batterie schwach"		},
+		"oidOrLocalVar":				{	"en": "Object ID or local variable",	"de": "Objekt-ID oder Lokal-Variable"		},
 		"oidSetPointMode":				{	"en": "Object ID for setpoint mode",	"de": "Objekt-ID für Sollwert Modus"		},
 		"oidSetPointTemperature":		{	"en": "Object ID for setpoint temp",	"de": "Objekt-ID für Sollwert Temp."		},
 		"oidSignal":					{	"en": "Object ID",						"de": "Objekt-ID"							},
@@ -216,6 +218,10 @@ $.extend(
 		"hktButtonSetNavigationDescription": {
 			"en": "This widget creates a set of buttons to navigate between an amount of views.",
 			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Navigation zwischen verschiedenen Views."
+		},
+		"hktButtonSetNavigationSubmenuDescription": {
+			"en": "This widget creates a set of buttons to navigate with a View-in-Widget8.",
+			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Navigation mit einem View-in-Widget8."
 		},
 		"hktDatepickerDescription": {
 			"en": "A Widget to pick a date.",
@@ -298,24 +304,25 @@ vis.binds["vis-homekittiles"] = {
 	infoText: function (widAttr, data) {
 		let text = "";
 
-		if 		(data[1] === "hktButtonDialogClose")	{ text = "hktButtonDialogCloseDescription";		}
-		else if (data[1] === "hktButtonNavigation")		{ text = "hktButtonNavigationDescription";		}
-		else if (data[1] === "hktButtonSet")			{ text = "hktButtonSetDescription";				}
-		else if (data[1] === "hktButtonSetNavigation")	{ text = "hktButtonSetNavigationDescription";	}
-		else if (data[1] === "hktDatepicker")			{ text = "hktDatepickerDescription";			}
-		else if (data[1] === "hktJsonTable")			{ text = "hktJsonTableDescription";				}
-		else if (data[1] === "hktLabel")				{ text = "hktLabelDescription";					}
-		else if (data[1] === "hktNotification")			{ text = "hktNotificationDescription";			}
-		else if (data[1] === "hktRadiobuttons")			{ text = "hktRadiobuttonsDescription";			}
-		else if (data[1] === "hktSettingsBool")			{ text = "hktSettingsBoolDescription";			}
-		else if (data[1] === "hktSettingsSelect")		{ text = "hktSettingsSelectDescription";		}
-		else if (data[1] === "hktSettingsValue")		{ text = "hktSettingsValueDescription";			}
-		else if (data[1] === "hktSwitchBool")			{ text = "hktSwitchBoolDescription";			}
-		else if (data[1] === "hktThermostatDialog")		{ text = "hktThermostatDialogDescription";		}
-		else if (data[1] === "hktValue")				{ text = "hktValueDescription";					}
-		else if (data[1] === "hktViewInWidgetDialog")	{ text = "hktViewInWidgetDialogDescription";	}
-		else if (data[1] === "hktViewInWidgetSwipe")	{ text = "hktViewInWidgetSwipeDescription";		}
-		else if (data[1] === "emptyText")				{ text = "";									}
+		if 		(data[1] === "hktButtonDialogClose")			{ text = "hktButtonDialogCloseDescription";				}
+		else if (data[1] === "hktButtonNavigation")				{ text = "hktButtonNavigationDescription";				}
+		else if (data[1] === "hktButtonSet")					{ text = "hktButtonSetDescription";						}
+		else if (data[1] === "hktButtonSetNavigation")			{ text = "hktButtonSetNavigationDescription";			}
+		else if (data[1] === "hktButtonSetNavigationSubmenu")	{ text = "hktButtonSetNavigationSubmenuDescription";	}
+		else if (data[1] === "hktDatepicker")					{ text = "hktDatepickerDescription";					}
+		else if (data[1] === "hktJsonTable")					{ text = "hktJsonTableDescription";						}
+		else if (data[1] === "hktLabel")						{ text = "hktLabelDescription";							}
+		else if (data[1] === "hktNotification")					{ text = "hktNotificationDescription";					}
+		else if (data[1] === "hktRadiobuttons")					{ text = "hktRadiobuttonsDescription";					}
+		else if (data[1] === "hktSettingsBool")					{ text = "hktSettingsBoolDescription";					}
+		else if (data[1] === "hktSettingsSelect")				{ text = "hktSettingsSelectDescription";				}
+		else if (data[1] === "hktSettingsValue")				{ text = "hktSettingsValueDescription";					}
+		else if (data[1] === "hktSwitchBool")					{ text = "hktSwitchBoolDescription";					}
+		else if (data[1] === "hktThermostatDialog")				{ text = "hktThermostatDialogDescription";				}
+		else if (data[1] === "hktValue")						{ text = "hktValueDescription";							}
+		else if (data[1] === "hktViewInWidgetDialog")			{ text = "hktViewInWidgetDialogDescription";			}
+		else if (data[1] === "hktViewInWidgetSwipe")			{ text = "hktViewInWidgetSwipeDescription";				}
+		else if (data[1] === "emptyText")						{ text = "";											}
 		return {input: `<span>${_(text)}</span>`};
 	},
 

@@ -544,10 +544,10 @@
 /*#endregion*/
 /*---------------------------------------------------------------*/
 /*#region Notification */
-.homekitTiles.notification {
+.homekitTiles .notifications {
 	cursor: default;
 }
-.homekitTiles.notification span {
+.homekitTiles .notifications span {
 	min-width: 21px;
 	height: 21px;
 	box-sizing: border-box;
@@ -559,27 +559,27 @@
 	margin-left: -5px;
 	position: relative;
 }
-.homekitTiles.notification .notification1 {
+.homekitTiles .notifications .notification1 {
 	color: var(--hkt-color-notification1-fg);
 	background-color: var(--hkt-color-notification1-bg);
 	z-index: 5;
 }
-.homekitTiles.notification .notification2 {
+.homekitTiles .notifications .notification2 {
 	color: var(--hkt-color-notification2-fg);
 	background-color: var(--hkt-color-notification2-bg);
 	z-index: 4;
 }
-.homekitTiles.notification .notification3 {
+.homekitTiles .notifications .notification3 {
 	color: var(--hkt-color-notification3-fg);
 	background-color: var(--hkt-color-notification3-bg);
 	z-index: 3;
 }
-.homekitTiles.notification .notification4 {
+.homekitTiles .notifications .notification4 {
 	color: var(--hkt-color-notification4-fg);
 	background-color: var(--hkt-color-notification4-bg);
 	z-index: 2;
 }
-.homekitTiles.notification .notification5 {
+.homekitTiles .notifications .notification5 {
 	color: var(--hkt-color-notification5-fg);
 	background-color: var(--hkt-color-notification5-bg);
 	z-index: 1;
@@ -937,72 +937,74 @@
 }
 /*#endregion*/
 /*---------------------------------------------------------------*/
-/*#region Navigation-Button-Set */
-.homekitTiles.navigationbuttonset {
+/*#region Navigation-Button-Set Mainmenu */
+.homekitTiles.navigationbuttonset.mainmenu {
 	color: var(--hkt-color-navigationbutton-default-fg);
 	font-size: 12px;
 	overflow:visible; /* needed for notifications */
 }
-.homekitTiles.navigationbuttonset .navigationbutton {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton {
 	box-sizing: border-box;
 }
 /* Icons */
-.homekitTiles.navigationbuttonset .navigationbutton img {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton img {
 	height: 16px;
 	width: 16px;
 	margin-right: 5px;
 	filter: brightness(0.4);
 }
 /* Labels */
-.homekitTiles.navigationbuttonset .navigationbutton label {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton label {
 	cursor: pointer;
 }
 /* Button active */
-.homekitTiles.navigationbuttonset .navigationbutton.state-active {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton.state-active {
 	color: var(--hkt-color-navigationbutton-active-fg);
 }
-.homekitTiles.navigationbuttonset .navigationbutton.state-active img {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton.state-active img {
 	filter: brightness(0.8);
 }
 /* Common properties for navigationbuttons */
-.homekitTiles.navigationbuttonset .horizontal,
-.homekitTiles.navigationbuttonset .vertical {
+.homekitTiles.navigationbuttonset.mainmenu .horizontal,
+.homekitTiles.navigationbuttonset.mainmenu .vertical {
 	display: flex;
 }
-.homekitTiles.navigationbuttonset .navigationbutton {
+.homekitTiles.navigationbuttonset.mainmenu .navigationbutton {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
 /* Arrange buttons next to each other */
-.homekitTiles.navigationbuttonset .horizontal {
+.homekitTiles.navigationbuttonset.mainmenu .horizontal {
 	flex-direction: row;
 }
-.homekitTiles.navigationbuttonset .horizontal .navigationbutton {
-	width: 120px;
+.homekitTiles.navigationbuttonset.mainmenu .horizontal .navigationbutton {
+	/* width: 120px; */
+	max-width: 120px;
+	flex-grow: 1;
 	justify-content: center;
 }
-.homekitTiles.navigationbuttonset .horizontal .navigationbutton ~ .navigationbutton {
+.homekitTiles.navigationbuttonset.mainmenu .horizontal .navigationbutton ~ .navigationbutton {
 	border: 1px solid;
 	border-width: 0 0 0 1px;
 	border-color: var(--hkt-color-navigationbutton-default-fg);
 }
 /* Arrange buttons one below the other */
-.homekitTiles.navigationbuttonset .vertical {
+.homekitTiles.navigationbuttonset.mainmenu .vertical {
 	flex-direction: column;
 }
-.homekitTiles.navigationbuttonset .vertical .navigationbutton {
+.homekitTiles.navigationbuttonset.mainmenu .vertical .navigationbutton {
 	height: 30px;
 	justify-content: left;
 	padding: 0 0 0 5px;
 }
-.homekitTiles.navigationbuttonset .vertical .navigationbutton ~ .navigationbutton {
+.homekitTiles.navigationbuttonset.mainmenu .vertical .navigationbutton ~ .navigationbutton {
 	border: 1px solid;
 	border-width: 1px 0 0 0;
 	border-color: var(--hkt-color-navigationbutton-default-fg);
 }
 /* Notification at nav-button */
-.homekitTiles.navigationbuttonset .notifications {
+.homekitTiles.navigationbuttonset.mainmenu .notifications {
 	cursor: default;
 	width:85px;
 	height:21px;
@@ -1011,46 +1013,61 @@
 	margin-top: -30px;
 	margin-right: -34px;
 }
-.homekitTiles.navigationbuttonset .notifications .notification {
+.homekitTiles.navigationbuttonset.mainmenu .notifications .notification {
 	float: right;
 }
-.homekitTiles.navigationbuttonset .notifications span {
-	min-width: 21px;
-	height: 21px;
-	box-sizing: border-box;
-	padding: 0px 5px;
-	line-height: 21px;
+
+/*#endregion*/
+/*---------------------------------------------------------------*/
+/*#region Navigation-Button-Set Submenu */
+.homekitTiles.navigationbuttonset.submenu {
+	color: var(--hkt-color-navigationbutton-default-fg);
+	font-size: 12px;
+	overflow:visible; /* needed for notifications */
+}
+.homekitTiles.navigationbuttonset.submenu .submenuButtonGroup {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 12px;
+}
+.homekitTiles.navigationbuttonset.submenu .submenuButtonGroup .navigationbutton {
+    flex-grow: 1;
+    max-width: 100px;
+    box-sizing: border-box;
+}
+.homekitTiles.navigationbuttonset.submenu .submenuButtonGroup .navigationbutton input[type='radio'] {
+	clip: rect(0 0 0 0);
+	position: absolute;
+}
+.homekitTiles.navigationbuttonset.submenu .submenuButtonGroup .navigationbutton label {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
-	border-radius: 9999px;
+}
+/* Button active */
+.homekitTiles.navigationbuttonset.submenu .submenuButtonGroup .navigationbutton  input[type='radio']:checked + label {
+	color: var(--hkt-color-navigationbutton-active-fg);
+}
+
+/* Notification at nav-button */
+.homekitTiles.navigationbuttonset.submenu .notifications {
+    cursor: default;
+    width: 85px;
+    height: 21px;
+    display: block;
+    margin-top: -41px;
+    float: right;
+}
+.homekitTiles.navigationbuttonset.submenu .notifications .notification {
 	float: right;
-	margin-left: -5px;
-	position: relative;
 }
-.homekitTiles.navigationbuttonset .notifications .notification1 {
-	color: var(--hkt-color-notification1-fg);
-	background-color: var(--hkt-color-notification1-bg);
-	z-index: 5;
-}
-.homekitTiles.navigationbuttonset .notifications .notification2 {
-	color: var(--hkt-color-notification2-fg);
-	background-color: var(--hkt-color-notification2-bg);
-	z-index: 4;
-}
-.homekitTiles.navigationbuttonset .notifications .notification3 {
-	color: var(--hkt-color-notification3-fg);
-	background-color: var(--hkt-color-notification3-bg);
-	z-index: 3;
-}
-.homekitTiles.navigationbuttonset .notifications .notification4 {
-	color: var(--hkt-color-notification4-fg);
-	background-color: var(--hkt-color-notification4-bg);
-	z-index: 2;
-}
-.homekitTiles.navigationbuttonset .notifications .notification5 {
-	color: var(--hkt-color-notification5-fg);
-	background-color: var(--hkt-color-notification5-bg);
-	z-index: 1;
-}
+
 /*#endregion*/
 /*---------------------------------------------------------------*/
 /*#region Thermostat Kachel */

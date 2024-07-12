@@ -146,11 +146,13 @@ You can do "if" conditions and "for" cycles.
 	data-vis-prev='<div id="prev_tplHomekittilesNotification" style="position: relative;">
 						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
 							<div class="homekitTiles vis-widget-prev-body notification" style="top: 50px; position: absolute;">
-								<span class="notification1">1</span>
-								<span class="notification2">2</span>
-								<span class="notification3">3</span>
-								<span class="notification4">4</span>
-								<span class="notification5">5</span>
+								<div class="notifications">
+									<span class="notification1">1</span>
+									<span class="notification2">2</span>
+									<span class="notification3">3</span>
+									<span class="notification4">4</span>
+									<span class="notification5">5</span>
+								</div>
 							</div>
 						</div>
 					</div>'
@@ -168,50 +170,52 @@ You can do "if" conditions and "for" cycles.
 >
 	<div class="homekitTiles notification vis-widget <%== this.data.attr('class') %>" style="width:85px; height:21px;" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body">
-			<div class="notification" data-oid="<%= this.data.attr('notification1oid') %>">
-				<%
-				valNotification1 = vis.states.attr(this.data['notification1oid'] + '.val');
-				if (valNotification1 === undefined || valNotification1 === '') valNotification1 = 0;
+			<div class="notifications">
+				<div class="notification" data-oid="<%= this.data.attr('notification1oid') %>">
+					<%
+					valNotification1 = vis.states.attr(this.data['notification1oid'] + '.val');
+					if (valNotification1 === undefined || valNotification1 === '') valNotification1 = 0;
 
-				if (vis.editMode || valNotification1 !== 0 && valNotification1 !== '0' || (valNotification1 == 0 || valNotification1 == '0') && this.data.attr('notification1showZero')) { %>
-					<span class="notification1" ><%=valNotification1%></span>
-				<% } %>
-			</div>
-			<div class="notification" data-oid="<%= this.data.attr('notification2oid') %>">
-				<%
-				valNotification2 = vis.states.attr(this.data['notification2oid'] + '.val');
-				if (valNotification2 === undefined || valNotification2 === '') valNotification2 = 0;
+					if (vis.editMode || valNotification1 !== 0 && valNotification1 !== '0' || (valNotification1 == 0 || valNotification1 == '0') && this.data.attr('notification1showZero')) { %>
+						<span class="notification1" ><%=valNotification1%></span>
+					<% } %>
+				</div>
+				<div class="notification" data-oid="<%= this.data.attr('notification2oid') %>">
+					<%
+					valNotification2 = vis.states.attr(this.data['notification2oid'] + '.val');
+					if (valNotification2 === undefined || valNotification2 === '') valNotification2 = 0;
 
-				if (vis.editMode || valNotification2 !== 0 && valNotification2 !== '0' || (valNotification2 == 0 || valNotification2 == '0') && this.data.attr('notification2showZero')) { %>
-					<span class="notification2" ><%=valNotification2%></span>
-				<% } %>
-			</div>
-			<div class="notification" data-oid="<%= this.data.attr('notification3oid') %>">
-				<%
-				valNotification3 = vis.states.attr(this.data['notification3oid'] + '.val');
-				if (valNotification3 === undefined || valNotification3 === '') valNotification3 = 0;
+					if (vis.editMode || valNotification2 !== 0 && valNotification2 !== '0' || (valNotification2 == 0 || valNotification2 == '0') && this.data.attr('notification2showZero')) { %>
+						<span class="notification2" ><%=valNotification2%></span>
+					<% } %>
+				</div>
+				<div class="notification" data-oid="<%= this.data.attr('notification3oid') %>">
+					<%
+					valNotification3 = vis.states.attr(this.data['notification3oid'] + '.val');
+					if (valNotification3 === undefined || valNotification3 === '') valNotification3 = 0;
 
-				if (vis.editMode || valNotification3 !== 0 && valNotification3 !== '0' || (valNotification3 == 0 || valNotification3 == '0') && this.data.attr('notification3showZero')) { %>
-					<span class="notification3" ><%=valNotification3%></span>
-				<% } %>
-			</div>
-			<div class="notification" data-oid="<%= this.data.attr('notification4oid') %>">
-				<%
-				valNotification4 = vis.states.attr(this.data['notification4oid'] + '.val');
-				if (valNotification4 === undefined || valNotification4 === '') valNotification4 = 0;
+					if (vis.editMode || valNotification3 !== 0 && valNotification3 !== '0' || (valNotification3 == 0 || valNotification3 == '0') && this.data.attr('notification3showZero')) { %>
+						<span class="notification3" ><%=valNotification3%></span>
+					<% } %>
+				</div>
+				<div class="notification" data-oid="<%= this.data.attr('notification4oid') %>">
+					<%
+					valNotification4 = vis.states.attr(this.data['notification4oid'] + '.val');
+					if (valNotification4 === undefined || valNotification4 === '') valNotification4 = 0;
 
-				if (vis.editMode || valNotification4 !== 0 && valNotification4 !== '0' || (valNotification4 == 0 || valNotification4 == '0') && this.data.attr('notification4showZero')) { %>
-					<span class="notification4" ><%=valNotification4%></span>
-				<% } %>
-			</div>
-			<div class="notification" data-oid="<%= this.data.attr('notification5oid') %>">
-				<%
-				valNotification5 = vis.states.attr(this.data['notification5oid'] + '.val');
-				if (valNotification5 === undefined || valNotification5 === '') valNotification5 = 0;
+					if (vis.editMode || valNotification4 !== 0 && valNotification4 !== '0' || (valNotification4 == 0 || valNotification4 == '0') && this.data.attr('notification4showZero')) { %>
+						<span class="notification4" ><%=valNotification4%></span>
+					<% } %>
+				</div>
+				<div class="notification" data-oid="<%= this.data.attr('notification5oid') %>">
+					<%
+					valNotification5 = vis.states.attr(this.data['notification5oid'] + '.val');
+					if (valNotification5 === undefined || valNotification5 === '') valNotification5 = 0;
 
-				if (vis.editMode || valNotification5 !== 0 && valNotification5 !== '0' || (valNotification5 == 0 || valNotification5 == '0') && this.data.attr('notification5showZero')) { %>
-					<span class="notification5" ><%=valNotification5%></span>
-				<% } %>
+					if (vis.editMode || valNotification5 !== 0 && valNotification5 !== '0' || (valNotification5 == 0 || valNotification5 == '0') && this.data.attr('notification5showZero')) { %>
+						<span class="notification5" ><%=valNotification5%></span>
+					<% } %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1052,7 +1056,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-name="hkt-Button-Set-Navigation"
 	data-vis-prev='<div id="prev_tplHomekittilesButtonSetNavigation" style="position: relative;">
 						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
-							<div class="homekitTiles navigationbuttonset vis-widget-prev-body" style="display: flex; flex-direction: row;">
+							<div class="homekitTiles navigationbuttonset mainmenu vis-widget-prev-body" style="display: flex; flex-direction: row;">
 								<div class="navigationbutton" style="width: 50%">
 									<label style="width: 100%; text-align: center;">View 1</label>
 								</div>
@@ -1090,7 +1094,7 @@ You can do "if" conditions and "for" cycles.
 		height = this.data.attr('numberOfButtons') * 30
 	}
 	%>
-	<div class="homekitTiles navigationbuttonset vis-widget <%== this.data.attr('class') %>" style="width: <%= width %>px; height:<%= height %>px" id="<%= this.data.attr('wid') %>">
+	<div class="homekitTiles navigationbuttonset mainmenu vis-widget <%== this.data.attr('class') %>" style="width: <%= width %>px; height:<%= height %>px" id="<%= this.data.attr('wid') %>">
 		<div class="vis-widget-body <%= this.data.attr('directionHorizontal') ? 'horizontal' : 'vertical' %>">
 
 			<%
@@ -1182,6 +1186,140 @@ You can do "if" conditions and "for" cycles.
 
 				i++;
 			} %>
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesButtonSetNavigationSubmenu"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Button-Set-Navigation-Submenu"
+	data-vis-prev='<div id="prev_tplHomekittilesButtonSetNavigation" style="position: relative;">
+						<div class="vis-widget_prev" style="width:110px; height:25px; font-weight: normal;">
+							<div class="homekitTiles navigationbuttonset submenu vis-widget-prev-body" style="display: flex; flex-direction: row;">
+								<div class="navigationbutton" style="width: 50%">
+									<label style="width: 100%; text-align: center;">View 1</label>
+								</div>
+								<div class="navigationbutton" style="width: 50%; border-left: 1px solid">
+									<label style="width: 100%; text-align: center;">View 2</label>
+								</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktButtonSetNavigationSubmenu;
+					oidOrLocalVar/id;
+					numberOfButtons[3]/slider,1,10,1;"
+	data-vis-attrs0="group.label;
+					label_(1-numberOfButtons)[View];"
+	data-vis-attrs1="group.notification/byindex;
+					showNotifications(1-numberOfButtons)[true]/checkbox;
+					notification1oid(1-numberOfButtons)/id;
+					notification2oid(1-numberOfButtons)/id;
+					notification3oid(1-numberOfButtons)/id;
+					notification4oid(1-numberOfButtons)/id;
+					notification5oid(1-numberOfButtons)/id;
+					notification1showZero(1-numberOfButtons)/checkbox;
+					notification2showZero(1-numberOfButtons)/checkbox;
+					notification3showZero(1-numberOfButtons)/checkbox;
+					notification4showZero(1-numberOfButtons)/checkbox;
+					notification5showZero(1-numberOfButtons)/checkbox;"
+>
+	<%
+	var width = this.data.attr('numberOfButtons') * 100;
+	var height = 30;
+	%>
+	<div class="homekitTiles navigationbuttonset submenu vis-widget <%== this.data.attr('class') %>" style="width: <%= width %>px; height:<%= height %>px" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body">
+
+			<div class="submenuButtonGroup" id="<%= this.data.attr('wid') %>_submenu" data-oid="<%= this.data.attr('oidOrLocalVar') %>" <%= (el) -> setTimeout(function () {vis.binds['vis-homekittiles'].radio(el)}, 100) %> <%= (el) -> vis.binds.basic._onChange(el); %>>
+
+				<%
+				var numberOfButtons = Number(this.data.attr("numberOfButtons"));
+				var wid = data.attr('wid');
+				var i = 1;
+
+				while (i <= numberOfButtons) {
+					var label = this.data.attr('label_' + i);
+					var showNotifications = this.data.attr('showNotifications' + i);
+
+					%>
+					<div class="navigationbutton">
+						<input type="radio" id="<%= wid %>_submenu<%= i %>" name="<%= wid %>_submenu" value="<%= (i-1) %>" />
+						<label for="<%= wid %>_submenu<%= i %>"><%= label %></label>
+
+						<%
+						if (showNotifications) {
+							var notification1oid      = 'notification1oid' + i;
+							var notification2oid      = 'notification2oid' + i;
+							var notification3oid      = 'notification3oid' + i;
+							var notification4oid      = 'notification4oid' + i;
+							var notification5oid      = 'notification5oid' + i;
+							var notification1showZero = 'notification1showZero' + i;
+							var notification2showZero = 'notification2showZero' + i;
+							var notification3showZero = 'notification3showZero' + i;
+							var notification4showZero = 'notification4showZero' + i;
+							var notification5showZero = 'notification5showZero' + i;
+
+							%>
+							<div class="notifications">
+								<div class="notification">
+									<%
+									valNotification1 = vis.states.attr(this.data[notification1oid] + '.val');
+									if (valNotification1 === undefined || valNotification1 === '') valNotification1 = 0;
+
+									if (vis.editMode || valNotification1 !== 0 && valNotification1 !== '0' || (valNotification1 == 0 || valNotification1 == '0') && this.data.attr(notification1showZero)) { %>
+										<span class="notification1" ><%=valNotification1%></span>
+									<% } %>
+								</div>
+								<div class="notification">
+									<%
+									valNotification2 = vis.states.attr(this.data[notification2oid] + '.val');
+									if (valNotification2 === undefined || valNotification2 === '') valNotification2 = 0;
+
+									if (vis.editMode || valNotification2 !== 0 && valNotification2 !== '0' || (valNotification2 == 0 || valNotification2 == '0') && this.data.attr(notification2showZero)) { %>
+										<span class="notification2" ><%=valNotification2%></span>
+									<% } %>
+								</div>
+								<div class="notification">
+									<%
+									valNotification3 = vis.states.attr(this.data[notification3oid] + '.val');
+									if (valNotification3 === undefined || valNotification3 === '') valNotification3 = 0;
+
+									if (vis.editMode || valNotification3 !== 0 && valNotification3 !== '0' || (valNotification3 == 0 || valNotification3 == '0') && this.data.attr(notification3showZero)) { %>
+										<span class="notification3" ><%=valNotification3%></span>
+									<% } %>
+								</div>
+								<div class="notification">
+									<%
+									valNotification4 = vis.states.attr(this.data[notification4oid] + '.val');
+									if (valNotification4 === undefined || valNotification4 === '') valNotification4 = 0;
+
+									if (vis.editMode || valNotification4 !== 0 && valNotification4 !== '0' || (valNotification4 == 0 || valNotification4 == '0') && this.data.attr(notification4showZero)) { %>
+										<span class="notification4" ><%=valNotification4%></span>
+									<% } %>
+								</div>
+								<div class="notification">
+									<%
+									valNotification5 = vis.states.attr(this.data[notification5oid] + '.val');
+									if (valNotification5 === undefined || valNotification5 === '') valNotification5 = 0;
+
+									if (vis.editMode || valNotification5 !== 0 && valNotification5 !== '0' || (valNotification5 == 0 || valNotification5 == '0') && this.data.attr(notification5showZero)) { %>
+										<span class="notification5" ><%=valNotification5%></span>
+									<% } %>
+								</div>
+							</div>
+						<% } %>
+					</div>
+
+					<%
+					i++;
+				}
+				%>
+
+			</div>
 		</div>
 	</div>
 </script>
