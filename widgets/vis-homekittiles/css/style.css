@@ -1049,6 +1049,7 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	cursor: pointer;
 }
 /* Button active */
 .homekitTiles.navigationbuttonset.submenu .submenuButtonGroup .navigationbutton  input[type='radio']:checked + label {
