@@ -39,7 +39,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.3.0 (2024-07-12)
+### **WORK IN PROGRESS**
 
 * Added submenu widget
 
