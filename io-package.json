@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.2.7",
+    "version": "0.3.0",
     "news": {
+      "0.3.0": {
+        "en": "Added submenu widget",
+        "de": "Submenu Widget",
+        "ru": "Добавить виджет подменю",
+        "pt": "Adicionado widget submenu",
+        "nl": "Submenu-widget toegevoegd",
+        "fr": "Ajout du sous-menu widget",
+        "it": "Aggiunto sottomenu widget",
+        "es": "Widget submenu",
+        "pl": "Dodano widżet podmenu",
+        "uk": "Додано субмену віджет",
+        "zh-cn": "添加子菜单部件"
+      },
       "0.2.7": {
         "en": "repaired Thermostat dialog tile widget",
         "de": "reparatur Thermostat Dialog Kachel Widget",
@@ -80,19 +93,6 @@
         "pl": "settings- bool: poprawiona wysokość widgetu\ntermostat: autofill + szablony tekstowe + wybór dla trybu ustawiania i profilu grzewczego",
         "uk": "налаштування-bool: виправлена висота віджету\nтермостат: автоматичне заповнення + текстові шаблони + вибір для режиму установки та профілю опалення",
         "zh-cn": "设置- bool: 部件的校正高度\n自动调温器:自动填充+文本模板+选择设置点模式和加热配置"
-      },
-      "0.0.13": {
-        "en": "made colors of datepicker window nice\nremoved test divs from hkt-ViewInWidget-Dialog\nadded thermostat widget",
-        "de": "farben von datepicker fenster schön\nentfernte Testdaten von hkt-ViewInWidget-Dialog\nthermostat widget",
-        "ru": "цвета сетчатого окна\nудаленные данные теста от hkt-ViewInWidget-Dialog\nдобавленный термостат",
-        "pt": "cores feitas de datapicker janela agradável\nremoveu divs de teste de hkt-ViewInWidget-Dialog\nwidget de termostato adicionado",
-        "nl": "gemaakt kleuren van datapicker venster leuk\nverwijderd test divs uit hkt-ViewInWidget-Dialog\ntoegevoegd thermostaat widget",
-        "fr": "couleurs faites de datepicker fenêtre agréable\ndivs de test supprimés de hkt-ViewInWidget-Dialog\nwidget thermostat ajouté",
-        "it": "fatto colori di datepicker finestra bello\ndiv di prova rimossi da hkt-ViewInWidget-Dialog\nwidget termostato aggiunto",
-        "es": "hechos colores de datepicker ventana agradable\nexamen eliminado divs de hkt-ViewInWidget-Dialog\nwidget termostato",
-        "pl": "wykonane kolory okna datepicker ładne\nusunięte divy testowe z okna dialogowego hkt- ViewInWidget-\ndodany widżet termostatu",
-        "uk": "виготовлені кольори датчика вікна приємно\nвидалити тести з hkt-ViewInWidget-Dialog\nдодано термостат віджет",
-        "zh-cn": "将摘枣窗口的颜色调好\n从 hkt- ViewInWidget- Dialog 中删除了测试隐藏\n添加自动调温器部件"
       }
     },
     "titleLang": {
@@ -130,10 +130,10 @@
       "homekit"
     ],
     "tier": 3,
-		"licenseInformation": {
-			"type": "free",
-			"license": "MIT"
-		},
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
     "main": "main.js",
     "icon": "vis-homekittiles.png",
