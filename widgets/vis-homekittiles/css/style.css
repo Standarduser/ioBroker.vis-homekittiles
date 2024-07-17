@@ -139,7 +139,7 @@
 	color: var(--hkt-color-tile-on-foreground);
 	background-color: var(--hkt-color-tile-on-background);
 }
-.homekitTiles.tile.state-default .tileIcon {
+.homekitTiles.tile.state-default .tileIcon:not(.iconColored) {
 	filter: grayscale(100);
 }
 
@@ -624,6 +624,9 @@
 .homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton .radioIcon img {
 	width: 100%;
 	height: 100%;
+}
+.homekitTiles.radiobuttons .radiobuttons .radiobuttonGroup .radiobutton input[type='radio']:not(:checked) + label .radioIcon:not(.iconColored) {
+	filter: grayscale(100);
 }
 
 /* Button active */
