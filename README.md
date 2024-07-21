@@ -33,6 +33,7 @@ The widgets are designed for VIS 1.x.
 * create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
 * new widget: pinpad (WORK IN PROGRESS)
+* Tiles: add button for dialog
 
 ## Changelog
 <!--
@@ -42,6 +43,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * Added option to show icons colored on tiles and radio
+* Added new styles "big" and "small" for all tiles
 
 ### 0.3.1 (2024-07-12)
 

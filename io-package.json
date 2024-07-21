@@ -16,19 +16,6 @@
         "uk": "Додано субмену віджет",
         "zh-cn": "添加子菜单部件"
       },
-      "0.3.0": {
-        "en": "Added submenu widget",
-        "de": "Submenu Widget",
-        "ru": "Добавить виджет подменю",
-        "pt": "Adicionado widget submenu",
-        "nl": "Submenu-widget toegevoegd",
-        "fr": "Ajout du sous-menu widget",
-        "it": "Aggiunto sottomenu widget",
-        "es": "Widget submenu",
-        "pl": "Dodano widżet podmenu",
-        "uk": "Додано субмену віджет",
-        "zh-cn": "添加子菜单部件"
-      },
       "0.2.7": {
         "en": "repaired Thermostat dialog tile widget",
         "de": "reparatur Thermostat Dialog Kachel Widget",

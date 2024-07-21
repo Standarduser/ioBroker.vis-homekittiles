@@ -192,6 +192,8 @@ $.extend(
 		"textstyle":					{	"en": "Style of text",					"de": "Stil des Textes"						},
 		"texttemplate":					{	"en": "Text template",					"de": "Textvoreinstellung"					},
 		"tile":							{	"en": "Tile",							"de": "Kachel"								},
+		"tile big":						{	"en": "Tile (big)",						"de": "Kachel (groß)"						},
+		"tile small":					{	"en": "Tile (small)",					"de": "Kachel (klein)"						},
 		"unit":							{	"en": "Unit",							"de": "Einheit"								},
 		"value_":						{	"en": "Value ",							"de": "Wert "								},
 		"valueButton_":					{	"en": "Value button ",					"de": "Wert Schaltfläche "					},
