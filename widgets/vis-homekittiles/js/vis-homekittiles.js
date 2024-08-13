@@ -193,6 +193,7 @@ $.extend(
 		"texttemplate":					{	"en": "Text template",					"de": "Textvoreinstellung"					},
 		"tile":							{	"en": "Tile",							"de": "Kachel"								},
 		"tile big":						{	"en": "Tile (big)",						"de": "Kachel (groß)"						},
+		"tile iconOnly":				{	"en": "Only icon",						"de": "nur Icon"							},
 		"tile small":					{	"en": "Tile (small)",					"de": "Kachel (klein)"						},
 		"unit":							{	"en": "Unit",							"de": "Einheit"								},
 		"value_":						{	"en": "Value ",							"de": "Wert "								},

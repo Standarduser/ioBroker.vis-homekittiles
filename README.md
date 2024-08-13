@@ -43,7 +43,7 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * Added option to show icons colored on tiles and radio
-* Added new styles "big" and "small" for all tiles
+* Added new styles "big", "small" and "only icon" for all tiles
 
 ### 0.3.1 (2024-07-12)
 

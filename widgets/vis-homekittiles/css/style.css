@@ -479,6 +479,33 @@
 	color: var(--hkt-color-tile-off-foreground);
 }
 /*#endregion*/
+/*---------------------------------------------------------------*/
+/*#region Basic design for icon-only */
+.homekitTiles.tile.iconOnly {
+	border-radius: 0;
+}
+.homekitTiles.tile.iconOnly .labelGroup1,
+.homekitTiles.tile.iconOnly .labelGroup2 {
+	display: none;
+}
+.homekitTiles.tile.iconOnly.state-default,
+.homekitTiles.tile.iconOnly.state-active {
+	background-color: rgba(0,0,0,0);
+}
+.homekitTiles.tile.state-default .tileIcon:not(.iconColored) {
+	filter: grayscale(100);
+}
+.homekitTiles.tile.iconOnly .tileIcon {
+	width: 100%;
+	height: auto;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+}
+.homekitTiles.tile.iconOnly .increment {
+	display: none
+}
+/*#endregion*/
 /*----------------------------------------------------------------*/
 /*#region Date-Picker */
 
