@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "news": {
+      "0.3.2": {
+        "en": "Added option to show icons colored on tiles and radio\nAdded new styles \"big\", \"small\" and \"only icon\" for all tiles\nJSON Table: set no fixed height (min-hight is now 32px)",
+        "de": "Option hinzugefügt, um Icons auf Fliesen und Radio gefärbt zu zeigen\nNeue Stile \"groß\", \"klein\" und \"nur Ikone\" für alle Fliesen hinzugefügt\nJSON Tabelle: keine feste Höhe setzen (min-hight ist jetzt 32px)",
+        "ru": "Добавить опцию, чтобы показать иконки, цветные на плитках и радио\nДобавлены новые стили «большой», «маленький» и «только икона» для всех плиток\nJSON Таблица: не установленная высота (min-hight теперь 32px)",
+        "pt": "Adicionado opção para mostrar ícones coloridos em azulejos e rádio\nAdicionado novos estilos \"grande\", \"pequeno\" e \"apenas ícone\" para todos os azulejos\nJSON Tabela: não definir altura fixa (min-hight é agora 32px)",
+        "nl": "Toegevoegd optie om pictogrammen op tegels en radio te tonen\nNieuwe stijlen \"grote,\" \"klein\" en \"alleen pictogram\" toegevoegd voor alle tegels\nJSON Tabel: geen vaste hoogte instellen (min-higet is nu 32px)",
+        "fr": "Ajout d'une option pour afficher des icônes colorées sur les carreaux et la radio\nAjout de nouveaux styles \"grand\", \"petit\" et \"unique icône\" pour toutes les tuiles\nJSON Tableau: Pas de hauteur fixe (la hauteur minimale est maintenant 32px)",
+        "it": "Aggiunta opzione per mostrare icone colorate su piastrelle e radio\nAggiunto nuovi stili \"grande\", \"piccolo\" e \"solo icona\" per tutte le piastrelle\nJSON Tabella: non impostare altezza fissa (min-hight è ora 32px)",
+        "es": "Opción agregada para mostrar iconos de colores en azulejos y radio\nNuevos estilos \"grandes\", \"pequeñas\" y \"sólo icono\" para todos los azulejos\nJSON Tabla: no fija altura fija (mínimo-alto es ahora 32px)",
+        "pl": "Dodano opcję, aby pokazać ikony kolorowe na płytki i radio\nDodano nowe style \"duże\", \"małe\" i \"tylko ikona\" dla wszystkich płytek\nJSON Tabela: nie ustawiono stałej wysokości (min- hight jest teraz 32px)",
+        "uk": "Додано варіант показати іконки кольорові на плитці і радіо\nДодано нові стилі \"великий\", \"малий\" і \"тільки іконка\" для всіх плиток\nСонце Маса нетто фіксована висота (min-hight тепер 32px)",
+        "zh-cn": "添加选项以显示砖块和收音机上的颜色图标\n为所有瓷砖添加新样式“ 大”、“ 小” 和“ 只有图标 ”\n贾森 表格:没有固定高度( min- hight 现在为 32px)"
+      },
       "0.3.1": {
         "en": "Added submenu widget",
         "de": "Submenu Widget",
