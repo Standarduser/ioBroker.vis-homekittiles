@@ -44,6 +44,7 @@ The widgets are designed for VIS 1.x.
 
 * Added option to show icons colored on tiles and radio
 * Added new styles "big", "small" and "only icon" for all tiles
+* JSON Table: set no fixed height (min-hight is now 32px)
 
 ### 0.3.1 (2024-07-12)
 

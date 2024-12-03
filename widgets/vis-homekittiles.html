@@ -693,7 +693,7 @@ You can do "if" conditions and "for" cycles.
 					textalignHead[aligncenter]/select,aligncontent,alignleft,aligncenter,alignright;
 					textalignCol(1-numberOfCols)[alignleft]/select,alignleft,aligncenter,alignright;"
 >
-	<div class="homekitTiles jsonTable vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 800px; height: 200px;">
+	<div class="homekitTiles jsonTable vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 800px; min-height: 32px;">
 		<% vis.binds['vis-homekittiles'].jsonTableCreateTable(this.view, this.data.attr('wid'), this.data); %>
 	</div>
 </script>
