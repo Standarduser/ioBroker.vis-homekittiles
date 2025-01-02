@@ -125,6 +125,7 @@
       "Standarduser <github.com@sebastiankoehler.de>"
     ],
     "keywords": [
+      "ioBroker",
       "visualization",
       "vis",
       "homekit"
@@ -135,7 +136,6 @@
       "license": "MIT"
     },
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "vis-homekittiles.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png",
@@ -145,7 +145,6 @@
       "vis"
     ],
     "onlyWWW": true,
-    "noConfig": true,
     "adminUI": {
       "config": "none"
     },

@@ -9,6 +9,7 @@
   "homepage": "https://github.com/Standarduser/ioBroker.vis-homekittiles",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "visualization",
     "vis",
     "homekit"
