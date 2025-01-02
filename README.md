@@ -40,6 +40,10 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added new style "text only" to switch and view-in-widget tiles
+
 ### 0.3.2 (2024-12-03)
 
 * Added option to show icons colored on tiles and radio

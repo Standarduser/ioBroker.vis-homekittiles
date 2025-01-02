@@ -506,6 +506,26 @@
 	display: none
 }
 /*#endregion*/
+/*---------------------------------------------------------------*/
+/*#region Basic design for text-only */
+.homekitTiles.tile.textonly .labelGroup1 {
+	left: unset;
+	bottom: unset;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+}
+.homekitTiles.tile.textonly .labelGroup2 {
+	display: none;
+}
+.homekitTiles.tile.textonly .tileIcon {
+	display: none;
+}
+.homekitTiles.tile.textonly .increment {
+	display: none
+}
+/*#endregion*/
 /*----------------------------------------------------------------*/
 /*#region Date-Picker */
 

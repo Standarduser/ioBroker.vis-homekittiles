@@ -195,6 +195,7 @@ $.extend(
 		"tile big":						{	"en": "Tile (big)",						"de": "Kachel (groß)"						},
 		"tile iconOnly":				{	"en": "Only icon",						"de": "nur Icon"							},
 		"tile small":					{	"en": "Tile (small)",					"de": "Kachel (klein)"						},
+		"tile textonly":				{	"en": "Only Text",						"de": "nur Text"							},
 		"unit":							{	"en": "Unit",							"de": "Einheit"								},
 		"value_":						{	"en": "Value ",							"de": "Wert "								},
 		"valueButton_":					{	"en": "Value button ",					"de": "Wert Schaltfläche "					},
