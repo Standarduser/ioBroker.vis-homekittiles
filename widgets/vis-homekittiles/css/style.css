@@ -525,6 +525,14 @@
 .homekitTiles.tile.textonly .increment {
 	display: none
 }
+.homekitTiles.tile.textonly .ackIcon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 0px;
+    position: absolute;
+    transform: translate(100%,-50%);
+}
 /*#endregion*/
 /*----------------------------------------------------------------*/
 /*#region Date-Picker */

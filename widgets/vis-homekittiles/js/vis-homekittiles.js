@@ -331,6 +331,27 @@ vis.binds["vis-homekittiles"] = {
 		return {input: `<span>${_(text)}</span>`};
 	},
 
+	//Remove input fields for icons if displaystyle is textonly and add if not
+	//Used at SwitchBool and ViewInWidgetDialog
+	iconShowHideInputfields: function (widgetID, view, newId, attr, isCss) {
+
+		vis.activeWidgets.forEach(function (el) {
+			let data = vis.views[vis.activeView].widgets[el].data;
+			let val = data.displaystyle;
+
+			if (val == 'tile textonly') {
+				vis.hideShowAttr('icon', false);
+				vis.hideShowAttr('iconRound', false);
+				vis.hideShowAttr('iconColored', false);
+			} else {
+				vis.hideShowAttr('icon', true);
+				vis.hideShowAttr('iconRound', true);
+				vis.hideShowAttr('iconColored', true);
+			}
+
+		});
+	},
+
 	//Radiobuttons - copied from jqui to don't force jqui button styles
 	radio: function (el, options, process) {
 		var $this    = $(el);
