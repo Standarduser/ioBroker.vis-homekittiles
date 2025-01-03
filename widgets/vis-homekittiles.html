@@ -1343,7 +1343,8 @@ You can do "if" conditions and "for" cycles.
 						</div>
 					</div>'
 	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktViewInWidgetSwipe;numberOfViews[2]/slider,2,10,1;"
-	data-vis-attrs0="group.views;view_(1-numberOfViews)/views;"
+	data-vis-attrs0="group.arrows;arrowsShow/checkbox;arrowLeftImage/image;arrowRightImage/image;arrowsSize/slider,0,100,1;arrowsPosition[50]/slider,0,100,1;arrowsOpacity[0.3]/slider,0,1,0.01;arrowsPulse/checkbox;"
+	data-vis-attrs1="group.views;view_(1-numberOfViews)/views;"
 >
 	<div class="homekitTiles viewInWidget swipe vis-widget <%== this.data.attr('class') %>" style="width:235px; height:235px;" id="<%= this.data.attr('wid') %>">
 		<% if (vis.editMode) { %>
@@ -1353,8 +1354,26 @@ You can do "if" conditions and "for" cycles.
 		<%
 		var numberOfViews = Number(this.data.attr("numberOfViews"));
 		var i = 1;
+
 		while (i <= numberOfViews) {	%>
-			<div data-vis-contains="<%= this.data.attr('view_' + i) %>" class="vis-view-container subview"></div>
+			<div data-vis-contains="<%= this.data.attr('view_' + i) %>" class="vis-view-container subview">
+				<%
+				if (this.data.attr('arrowsShow') && this.data.attr('arrowLeftImage') != '' && this.data.attr('arrowLeftImage') != undefined && i > 1) {
+					%>
+					<div class="arrow left" style="width: <%= this.data.attr('arrowsSize') %>%; height: <%= this.data.attr('arrowsSize') %>%; top: <%= this.data.attr('arrowsPosition') %>%; opacity: <%= this.data.attr('arrowsOpacity') %>">
+						<img class="<%= this.data.attr('arrowsPulse') ? 'pulse' : '' %>" src="<%= this.data.attr('arrowLeftImage') %>">
+					</div>
+					<%
+				}
+				if (this.data.attr('arrowsShow') && this.data.attr('arrowRightImage') != '' && this.data.attr('arrowRightImage') != undefined && i < numberOfViews) {
+					%>
+					<div class="arrow right" style="width: <%= this.data.attr('arrowsSize') %>%; height: <%= this.data.attr('arrowsSize') %>%; top: <%= this.data.attr('arrowsPosition') %>%; opacity: <%= this.data.attr('arrowsOpacity') %>">
+						<img class="<%= this.data.attr('arrowsPulse') ? 'pulse' : '' %>" src="<%= this.data.attr('arrowRightImage') %>">
+					</div>
+					<%
+				}
+				%>
+			</div>
 			<%
 			i++;
 		} %>

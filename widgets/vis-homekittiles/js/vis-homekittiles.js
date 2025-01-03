@@ -27,6 +27,13 @@ $.extend(
 		"alignright":					{	"en": "right",							"de": "rechts"								},
 		"allthesame":					{	"en": "all the same",					"de": "Alle gleich"							},
 		"arrowDirection":				{	"en": "Show arrow on dialog",			"de": "Pfeil am Dialog anzeigen"			},
+		"arrowsShow":					{	"en": "Arrows show",					"de": "Pfeile anzeigen"						},
+		"arrowLeftImage":				{	"en": "Arrows image for left",			"de": "Pfeile Bild für Links"				},
+		"arrowRightImage":				{	"en": "Arrows image for right",			"de": "Pfeile Bild für Rechts"				},
+		"arrowsSize":					{	"en": "Arrows size [%]",				"de": "Pfeile Größe [%]"					},
+		"arrowsPosition":				{	"en": "Arrows position [%]",			"de": "Pfeile Position [%]"					},
+		"arrowsOpacity":				{	"en": "Arrows opacity",					"de": "Pfeile Transparenz"					},
+		"arrowsPulse":					{	"en": "Arrows pulsate",					"de": "Pfeile Pulsieren"					},
 		"auto":							{	"en": "automatic",						"de": "automatisch"							},
 		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
 		"blockOperationIcon":			{	"en": "Icon if blocked",				"de": "Icon wenn gesperrt"					},
@@ -61,6 +68,7 @@ $.extend(
 		"factor":						{	"en": "Multiplicator",					"de": "Multiplikator"						},
 		"german":						{	"en": "German",							"de": "Deutsch"								},
 		"group_acknowledge":			{	"en": "Acknowledged change",			"de": "Bestätigte Änderung"					},
+		"group_arrows":					{	"en": "Arrows",							"de": "Pfeile"								},
 		"group_blockOperation":			{	"en": "Block operation",				"de": "Bedienung sperren"					},
 		"group_buttons":				{	"en": "Buttons",						"de": "Schaltflächen"						},
 		"group_column":					{	"en": "Columns",						"de": "Spalten"								},
@@ -277,8 +285,8 @@ $.extend(
 			"de": "Dialog-Fenster zur Anzeige einer View. Die angezigte View sollte einen Dialog-Close-Button besitzen."
 		},
 		"hktViewInWidgetSwipeDescription": {
-			"en": "View-in-widget for a free to define number of subviews with swipe function.",
-			"de": "View-in-widget mit einer definierbaren Anzahl an Unterviews, die per Swipe gewechselt werden."
+			"en": "View-in-widget for a free to define number of subviews with swipe function. The 'arrow' settings can be used to add indicators to indicate that the widget can be 'swiped'.",
+			"de": "View-in-widget mit einer definierbaren Anzahl an Unterviews, die per Swipe gewechselt werden. Über die 'Pfeil'-Einstellungen können Indikatoren als Hinweis hinzugefügt werden, dass das Widget 'geswiped' werden kann."
 		},
 	}
 );
