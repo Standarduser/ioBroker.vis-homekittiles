@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "news": {
+      "0.3.3": {
+        "en": "Added new style \"text only\" to switch and view-in-widget-dialog tiles\nFixed some issues from adapter checker\nFixed some styles of view-in-widget-swipe\nAdded arrow indicators to view-in-widget-swipe",
+        "de": "Hinzugefügt neuen Stil \"text only\" zu wechseln und Ansicht-in-widget-dialog Fliesen\nBehoben einige Probleme von Adapter Checker\nBehoben einige Stile der Ansicht-in-widget-swipe\nHinzufügen von Pfeilanzeigen zur Ansicht in-widget-swipe",
+        "ru": "Добавлен новый стиль «только текст» для переключения и вид-в-widget-диалог плитки\nИсправлены некоторые проблемы из адаптера\nИсправлены некоторые стили зрения-in-widget-swipe\nДобавленные стрелки для просмотра-in-widget-swipe",
+        "pt": "Adicionado novo estilo \"text only\" para mudar e view-in-widget-dialog telhas\nCorrigido alguns problemas do verificador do adaptador\nCorrigido alguns estilos de view-in-widget-swipe\nAdicionados indicadores de seta para view-in-widget-swipe",
+        "nl": "Nieuwe stijl \"alleen tekst\" toegevoegd om te schakelen en te bekijken-in-widget-dialoogtegels\nEnkele problemen opgelost van adaptercontrole\nVaste sommige stijlen van view-in-widget-swipe\nToegevoegd pijlindicatoren om te bekijken-in-widget-swipe",
+        "fr": "Ajout d'un nouveau style \"texte seulement\" pour basculer et afficher les tuiles dans le widget-dialog\nCorrection de certains problèmes de l'adaptateur checker\nCorrection de certains styles de vision-in-widget-swipe\nAjout d'indicateurs de flèches pour visualiser dans le widget",
+        "it": "Aggiunto nuovo stile \"solo testo\" per passare e view-in-widget-dialog piastrelle\nRisolto alcuni problemi da adattatore checker\nFisso alcuni stili di view-in-widget-swipe\nIndicatori freccia aggiunti per view-in-widget-swipe",
+        "es": "Añadido nuevo estilo \"solo texto\" para cambiar y ver-en-widget-dialog azulejos\nArreglar algunos problemas desde el control de adaptador\nArreglado algunos estilos de vista-en-widget-swipe\nIndicadores de flecha añadidos para ver-en-widget-swipe",
+        "pl": "Dodano nowy styl \"tylko tekst\", aby przełączać i przeglądać okna dialogowe\nNaprawiono kilka problemów z sprawdzania adaptera\nNaprawiono niektóre style view- in- widget- swipe\nDodano wskaźniki strzałek do view- in- widget- swipe",
+        "uk": "Додано новий стиль \"текст тільки\" для перемикання і перегляду-in-widget-dialog плитка\nВиправлено деякі питання від перевірки адаптера\nВиправлено деякі стилі перегляду\nДодано стрілкові індикатори для перегляду",
+        "zh-cn": "添加新样式“ 只有文本” 以切换和查看 Widget- 对话框牌\n解决适配器检查器的一些问题\n修整一些视图的样式\n添加到视图中的箭头指示器"
+      },
       "0.3.2": {
         "en": "Added option to show icons colored on tiles and radio\nAdded new styles \"big\", \"small\" and \"only icon\" for all tiles\nJSON Table: set no fixed height (min-hight is now 32px)",
         "de": "Option hinzugefügt, um Icons auf Fliesen und Radio gefärbt zu zeigen\nNeue Stile \"groß\", \"klein\" und \"nur Ikone\" für alle Fliesen hinzugefügt\nJSON Tabelle: keine feste Höhe setzen (min-hight ist jetzt 32px)",
@@ -80,19 +93,6 @@
         "pl": "termostat: stała wielkość okna\ndate- picker: operacja bloku stałego",
         "uk": "термостат: фіксована віконна обробка\nдата-пікер: операція фіксованого блоку",
         "zh-cn": "自动调温器: 固定窗口大小\n取日期者:固定区块操作"
-      },
-      "0.0.15": {
-        "en": "dialog: fixed positioning\nthermostat: corrected symbols\nthermostat: show low bat and unreach on tile\nthermostat: added signal pictures",
-        "de": "dialog: feste positionierung\nthermostat: korrigierte symbole\nthermostat: zeigen low bat und unreach auf fliese\nthermostat: zusatz von signalbildern",
-        "ru": "диалог: фиксированное позиционирование\nтермостат: исправленные символы\nтермостат: показать низкую биту и недоступен на плитке\nтермостат: добавленные сигналы",
-        "pt": "diálogo: posicionamento fixo\ntermostato: símbolos corrigidos\ntermostato: mostrar morcego baixo e unreach na telha\ntermostato: adicionado imagens de sinal",
-        "nl": "dialoogvenster: vaste positie\nthermostaat: gecorrigeerde symbolen\nthermostaat: toon lage vleermuis en unreach op tegel\nthermostaat: toegevoegde signaalafbeeldingen",
-        "fr": "boîte de dialogue : positionnement fixe\nthermostat: symboles corrigés\nthermostat: montrer une chauve-souris basse et un accès sur la tuile\nthermostat: ajout d'images de signal",
-        "it": "finestra di dialogo: posizionamento fisso\ntermostato: simboli corretti\ntermostato: mostrare pipistrello basso e unreach su piastrelle\ntermostato: immagini segnale aggiunto",
-        "es": "diálogo: posicionamiento fijo\ntermostato: símbolos corregidos\ntermostato: mostrar bajo murciélago y unreach en la baldosa\ntermostato: imágenes de señal agregadas",
-        "pl": "okno dialogowe: stałe pozycjonowanie\ntermostat: poprawione symbole\ntermostat: pokazać niski nietoperz i nieosiągalny na płytkach\ntermostat: dodane obrazy sygnału",
-        "uk": "діалог: фіксоване позиціонування\nтермостат: виправлені символи\nтермостат: показати низький кажан і нещастя на плитці\nтермостат: додані сигнали",
-        "zh-cn": "对话框:固定定位\n自动调温器: 更正符号\n自动调温器: 显示低球拍和未接触的瓦片\n自动调温器: 添加信号图片"
       }
     },
     "titleLang": {

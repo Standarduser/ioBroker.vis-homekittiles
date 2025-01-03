@@ -40,7 +40,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.3 (2025-01-03)
 
 * Added new style "text only" to switch and view-in-widget-dialog tiles
 * Fixed some issues from adapter checker
