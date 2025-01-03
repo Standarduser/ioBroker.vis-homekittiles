@@ -42,8 +42,9 @@ The widgets are designed for VIS 1.x.
 -->
 ### **WORK IN PROGRESS**
 
-* Added new style "text only" to switch and view-in-widget tiles
+* Added new style "text only" to switch and view-in-widget-dialog tiles
 * Fixed some issues from adapter checker
+* Fixed some styles of view-in-widget-swipe
 
 ### 0.3.2 (2024-12-03)
 

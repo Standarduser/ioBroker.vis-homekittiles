@@ -79,7 +79,7 @@
 .homekitTiles .blockOperation .blocked {
 	z-index: 999;
 }
-.homekitTiles:not(.dialog):has(.blockOperation .show-disabled) {
+.homekitTiles:not(.dialog):not(.viewInWidget):has(.blockOperation .show-disabled) {
 	opacity: 0.3;
 }
 
