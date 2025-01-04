@@ -73,6 +73,7 @@ $.extend(
 		"group_blockOperation":			{	"en": "Block operation",				"de": "Bedienung sperren"					},
 		"group_buttons":				{	"en": "Buttons",						"de": "Schaltflächen"						},
 		"group_column":					{	"en": "Columns",						"de": "Spalten"								},
+		"group_dialodButtons":			{	"en": "Dialog buttons",					"de": "Dialog-Schaltflächen"						},
 		"group_dialogContent":			{	"en": "Dialog content",					"de": "Dialog-Inhalt"						},
 		"group_dialogSettings":			{	"en": "Dialog settings",				"de": "Dialog-Einstellungen"				},
 		"group_increment":				{	"en": "Increment value",				"de": "Wert inkrementieren"					},
