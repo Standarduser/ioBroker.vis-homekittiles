@@ -73,6 +73,8 @@ $.extend(
 		"group_blockOperation":			{	"en": "Block operation",				"de": "Bedienung sperren"					},
 		"group_buttons":				{	"en": "Buttons",						"de": "Schaltflächen"						},
 		"group_column":					{	"en": "Columns",						"de": "Spalten"								},
+		"group_dialogContent":			{	"en": "Dialog content",					"de": "Dialog-Inhalt"						},
+		"group_dialogSettings":			{	"en": "Dialog settings",				"de": "Dialog-Einstellungen"				},
 		"group_increment":				{	"en": "Increment value",				"de": "Wert inkrementieren"					},
 		"group_label":					{	"en": "Label",							"de": "Beschriftung"						},
 		"group_labelGroup1":			{	"en": "Label group 1",					"de": "Beschriftungsgruppe 1"				},
@@ -85,13 +87,9 @@ $.extend(
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
 		"headline2":					{	"en": "Headline 2",						"de": "Überschrift 2"						},
 		"headline3":					{	"en": "Headline 3",						"de": "Überschrift 3"						},
-		
 		"htmlDialogPadding":			{	"en": "HTML dialog padding",			"de": "HTML-Diaglog Innenabstand"			},
 		"htmlTextPosition":				{	"en": "HTML text position",				"de": "HTML Textausrichtung"				},
 		"htmlTextSize":					{	"en": "HTML text size",					"de": "HTML Textgröße"						},
-		
-		
-		
 		"icon_":						{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconButton_":					{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconLowBat":					{	"en": "Icon for low battery",			"de": "Icon für Batterie schwach"			},
