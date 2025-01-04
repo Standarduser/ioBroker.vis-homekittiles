@@ -510,6 +510,7 @@
 /*#region Basic design for text-only */
 .homekitTiles.tile.textonly .labelGroup1 {
 	left: unset;
+	right: unset;
 	bottom: unset;
 	top: 50%;
 	transform: translateY(-50%);

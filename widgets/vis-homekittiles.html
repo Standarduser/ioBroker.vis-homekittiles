@@ -457,7 +457,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowDisabled/checkbox;blockOperationShowIcon/checkbox/addBlockOperationShowHideInputfields();blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox/addBlockOperationShowHideInputfields();oidBlockOperation/id;"
-	data-vis-attrs4="group.dialog;contains_view/views;title;autoclose/slider,0,30000,100;modal[true]/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
+	data-vis-attrs4="group.dialog;title;contains_view/views;autoclose/slider,0,30000,100;modal[true]/checkbox;dialog_width;dialog_height;dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;arrowDirection/nselect,,top,right,bottom,left;setIdOnOpenClose/id;setValueOnOpen;setValueOnClose;"
 	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
 	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
 >
@@ -502,8 +502,11 @@ You can do "if" conditions and "for" cycles.
 	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
 	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowDisabled/checkbox;blockOperationShowIcon/checkbox/addBlockOperationShowHideInputfields();blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox/addBlockOperationShowHideInputfields();oidBlockOperation/id;"
 	data-vis-attrs4="group.dialog;
-					html_dialog/text;
 					title;
+					html_dialog/text;
+					htmlDialogPadding[5]/slider,0,20,1;
+					htmlTextSize[16]/slider,5,80,1;
+					htmlTextPosition/select,,left,center,right,justify;
 					buttonsAdd/checkbox;
 					numberOfButtons[1]/slider,1,10,1;
 					autoclose/slider,0,30000,100;
@@ -530,7 +533,9 @@ You can do "if" conditions and "for" cycles.
 		</div>
 
 		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
-			<%== this.data.attr('html_dialog') %>
+			<div class="dialog-content" style="font-size: <%= this.data.attr('htmlTextSize') %>px; text-align: <%= this.data.attr('htmlTextPosition') %>;padding: 0 <%= this.data.attr('htmlDialogPadding') %>px;">
+				<%== this.data.attr('html_dialog') %>
+			</div>
 
 			<%
 			if (this.data.attr('buttonsAdd')) { %>

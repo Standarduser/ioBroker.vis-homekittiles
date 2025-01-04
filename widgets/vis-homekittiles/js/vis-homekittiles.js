@@ -85,6 +85,13 @@ $.extend(
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
 		"headline2":					{	"en": "Headline 2",						"de": "Überschrift 2"						},
 		"headline3":					{	"en": "Headline 3",						"de": "Überschrift 3"						},
+		
+		"htmlDialogPadding":			{	"en": "HTML dialog padding",			"de": "HTML-Diaglog Innenabstand"			},
+		"htmlTextPosition":				{	"en": "HTML text position",				"de": "HTML Textausrichtung"				},
+		"htmlTextSize":					{	"en": "HTML text size",					"de": "HTML Textgröße"						},
+		
+		
+		
 		"icon_":						{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconButton_":					{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconLowBat":					{	"en": "Icon for low battery",			"de": "Icon für Batterie schwach"			},
