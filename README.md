@@ -40,6 +40,11 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added HTML-Dialog
+* Made "modal" to default (modal darkens the background when a dialog window is open)
+
 ### 0.3.3 (2025-01-03)
 
 * Added new style "text only" to switch and view-in-widget-dialog tiles

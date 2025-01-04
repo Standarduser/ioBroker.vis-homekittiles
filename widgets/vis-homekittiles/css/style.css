@@ -1073,22 +1073,20 @@
 /*#endregion*/
 /*---------------------------------------------------------------*/
 /*#region Buttons */
-.homekitTiles.button {
-	font-size: 16px;
-	cursor: pointer;
-}
-.homekitTiles.button .button {
+
+.homekitTiles .button {
 	width: 100%;
 	height: 100%;
 	color: var(--hkt-color-button-fg);
 	background-color: var(--hkt-color-button-bg);
-	font-size: unset;
-	cursor: unset;
+	font-size: 16px;
+	cursor: pointer;
 	border: none;
 	border-radius: 0;
 }
 /* Button-Set */
-.homekitTiles.button-set .vis-widget-body {
+.homekitTiles.button-set .vis-widget-body,
+.homekitTiles.dialog .dialog.button-set {
 	display: flex;
 	flex-direction: row;
 }
@@ -1096,20 +1094,28 @@
 	flex-grow: 1;
 	margin: 0;
 }
-.homekitTiles.button-set .button.button-set.button-1,
-.homekitTiles.button-set .button.button-set.button-4,
-.homekitTiles.button-set .button.button-set.button-7,
-.homekitTiles.button-set .button.button-set.button-10 {
+.homekitTiles.dialog .dialog.button-set {
+    height: 50px;
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+}
+
+/* Button colors */
+.homekitTiles .button.button-set.button-1,
+.homekitTiles .button.button-set.button-4,
+.homekitTiles .button.button-set.button-7,
+.homekitTiles .button.button-set.button-10 {
 	background-color: var(--hkt-color-button-bg-3);
 }
-.homekitTiles.button-set .button.button-set.button-2,
-.homekitTiles.button-set .button.button-set.button-5,
-.homekitTiles.button-set .button.button-set.button-8 {
+.homekitTiles .button.button-set.button-2,
+.homekitTiles .button.button-set.button-5,
+.homekitTiles .button.button-set.button-8 {
 	background-color: var(--hkt-color-button-bg-2);
 }
-.homekitTiles.button-set .button.button-set.button-3,
-.homekitTiles.button-set .button.button-set.button-6,
-.homekitTiles.button-set .button.button-set.button-9 {
+.homekitTiles .button.button-set.button-3,
+.homekitTiles .button.button-set.button-6,
+.homekitTiles .button.button-set.button-9 {
 	background-color: var(--hkt-color-button-bg);
 }
 /*#endregion*/

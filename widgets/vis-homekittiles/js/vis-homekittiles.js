@@ -43,6 +43,7 @@ $.extend(
 		"blockOperationShowDisabled":	{	"en": "Show disabled",					"de": "Als deaktiviert anzeigen"			},
 		"blockOperationShowIcon":		{	"en": "Show icon if blocked",			"de": "Icon anzeigen wenn gesperrt"			},
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",				"de": "Verwende andere OID"					},
+		"buttonsAdd":					{	"en": "Add buttons",					"de": "Schaltflächen hinzufügen"			},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
 		"closeDialog_":					{	"en": "Close dialog ",					"de": "Dialog schließen "					},
 		"colAttr":						{	"en": "Attribute in JSON ",				"de": "Attribut in JSON "					},
@@ -240,6 +241,10 @@ $.extend(
 			"en": "A Widget to pick a date.",
 			"de": "Widget zur Auswahl eines Datums."
 		},
+		"hktHtmlDialogDescription": {
+			"en": "Dialog window for displaying any content generated with HTML code. Buttons can be added via the dialog settings and configured in the 'Buttons' section.",
+			"de": "Dialog-Fenster zur Anzeige von beliebigem Inhalt, der mit HTML-Code erzeugt wird. Über die Dialog-Einstellungen können Schaltflächen hinzugefügt und im Abschnitt 'Schaltflächen' konfiguriert werden."
+		},
 		"hktJsonTableDescription": {
 			"en": "The widget generates a table from a JSON string. In order to format all columns, the correct/desired number must be entered. The order of the columns can be adjusted using the JSON attributes. If the table header should always be displayed, all columns should be named (rename attribute).",
 			"de": "Das Widget generiert aus einem JSON-String eine Tabelle. Um alle Spalten formatieren zu können muss die richtige/gewünschte Anzahl eingetragen werden. Die Reihenfolge der Spalten kann über die JSON-Attribute angepasst werden. Wenn der Tabellenkopf immer angezeigt werden soll, sollten alle Spalten benannt sein (Attribut umbenennen)."
@@ -323,6 +328,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktButtonSetNavigation")			{ text = "hktButtonSetNavigationDescription";			}
 		else if (data[1] === "hktButtonSetNavigationSubmenu")	{ text = "hktButtonSetNavigationSubmenuDescription";	}
 		else if (data[1] === "hktDatepicker")					{ text = "hktDatepickerDescription";					}
+		else if (data[1] === "hktHtmlDialog")					{ text = "hktHtmlDialogDescription";					}
 		else if (data[1] === "hktJsonTable")					{ text = "hktJsonTableDescription";						}
 		else if (data[1] === "hktLabel")						{ text = "hktLabelDescription";							}
 		else if (data[1] === "hktNotification")					{ text = "hktNotificationDescription";					}
