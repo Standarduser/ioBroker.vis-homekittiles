@@ -42,7 +42,7 @@ The widgets are designed for VIS 1.x.
 -->
 ### **WORK IN PROGRESS**
 
-Introducing CONFIG-ITEMS:
+Introducing CONFIG-ITEMS (experimental):
 These can be used for manupulating styles, which are fixed in VIS, e.g. modal style of dialog windows.
 Just put the config item somewhere in your VIS and configure as you want.
 
