@@ -709,6 +709,9 @@
 .homekitTiles .notifications {
 	cursor: default;
 }
+.homekitTiles .notifications .notification {
+	float: right;
+}
 .homekitTiles .notifications span {
 	min-width: 21px;
 	height: 21px;
