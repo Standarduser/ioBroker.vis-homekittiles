@@ -1815,7 +1815,7 @@ vis.binds["vis-homekittiles"] = {
 		*/
 		//set css code
 		//var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: ${background}; opacity: ${opacity};}`;
-		var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: unset; opacity: unset; backdrop-filter: blur(${blur}px) brightness(${brightness});}`;
+		var css = `body:has(.homekitTiles.config-item.config-modal) .ui-widget-overlay {background: unset; opacity: unset; backdrop-filter: blur(${blur}px) brightness(${brightness});}`;
 
 		//append css to head
 		var head = document.head || document.getElementsByTagName('head')[0];
