@@ -1002,6 +1002,7 @@
 	background-color: var(--hkt-color-dialog-background);
 	padding: 0;
 	border-radius: 5px;
+	box-shadow: 0 0 50px 10px #000;
 }
 .homekitTiles.dialog.ui-dialog .header {
 	background-color: var(--hkt-color-dialog-title-bg);
