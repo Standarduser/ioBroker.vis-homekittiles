@@ -214,6 +214,8 @@ $.extend(
 		"unit":							{	"en": "Unit",							"de": "Einheit"								},
 		"value_":						{	"en": "Value ",							"de": "Wert "								},
 		"valueButton_":					{	"en": "Value button ",					"de": "Wert Schaltfläche "					},
+		"valueOn":						{	"en": "Value for ON",					"de": "Wert für EIN"						},
+		"valueOff":						{	"en": "Value for OFF",					"de": "Wert für AUS"						},
 		"view":							{	"en": "View",							"de": "View"								},
 		"view_":						{	"en": "View ",							"de": "View "								},
 		"windowStateLabel":				{	"en": "Label window contact",			"de": "Beschriftung Fensterkontakt"			},
@@ -513,6 +515,60 @@ vis.binds["vis-homekittiles"] = {
 			$this.val(vis.states.attr(oid + '.val'));
 		}
 	},
+
+	//Switch
+	switch: function (el, data) {
+		var $this = $(el);
+		var oid = data.oid;
+		var trueVal = data.valueOn;
+		var falseVal = data.valueOff;
+
+		if (!trueVal || trueVal == '' || trueVal === 'true') trueVal = true;
+		if (!falseVal || falseVal == '' || falseVal === 'false') falseVal = false;
+		if (trueVal === 'false') trueVal = false;
+		if (falseVal === 'true') falseVal = true;
+
+		if (!vis.editMode) {
+			var moved = false;
+			$this.on('click touchend', function () {
+
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+				if (moved) return;
+
+				var val;
+
+				if (oid) {
+
+					val = vis.states[oid + '.val'];
+					val = val.toString();
+
+					if (val) {
+						if (val === 'true') val = true;
+						if (val === 'false') val = false;
+
+						if (val == trueVal) {
+							vis.setValue(oid, falseVal);
+							$(this).parent().removeClass('state-active');
+							$(this).parent().addClass('state-default');
+						} else {
+							vis.setValue(oid, trueVal);
+							$(this).parent().removeClass('state-default');
+							$(this).parent().addClass('state-active');
+						}
+					}
+				}
+
+			}).on('touchmove', function () {
+				moved = true;
+			}).on('touchstart', function () {
+				moved = false;
+			}).data('destroy', function (id, $widget) {
+				$widget.off('click touchend').off('touchmove').off('touchstart');
+			});
+		}
+	},
+
 	//View in widget dialog - copied from jqui to don't force jqui button styles
 	dialogContainer: function (el, options, persistent, preload) {
 		var $dlg = $(el).parent().find('div.vis-widget-dialog');

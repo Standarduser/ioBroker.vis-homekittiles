@@ -45,6 +45,7 @@ The widgets are designed for VIS 1.x.
 * Added HTML-Dialog
 * Made "modal" to default (modal darkens the background when a dialog window is open)
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'
+* Made values of SwitchBool customizable and renamed to Switch
 
 ### 0.3.3 (2025-01-03)
 
