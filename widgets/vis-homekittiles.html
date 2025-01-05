@@ -1521,3 +1521,31 @@ You can do "if" conditions and "for" cycles.
 		} %>
 	</div>
 </script>
+
+<script id="tplHomekittilesConfigItemModal"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Config-Modal"
+	data-vis-prev='<div id="prev_tplHomekittilesSettingsBool" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 17px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles settings bool vis-widget-prev-body state-active">
+								<label class="label">Switch</label>
+								<div class="toggle"></div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktConfigItemModal;blur[3]/slider,0,20,1;brightness[0.3]/slider,0,1,0.01;"
+>
+	<div class="homekitTiles config-item config-modal vis-widget <%== this.data.attr('class') %>" style="width:170px; height:75px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" <%= (el) -> vis.binds['vis-homekittiles'].configModal(el, data) %>>
+			<div>
+				<span>CONFIG-ITEM MODAL</span><br>
+				<span>Blur: <%= this.data.attr('blur') %></span><br>
+				<span>Brightness: <%= this.data.attr('brightness') %></span>
+			</div>
+		</div>
+	</div>
+</script>

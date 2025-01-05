@@ -36,6 +36,7 @@ $.extend(
 		"arrowsPulse":					{	"en": "Arrows pulsate",					"de": "Pfeile Pulsieren"					},
 		"auto":							{	"en": "automatic",						"de": "automatisch"							},
 		"autofillOids":					{	"en": "Autofill object IDs",			"de": "Objekt-IDs automatisch füllen"		},
+		"backgroundcolor":				{	"en": "Background color",				"de": "Hintergrundfarbe"					},
 		"blockOperationIcon":			{	"en": "Icon if blocked",				"de": "Icon wenn gesperrt"					},
 		"blockOperationIconNotInEditor":{	"en": "Don't show icon in editor",		"de": "Icon im Editor nicht anzeigen"		},
 		"blockOperationIfTrue": 		{	"en": "Block operation if true",		"de": "Bedienung bei true sperren"			},
@@ -43,6 +44,8 @@ $.extend(
 		"blockOperationShowDisabled":	{	"en": "Show disabled",					"de": "Als deaktiviert anzeigen"			},
 		"blockOperationShowIcon":		{	"en": "Show icon if blocked",			"de": "Icon anzeigen wenn gesperrt"			},
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",				"de": "Verwende andere OID"					},
+		"blur":							{	"en": "Blur",							"de": "Weichzeichner"						},
+		"brightness":					{	"en": "Brightness",						"de": "Helligkeit"							},
 		"buttonsAdd":					{	"en": "Add buttons",					"de": "Schaltflächen hinzufügen"			},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
 		"closeDialog_":					{	"en": "Close dialog ",					"de": "Dialog schließen "					},
@@ -73,7 +76,7 @@ $.extend(
 		"group_blockOperation":			{	"en": "Block operation",				"de": "Bedienung sperren"					},
 		"group_buttons":				{	"en": "Buttons",						"de": "Schaltflächen"						},
 		"group_column":					{	"en": "Columns",						"de": "Spalten"								},
-		"group_dialogButtons":			{	"en": "Dialog buttons",					"de": "Dialog-Schaltflächen"						},
+		"group_dialogButtons":			{	"en": "Dialog buttons",					"de": "Dialog-Schaltflächen"				},
 		"group_dialogContent":			{	"en": "Dialog content",					"de": "Dialog-Inhalt"						},
 		"group_dialogSettings":			{	"en": "Dialog settings",				"de": "Dialog-Einstellungen"				},
 		"group_increment":				{	"en": "Increment value",				"de": "Wert inkrementieren"					},
@@ -175,6 +178,7 @@ $.extend(
 		"oidSignal":					{	"en": "Object ID",						"de": "Objekt-ID"							},
 		"oidUnreach":					{	"en": "Object ID for unreach",			"de": "Objekt-ID für nicht Erreichbar"		},
 		"oidWindowState":				{	"en": "Object ID for window contact",	"de": "Objekt-ID für Fensterkontakt"		},
+		"opacity":						{	"en": "Opacity",						"de": "Transparenz"							},
 		"ownseparation":				{	"en": "own separation",					"de": "Eigene Aufteilung"					},
 		"scrollable":					{	"en": "Scrollable",						"de": "Scrollbar"							},
 		"separationselect":				{	"en": "Separation of buttons",			"de": "Aufteilung der Buttons"				},
@@ -244,6 +248,10 @@ $.extend(
 		"hktButtonSetNavigationSubmenuDescription": {
 			"en": "This widget creates a set of buttons to navigate with a View-in-Widget8.",
 			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Navigation mit einem View-in-Widget8."
+		},
+		"hktConfigItemModalDescription": {
+			"en": "CONFIG-ITEM MODAL<br>This widget can be used to change the appearance of Modal. Modal darkens the background when a dialog window is opened.<br>The widget can be placed anywhere within the VIS, it is only visible in the editor.",
+			"de": "CONFIG-ITEM MODAL<br>Mit diesem Widget kann das Aussehen von Modal verändert werden. Modal dunkelt den Hintergrund ab, wenn ein Dialog-Fenster geöffnet wird.<br>Das Widget kann an einem beliebigen Ort innerhalb der VIS platziert werden, es ist nur im Editor sichtbar."
 		},
 		"hktDatepickerDescription": {
 			"en": "A Widget to pick a date.",
@@ -335,6 +343,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktButtonSet")					{ text = "hktButtonSetDescription";						}
 		else if (data[1] === "hktButtonSetNavigation")			{ text = "hktButtonSetNavigationDescription";			}
 		else if (data[1] === "hktButtonSetNavigationSubmenu")	{ text = "hktButtonSetNavigationSubmenuDescription";	}
+		else if (data[1] === "hktConfigItemModal")				{ text = "hktConfigItemModalDescription";				}
 		else if (data[1] === "hktDatepicker")					{ text = "hktDatepickerDescription";					}
 		else if (data[1] === "hktHtmlDialog")					{ text = "hktHtmlDialogDescription";					}
 		else if (data[1] === "hktJsonTable")					{ text = "hktJsonTableDescription";						}
@@ -1782,6 +1791,44 @@ vis.binds["vis-homekittiles"] = {
 			showHideSignal(newVal);
 		});}
 
+	},
+
+	//Config-items
+	configModal: function (el, data) {
+		var $this = $(el);
+		//var background = data.backgroundcolor;
+		//var opacity = data.opacity;
+		var blur = data.blur;
+		var brightness = data.brightness;
+
+		//make widget invisible in runtime
+		if (!vis.editMode) {
+			$this.parent().css('display', 'none');
+		}
+
+		/*
+		#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {
+			background: unset;
+			opacity: unset;
+			backdrop-filter: blur(5px) brightness(0.5) hue-rotate(0deg);
+		}
+		*/
+		//set css code
+		//var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: ${background}; opacity: ${opacity};}`;
+		var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: unset; opacity: unset; backdrop-filter: blur(${blur}px) brightness(${brightness});}`;
+
+		//append css to head
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
+		head.appendChild(style);
+
+		style.type = 'text/css';
+		if (style.styleSheet){
+			// This is required for IE8 and below.
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild(document.createTextNode(css));
+		}
 	},
 };
 

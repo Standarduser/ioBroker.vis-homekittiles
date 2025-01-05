@@ -42,6 +42,11 @@ The widgets are designed for VIS 1.x.
 -->
 ### **WORK IN PROGRESS**
 
+Introducing CONFIG-ITEMS:
+These can be used for manupulating styles, which are fixed in VIS, e.g. modal style of dialog windows.
+Just put the config item somewhere in your VIS and configure as you want.
+
+Other changes:
 * Added HTML-Dialog
 * Made "modal" to default setting (modal darkens the background when a dialog window is open)
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'

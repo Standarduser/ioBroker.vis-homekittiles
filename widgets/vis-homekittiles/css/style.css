@@ -1591,3 +1591,12 @@
 	100% { transform: scale(1); }
 }
 /*#endregion*/
+/*----------------------------------------------------------------*/
+/*#region CONFIG-ITEMS */
+.homekitTiles.config-item {
+	border: 1px solid #666;
+	color: #666;
+	padding: 2px;
+	box-sizing: border-box;
+}
+/*#endregion*/
