@@ -51,7 +51,7 @@ Other changes:
 * Added HTML-Dialog
 * Made "modal" to default setting
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'
-* Made values of SwitchBool customizable and renamed to Switch
+* Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
 * Repaired notification widget
 
 ### 0.3.3 (2025-01-03)
