@@ -45,10 +45,11 @@ The widgets are designed for VIS 1.x.
 Introducing CONFIG-ITEMS (experimental):
 These can be used for manupulating styles, which are fixed in VIS, e.g. modal style of dialog windows.
 Just put the config item somewhere in your VIS and configure as you want.
+* Added hkt-Config-Modal: changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App
 
 Other changes:
 * Added HTML-Dialog
-* Made "modal" to default setting (modal darkens the background when a dialog window is open)
+* Made "modal" to default setting
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'
 * Made values of SwitchBool customizable and renamed to Switch
 * Repaired notification widget
