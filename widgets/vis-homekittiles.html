@@ -1529,7 +1529,7 @@ You can do "if" conditions and "for" cycles.
 	data-vis-update-style="true"
 	data-vis-type="ctrl"
 	data-vis-name="hkt-Config-Modal"
-	data-vis-prev='<div id="prev_tplHomekittilesSettingsBool" style="position: relative;">
+	data-vis-prev='<div id="prev_tplHomekittilesConfigItemModal" style="position: relative;">
 						<div class="vis-widget_prev" style="width: 110px; height: 55px; font-size:8px; font-weight: normal;">
 							<div class="homekitTiles config-item config-modal vis-widget-prev-body">
 								<div class="vis-widget-body">
@@ -1550,6 +1550,38 @@ You can do "if" conditions and "for" cycles.
 				<span>CONFIG-ITEM MODAL</span><br>
 				<span>Blur: <%= this.data.attr('blur') %></span><br>
 				<span>Brightness: <%= this.data.attr('brightness') %></span>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="tplHomekittilesConfigItemWaitscreen"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="ctrl"
+	data-vis-name="hkt-Config-Waitscreen"
+	data-vis-prev='<div id="prev_tplHomekittilesConfigItemWaitscreen" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 55px; font-size:8px; font-weight: normal;">
+							<div class="homekitTiles config-item config-modal vis-widget-prev-body">
+								<div class="vis-widget-body">
+									<div>
+										<span>WAITSCREEN</span><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktConfigItemWaitscreen;backgroundcolor[#000]/color;fontsize[18]/slider,8,80,1;fontcolor[#525252]/color;progressbarheight[6]/slider,1,100,1;progressbarforeground[#ccc]/color;progressbarbackground[#222]/color;"
+>
+	<div class="homekitTiles config-item config-waitscreen vis-widget <%== this.data.attr('class') %>" style="width:170px; height:75px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" <%= (el) -> vis.binds['vis-homekittiles'].configWaitscreen(el, data) %>>
+			<div>
+				<span>CONFIG-ITEM WAITSCREEN</span><br> 
+				<span>Background: <%= this.data.attr('backgroundcolor') %></span><br>
+				<span>Font: <%= this.data.attr('fontsize') %>px / <%= this.data.attr('fontcolor') %></span>
+				<span>Progress: <%= this.data.attr('progressbarheight') %>px / <%= this.data.attr('progressbarforeground') %> / <%= this.data.attr('progressbarbackground') %></span>
 			</div>
 		</div>
 	</div>

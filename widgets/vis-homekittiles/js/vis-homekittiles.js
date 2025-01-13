@@ -70,6 +70,8 @@ $.extend(
 		"everAndEmptyLine":				{	"en": "Ever + empty line",				"de": "Immer + leere Zeile"					},
 		"everAndNotice":				{	"en": "Ever + notice",					"de": "Immer + Hinweis"						},
 		"factor":						{	"en": "Multiplicator",					"de": "Multiplikator"						},
+		"fontcolor":					{	"en": "Font color",						"de": "Schriftfarbe"						},
+		"fontsize":						{	"en": "Font size",						"de": "Schriftgröße"						},
 		"german":						{	"en": "German",							"de": "Deutsch"								},
 		"group_acknowledge":			{	"en": "Acknowledged change",			"de": "Bestätigte Änderung"					},
 		"group_arrows":					{	"en": "Arrows",							"de": "Pfeile"								},
@@ -180,6 +182,9 @@ $.extend(
 		"oidWindowState":				{	"en": "Object ID for window contact",	"de": "Objekt-ID für Fensterkontakt"		},
 		"opacity":						{	"en": "Opacity",						"de": "Transparenz"							},
 		"ownseparation":				{	"en": "own separation",					"de": "Eigene Aufteilung"					},
+		"progressbarheight":			{	"en": "Progressbar height",				"de": "Progressbar Höhe"					},
+		"progressbarforeground":		{	"en": "Progressbar foreground",			"de": "Progressbar Vordergrund"				},
+		"progressbarbackground":		{	"en": "Progressbar background",			"de": "Progressbar Hintergrund"				},
 		"scrollable":					{	"en": "Scrollable",						"de": "Scrollbar"							},
 		"separationselect":				{	"en": "Separation of buttons",			"de": "Aufteilung der Buttons"				},
 		"separationvalues":				{	"en": "Separtion values (%)",			"de": "Aufteilung Werte (%)"				},
@@ -252,6 +257,10 @@ $.extend(
 		"hktConfigItemModalDescription": {
 			"en": "CONFIG-ITEM MODAL<br>This widget can be used to change the appearance of Modal. Modal darkens the background when a dialog window is opened.<br>The widget can be placed anywhere within the VIS, it is only visible in the editor.",
 			"de": "CONFIG-ITEM MODAL<br>Mit diesem Widget kann das Aussehen von Modal verändert werden. Modal dunkelt den Hintergrund ab, wenn ein Dialog-Fenster geöffnet wird.<br>Das Widget kann an einem beliebigen Ort innerhalb der VIS platziert werden, es ist nur im Editor sichtbar."
+		},
+		"hktConfigItemWaitscreenDescription": {
+			"en": "CONFIG-ITEM MODAL<br>This widget can be used to change the appearance of the waitscreen when loading VIS.<br>The widget can be placed anywhere within the VIS, it is only visible in the editor.",
+			"de": "CONFIG-ITEM WAITSCREEN<br>Mit diesem Widget kann das Aussehen des Warte-Bildschirms beim Laden von VIS angepasst werden.<br>Das Widget kann an einem beliebigen Ort innerhalb der VIS platziert werden, es ist nur im Editor sichtbar."
 		},
 		"hktDatepickerDescription": {
 			"en": "A Widget to pick a date.",
@@ -344,6 +353,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktButtonSetNavigation")			{ text = "hktButtonSetNavigationDescription";			}
 		else if (data[1] === "hktButtonSetNavigationSubmenu")	{ text = "hktButtonSetNavigationSubmenuDescription";	}
 		else if (data[1] === "hktConfigItemModal")				{ text = "hktConfigItemModalDescription";				}
+		else if (data[1] === "hktConfigItemWaitscreen")			{ text = "hktConfigItemWaitscreenDescription";			}
 		else if (data[1] === "hktDatepicker")					{ text = "hktDatepickerDescription";					}
 		else if (data[1] === "hktHtmlDialog")					{ text = "hktHtmlDialogDescription";					}
 		else if (data[1] === "hktJsonTable")					{ text = "hktJsonTableDescription";						}
@@ -1816,6 +1826,42 @@ vis.binds["vis-homekittiles"] = {
 		//set css code
 		//var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: ${background}; opacity: ${opacity};}`;
 		var css = `body:has(.homekitTiles.config-item.config-modal) .ui-widget-overlay {background: unset; opacity: unset; backdrop-filter: blur(${blur}px) brightness(${brightness});}`;
+
+		//append css to head
+		var head = document.head || document.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
+		head.appendChild(style);
+
+		style.type = 'text/css';
+		if (style.styleSheet){
+			// This is required for IE8 and below.
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild(document.createTextNode(css));
+		}
+	},
+	configWaitscreen: function (el, data) {
+		var $this = $(el);
+		var backgroundcolor = data.backgroundcolor;
+		var fontsize = data.fontsize;
+		var fontcolor = data.fontcolor;
+		var progressbarheight = data.progressbarheight;
+		var progressbarforeground = data.progressbarforeground;
+		var progressbarbackground = data.progressbarbackground;
+
+		//make widget invisible in runtime
+		if (!vis.editMode) {
+			$this.parent().css('display', 'none');
+		}
+
+		//set css code
+		var css = '';
+		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen {background-color: ${backgroundcolor}}`;
+		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen #waitText { font-family: Menlo, Monaco, 'Courier New', monospace !important; font-variant: unset; font-weight: normal; font-size: ${fontsize}px;	color: ${fontcolor};}`;
+		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen #waitText:after { content: " "; background-color: ${fontcolor}; width: calc(${fontsize}px / 1.5); height: ${fontsize}px; display: block; animation: hkt-ws-animation 1s steps(5, start) infinite; }`;
+		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen .ui-progressbar { height: ${progressbarheight}px !important; background: ${progressbarbackground}; border-radius: 999px; border: none; }`;
+		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen .ui-progressbar-value { height: 100%; background: ${progressbarforeground}; border-radius: 999px; }`;
+		css += `@keyframes hkt-ws-animation { to { visibility: hidden; } }`;
 
 		//append css to head
 		var head = document.head || document.getElementsByTagName('head')[0];

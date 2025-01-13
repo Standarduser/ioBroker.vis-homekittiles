@@ -46,6 +46,7 @@ Introducing CONFIG-ITEMS (experimental):
 These can be used for manupulating styles, which are fixed in VIS, e.g. modal style of dialog windows.
 Just put the config item somewhere in your VIS and configure as you want.
 * Added hkt-Config-Modal: changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App
+* Added hkt-Config-Waitscreen: changes the styles of waitscreen (Connecting to server...) when VIS is startet. Depending on the speed of your visualisation device you will see the original screen first and after a short while the styles are applied and you see what you configured.
 
 Other changes:
 * Added HTML-Dialog
