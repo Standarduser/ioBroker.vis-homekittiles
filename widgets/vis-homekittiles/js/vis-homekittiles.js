@@ -45,8 +45,10 @@ $.extend(
 		"blockOperationShowIcon":		{	"en": "Show icon if blocked",			"de": "Icon anzeigen wenn gesperrt"			},
 		"blockOperationUseDifferentOID":{	"en": "Use different OID",				"de": "Verwende andere OID"					},
 		"blur":							{	"en": "Blur",							"de": "Weichzeichner"						},
+		"brieflyvisible":				{	"en": "briefly visible",				"de": "kurz sichtbar"						},
 		"brightness":					{	"en": "Brightness",						"de": "Helligkeit"							},
 		"buttonsAdd":					{	"en": "Add buttons",					"de": "Schaltflächen hinzufügen"			},
+		"callToAction":					{	"en": "Call to action",					"de": "Aufruf zum Handel"					},
 		"closebuttonLabel":				{	"en": "Label close-button",				"de": "Beschriftung Schließen-Button"		},
 		"closeDialog_":					{	"en": "Close dialog ",					"de": "Dialog schließen "					},
 		"colAttr":						{	"en": "Attribute in JSON ",				"de": "Attribut in JSON "					},
@@ -86,6 +88,7 @@ $.extend(
 		"group_labelGroup1":			{	"en": "Label group 1",					"de": "Beschriftungsgruppe 1"				},
 		"group_labelGroup2":			{	"en": "Label group 2",					"de": "Beschriftungsgruppe 2"				},
 		"group_notification":			{	"en": "Notification ",					"de": "Benachrichtigung "					},
+		"group_pinpadDialog":			{	"en": "Pinpad dialog",					"de": "Pinpad-Dialog"						},
 		"group_select":					{	"en": "Select",							"de": "Select"								},
 		"group_signalpics":				{	"en": "Signal pictures",				"de": "Signalbilder"						},
 		"group_thermostatDialog":		{	"en": "Thermostat dialog",				"de": "Thermostat-Dialog"					},
@@ -93,6 +96,7 @@ $.extend(
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
 		"headline2":					{	"en": "Headline 2",						"de": "Überschrift 2"						},
 		"headline3":					{	"en": "Headline 3",						"de": "Überschrift 3"						},
+		"hidden":						{	"en": "hidden",							"de": "verdeckt"							},
 		"htmlDialogPadding":			{	"en": "HTML dialog padding",			"de": "HTML-Diaglog Innenabstand"			},
 		"htmlTextPosition":				{	"en": "HTML text position",				"de": "HTML Textausrichtung"				},
 		"htmlTextSize":					{	"en": "HTML text size",					"de": "HTML Textgröße"						},
@@ -182,6 +186,13 @@ $.extend(
 		"oidWindowState":				{	"en": "Object ID for window contact",	"de": "Objekt-ID für Fensterkontakt"		},
 		"opacity":						{	"en": "Opacity",						"de": "Transparenz"							},
 		"ownseparation":				{	"en": "own separation",					"de": "Eigene Aufteilung"					},
+		"pinValue":						{	"en": "PIN code",						"de": "PIN-Code"							},
+		"pinUseOid":					{	"en": "PIN code from Object ID",		"de": "PIN-Code aus Objekt-ID"				},
+		"pinDisplay":					{	"en": "PIN display input",				"de": "PIN-Eingabe angezeigen"				},
+		"pinAutoEnter":					{	"en": "PIN auto-accept input ",			"de": "PIN-Eingabe automatisch übernehmen"	},
+		"pinCorrectSetOid":				{	"en": "PIN correct set Object ID",		"de": "PIN korrekt setze Objekt-ID"			},
+		"pinWrongSetOid":				{	"en": "PIN wrong set Object ID",		"de": "PIN falsch setze Objekt-ID"			},
+		"pinCorrectAutoclose":			{	"en": "PIN correct close pinpad",		"de": "PIN korrekt schließt Pinpad"			},
 		"progressbarheight":			{	"en": "Progressbar height",				"de": "Progressbar Höhe"					},
 		"progressbarforeground":		{	"en": "Progressbar foreground",			"de": "Progressbar Vordergrund"				},
 		"progressbarbackground":		{	"en": "Progressbar background",			"de": "Progressbar Hintergrund"				},
@@ -227,6 +238,7 @@ $.extend(
 		"valueOff":						{	"en": "Value for OFF",					"de": "Wert für AUS"						},
 		"view":							{	"en": "View",							"de": "View"								},
 		"view_":						{	"en": "View ",							"de": "View "								},
+		"visible":						{	"en": "visible",						"de": "sichtbar"							},
 		"windowStateLabel":				{	"en": "Label window contact",			"de": "Beschriftung Fensterkontakt"			},
 		"windowStateTexts":				{	"en": "Value names of window contact",	"de": "Textwerte des Fensterkontakts"		},
 		"windowStateValues":			{	"en": "Values of window contact",		"de": "Werte des Fensterkontakts"			},
@@ -281,6 +293,10 @@ $.extend(
 		"hktNotificationDescription": {
 			"en": "Notification for 5 different states.",
 			"de": "Benachrichtigung für 5 verschiedene States."
+		},
+		"hktPinpadDialogDescription": {
+			"en": "This widget opens a dialog box for entering the PIN. The PIN can be stored in the widget or read from a state. Additional settings can be used to specify whether the PIN entry is automatically accepted if the number of digits entered matches the configured PIN code, and whether the dialog box should close automatically if the entry was correct.",
+			"de": "Dieses Widget öffnet ein Dialogfeld zur PIN-Eingabe. Der PIN kann fest im Widget hinterlegt, oder aus einem State gelesen werden.<br>Über weitere Einstellungen kann festgelegt werden, ob die PIN-Eingabe automatisch übernommen wird, wenn die Anzahl der eingegebenen Ziffern mit dem konfigurierten PIN-Code übereinstimmt, und ob sich der Dialog automatisch schließen soll, wenn die Eingabe korrekt war."
 		},
 		"hktRadiobuttonsDescription": {
 			"en": "Radiobuttons with a variable amount of buttons. The division of the buttons can be changed, but the sum of the values ​​must result in 100 (%).",
@@ -359,6 +375,7 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktJsonTable")					{ text = "hktJsonTableDescription";						}
 		else if (data[1] === "hktLabel")						{ text = "hktLabelDescription";							}
 		else if (data[1] === "hktNotification")					{ text = "hktNotificationDescription";					}
+		else if (data[1] === "hktPinpadDialog")					{ text = "hktPinpadDialogDescription";					}
 		else if (data[1] === "hktRadiobuttons")					{ text = "hktRadiobuttonsDescription";					}
 		else if (data[1] === "hktSettingsBool")					{ text = "hktSettingsBoolDescription";					}
 		else if (data[1] === "hktSettingsSelect")				{ text = "hktSettingsSelectDescription";				}
@@ -1181,6 +1198,216 @@ vis.binds["vis-homekittiles"] = {
 		}
 		//reset autofill
 		vis.views[view].widgets[widgetID].data.texttemplate = '-';
+	},
+
+	//Pinpad dialog - same as "dialogContainer" with some modifications
+	pinpadDialog: function (el, options, persistent, preload) {
+		var $dlg = $(el).parent().find('div.vis-widget-dialog');
+
+		var id = $(el).parent().attr('id');
+		if (id && id.match(/_removed$/)) {
+			return;
+		}
+
+		if (!$dlg.length) {
+			setTimeout(function () {
+				vis.binds['vis-homekittiles'].pinpadDialog(el, options, persistent, preload);
+			}, 200);
+			return;
+		}
+
+		const regexNumber = /\d+/;
+
+		if (options.dialog_top		!== undefined)	options.top		= options.dialog_top.match(regexNumber);
+		if (options.dialog_left		!== undefined)	options.left	= options.dialog_left.match(regexNumber);
+
+		//fix some parameters
+		options.height = 410;
+		options.width = 300;
+
+		$dlg.dialog($.extend({
+			autoOpen: false,
+			open: function () {
+				$(this).parent().find('.ui-widget-header button .ui-button-text').html('');
+				$(this).parent().css('z-index', 998);
+				//touchscreen fix
+				$dlg.find('.vis-view-container').each(function () {
+					var cview = $(this).attr('data-vis-contains');
+					var $this = this;
+					vis.renderView(cview, cview, false, function (_view) {
+						$('#visview_' + _view)
+								.appendTo($this)
+								.show();
+					});
+				});
+
+				//add and remove classes for styling
+				//main window
+				$(this).parent().addClass('homekitTiles dialog');
+				$(this).parent().removeClass('ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable');
+				//head
+				$(this).parent().find('div.ui-dialog-titlebar').addClass('header').removeClass('ui-widget-header ui-corner-all ui-draggable-handle');
+				//title
+				$(this).parent().find('span.ui-dialog-title').addClass('title').removeClass('ui-dialog-title');
+				//close button
+				$(this).parent().find('button.ui-dialog-titlebar-close').remove();
+				//content
+				$(this).parent().find('div.ui-dialog-content').addClass('content');
+				//resizable
+				$(this).parent().find('div.ui-resizable-handle').remove();
+
+				//size window
+				if (options.height)   $(this).css('height', options.height);
+				if (options.width)    $(this).css('width',  options.width);
+
+				//position window
+				if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top  + 'px');
+				if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left + 'px');
+
+				//arrows
+				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);
+			},
+			close: function () {
+				if ($dlg.data('timer')) {
+					clearTimeout($dlg.data('timer'));
+					$dlg.data('timer', null);
+				}
+				vis.destroyUnusedViews();
+			}
+		}, options));
+
+		if (!vis.editMode) {
+			$(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
+				event.stopPropagation();
+				// Protect against two events
+				if (vis.detectBounce(this)) return;
+
+				var $id =  $('#' + $(this).parent().attr('id') + '_dialog');
+				$id.dialog('open');
+				return false;
+			});
+		} else {
+			$(el).parent().find('div.vis-widget-body').show();
+		}
+	},
+	pinpadFunction: function (el, data) {
+		var $this = $(el);
+		var wid = data.wid;
+		var pinValue = data.pinValue;
+		var pinUseOid = data.pinUseOid;
+		var oid = data.oid;
+		var pinDisplay = data.pinDisplay;
+		var pinAutoEnter = data.pinAutoEnter;
+		var pinCorrectSetOid = data.pinCorrectSetOid;
+		var pinWrongSetOid = data.pinWrongSetOid;
+		var autoclose = data.pinCorrectAutoclose;
+
+		var pin = '';
+		var pinpadInput = '';
+		var displayDelay = 1000;
+
+		//Set correct pin
+		if (pinUseOid && oid != undefined && oid != '') {
+			pin = vis.states.attr(oid + '.val');
+		} else {
+			pin = pinValue;
+		}
+
+		//get events
+		function pinpad(event, value) {
+			if (event == 'input') pinpadInput += value;
+			if (event == 'delete') pinpadInput = pinpadInput.slice(0,-1);
+
+			//update inputfield
+			var inputfieldText = ''
+			if (pinDisplay == 'visible') {
+				inputfieldText = pinpadInput;
+			} else if (pinDisplay == 'brieflyvisible') {
+				for (var count = 1; count < pinpadInput.length; count++) {
+					inputfieldText += '•';
+				}
+				if (event == 'input') {
+					inputfieldText += value;
+					clearTimeout(timeout);
+					var timeout = setTimeout(function(){
+						inputfieldText = '';
+						for (var count = 1; count <= pinpadInput.length; count++) {
+							inputfieldText += '•';
+							inputfield.val(inputfieldText);
+						}
+					}, displayDelay);
+				} else if (event == 'delete') {
+					inputfieldText = '';
+					for (var count = 1; count <= pinpadInput.length; count++) {
+						inputfieldText += '•';
+					}
+				}
+			} else {
+				for (var count = 1; count <= pinpadInput.length; count++) {
+					inputfieldText += '•';
+				}
+			}
+			inputfield.val(inputfieldText);
+
+			//check pin input
+			if (event == 'enter' || (pinAutoEnter && pinpadInput.length == pin.length)) {
+				if (pinpadInput == pin) {
+					inputfield.val('OK');
+					if (pinCorrectSetOid && pinCorrectSetOid != undefined && pinCorrectSetOid != '') vis.setValue(pinCorrectSetOid, true);
+					if (pinWrongSetOid && pinWrongSetOid != undefined && pinWrongSetOid != '') vis.setValue(pinWrongSetOid, false);
+
+					//close dialog
+					if (autoclose) {
+						setTimeout(function(){
+							$('#' + wid + '_dialog').dialog('close');
+						}, displayDelay);
+					}
+
+				} else {
+					inputfield.val('FALSCH');
+					if (pinCorrectSetOid && pinCorrectSetOid != undefined && pinCorrectSetOid != '') vis.setValue(pinCorrectSetOid, false);
+					if (pinWrongSetOid && pinWrongSetOid != undefined && pinWrongSetOid != '') vis.setValue(pinWrongSetOid, true);
+				}
+
+				//reset input
+				pinpadInput = '';
+
+				//reset inputfield
+				setTimeout(function(){
+					inputfield.val('');
+				}, displayDelay);
+			}
+		}
+
+		//get the inputfield
+		var inputfield = $this.find('input.hkt-pinpad-inputfield');
+
+		//give buttons a function
+		//numbers
+		$this.find('button.hkt-pinpad-btn-number').on('click touchstart', function () {
+			if (vis.detectBounce(this)) return;
+			pinpad('input', this.value);
+		});
+
+		//delete
+		$this.find('button.hkt-pinpad-btn-delete').on('click touchstart', function () {
+			if (vis.detectBounce(this)) return;
+			pinpad('delete');
+		});
+
+		//enter
+		$this.find('button.hkt-pinpad-btn-enter').on('click touchstart', function () {
+			if (vis.detectBounce(this)) return;
+			pinpad('enter');
+		});
+
+		// subscribe on updates of pin
+		if (oid) {
+			vis.states.bind(oid + '.val', function (e, newVal, oldVal) {
+				pin = newVal;
+				console.log(pin);
+			});
+		}
 	},
 
 	//JSON Table

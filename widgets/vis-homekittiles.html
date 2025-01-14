@@ -805,6 +805,100 @@ You can do "if" conditions and "for" cycles.
 	</div>
 </script>
 
+<script id="tplHomekittilesPinpadDialog"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-set="vis-homekittiles"
+	data-vis-update-style="true"
+	data-vis-type="static,dialog"
+	data-vis-name="hkt-PinpadDialog"
+	data-vis-prev='<div id="prev_tplHomekittilesPinpadDialog" style="position: relative;">
+						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
+							<div class="homekitTiles tile vis-widget-prev-body state-default">
+								<span class="tileValue" style="background-color: unset; font-size: 20px;">****</span>
+								<label class="labelGroup1">Pinpad Login</label>
+							</div>
+						</div>
+					</div>'
+	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktPinpadDialog;
+					pinValue[1234];
+					pinUseOid[false]/checkbox;
+					oid/id;
+					pinDisplay[brieflyvisible]/select,hidden,brieflyvisible,visible;
+					pinAutoEnter/checkbox;
+					pinCorrectSetOid/id;
+					pinWrongSetOid/id;
+					pinCorrectAutoclose[true]/checkbox;
+					oidActive/id;icon/image;iconRound/checkbox;iconColored/checkbox;showLikeActive/checkbox;displaystyle[tile]/select,tile,tile big,tile small,indicator,tile iconOnly,tile textonly/iconShowHideInputfields();"
+	data-vis-attrs0="group.labelGroup1;label[Login];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
+	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
+	data-vis-attrs2="group.pinpadDialog;
+					title[Login];
+					callToAction[Please enter PIN code];
+					closebuttonLabel[Abort];
+					autoclose/slider,0,30000,100;
+					modal[true]/checkbox;
+					dialog_top;
+					dialog_left;
+					arrowDirection/nselect,,top,right,bottom,left;"
+	data-vis-attrs3="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
+	data-vis-attrs4="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowDisabled/checkbox;blockOperationShowIcon/checkbox/addBlockOperationShowHideInputfields();blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox/addBlockOperationShowHideInputfields();oidBlockOperation/id;"
+	data-vis-attrs5="group.acknowledge;ackShowIcon/checkbox/addAckIconShowHideInputfields();ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
+	data-vis-attrs6="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
+	data-vis-attrs7="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
+>
+	<div class="homekitTiles tile pinpad dialog vis-widget <%== this.data.attr('displaystyle') %> <%= this.data.attr('showLikeActive') ? 'state-active' : vis.states.attr(this.data['oidActive'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: <%= this.data.attr('displaystyle') == 'tile big' ? '235' : this.data.attr('displaystyle') == 'tile small' ? '60' : this.data.attr('displaystyle') == 'indicator' ? '110' : '110' %>px; height: <%= this.data.attr('displaystyle') == 'tile big' ? '235' : this.data.attr('displaystyle') == 'tile small' ? '60' : this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
+		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
+			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
+			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
+			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
+		</div>
+
+		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
+
+			<div class="pinpad head">
+				<span class="calltoaction"><%= this.data.attr('callToAction') %></span>
+			</div>
+
+			<div class="pinpad content" <%= (el) -> vis.binds['vis-homekittiles'].pinpadFunction(el, data) %>>
+				<div class="inputfield">
+					<input id="pinpad-input" class="hkt-pinpad-inputfield" readonly/>
+				</div>
+				<div class="buttons">
+					<div class="row">
+						<button type="button" class="hkt-pinpad-btn-number" value="1"><div class="value">1</div><div class="additional-signs">+-_!</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="2"><div class="value">2</div><div class="additional-signs">ABC</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="3"><div class="value">3</div><div class="additional-signs">DEF</div></button>
+					</div>
+					<div class="row">
+						<button type="button" class="hkt-pinpad-btn-number" value="4"><div class="value">4</div><div class="additional-signs">GHI</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="5"><div class="value">5</div><div class="additional-signs">JKL</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="6"><div class="value">6</div><div class="additional-signs">MNO</div></button>
+					</div>
+					<div class="row">
+						<button type="button" class="hkt-pinpad-btn-number" value="7"><div class="value">7</div><div class="additional-signs">PQRS</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="8"><div class="value">8</div><div class="additional-signs">TUV</div></button>
+						<button type="button" class="hkt-pinpad-btn-number" value="9"><div class="value">9</div><div class="additional-signs">WXYZ</div></button>
+					</div>
+					<div class="row">
+						<button type="button" class="hkt-pinpad-btn-delete" value="del" id="delete-btn">⌫</button>
+						<button type="button" class="hkt-pinpad-btn-number" value="0"><div class="value">0</div><div class="additional-signs">␣</div></button>
+						<button type="button" class="hkt-pinpad-btn-enter" value="ok" id="submit-btn">⏎</button>
+					</div>
+				</div>
+			</div>
+
+			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
+		</div>
+
+		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
+		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
+
+		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].pinpadDialog(el, data) %> />
+	</div>
+</script>
+
+
 <script id="tplHomekittilesJsonTable"
 	type="text/ejs"
 	class="vis-tpl"
@@ -839,74 +933,6 @@ You can do "if" conditions and "for" cycles.
 		<% vis.binds['vis-homekittiles'].jsonTableCreateTable(this.view, this.data.attr('wid'), this.data); %>
 	</div>
 </script>
-
-<!--
-<script id="tplHomekittilesPinpad"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-set="vis-homekittiles"
-	data-vis-update-style="true"
-	data-vis-type="static,dialog"
-	data-vis-name="hkt-Pinpad"
-	data-vis-prev='<div id="prev_tplHomekittilesValue" style="position: relative;">
-						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
-							<div class="homekitTiles tile vis-widget-prev-body">
-								<label class="labelGroup1">Pinpad</label>
-							</div>
-						</div>
-					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktPinpad;
-					pinValue;
-					useOidForPin/checkbox;
-					oidPin/id;
-					oidSetPinCorrect/id;
-					oidSetPinWrong/id;"
-	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
-	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.PinpadDialog;
-					title;
-					closebuttonLabel;
-					callToAction;
-					autoclose/slider,0,30000,100;
-					modal[true]/checkbox;
-					dialog_top;
-					dialog_left;
-					arrowDirection/nselect,,top,right,bottom,left;"
-	data-vis-attrs3="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
-	data-vis-attrs4="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowDisabled/checkbox;blockOperationShowIcon/checkbox/addBlockOperationShowHideInputfields();blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox/addBlockOperationShowHideInputfields();oidBlockOperation/id;"
-	data-vis-attrs5="group.acknowledge;ackShowIcon/checkbox/addAckIconShowHideInputfields();ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
-	data-vis-attrs6="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
-	data-vis-attrs7="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
->
-	<div class="homekitTiles tile pinpad vis-widget <%= this.data.attr('showLikeActive') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: 110px; height: 110px;" id="<%= this.data.attr('wid') %>">
-		<div class="vis-widget-body" id="<%= this.data.attr('wid') %>_body">
-			<div class="tileIcon" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
-			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
-			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
-		</div>
-
-		<div class="vis-widget-dialog <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>_dialog" style="display:none" title="<%= this.data.attr('title') %>">
-
-			<div class="pinpad head">
-				<span class="calltoaction"><%= this.data.attr('callToAction') %></span>
-			</div>
-
-			<div class="pinpad content">
-				<div class="display">display</div>
-				<div class="buttons"></div>
-			</div>
-
-			<button class="button integratedClosebutton" <%= (el) -> vis.binds['vis-homekittiles'].dialogClose(el, {dialogWidgetId: data.attr('dialogWidgetId')}) %>><%== this.data.attr('closebuttonLabel') %></button>
-		</div>
-
-		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
-		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el) %>></div><% } %></div>
-
-		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].dialogThermostat(el, data) %> />
-	</div>
-</script>
-
--->
 
 <script id="tplHomekittilesSettingsBool"
 	type="text/ejs"

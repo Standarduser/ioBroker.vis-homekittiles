@@ -1100,10 +1100,10 @@
 	margin: 0;
 }
 .homekitTiles.dialog .dialog.button-set {
-    height: 50px;
-    width: 100%;
-    bottom: 0px;
-    position: absolute;
+	height: 50px;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
 }
 
 /* Button colors */
@@ -1122,6 +1122,69 @@
 .homekitTiles .button.button-set.button-6,
 .homekitTiles .button.button-set.button-9 {
 	background-color: var(--hkt-color-button-bg);
+}
+/*#endregion*/
+/*---------------------------------------------------------------*/
+/*#region Pinpad */
+.homekitTiles.dialog .pinpad.head {
+	text-align: center;
+	font-size: 16px;
+}
+.homekitTiles.dialog .pinpad.content {
+  margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+.homekitTiles.dialog .pinpad.content .inputfield {
+	display: flex;
+	justify-content: center;
+	margin: 5px;
+	text-align: center;
+}
+.homekitTiles.dialog .pinpad.content .inputfield .hkt-pinpad-inputfield {
+	width: 225px;
+	height: 30px;
+	font-size: 24px;
+	text-align: center;
+	color: #bbb;
+	background-color: #333;
+	border: 1px solid #666;
+	outline: none;
+}
+.homekitTiles.dialog .pinpad.content .buttons {
+	margin-top: 20px;
+}
+.homekitTiles.dialog .pinpad.content .buttons .row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.homekitTiles.dialog .pinpad.content .buttons .row .hkt-pinpad-btn-number,
+.homekitTiles.dialog .pinpad.content .buttons .row .hkt-pinpad-btn-delete,
+.homekitTiles.dialog .pinpad.content .buttons .row .hkt-pinpad-btn-enter {
+	width: 70px;
+	height: 50px;
+	margin: 5px;
+	padding: 5px;
+	font-size: 20px;
+	cursor: pointer;
+	color: #bbb;
+	background-color: #333;
+	border: 1px solid #666;
+}
+.homekitTiles.dialog .pinpad.content .buttons .value {
+	display: block;
+	height: 24px;
+}
+  .homekitTiles.dialog .pinpad.content .buttons .additional-signs {
+	display: block;
+	font-size: 10px;
+	color: #666;
+}
+  .homekitTiles.dialog .pinpad.content .buttons [value="0"] .additional-signs {
+	font-size: 20px;
+	transform: translateY(-17px);
+	height: 12px;
 }
 /*#endregion*/
 /*---------------------------------------------------------------*/
@@ -1601,3 +1664,4 @@
 	box-sizing: border-box;
 }
 /*#endregion*/
+/*----------------------------------------------------------------*/
