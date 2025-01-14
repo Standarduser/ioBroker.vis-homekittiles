@@ -63,7 +63,7 @@
 /*---------------------------------------------------------------*/
 /*#region Basic design for all widgets */
 .homekitTiles {
-	font-family: -apple-system, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
+	font-family: -apple-system, SanFrancisco, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12px;
 	font-weight: 400;
 	cursor:pointer;

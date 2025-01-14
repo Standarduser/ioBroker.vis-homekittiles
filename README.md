@@ -48,6 +48,7 @@ The widgets are designed for VIS 1.x.
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'
 * Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
 * Repaired notification widget
+* Added Apple standard font 'SanFrancisco' to fonts (needed to be installed separatly)
 
 ### 0.3.3 (2025-01-03)
 
