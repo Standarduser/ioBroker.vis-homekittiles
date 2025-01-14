@@ -822,12 +822,14 @@ You can do "if" conditions and "for" cycles.
 					</div>'
 	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktPinpadDialog;
 					pinValue[1234];
-					pinUseOid[false]/checkbox;
+					pinUseOid/checkbox;
 					oid/id;
 					pinDisplay[brieflyvisible]/select,hidden,brieflyvisible,visible;
-					pinAutoEnter/checkbox;
+					pinAutoEnter[true]/checkbox;
 					pinCorrectSetOid/id;
+					pinCorrectString[OK];
 					pinWrongSetOid/id;
+					pinWrongString[WRONG];
 					pinCorrectAutoclose[true]/checkbox;
 					oidActive/id;icon/image;iconRound/checkbox;iconColored/checkbox;showLikeActive/checkbox;displaystyle[tile]/select,tile,tile big,tile small,indicator,tile iconOnly,tile textonly/iconShowHideInputfields();"
 	data-vis-attrs0="group.labelGroup1;label[Login];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
@@ -897,7 +899,6 @@ You can do "if" conditions and "for" cycles.
 		<div class="popup-helper" <%= (el) -> vis.binds['vis-homekittiles'].pinpadDialog(el, data) %> />
 	</div>
 </script>
-
 
 <script id="tplHomekittilesJsonTable"
 	type="text/ejs"

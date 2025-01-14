@@ -191,8 +191,10 @@ $.extend(
 		"pinDisplay":					{	"en": "PIN display input",				"de": "PIN-Eingabe angezeigen"				},
 		"pinAutoEnter":					{	"en": "PIN auto-accept input ",			"de": "PIN-Eingabe automatisch übernehmen"	},
 		"pinCorrectSetOid":				{	"en": "PIN correct set Object ID",		"de": "PIN korrekt setze Objekt-ID"			},
-		"pinWrongSetOid":				{	"en": "PIN wrong set Object ID",		"de": "PIN falsch setze Objekt-ID"			},
+		"pinCorrectString":				{	"en": "PIN correct string",				"de": "PIN korrekt Zeichenkette"			},
 		"pinCorrectAutoclose":			{	"en": "PIN correct close pinpad",		"de": "PIN korrekt schließt Pinpad"			},
+		"pinWrongSetOid":				{	"en": "PIN wrong set Object ID",		"de": "PIN falsch setze Objekt-ID"			},
+		"pinWrongString":				{	"en": "PIN wrong string",				"de": "PIN falsch Zeichenkette"				},
 		"progressbarheight":			{	"en": "Progressbar height",				"de": "Progressbar Höhe"					},
 		"progressbarforeground":		{	"en": "Progressbar foreground",			"de": "Progressbar Vordergrund"				},
 		"progressbarbackground":		{	"en": "Progressbar background",			"de": "Progressbar Hintergrund"				},
@@ -1352,7 +1354,7 @@ vis.binds["vis-homekittiles"] = {
 			//check pin input
 			if (event == 'enter' || (pinAutoEnter && pinpadInput.length == pin.length)) {
 				if (pinpadInput == pin) {
-					inputfield.val('OK');
+					inputfield.val(data.pinCorrectString);
 					if (pinCorrectSetOid && pinCorrectSetOid != undefined && pinCorrectSetOid != '') vis.setValue(pinCorrectSetOid, true);
 					if (pinWrongSetOid && pinWrongSetOid != undefined && pinWrongSetOid != '') vis.setValue(pinWrongSetOid, false);
 
@@ -1364,7 +1366,7 @@ vis.binds["vis-homekittiles"] = {
 					}
 
 				} else {
-					inputfield.val('FALSCH');
+					inputfield.val(data.pinWrongString);
 					if (pinCorrectSetOid && pinCorrectSetOid != undefined && pinCorrectSetOid != '') vis.setValue(pinCorrectSetOid, false);
 					if (pinWrongSetOid && pinWrongSetOid != undefined && pinWrongSetOid != '') vis.setValue(pinWrongSetOid, true);
 				}
