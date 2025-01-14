@@ -2067,7 +2067,7 @@ vis.binds["vis-homekittiles"] = {
 			style.appendChild(document.createTextNode(css));
 		}
 	},
-	configWaitscreen: function (el, data) {
+	/* configWaitscreen: function (el, data) {
 		var $this = $(el);
 		var backgroundcolor = data.backgroundcolor;
 		var fontsize = data.fontsize;
@@ -2102,7 +2102,7 @@ vis.binds["vis-homekittiles"] = {
 		} else {
 			style.appendChild(document.createTextNode(css));
 		}
-	},
+	}, */
 };
 
 vis.binds["vis-homekittiles"].showVersion();
