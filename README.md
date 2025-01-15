@@ -39,6 +39,11 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* All tiles: added icon for state off
+* Optimized CSS for indicator
+
 ### 0.4.0 (2025-01-14)
 
 * Added Pinpad-Dialog

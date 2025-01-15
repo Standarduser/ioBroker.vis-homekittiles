@@ -363,7 +363,8 @@
 	border-radius: 15px;
 }
 .homekitTiles.indicator .labelGroup1 {
-	bottom: 8px;
+	top: 50%;
+	transform: translateY(-50%);
 	left: 40px;
 	right: 1px;
 	position: absolute;
@@ -395,7 +396,8 @@
 .homekitTiles.indicator .tileIcon {
 	width: 20px;
 	height: 20px;
-	top: 5px;
+	top: 50%;
+	transform: translateY(-50%);
 	left: 10px;
 	position: absolute;
 }

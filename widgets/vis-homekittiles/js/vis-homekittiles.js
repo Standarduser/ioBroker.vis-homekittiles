@@ -103,6 +103,8 @@ $.extend(
 		"icon_":						{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconButton_":					{	"en": "Icon button ",					"de": "Icon Schaltfläche "					},
 		"iconLowBat":					{	"en": "Icon for low battery",			"de": "Icon für Batterie schwach"			},
+		"iconOff":						{	"en": "Icon for OFF",					"de": "Icon für AUS"						},
+		"iconOn":						{	"en": "Icon for ON",					"de": "Icon für EIN"						},
 		"iconUnreach":					{	"en": "Icon for unreach",				"de": "Icon für nicht erreichbar"			},
 		"incrementPlusShow":			{	"en": "Show (+)-Button",				"de": "Zeige (+)-Button"					},
 		"incrementMinusShow":			{	"en": "Show (-)-Button",				"de": "Zeige (-)-Button"					},
@@ -400,11 +402,13 @@ vis.binds["vis-homekittiles"] = {
 			let val = data.displaystyle;
 
 			if (val == 'tile textonly') {
-				vis.hideShowAttr('icon', false);
+				vis.hideShowAttr('iconOn', false);
+				vis.hideShowAttr('iconOff', false);
 				vis.hideShowAttr('iconRound', false);
 				vis.hideShowAttr('iconColored', false);
 			} else {
-				vis.hideShowAttr('icon', true);
+				vis.hideShowAttr('iconOn', true);
+				vis.hideShowAttr('iconOff', true);
 				vis.hideShowAttr('iconRound', true);
 				vis.hideShowAttr('iconColored', true);
 			}
@@ -1711,9 +1715,50 @@ vis.binds["vis-homekittiles"] = {
 		var $this = $(el);
 		var html = '';
 
-		if (data.icon !== '' && data.icon !== undefined) html += `<img class="` + (data.iconRound ? 'round' : '') + `"  src="${data.icon}">`;
+		function icon(state) {
+			//get state
+			if (state == undefined) state = $this.parent().parent().hasClass('state-active');
 
-		$this.html(html);
+			//check configuration
+			var icon = false;
+			var iconOn = false;
+			var iconOff = false;
+			if (data.icon !== '' && data.icon !== undefined) icon = true;
+			if (data.iconOn !== '' && data.iconOn !== undefined) iconOn = true;
+			if (data.iconOff !== '' && data.iconOff !== undefined) iconOff = true;
+
+			//set icon
+			var iconSrc = '';
+			if (state) {
+				if (iconOn) { iconSrc = data.iconOn; }
+				else if (icon && iconOff) { iconSrc = data.icon; } //for compatibility if widget was placed when there was no iconOn/Off function
+				else if (iconOff) { iconSrc = data.iconOff; }
+				else if (icon) { iconSrc = data.icon; }
+				else { iconSrc = ''; }
+			} else {
+				if (iconOff) { iconSrc = data.iconOff; }
+				else if (iconOn) { iconSrc = data.iconOn; }
+				else if (icon) { iconSrc = data.icon; }
+				else { iconSrc = ''; }
+			}
+
+			if (icon || iconOn || iconOff) {
+				html = `<img class="` + (data.iconRound ? 'round' : '') + `"  src="${iconSrc}">`;
+			}
+			$this.html(html);
+		}
+
+		//set correct icon on startup
+		icon();
+
+		// subscribe on updates of values
+		var oid;
+		if (data.oidActive) {
+			oid = data.oidActive;
+		} else if (data.oid) {
+			oid = data.oid;
+		}
+		if (oid) vis.states.bind(oid + '.val', function (e, newVal, oldVal){ icon(newVal); });
 	},
 	addLabelGroup1: function (el, data) {
 		var $this = $(el);
