@@ -39,6 +39,10 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* hkt-settings-value: added format options for decimals
+
 ### 0.4.1 (2025-02-08)
 
 * All tiles: added icon for state off
