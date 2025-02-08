@@ -42,6 +42,8 @@ The widgets are designed for VIS 1.x.
 ### **WORK IN PROGRESS**
 
 * hkt-settings-value: added format options for decimals
+* Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens
+* View in widget dialog: prevent select menu inside of dialogs from open when dialog window opens
 
 ### 0.4.1 (2025-02-08)
 

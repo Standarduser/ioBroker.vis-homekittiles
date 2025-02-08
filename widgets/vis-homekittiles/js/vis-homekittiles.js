@@ -692,19 +692,8 @@ vis.binds["vis-homekittiles"] = {
 				//arrows
 				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);
 
-
-				//$id.parent().find('.ui-state-focus').blur();
-
-				//var $closeButton = $(this).parent().find('button.ui-dialog-titlebar-close');
-				//$closeButton.off('touchend').on('touchend', function (event) {
-				//	event.stopPropagation();
-				//	$dlg.dialog('close');
-				//	var $view = $dlg.find('.vis-view');
-				//	if (!$view.data('persistent')) {
-				//		vis.destroyView($view.data('view'), $view.data('view'));
-				//	}
-				//	return false;
-				//});
+				//prevent select menu from open when dialog window opens
+				$(this).parent().find('select').blur();
 			},
 			close: function () {
 				if ($dlg.data('timer')) {
@@ -1109,6 +1098,9 @@ vis.binds["vis-homekittiles"] = {
 
 				//arrows
 				if (options.arrowDirection) $(this).parent().addClass('arrow-' + options.arrowDirection);
+
+				//prevent select menu from open when dialog window opens
+				$(this).parent().find('select').blur();
 			},
 			close: function () {
 				if ($dlg.data('timer')) {
