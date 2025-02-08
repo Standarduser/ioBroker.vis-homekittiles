@@ -43,6 +43,8 @@ The widgets are designed for VIS 1.x.
 
 * All tiles: added icon for state off
 * Optimized CSS for indicator
+* Removed forced font-size of widgets in View-In-Widget-Swipe
+* Removed forced font-size of widgets in View-In-Widget-Dialog
 
 ### 0.4.0 (2025-01-14)
 

@@ -974,6 +974,7 @@
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
+	font-size: unset;
 }
 .homekitTiles.viewInWidget.swipe .subview {
 	scroll-snap-align: start;
@@ -1005,6 +1006,7 @@
 	padding: 0;
 	border-radius: 5px;
 	box-shadow: 0 0 50px 10px #000;
+	font-size: unset;
 }
 .homekitTiles.dialog.ui-dialog .header {
 	background-color: var(--hkt-color-dialog-title-bg);
