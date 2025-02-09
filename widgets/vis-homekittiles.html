@@ -1,6 +1,6 @@
 <!--
 	ioBroker.vis vis-homekittiles Widget-Set
-	Copyright 2024 Standarduser
+	Copyright 2025 Standarduser
 -->
 
 <!-- here you can include so many css as you want -->
@@ -413,46 +413,6 @@ You can do "if" conditions and "for" cycles.
 		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el, data) %>></div><% } %></div>
 	</div>
 </script>
-
-<!-- Backup old SwitchBool
-<script id="tplHomekittilesSwitchBool"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-set="vis-homekittiles"
-	data-vis-update-style="true"
-	data-vis-type="ctrl"
-	data-vis-name="hkt-Switch-Bool"
-	data-vis-prev='<div id="prev_tplHomekittilesSwitchBool" style="position: relative;">
-						<div class="vis-widget_prev" style="width: 110px; height: 110px; font-size:10px; font-weight: normal;">
-							<div class="homekitTiles tile vis-widget-prev-body state-active">
-								<span class="tileValue" style="background-color: unset; font-size: 30px;">💡</span>
-								<label class="labelGroup1">Switch</label>
-							</div>
-						</div>
-					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktSwitchBool;oid/id;icon/image;iconRound/checkbox;iconColored/checkbox;displaystyle[tile]/select,tile,tile big,tile small,indicator,tile iconOnly,tile textonly/iconShowHideInputfields();"
-	data-vis-attrs0="group.labelGroup1;label[Switch];label2pre;label2oid/id;label2unit;label2post;label2decimals[1];label2factor[1];label2comma[true]/checkbox;label2tdp/checkbox;"
-	data-vis-attrs1="group.labelGroup2;label3pre;label3oid/id;label3unit;label3post;label3decimals[1];label3factor[1];label3comma[true]/checkbox;label3tdp/checkbox;label4pre;label4oid/id;label4unit;label4post;label4decimals[1];label4factor[1];label4comma[true]/checkbox;label4tdp/checkbox;label5pre;label5oid/id;label5unit;label5post;label5decimals[1];label5factor[1];label5comma[true]/checkbox;label5tdp/checkbox;"
-	data-vis-attrs2="group.increment;oidIncrement/id;incrementPlusShow/checkbox;incrementMinusShow/checkbox;incrementPlusValue[1];incrementMinusValue[-1];incrementValueMax[100];incrementValueMin[0];incrementShowOnlyIfTrue/checkbox;"
-	data-vis-attrs3="group.blockOperation;blockOperationIfTrue/checkbox;blockOperationIfFalse/checkbox;blockOperationShowDisabled/checkbox;blockOperationShowIcon/checkbox/addBlockOperationShowHideInputfields();blockOperationIcon/image;blockOperationIconNotInEditor/checkbox;blockOperationUseDifferentOID/checkbox/addBlockOperationShowHideInputfields();oidBlockOperation/id;"
-	data-vis-attrs4="group.acknowledge;ackShowIcon/checkbox/addAckIconShowHideInputfields();ackIcon/image;ackUseSpin/checkbox;ackInvertFunction/checkbox;ackIconNotInEditor/checkbox;"
-	data-vis-attrs5="group.signalpics;numberOfSignals[1]/slider,3,10,1;signalsNotInEditor/checkbox;"
-	data-vis-attrs6="group.signals/byindex;oidSignal(1-numberOfSignals)/id;signalComparison(1-numberOfSignals)/select,comparisonEqual,comparisonNotEqual,comparisonLowerEqual,comparisonGreaterEqual,comparisonLower,comparisonGreater;signalCompValue(1-numberOfSignals);signalIcon(1-numberOfSignals)/image;signalDescription(1-numberOfSignals);"
->
-	<div class="homekitTiles <%== this.data.attr('displaystyle') %> vis-widget <%= vis.states.attr(this.data['oid'] + '.val') ? 'state-active' : 'state-default' %> <%== this.data.attr('class') %>" style="width: <%= this.data.attr('displaystyle') == 'tile big' ? '235' : this.data.attr('displaystyle') == 'tile small' ? '60' : this.data.attr('displaystyle') == 'indicator' ? '110' : '110' %>px; height: <%= this.data.attr('displaystyle') == 'tile big' ? '235' : this.data.attr('displaystyle') == 'tile small' ? '60' : this.data.attr('displaystyle') == 'indicator' ? '30' : '110' %>px;" id="<%= this.data.attr('wid') %>">
-		<div class="vis-widget-body" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.basic.toggle(el); %>>
-			<div class="tileIcon <%= this.data.attr('iconColored') ? 'iconColored' : '' %>" <%= (el) -> vis.binds['vis-homekittiles'].addButtonIcon(el, data) %>></div>
-			<div class="labelGroup1" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup1(el, data) %>></div>
-			<div class="labelGroup2" <%= (el) -> vis.binds['vis-homekittiles'].addLabelGroup2(el, data) %>></div>
-		</div>
-
-		<div class="ackIcon" <%= (el) -> vis.binds['vis-homekittiles'].addAckIcon(el, data) %>></div>
-		<div class="increment" <%= (el) -> vis.binds['vis-homekittiles'].addIncrement(el, data) %>></div>
-		<div class="blockOperation" <%= (el) -> vis.binds['vis-homekittiles'].addBlockOperation(el, data) %>></div>
-		<div class="signals"><% for (let i = 1; i <= Number(this.data.attr("numberOfSignals")); i++) { %><div class="signal<%= i %>" data-oid="<%= this.data.attr('oidSignal' + i) %>" data-compOp="<%= this.data.attr('signalComparison' + i) %>" data-compVal="<%= this.data.attr('signalCompValue' + i) %>" data-icon="<%= this.data.attr('signalIcon' + i) %>" data-desc="<%= this.data.attr('signalDescription' + i) %>" <%= (el) -> vis.binds['vis-homekittiles'].addSignalIcon(el, data) %>></div><% } %></div>
-	</div>
-</script>
--->
 
 <script id="tplHomekittilesValue"
 	type="text/ejs"
@@ -1581,37 +1541,3 @@ You can do "if" conditions and "for" cycles.
 		</div>
 	</div>
 </script>
-
-<!--
-<script id="tplHomekittilesConfigItemWaitscreen"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-set="vis-homekittiles"
-	data-vis-update-style="true"
-	data-vis-type="ctrl"
-	data-vis-name="hkt-Config-Waitscreen"
-	data-vis-prev='<div id="prev_tplHomekittilesConfigItemWaitscreen" style="position: relative;">
-						<div class="vis-widget_prev" style="width: 110px; height: 55px; font-size:8px; font-weight: normal;">
-							<div class="homekitTiles config-item config-modal vis-widget-prev-body">
-								<div class="vis-widget-body">
-									<div>
-										<span>WAITSCREEN</span><br>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>'
-	data-vis-attrs="description/custom,vis-homekittiles.infoText,hktConfigItemWaitscreen;backgroundcolor[#000]/color;fontsize[18]/slider,8,80,1;fontcolor[#525252]/color;progressbarheight[6]/slider,1,100,1;progressbarforeground[#ccc]/color;progressbarbackground[#222]/color;"
->
-	<div class="homekitTiles config-item config-waitscreen vis-widget <%== this.data.attr('class') %>" style="width:170px; height:75px;" id="<%= this.data.attr('wid') %>">
-		<div class="vis-widget-body" <%= (el) -> vis.binds['vis-homekittiles'].configWaitscreen(el, data) %>>
-			<div>
-				<span>CONFIG-ITEM WAITSCREEN</span><br>
-				<span>Background: <%= this.data.attr('backgroundcolor') %></span><br>
-				<span>Font: <%= this.data.attr('fontsize') %>px / <%= this.data.attr('fontcolor') %></span>
-				<span>Progress: <%= this.data.attr('progressbarheight') %>px / <%= this.data.attr('progressbarforeground') %> / <%= this.data.attr('progressbarbackground') %></span>
-			</div>
-		</div>
-	</div>
-</script>
--->

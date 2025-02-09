@@ -1,6 +1,6 @@
 /*
 	ioBroker.vis vis-homekittiles Widget-Set
-	Copyright 2024 Standarduser
+	Copyright 2025 Standarduser
 */
 "use strict";
 
@@ -2082,15 +2082,7 @@ vis.binds["vis-homekittiles"] = {
 			$this.parent().css('display', 'none');
 		}
 
-		/*
-		#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {
-			background: unset;
-			opacity: unset;
-			backdrop-filter: blur(5px) brightness(0.5) hue-rotate(0deg);
-		}
-		*/
 		//set css code
-		//var css = `#vis_container:has(.homekitTiles.config-item) ~ .ui-widget-overlay {background: ${background}; opacity: ${opacity};}`;
 		var css = `body:has(.homekitTiles.config-item.config-modal) .ui-widget-overlay {background: unset; opacity: unset; backdrop-filter: blur(${blur}px) brightness(${brightness});}`;
 
 		//append css to head
@@ -2106,42 +2098,6 @@ vis.binds["vis-homekittiles"] = {
 			style.appendChild(document.createTextNode(css));
 		}
 	},
-	/* configWaitscreen: function (el, data) {
-		var $this = $(el);
-		var backgroundcolor = data.backgroundcolor;
-		var fontsize = data.fontsize;
-		var fontcolor = data.fontcolor;
-		var progressbarheight = data.progressbarheight;
-		var progressbarforeground = data.progressbarforeground;
-		var progressbarbackground = data.progressbarbackground;
-
-		//make widget invisible in runtime
-		if (!vis.editMode) {
-			$this.parent().css('display', 'none');
-		}
-
-		//set css code
-		var css = '';
-		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen {background-color: ${backgroundcolor}}`;
-		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen #waitText { font-family: Menlo, Monaco, 'Courier New', monospace !important; font-variant: unset; font-weight: normal; font-size: ${fontsize}px;	color: ${fontcolor};}`;
-		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen #waitText:after { content: " "; background-color: ${fontcolor}; width: calc(${fontsize}px / 1.5); height: ${fontsize}px; display: block; animation: hkt-ws-animation 1s steps(5, start) infinite; }`;
-		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen .ui-progressbar { height: ${progressbarheight}px !important; background: ${progressbarbackground}; border-radius: 999px; border: none; }`;
-		css += `body:has(.homekitTiles.config-item.config-waitscreen) #waitScreen .ui-progressbar-value { height: 100%; background: ${progressbarforeground}; border-radius: 999px; }`;
-		css += `@keyframes hkt-ws-animation { to { visibility: hidden; } }`;
-
-		//append css to head
-		var head = document.head || document.getElementsByTagName('head')[0];
-		var style = document.createElement('style');
-		head.appendChild(style);
-
-		style.type = 'text/css';
-		if (style.styleSheet){
-			// This is required for IE8 and below.
-			style.styleSheet.cssText = css;
-		} else {
-			style.appendChild(document.createTextNode(css));
-		}
-	}, */
 };
 
 vis.binds["vis-homekittiles"].showVersion();
