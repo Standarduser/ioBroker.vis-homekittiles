@@ -39,7 +39,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.2 (2025-02-09)
 
 * hkt-settings-value: added format options for decimals
 * Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens

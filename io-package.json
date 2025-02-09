@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "news": {
+      "0.4.2": {
+        "en": "hkt-settings-value: added format options for decimals\nThermostat dialog: prevent select menu inside of dialogs from open when dialog window opens\nView in widget dialog: prevent select menu inside of dialogs from open when dialog window opens",
+        "de": "hkt-settings-value: formatoptionen für dezimals hinzugefügt\nThermostat Dialog: Vorbeugen Sie das Menü innerhalb der Dialoge zu öffnen, wenn Dialogfenster öffnet\nAnsicht in Widget Dialog: verhindern Wählen Sie das Menü innerhalb der Dialoge öffnen, wenn Dialogfenster öffnet",
+        "ru": "hkt-settings- value: added format options for decimals\nДиалог термостата: не допустить открытия выбранного меню в диалоговом окне\nВид в диалоговом окне виджета: не допустить открытия выбранного меню в диалоговом окне",
+        "pt": "hkt-settings-value: opções de formato adicionado para decimais\nDiálogo termostato: evitar selecionar menu dentro de diálogos de abrir quando a janela de diálogo abrir\nVer no widget diálogo: evitar selecionar menu dentro de diálogos de abrir quando a janela de diálogo abrir",
+        "nl": "hkt-instellingen-waarde: toegevoegde formaatopties voor decimalen\nThermostat dialoogvenster: voorkomen dat selecteermenu in dialoogvensters wordt geopend wanneer het dialoogvenster wordt geopend\nWeergave in widget-dialoog: selecteer menu in dialoogvensters niet openen wanneer het dialoogvenster wordt geopend",
+        "fr": "hkt-settings-value: options de format ajouté pour les décimales\nBoîte de dialogue Thermostat : empêche le menu sélectionné à l'intérieur des dialogues d'ouvrir lorsque la fenêtre de dialogue s'ouvre\nAffichage dans la boîte de dialogue widget : empêcher que le menu sélectionné dans les dialogues s'ouvre lorsque la fenêtre de dialogue s'ouvre",
+        "it": "hkt-settings-value: opzioni di formato aggiunti per decimali\nFinestra di dialogo Termostato: impedire selezionare menu all'interno delle finestre di dialogo da aprire quando si apre la finestra di dialogo\nVisualizza nella finestra di dialogo widget: impedire selezionare menu all'interno delle finestre di dialogo da aprire quando si apre la finestra di dialogo",
+        "es": "hkt-settings-value: opciones de formato añadido para decimales\nDiálogo termostato: evitar que el menú seleccionado dentro de los diálogos se abra cuando se abra la ventana de diálogo\nVer en el diálogo widget: evitar que el menú seleccionado dentro de los diálogos se abra cuando se abra la ventana de diálogo",
+        "pl": "hkt- settings- value: opcje formatu dodanego dla liczb dziesiętnych\nOkno termostatu: zapobiega otwieraniu menu wewnątrz dialogów po otwarciu okna dialogowego\nWidok w oknie dialogowym widget: zapobiega otwieraniu menu wewnątrz dialogów po otwarciu okna dialogowego",
+        "uk": "hkt-settings-value: додано параметри формату для десятків\nТермостат діалогове вікно: запобігання вибору меню всередині діалогів з відкритими, коли діалогове вікно відкривається\nПерегляд у діалоговому вікні віджету: запобігання вибору меню всередині діалогів з відкритими, коли діалогове вікно відкривається",
+        "zh-cn": "hkt 设置值: 十进制添加格式选项\n自动对话框: 当对话框窗口打开时, 防止对话框内部的菜单打开\n在部件对话框中查看: 当对话框窗口打开时, 对话框内部的菜单无法打开"
+      },
       "0.4.1": {
         "en": "All tiles: added icon for state off\nOptimized CSS for indicator\nRemoved forced font-size of widgets in View-In-Widget-Swipe\nRemoved forced font-size of widgets in View-In-Widget-Dialog",
         "de": "Alle Fliesen: hinzugefügt Icon für Zustand off\nOptimierte CSS für Indikator\nEntfernte erzwungene Schriftgröße von Widgets in View-In-Widget-Swipe\nEntfernte erzwungene Schriftgröße von Widgets in View-In-Widget-Dialog",
@@ -80,19 +93,6 @@
         "pl": "naprawiony widżet okna dialogowego Termostat",
         "uk": "відремонтований термостат діалоговий віджет плитки",
         "zh-cn": "已修复的自动调温对话框瓦件"
-      },
-      "0.2.6": {
-        "en": "Block operation: added ability to show widget disabled\nAdded JSON Table\nNavigation-Button-Set: fixed notification arrangement\nDynamization of some input fields",
-        "de": "Blockbetrieb: Zusatzfähigkeit Widget deaktiviert anzeigen\nHinzugefügt JSON Tabelle\nNavigation-Button-Set: feste Benachrichtigungsanordnung\nDynamisierung einiger Eingabefelder",
-        "ru": "Блок-операция: добавленная способность показать виджет\nДобавить JSON Таблица 1\nНавигация-Буттон-Сет: фиксированное уведомление\nДинамизация некоторых входных полей",
-        "pt": "Operação do bloco: adicionado capacidade de mostrar widget desativado\nAdicionado JSON Quadro\nNavigation-Button-Set: arranjo de notificação fixa\nDynamization de alguns campos de entrada",
-        "nl": "Blokbewerking: toegevoegde mogelijkheid om widget te tonen uitgeschakeld\nToegevoegd JSON Tabel\nNavigatie-Button-Set: vaste meldingsregeling\nDynamisering van enkele invoervelden",
-        "fr": "Opération de bloc: possibilité supplémentaire d'afficher un widget désactivé\nJSON ajouté Tableau\nNavigation-Button-Set: système de notification fixe\nDynamisation de certains champs d'entrée",
-        "it": "Funzionamento del blocco: aggiunta capacità di mostrare widget disabilitati\nAggiunto JSON Tabella\nNavigazione-Button-Set: accordo di notifica fisso\nDinamizzazione di alcuni campi di input",
-        "es": "Funcionamiento del bloque: capacidad adicional para mostrar widget deshabilitado\nAñadido JSON Cuadro\nNavegación-Button-Set: arreglo de notificación fija\nDinasmización de algunos campos de entrada",
-        "pl": "Operacja bloku: dodana możliwość pokazania wyłączonych widżetów\nDodano JSON Tabela\nNavigation- Button- Set: stałe rozwiązanie notyfikacyjne\nDynamizacja niektórych pól wejściowych",
-        "uk": "Функція блокування: додана можливість показати відключені віджети\nДоданий JSON Настільний\nНавігація-Button-Set: фіксоване розташування повідомлень\nДинамізація деяких родовищ",
-        "zh-cn": "块操作: 显示部件的新增能力已禁用\n添加的 JSON 数据 图表\n导航-按钮-一组:固定通知安排\n一些输入字段的动态化"
       }
     },
     "titleLang": {
