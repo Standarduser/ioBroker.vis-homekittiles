@@ -275,6 +275,10 @@ $.extend(
 			"en": "This widget creates an adjustable number of buttons for a submenu navigation with a view-in widget8.<br>Activate the 'Show strokes' function to display a graphical line to the main navigation.",
 			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Submenü-Navigation mit einem View-in-Widget8.<br>Aktiviere die Funktion 'Striche anzeigen', um eine grafische Linie zur Hauptnavigation darzustellen."
 		},
+		"hktButtonSetNavigationSubmenuGroupStrokeDescription": {
+			"en": "The smoothing factor can be used to set the ratio between the width and height of the line at which the arc is curved in a larger radius.",
+			"de": "Mit dem Glättungsfaktor kann eingestellt werden, ab welchem Verhältnis zwischen Breite und Höhe der Linie der Bogen in größerem Radius geschwungen wird."
+		},
 		"hktConfigItemModalDescription": {
 			"en": "CONFIG-ITEM MODAL<br>This widget can be used to change the appearance of Modal. Modal darkens the background when a dialog window is opened.<br>The widget can be placed anywhere within the VIS, it is only visible in the editor.",
 			"de": "CONFIG-ITEM MODAL<br>Mit diesem Widget kann das Aussehen von Modal verändert werden. Modal dunkelt den Hintergrund ab, wenn ein Dialog-Fenster geöffnet wird.<br>Das Widget kann an einem beliebigen Ort innerhalb der VIS platziert werden, es ist nur im Editor sichtbar."
@@ -396,6 +400,9 @@ vis.binds["vis-homekittiles"] = {
 		else if (data[1] === "hktViewInWidgetSwipe")			{ text = "hktViewInWidgetSwipeDescription";				}
 		else if (data[1] === "emptyText")						{ text = "";											}
 		return {input: `<span>${_(text)}</span>`};
+	},
+	infoTextShort: function (widAttr, data) {
+		return {input: `<span>${_(data[1])}</span>`};
 	},
 
 	//Remove input fields for icons if displaystyle is textonly and add if not
