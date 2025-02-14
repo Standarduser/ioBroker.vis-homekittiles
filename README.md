@@ -40,7 +40,7 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.3 (2025-02-14)
 
 * hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
 

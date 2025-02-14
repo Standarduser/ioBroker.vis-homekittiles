@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "news": {
+      "0.4.3": {
+        "en": "hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget",
+        "de": "hkt-Button-Set-Navigation-Submenu: hinzugefügt (optional) Striche, um mit Hauptmenü Widget zu verwenden",
+        "ru": "hkt-button-Set-Navigation-Submenu: добавленные (факультативно) штрихи для использования с основным виджетом меню",
+        "pt": "hkt-Button-Set-Navigation-Submenu: adicionado (opcional) cursos para usar com widget de menu principal",
+        "nl": "hkt-Button-Set-Navigation-Submenu: toegevoegde (optionele) lijnen te gebruiken met hoofdmenu-widget",
+        "fr": "hkt-Button-Set-Navigation-Sous-menu: a ajouté (facultatif) des traits à utiliser avec le widget de menu principal",
+        "it": "hkt-Button-Set-Navigation-Submenu: aggiunto (opzionale) ictus da usare con il widget del menu principale",
+        "es": "hkt-Button-Set-Navigation-Submenu: añadidos (opcional) derrames a utilizar con el widget del menú principal",
+        "pl": "hkt- Button- Set- Navigation- Submenu: dodane (opcjonalne) suwy do użycia z głównym widget menu",
+        "uk": "hkt-Button-Set-Navigation-Submenu: додано (опція) штрихи для використання з основним меню віджет",
+        "zh-cn": "hkt-Button-Set-Navigation-Submenu: 添加( 可选) 字串, 用于主菜单部件"
+      },
       "0.4.2": {
         "en": "hkt-settings-value: added format options for decimals\nThermostat dialog: prevent select menu inside of dialogs from open when dialog window opens\nView in widget dialog: prevent select menu inside of dialogs from open when dialog window opens",
         "de": "hkt-settings-value: formatoptionen für dezimals hinzugefügt\nThermostat Dialog: Vorbeugen Sie das Menü innerhalb der Dialoge zu öffnen, wenn Dialogfenster öffnet\nAnsicht in Widget Dialog: verhindern Wählen Sie das Menü innerhalb der Dialoge öffnen, wenn Dialogfenster öffnet",
@@ -80,19 +93,6 @@
         "pl": "Dodano widżet podmenu",
         "uk": "Додано субмену віджет",
         "zh-cn": "添加子菜单部件"
-      },
-      "0.2.7": {
-        "en": "repaired Thermostat dialog tile widget",
-        "de": "reparatur Thermostat Dialog Kachel Widget",
-        "ru": "отремонтированный диалоговый виджет",
-        "pt": "widget de telha de diálogo termostato reparado",
-        "nl": "gerepareerd Thermostat dialoogvenster tile widget",
-        "fr": "widget de boîte de dialogue Thermostat réparé",
-        "it": "riparato Termostato dialogo piastrelle widget",
-        "es": "medidor de diálogo termostato reparado",
-        "pl": "naprawiony widżet okna dialogowego Termostat",
-        "uk": "відремонтований термостат діалоговий віджет плитки",
-        "zh-cn": "已修复的自动调温对话框瓦件"
       }
     },
     "titleLang": {
