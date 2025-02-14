@@ -1394,8 +1394,8 @@ You can do "if" conditions and "for" cycles.
 
 							var xStart = (i * buttonWidth) - (buttonWidth / 2);
 							var xEnd = this.data.attr('strokeTarget');
-							var curve1 = ((Math.abs(xStart - xEnd) >= height) ? height : (height / 2));
-							var curve2 = ((Math.abs(xStart - xEnd) >= height) ? 0 : (height / 2));
+							var curve1 = ((Math.abs(xStart - xEnd) >= (height * 1.2)) ? height : (height / 2));
+							var curve2 = ((Math.abs(xStart - xEnd) >= (height * 1.2)) ? 0 : (height / 2));
 
 							%>
 							<svg class="submenue-stroke" width="<%= width %>px" height="<%= height %>px">
