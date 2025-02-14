@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "news": {
+      "0.4.4": {
+        "en": "hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget",
+        "de": "hkt-Button-Set-Navigation-Submenu: hinzugefügt (optional) Striche, um mit Hauptmenü Widget zu verwenden",
+        "ru": "hkt-button-Set-Navigation-Submenu: добавленные (факультативно) штрихи для использования с основным виджетом меню",
+        "pt": "hkt-Button-Set-Navigation-Submenu: adicionado (opcional) cursos para usar com widget de menu principal",
+        "nl": "hkt-Button-Set-Navigation-Submenu: toegevoegde (optionele) lijnen te gebruiken met hoofdmenu-widget",
+        "fr": "hkt-Button-Set-Navigation-Sous-menu: a ajouté (facultatif) des traits à utiliser avec le widget de menu principal",
+        "it": "hkt-Button-Set-Navigation-Submenu: aggiunto (opzionale) ictus da usare con il widget del menu principale",
+        "es": "hkt-Button-Set-Navigation-Submenu: añadidos (opcional) derrames a utilizar con el widget del menú principal",
+        "pl": "hkt- Button- Set- Navigation- Submenu: dodane (opcjonalne) suwy do użycia z głównym widget menu",
+        "uk": "hkt-Button-Set-Navigation-Submenu: додано (опція) штрихи для використання з основним меню віджет",
+        "zh-cn": "hkt-Button-Set-Navigation-Submenu: 添加( 可选) 字串, 用于主菜单部件"
+      },
       "0.4.3": {
         "en": "hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget",
         "de": "hkt-Button-Set-Navigation-Submenu: hinzugefügt (optional) Striche, um mit Hauptmenü Widget zu verwenden",
@@ -80,19 +93,6 @@
         "pl": "Dodano opcję, aby pokazać ikony kolorowe na płytki i radio\nDodano nowe style \"duże\", \"małe\" i \"tylko ikona\" dla wszystkich płytek\nJSON Tabela: nie ustawiono stałej wysokości (min- hight jest teraz 32px)",
         "uk": "Додано варіант показати іконки кольорові на плитці і радіо\nДодано нові стилі \"великий\", \"малий\" і \"тільки іконка\" для всіх плиток\nСонце Маса нетто фіксована висота (min-hight тепер 32px)",
         "zh-cn": "添加选项以显示砖块和收音机上的颜色图标\n为所有瓷砖添加新样式“ 大”、“ 小” 和“ 只有图标 ”\n贾森 表格:没有固定高度( min- hight 现在为 32px)"
-      },
-      "0.3.1": {
-        "en": "Added submenu widget",
-        "de": "Submenu Widget",
-        "ru": "Добавить виджет подменю",
-        "pt": "Adicionado widget submenu",
-        "nl": "Submenu-widget toegevoegd",
-        "fr": "Ajout du sous-menu widget",
-        "it": "Aggiunto sottomenu widget",
-        "es": "Widget submenu",
-        "pl": "Dodano widżet podmenu",
-        "uk": "Додано субмену віджет",
-        "zh-cn": "添加子菜单部件"
       }
     },
     "titleLang": {
