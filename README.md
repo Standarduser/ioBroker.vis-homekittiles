@@ -33,6 +33,7 @@ The widgets are designed for VIS 1.x.
 * create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
 * Tiles: add button for dialog
+* optimize function 'infoText'
 
 ## Changelog
 <!--
