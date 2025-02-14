@@ -1324,6 +1324,24 @@
 	float: right;
 }
 
+/* Submenu strokes */
+.homekitTiles.navigationbuttonset.submenu .submenue-stroke {
+    stroke: var(--hkt-color-navigationbutton-active-fg);
+    stroke-width: 1;
+    fill: none;
+    position: absolute;
+    left: 0px;
+    top: 23px;
+}
+.homekitTiles.navigationbuttonset.submenu .navigationbutton input[type='radio']:not(:checked) ~ .submenue-stroke {
+    display: none;
+}
+.vis_container_edit .homekitTiles.navigationbuttonset.submenu .navigationbutton input[type='radio'] ~ .submenue-stroke {
+    display: block;
+	stroke-dasharray: 2;
+    stroke: var(--hkt-color-navigationbutton-default-fg);
+}
+
 /*#endregion*/
 /*---------------------------------------------------------------*/
 /*#region Thermostat Kachel */

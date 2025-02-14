@@ -39,6 +39,10 @@ The widgets are designed for VIS 1.x.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
+
 ### 0.4.2 (2025-02-09)
 
 * hkt-settings-value: added format options for decimals

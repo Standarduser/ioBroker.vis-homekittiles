@@ -1346,7 +1346,11 @@ You can do "if" conditions and "for" cycles.
 					numberOfButtons[3]/slider,1,10,1;"
 	data-vis-attrs0="group.label;
 					label_(1-numberOfButtons)[View];"
-	data-vis-attrs1="group.notification/byindex;
+	data-vis-attrs1="group.stroke;
+					strokeShow/checkbox;
+					strokeTarget[125]/slider,0,1000,1;
+					strokeHeight[40]/slider,0,100,1;"
+	data-vis-attrs2="group.notification/byindex;
 					showNotifications(1-numberOfButtons)/checkbox;
 					notification1oid(1-numberOfButtons)/id;
 					notification2oid(1-numberOfButtons)/id;
@@ -1381,6 +1385,23 @@ You can do "if" conditions and "for" cycles.
 					<div class="navigationbutton">
 						<input type="radio" id="<%= wid %>_submenu<%= i %>" name="<%= wid %>_submenu" value="<%= (i-1) %>" />
 						<label for="<%= wid %>_submenu<%= i %>"><%= label %></label>
+
+						<%
+						if (this.data.attr('strokeShow')) {
+							var buttonWidth = 100;
+							var height = this.data.attr('strokeHeight');
+							var width = numberOfButtons * buttonWidth;
+
+							var xStart = (i * buttonWidth) - (buttonWidth / 2);
+							var xEnd = this.data.attr('strokeTarget');
+							var curve1 = ((Math.abs(xStart - xEnd) >= height) ? height : (height / 2));
+							var curve2 = ((Math.abs(xStart - xEnd) >= height) ? 0 : (height / 2));
+
+							%>
+							<svg class="submenue-stroke" width="<%= width %>px" height="<%= height %>px">
+								<path d="M<%= xStart +1 %> 0 C<%= xStart %> <%= curve1 %>, <%= xEnd %> <%= curve2 %>, <%= xEnd - 1 %> <%= height %>"></path>
+							</svg>
+						<% } %>
 
 						<%
 						if (showNotifications) {

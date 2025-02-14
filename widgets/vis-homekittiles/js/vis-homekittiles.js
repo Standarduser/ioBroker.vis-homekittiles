@@ -91,6 +91,7 @@ $.extend(
 		"group_pinpadDialog":			{	"en": "Pinpad dialog",					"de": "Pinpad-Dialog"						},
 		"group_select":					{	"en": "Select",							"de": "Select"								},
 		"group_signalpics":				{	"en": "Signal pictures",				"de": "Signalbilder"						},
+		"group_stroke":					{	"en": "Strokes",						"de": "Striche"								},
 		"group_thermostatDialog":		{	"en": "Thermostat dialog",				"de": "Thermostat-Dialog"					},
 		"group_views":					{	"en": "Views",							"de": "Views"								},
 		"headline1":					{	"en": "Headline 1",						"de": "Überschrift 1"						},
@@ -220,6 +221,9 @@ $.extend(
 		"signalDescription":			{	"en": "Description",					"de": "Beschreibung"						},
 		"signalsNotInEditor":			{	"en": "Don't show signals in editor",	"de": "Signalbilder nicht im Editor"		},
 		"smalllabel":					{	"en": "Small label",					"de": "kleine Beschriftung"					},
+		"strokeShow":					{	"en": "Show strokes",					"de": "Striche anzeigen"					},
+		"strokeTarget":					{	"en": "Target position",				"de": "Zielposition"						},
+		"strokeHeight":					{	"en": "Height",							"de": "Höhe"								},
 		"tdp":							{	"en": "Thousends separator",			"de": "Tausendertrennzeichen"				},
 		"temperatureMin":				{	"en": "Minimum temperature",			"de": "Minimale Temperatur"					},
 		"temperatureMax":				{	"en": "Maximum temperature",			"de": "Maximale Temperatur"					},
@@ -267,8 +271,8 @@ $.extend(
 			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Navigation zwischen verschiedenen Views."
 		},
 		"hktButtonSetNavigationSubmenuDescription": {
-			"en": "This widget creates a set of buttons to navigate with a View-in-Widget8.",
-			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Navigation mit einem View-in-Widget8."
+			"en": "This widget creates an adjustable number of buttons for a submenu navigation with a view-in widget8.<br>Activate the 'Show strokes' function to display a graphical line to the main navigation.",
+			"de": "Das Widget erzeugt eine einstellbare Anzahl an Buttons für die Submenü-Navigation mit einem View-in-Widget8.<br>Aktiviere die Funktion 'Striche anzeigen', um eine grafische Linie zur Hauptnavigation darzustellen."
 		},
 		"hktConfigItemModalDescription": {
 			"en": "CONFIG-ITEM MODAL<br>This widget can be used to change the appearance of Modal. Modal darkens the background when a dialog window is opened.<br>The widget can be placed anywhere within the VIS, it is only visible in the editor.",
