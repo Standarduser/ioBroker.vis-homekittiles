@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.4.6",
+    "version": "0.4.7",
     "news": {
+      "0.4.7": {
+        "en": "Depencies updated",
+        "de": "Depene aktualisiert",
+        "ru": "Обновленная пенсия",
+        "pt": "Propriedades atualizadas",
+        "nl": "Bijgewerkte capaciteiten",
+        "fr": "Dépendances mises à jour",
+        "it": "Importazioni aggiornate",
+        "es": "Depencies updated",
+        "pl": "Zaktualizowane dawki",
+        "uk": "Depencies оновлений",
+        "zh-cn": "更新的负债"
+      },
       "0.4.6": {
         "en": "Depencies updated",
         "de": "Abhängigkeiten aktualisiert",
