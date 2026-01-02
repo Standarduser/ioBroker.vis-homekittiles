@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-homekittiles",
-    "version": "0.4.7",
+    "version": "0.4.8",
     "news": {
+      "0.4.8": {
+        "en": "Fixed issues from adapter checker",
+        "de": "Behobene Probleme von Adapter Checker",
+        "ru": "Исправленные проблемы от Adapter Checker",
+        "pt": "Problemas corrigidos do verificador do adaptador",
+        "nl": "Vaste problemen van adaptercontrole",
+        "fr": "Correction des problèmes de l'adaptateur checker",
+        "it": "Problemi risolti dall'adattatore checker",
+        "es": "Problemas fijos desde el adaptador",
+        "pl": "Naprawiono problemy z sprawdzania adaptera",
+        "uk": "Виправлено проблеми з перевіркою адаптера",
+        "zh-cn": "适配器检查器的固定问题"
+      },
       "0.4.7": {
         "en": "Depencies updated",
         "de": "Depene aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Dodano okno Pinpad-\nDodano okno HTML-\nDodano hkt- Configura- Modal (eksperymentalny): zmienia style modalne na zamazane zamiast koloru tła i przejrzystości (modal zaciemnia tło po otwarciu okna dialogowego). Do tego konfigurowalnego elementu potrzebny jest ipadOS 18.x do pracy z aplikacją Safari lub joBroker Visu. Po prostu umieścić element konfiguracyjny gdzieś w Twoim VIS, gdzie jest zawsze wywoływany (np. w menu) i skonfigurować go zgodnie z życzeniem. Nie jest widoczny w czasie biegu.\nWykonane \"modal\" do ustawienia domyślnego\nSekcja 'okno dialogowe' podzielona na 'ustawienia dialogowe' i 'zawartość okna dialogowego'\nWykonane wartości SwitchBool można dostosować i zmienić nazwę 'SwitchBool' na 'Switch'\nZmieniony widżet powiadomień\nDodano standardową czcionkę Apple 'a' SanFrancisco 'do czcionek (potrzebne do instalacji oddzielnie)",
         "uk": "Додано Pinpad-Dialog\nДодано HTML-Dialog\nДодано hkt-Config-Modal (experimental): зміни стилів модального розмиття замість фонового кольору і прозорості (модальні темніє фон, коли діалогове вікно відкрито). Для цього налаштування вам потрібно ipadOS 18.x для роботи з Safari або ioBroker Visu App. Просто розмістіть пункт налаштування десь у VIS, де він завжди називається (наприклад, у меню) і налаштуйте його бажаним. Не видно в режимі runtime.\nВиготовлений \"модальний\" для налаштування за замовчуванням\nРозділ «Ділог» розщеплюється на налаштування «Діалога» та «Діалог» Р\nВиготовлені значення SwitchBool налаштовані і перейменовані 'SwitchBool' до 'Switch'\nРемонтний віджет повідомлення\nДодано стандартний шрифт Apple 'SanFrancisco' до шрифтів (установлений для встановлення separatly)",
         "zh-cn": "已添加 Pinpad- Dialog\n已添加 HTML- Dialog\n添加 hkt-Config-Modal(实验性):改变模式的样式以模糊而不是背景颜色和透明度(模式在对话框打开时暗化背景). 对于这个配置项目,你需要ipadOS 18.x与Safari或ioBroker Visu App合作. 简单地将配置项放在您 VIS 的某个地方, 它总是被称作( 如在菜单中) , 并按需要配置 。 运行时不可见 .\n将“模式”设定为默认设置\n区域“ dialog” 分割为“ dialog 设置 ” 和“ dialog 内容 ”  '\n将 SwitchBool 的值自定义化并改名为 “ SwitchBool ” \n已修复的通知部件\n添加到字体中的 Apple 标准字体“ SanFrancisco ” (需要单独安装)"
-      },
-      "0.3.3": {
-        "en": "Added new style \"text only\" to switch and view-in-widget-dialog tiles\nFixed some issues from adapter checker\nFixed some styles of view-in-widget-swipe\nAdded arrow indicators to view-in-widget-swipe",
-        "de": "Hinzugefügt neuen Stil \"text only\" zu wechseln und Ansicht-in-widget-dialog Fliesen\nBehoben einige Probleme von Adapter Checker\nBehoben einige Stile der Ansicht-in-widget-swipe\nHinzufügen von Pfeilanzeigen zur Ansicht in-widget-swipe",
-        "ru": "Добавлен новый стиль «только текст» для переключения и вид-в-widget-диалог плитки\nИсправлены некоторые проблемы из адаптера\nИсправлены некоторые стили зрения-in-widget-swipe\nДобавленные стрелки для просмотра-in-widget-swipe",
-        "pt": "Adicionado novo estilo \"text only\" para mudar e view-in-widget-dialog telhas\nCorrigido alguns problemas do verificador do adaptador\nCorrigido alguns estilos de view-in-widget-swipe\nAdicionados indicadores de seta para view-in-widget-swipe",
-        "nl": "Nieuwe stijl \"alleen tekst\" toegevoegd om te schakelen en te bekijken-in-widget-dialoogtegels\nEnkele problemen opgelost van adaptercontrole\nVaste sommige stijlen van view-in-widget-swipe\nToegevoegd pijlindicatoren om te bekijken-in-widget-swipe",
-        "fr": "Ajout d'un nouveau style \"texte seulement\" pour basculer et afficher les tuiles dans le widget-dialog\nCorrection de certains problèmes de l'adaptateur checker\nCorrection de certains styles de vision-in-widget-swipe\nAjout d'indicateurs de flèches pour visualiser dans le widget",
-        "it": "Aggiunto nuovo stile \"solo testo\" per passare e view-in-widget-dialog piastrelle\nRisolto alcuni problemi da adattatore checker\nFisso alcuni stili di view-in-widget-swipe\nIndicatori freccia aggiunti per view-in-widget-swipe",
-        "es": "Añadido nuevo estilo \"solo texto\" para cambiar y ver-en-widget-dialog azulejos\nArreglar algunos problemas desde el control de adaptador\nArreglado algunos estilos de vista-en-widget-swipe\nIndicadores de flecha añadidos para ver-en-widget-swipe",
-        "pl": "Dodano nowy styl \"tylko tekst\", aby przełączać i przeglądać okna dialogowe\nNaprawiono kilka problemów z sprawdzania adaptera\nNaprawiono niektóre style view- in- widget- swipe\nDodano wskaźniki strzałek do view- in- widget- swipe",
-        "uk": "Додано новий стиль \"текст тільки\" для перемикання і перегляду-in-widget-dialog плитка\nВиправлено деякі питання від перевірки адаптера\nВиправлено деякі стилі перегляду\nДодано стрілкові індикатори для перегляду",
-        "zh-cn": "添加新样式“ 只有文本” 以切换和查看 Widget- 对话框牌\n解决适配器检查器的一些问题\n修整一些视图的样式\n添加到视图中的箭头指示器"
       }
     },
     "titleLang": {
