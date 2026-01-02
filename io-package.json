@@ -141,7 +141,8 @@
     "readme": "https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/README.md",
     "loglevel": "info",
     "restartAdapters": [
-      "vis"
+      "vis",
+      "vis-2"
     ],
     "onlyWWW": true,
     "adminUI": {
