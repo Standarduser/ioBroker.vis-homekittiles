@@ -196,6 +196,8 @@ The widgets are designed for VIS 1.x.
 
 * (Standarduser) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
